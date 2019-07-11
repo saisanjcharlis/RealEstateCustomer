@@ -1,0 +1,64 @@
+<div class="bodyLogin">
+    <div class="mobileIntro">
+            <div style="text-align: center;">
+              <h1 style="color:white;">SPECTRA</h1>
+              <span style="color:white; font-weight: 800;">Powered By </span><img alt="marketfront-logo" class="marketfront-logo" align="top"
+              src="http://redlily.marketfront.in/img/marketfront-logo.png"/>
+              <a routerLink="/dashboard"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a>
+            </div>
+    </div>
+    <div class="container">
+        <div class="form-container sign-up-container">
+            <form action="" onSubmit="" class="sign-up-contain" *ngIf="hideSignUp">
+              <h3><span>Sign up</span> to experience the most efficient way of communication</h3>
+              <div class="inputContainer">
+                <input id="username" type="text" placeholder="Choose a Username" autocomplete="false" required />
+                <label for=username></label>
+              </div>
+              <div class="inputContainer phoneNum">
+                <input id="phoneno" type="tel" placeholder="Enter Mobile Number" autocomplete="false" required />
+                <label for=phoneno></label>
+              </div>
+              <div class="inputContainer">
+                <input id="password" type="password" placeholder="Choose a Password" autocomplete="false" required />
+              <label for=password></label>
+              </div>
+              <div class="buttonCont">
+                <button class="yellowBtn" type="submit">Let's Go<i class="fa fa-fw fa-chevron-right"></i></button>
+                <button class="blueBtn" (click)="haveAccount()">I already have an account<i class="fa fa-fw fa-chevron-right"></i></button>
+              </div>
+            </form>
+            <form action="" onSubmit="" *ngIf="hideSignIn">
+              <h3><span>Sign in</span> using your username and password</h3>
+              <div class="inputContainer">
+                <input id="signInUsername" type="text" placeholder="Username" autocomplete="false" required />
+                <label for=username></label>
+              </div>
+              <div class="inputContainer">
+                <input id="signInPassword" type="password" placeholder="Password" autocomplete="false" required />
+              <label for=password></label>
+              </div>
+              <a href="#" style="font-weight: 800;"><span>Forgot your password</span></a>
+              <div class="buttonCont">
+                <button class="yellowBtn" type="submit">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
+                <button class="blueBtn" (click)="dontHaveAccount()">Don't have an account?<i class="fa fa-fw fa-chevron-right"></i></button>
+              </div>
+            </form>
+        </div>
+        <div class="form-container side-info displayNone">
+          <form>
+            <div style="text-align: left;">
+                <img alt="spectra-logo" class="spectra-logo" src="../../../assets/spectra.png"/>
+                <br>
+              <span style="color:white;">Powered By</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
+              src="http://redlily.marketfront.in/img/marketfront-logo.png"/>
+              <h1>Buy your dream plot</h1>
+              <a routerLink="/dashboard"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a>
+              <div class="info">
+                <a href="#" style="margin-right:10px;">Terms of Use</a><a href="#">Social</a>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>

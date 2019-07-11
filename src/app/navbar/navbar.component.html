@@ -1,0 +1,68 @@
+<div class="desktop navbar">
+    <div class="toprow">
+        <img alt="spectra-logo" class="ui image spectra-logo" src="../../../assets/spectra.png"/>
+        <div>
+            <i class="bell outline icon large"></i>
+            <img class="ui avatar image" src="../../../assets/man.svg">
+            <div class="ui dropdown item "> 
+                <span>Jennie Thompson</span>
+              <i class="angle down icon"></i>
+              <div class="menu">
+                  <a class="item">
+                      <i class="cog icon "></i>
+                    Settings</a>
+                  <a class="item" routerLink="/login">
+                    <i class="sign-out icon "></i>
+                    Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui divider" style="width:99%; margin: 0 auto;"></div>
+    <div class="bottomrow">
+            <div class="color item navD">
+              <i class="user outline icon"></i>
+              Profile
+            </div>
+            <div class="item navD">
+              <i class="university icon"></i>
+              Passbook
+            </div>
+            <div class="item navD">
+              <i class="home icon"></i>
+              Projects
+            </div>
+            <div class="item navD">
+              <i class="clipboard  icon"></i>
+              Activity
+            </div>
+            <div class="item navD">
+              <i class="question circle icon"></i>
+              Support
+            </div>
+    </div>
+  </div>
+  
+  
+  <div class="mobileNavbar mobileNav">
+    <div>
+      <input id="toggle" type="checkbox">  
+      <label class="toggle-container" for="toggle">
+        <span class="button button-toggle"></span>
+      </label>
+      <!-- The Nav Menu -->
+      <nav class="nav">
+        <a id="createAccount" class="nav-item" (click)="activeTab($event)"><i class="user plus icon"></i>Create Account</a>
+        <a class="nav-item" (click)="activeTab($event)"><i class="user outline icon"></i>Profile</a>
+        <a class="nav-item" (click)="activeTab($event)"><i class="university icon"></i>Passbook</a>
+        <a class="nav-item activated" (click)="activeTab($event)"><i class="home icon"></i>Projects</a>
+        <a class="nav-item" (click)="activeTab($event)"><i class="clipboard icon"></i>Activity</a>
+        <a class="nav-item" (click)="activeTab($event)"><i class="envelope outline icon"></i>Messages</a> 
+        <a class="nav-item" (click)="activeTab($event)"><i class="question circle outline icon"></i>Support</a> 
+        <a class="nav-item" routerLink="/login"><i class="sign-out icon "></i>Logout</a>
+      </nav>
+      </div>
+      <div>
+        <img alt="spectra-logo" class="ui image spectra-logo" src="../../../assets/spectra_mobile.png"/>
+      </div>
+    </div>
