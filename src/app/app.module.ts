@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PlotInfoContainerComponent } from './profile/plot-info-container/plot-info-container.component';
+import { EmiDetailComponent } from './profile/emi-detail/emi-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     NavbarComponent,
     ProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    PlotInfoContainerComponent,
+    EmiDetailComponent
   ],
   imports: [
     BrowserModule,

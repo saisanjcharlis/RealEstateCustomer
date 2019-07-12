@@ -21,12 +21,12 @@
     -o-border-radius: 50%;
     border-radius: 50%;
     border-width: 4px;
-    padding: 3px;
-    background-image: linear-gradient(-90deg, #65C178 50%, rgba(0, 0, 0, 0) 50%),linear-gradient(0deg, #65C178 50%, rgba(0, 0, 0, 0) 50%);
+    padding: 4px;
+    background-image: linear-gradient(-90deg, #FCB332 50%, rgba(0, 0, 0, 0) 50%),
+                      linear-gradient(0deg, #FCB332 50%, rgba(0, 0, 0, 0) 50%);
 }
 .profileName{
-    font-weight: 500;
-    font-weight: lighter;
+    font-weight: bold;
     font-size: 13px;
     color: #0066FF;
     margin-left:14.5px;
@@ -34,36 +34,21 @@
 }
 
 
+.sectionHeader{
+    border-radius: 0px 15px 15px 0px;
+    background-color: #0066FF;
+    color:white;
+    /* font:bold; */
+    display: inline-block;
+    margin-top:15px;
+    padding: 5px 10px 5px 15px ;
 
-
-
-.container {
-	background-color: #fff;
-	border-radius: 5px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-    overflow: hidden;
-    margin: 0 auto;
-	width: 90%;
-	max-width: 90%;
-	min-height: 80px;
 }
-
-.form-container {
-	position: absolute;
-	top: 0;
-	height: 100%;
-}
-
-.detailedInfo {
-	right: 0;
-	width: 70%;
-}
-
-
-.fields {
-	left: 0;
-	width: 30%;
-	background:#0066FF;
+.notificationHeader{
+    border-radius: 15px 0px 0px 15px;
+    background-color: #FCB332;
+    color:white;
+    float:right;
+    position: relative;
+    padding: 5px 10px 5px 15px ;
 }

@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
             return;
           }
           $('.spectra-logo').addClass("hideLogo");
+          $('.mobileNavbar').css('z-index', 2);
     });
   }
 

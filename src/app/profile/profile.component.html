@@ -1,23 +1,34 @@
 <div class="padTop">
     <span class="heading">Profile</span>
-  
+    <span class="notificationHeader" (click)="hideNotification($event)">
+      <span title="textNotif" class="textNotif">Pay dues or get fined</span>
+    </span>
     <div class="avatar">
-      <img id="profileAvatar" width="50" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1" />
+      <img id="profileAvatar" width="70" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1" />
       <!-- <button (click)="updateProfileCompleteAvatar()">sad</button> -->
     </div>
     <span class="profileName">John Wick</span>
+  <br>
+  <span class="sectionHeader">
+    Plots Owned
+  </span>
+  <plot-info-container></plot-info-container>
+  <plot-info-container></plot-info-container>
+  
+  <span class="sectionHeader">
+    Upcoming EMI's
+  </span>
+  <emi-detail></emi-detail>
+  
+
+
+  <span class="sectionHeader">
+    Recent Transactions
+  </span>
+  <br>
+  
+
   
   
   
-    <div class="container">
-        <div class="form-container detailedInfo">
-            asdas
-        </div>
-        <div class="form-container fields ">
-          <span style="color:white;">sads</span>
-        </div>
-    </div>
-  
-  
-  
-  </div>
+</div>
