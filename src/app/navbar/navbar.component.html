@@ -44,25 +44,23 @@
   </div>
   
   
-  <div class="mobileNavbar mobileNav">
-    <div>
-      <input id="toggle" type="checkbox">  
-      <label class="toggle-container" for="toggle">
-        <span class="button button-toggle"></span>
-      </label>
-      <!-- The Nav Menu -->
-      <nav class="nav">
-        <a id="createAccount" class="nav-item" (click)="activeTab($event)"><i class="user plus icon"></i>Create Account</a>
-        <a class="nav-item" (click)="activeTab($event)"><i class="user outline icon"></i>Profile</a>
-        <a class="nav-item" (click)="activeTab($event)"><i class="university icon"></i>Passbook</a>
-        <a class="nav-item activated" (click)="activeTab($event)"><i class="home icon"></i>Projects</a>
-        <a class="nav-item" (click)="activeTab($event)"><i class="clipboard icon"></i>Activity</a>
-        <a class="nav-item" (click)="activeTab($event)"><i class="envelope outline icon"></i>Messages</a> 
-        <a class="nav-item" (click)="activeTab($event)"><i class="question circle outline icon"></i>Support</a> 
-        <a class="nav-item" routerLink="/login"><i class="sign-out icon "></i>Logout</a>
-      </nav>
-      </div>
-      <div>
-        <img alt="spectra-logo" class="ui image spectra-logo" src="../../../assets/spectra_mobile.png"/>
-      </div>
-    </div>
+  
+
+    <div class="mobileNavbar mobileNav">
+        <div class="navFlex">
+          <input id="toggle" type="checkbox">  
+          <label class="toggle-container" for="toggle">
+            <span class="button button-toggle"></span>
+          </label>
+          <nav class="nav">
+            <a id="createAccount" class="nav-item" (click)="activeTab($event)"><i class="user plus icon"></i>Create Account</a>
+            <a class="nav-item" (click)="activeTab($event)"><i class="user outline icon"></i>Profile</a>
+            <a class="nav-item" (click)="activeTab($event)"><i class="university icon"></i>Passbook</a>
+            <a class="nav-item activated" (click)="activeTab($event)"><i class="home icon"></i>Projects</a>
+            <a class="nav-item" (click)="activeTab($event)"><i class="clipboard icon"></i>Activity</a>
+            <a class="nav-item" (click)="activeTab($event)"><i class="envelope outline icon"></i>Messages</a> 
+            <a class="nav-item" (click)="activeTab($event)"><i class="question circle outline icon"></i>Support</a> 
+            <a class="nav-item" routerLink="/login"><i class="sign-out icon "></i>Logout</a>
+          </nav>
+          </div>
+        </div>

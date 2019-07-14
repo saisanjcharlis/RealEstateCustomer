@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
         $('.notificationHeader').animate({left: "0"},500);
         $('.textNotif').animate({opacity: 1},500);
       }
+
   }
   ngOnInit() {
   }

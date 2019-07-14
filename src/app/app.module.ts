@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PlotInfoContainerComponent } from './profile/plot-info-container/plot-info-container.component';
 import { EmiDetailComponent } from './profile/emi-detail/emi-detail.component';
+import { RecentTransComponent } from './profile/recent-trans/recent-trans.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EmiDetailComponent } from './profile/emi-detail/emi-detail.component';
     ProfileComponent,
     DashboardComponent,
     PlotInfoContainerComponent,
-    EmiDetailComponent
+    EmiDetailComponent,
+    RecentTransComponent
   ],
   imports: [
     BrowserModule,
