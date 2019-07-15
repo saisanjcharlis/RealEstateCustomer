@@ -37,5 +37,5 @@
 	padding-left: 10px !important;
 }
 .alignRs{
-	padding-top:3px;
+	transform: translateY(3px);
 }

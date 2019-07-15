@@ -32,11 +32,11 @@ export class NavbarComponent implements OnInit {
           if(!e.currentTarget.checked){
             $('#avatarMenu').remove();
           }
-          if ( $('.spectra-logo').hasClass("hideLogo") ) {
-            $('.spectra-logo').removeClass("hideLogo");
+          if ( $('.spectra-logo-mobile').hasClass("hideLogo") ) {
+            $('.spectra-logo-mobile').removeClass("hideLogo");
             return;
           }
-          $('.spectra-logo').addClass("hideLogo");
+          $('.spectra-logo-mobile').addClass("hideLogo");
           $('.mobileNavbar').css('z-index', 2);
     });
   }

@@ -15,6 +15,7 @@
         box-sizing: border-box; */
 	width: 90%;
 	max-width: 90%;
+	margin-top:20px !important;
 	height:auto;
 	min-height: 80px;
 }
@@ -25,6 +26,12 @@
 	height: 100%;
 }
 
+.EMIHeader{
+	color:#0066FF;
+	font-weight: bold;
+	margin-left:5%;
+    margin-top:15px;
+}
 .detailedInfo {
 	right: 0;
 	width: 65%;
@@ -41,8 +48,9 @@
 .list{
 	list-style-type: none;
 	font-size: 12px;
+	font-weight: bold;
 	padding-left: 10px !important;
 }
 .alignRs{
-	padding-top:3px;
+	transform: translateY(3px);
 }
