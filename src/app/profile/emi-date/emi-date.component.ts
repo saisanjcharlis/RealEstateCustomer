@@ -11,7 +11,7 @@ export class EmiDateComponent implements OnInit {
   options: any = {  
     format12h: true,
     enabledDateRanges: [  
-      { start: new Date(this.now - 10 * this.days), end: new Date(this.now -8 * this.days) }
+      { start: new Date(this.now - 10 * this.days), end: new Date(this.now -9 * this.days) }
      ] 
   };  
   date: Date = new Date;  
@@ -22,7 +22,6 @@ export class EmiDateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.options);
   }
 
 }

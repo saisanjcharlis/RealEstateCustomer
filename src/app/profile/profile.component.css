@@ -1,11 +1,25 @@
 .padTop{
     padding-top: 80px;
 }
+
+.dPadTop{
+    padding: 150px 12% 0px 12%;
+    display:grid;
+    grid-gap: 20%;
+    grid-template-columns: 40% 40% ;
+ 
+}
 @media all and (min-width: 769px) {
 	.padTop{
 		display: none;
   }
 }
+@media all and (max-width: 768px) {
+	.dPadTop{
+		display: none;
+  }
+}
+
 .heading{
     font-size:18px;
     margin-left:14.5px;
@@ -56,4 +70,35 @@
     float:right;
     position: relative;
     padding: 5px 10px 5px 15px ;
+}
+.gridContainer{
+    display: grid;
+    letter-spacing: 0.7px;
+    font-weight: bold;
+    font-size:12px;
+    width: 30vw;
+    grid-template-columns: auto auto;
+}
+.label-info{
+    margin-bottom:4px;
+    color:#0066ff;
+}
+.header{
+    width: 100%;
+    margin-top:40px;
+	color:white;
+	background-color: #0066ff;
+	padding:5px 0 5px 5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.emiHeader{
+    width: 100%;
+	color:white;
+	background-color: #0066ff;
+	padding:5px 0 5px 5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }

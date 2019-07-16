@@ -28,7 +28,8 @@
             ],
             "scripts": [
               "src/js/jquery-3.4.1.min.js",
-              "src/js/semantic.min.js"
+              "src/js/semantic.min.js",
+              "./node_modules/web-animations-js/web-animations.min.js"
             ]
           },
           "configurations": {

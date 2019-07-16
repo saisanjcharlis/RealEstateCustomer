@@ -9,6 +9,9 @@
     align-items: center;
     box-shadow: 0 4px 2px -1px rgba(0,0,0,.2);
 }
+.desktop{
+  z-index: 1;
+}
 .hideLogo{
     display: none !important;
 }
@@ -62,9 +65,12 @@
     color:black;
     cursor: pointer;
 }
-.bottomrow >.item:hover, .color{
+.bottomrow >.item:hover{
         color: #0066ff;
         opacity: 1;
+}
+.color{
+  color: #0066ff;
 }
 .item.change:before {
     content: ' \25CF';
@@ -250,4 +256,15 @@
     background-color: #0066ff;
     transform: translateY(-50%) scaleY(5);
     transition: 0.5s;
+  }
+  #profileAvatar{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    border-width: 4px;
+    padding: 3px;
+    background-image: linear-gradient(-90deg, #29DB45 50%, rgba(0, 0, 0, 0) 50%),
+                      linear-gradient(0deg, #29DB45 100%, rgba(0, 0, 0, 0) 50%);
   }

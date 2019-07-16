@@ -1,9 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
+import { trigger, style, transition, animate, group } from '@angular/animations';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('itemAnim', [
+      transition(':enter', [
+        style({transform: 'translateX(100%)'}),
+        animate(500)
+      ])
+    ])
+  ]
 })
 export class LoginComponent implements OnInit {
 

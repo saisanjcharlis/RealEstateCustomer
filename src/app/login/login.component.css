@@ -155,7 +155,7 @@ h1{
 .yellowBtn{
 	background: #FCB332;
 	color: black;
-	flex: 1;
+	flex: 1 0 auto;
 }
 .whiteBtn{
 	background:white;
@@ -167,6 +167,7 @@ h1{
 	margin-left:10px;
 	background: #0066ff;
 	color: white;
+	flex: 1 0 auto;
 }
  button {
 	align-items: center;
