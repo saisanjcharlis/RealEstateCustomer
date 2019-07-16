@@ -14,20 +14,13 @@ export class ProfileComponent implements OnInit {
   }
   notification = false;
   hideNotification(e){
-      var length = e.target.offsetWidth - 20;
+      var length = e.target.offsetWidth;
       if(e.target.title == "textNotif"){
-        length = e.target.offsetWidth+5;
+        length = e.target.offsetWidth+25;
       }
-      this.notification = !this.notification;
-      if(this.notification){
-        $('.notificationHeader').animate({left: "+="+ length + "px"},500);
-        $('.textNotif').animate({opacity: 0},500);
-        
-      } else {
-        $('.notificationHeader').animate({left: "0"},500);
-        $('.textNotif').animate({opacity: 1},500);
-      }
-
+      $('.notificationHeader').animate({left: "+="+ length + "px"},500);
+      setTimeout(function(){ $('.notificationHeader').css("display","none");}, 500);
+      
   }
   ngOnInit() {
   }
