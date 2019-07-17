@@ -199,3 +199,11 @@ h1{
 	-webkit-transform: scale(0.99);
 			transform: scale(0.99);
   }
+  .resend{
+	  transform: translateY(8px);
+  }
+  .resendText{
+	transform: translateY(8px);
+	opacity: 0.5;
+	color:#0066ff;
+  }

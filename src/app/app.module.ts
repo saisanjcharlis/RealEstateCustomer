@@ -16,6 +16,8 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PassbookComponent } from './passbook/passbook.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { ProjectComponent } from './projects/project/project.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmiDateComponent,
     PageNotFoundComponent,
     ProjectsComponent,
-    PassbookComponent
+    PassbookComponent,
+    CreateProfileComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Angular2AirDatepickerModule,
     BrowserAnimationsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
