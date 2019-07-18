@@ -6,10 +6,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PassbookComponent } from './passbook/passbook.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { AuthGuard } from '../services/auth.guard';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', canActivate : [AuthGuard] , component: ProfileComponent},
   { path: 'createProfile', component: CreateProfileComponent },
   { path: 'passbook', component: PassbookComponent },
   { path: 'projects', component: ProjectsComponent },

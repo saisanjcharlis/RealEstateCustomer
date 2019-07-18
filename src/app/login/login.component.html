@@ -31,19 +31,19 @@
                 <button class="blueBtn" (click)="haveAccount()">I already have an account<i class="fa fa-fw fa-chevron-right"></i></button>
               </div>
             </form>
-            <form [@itemAnim] action="" onSubmit="" *ngIf="hideSignIn">
+            <form [@itemAnim] action="" (ngSubmit)="signIn(u1.value,p2.value)" *ngIf="hideSignIn">
               <h3><span>Sign in</span> using your username and password</h3>
               <div class="inputContainer">
-                <input id="signInUsername" type="text" placeholder="Username" autocomplete="false" required />
+                <input id="signInUsername" #u1 type="text" placeholder="Username" autocomplete="false" required />
                 <label for=username></label>
               </div>
               <div class="inputContainer">
-                <input id="signInPassword" type="password" placeholder="Password" autocomplete="false" required />
+                <input id="signInPassword" #p2 type="password" placeholder="Password" autocomplete="false" required />
               <label for=password></label>
               </div>
               <a href="#" style="font-weight: 800;"><span>Forgot your password</span></a>
               <div class="buttonCont">
-                <button class="yellowBtn" type="submit" (click)="signIn()" routerLink="/profile">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
+                <button class="yellowBtn" type="submit">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
                 <button class="blueBtn" (click)="dontHaveAccount()">Don't have an account?<i class="fa fa-fw fa-chevron-right"></i></button>
               </div>
             </form>

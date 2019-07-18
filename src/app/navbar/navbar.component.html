@@ -53,23 +53,14 @@
         <span class="button button-toggle"></span>
       </label>
       <nav class="nav">
-        <!-- <a *ngIf="loginStat == 'ViewOnlyProjects'" routerLink="/login" routerLinkActive="activated" id="createAccount" class="nav-item"><i class="plus icon"></i>Create Account</a>
-        <a *ngIf="loginStat == 'loggedInProfile'" [ngClass]="{'disabled': !loginStatusSignedUp}" routerLink="/profile" routerLinkActive="activated" class="nav-item" ><i class="user outline icon"></i>Profile</a>
-        <a *ngIf="loginStat == 'loggedInProfile'" [ngClass]="{'disabled': !loginStatusSignedUp}" routerLink="/passbook" routerLinkActive="activated" class="nav-item" ><i class="university icon"></i>Passbook</a>
-        <a routerLink="/projects" routerLinkActive="activated" class="nav-item" ><i class="home icon"></i>Projects</a>
-        <a *ngIf="loginStat == 'loggedInProfile'" [ngClass]="{'disabled': !loginStatusSignedUp}" routerLink="/activity" routerLinkActive="activated" class="nav-item" ><i class="clipboard icon"></i>Activity</a>
-        <a *ngIf="loginStat == 'loggedInProfile'" routerLink="/notifications" routerLinkActive="activated" class="nav-item"><i class="envelope outline icon"></i>Notifications</a> 
-        <a routerLink="/support" routerLinkActive="activated" class="nav-item" ><i class="question circle outline icon"></i>Support</a> 
-        <a class="nav-item" routerLink="/login"><i class="sign-out icon "></i>Logout</a> -->
-
-        <a  routerLink="/login" routerLinkActive="activated" id="createAccount" class="nav-item"><i class="plus icon"></i>Create Account</a>
-        <a  routerLink="/profile" routerLinkActive="activated" class="nav-item" ><i class="user outline icon"></i>Profile</a>
-        <a  routerLink="/passbook" routerLinkActive="activated" class="nav-item" ><i class="university icon"></i>Passbook</a>
+        <a *ngIf="createProfile" routerLink="/login" routerLinkActive="activated" id="createAccount" class="nav-item"><i class="plus icon"></i>Create Account</a>
+        <a *ngIf="navViewOnly" routerLink="/profile" routerLinkActive="activated" class="nav-item" ><i class="user outline icon"></i>Profile</a>
+        <a *ngIf="navViewOnly" routerLink="/passbook" routerLinkActive="activated" class="nav-item" ><i class="university icon"></i>Passbook</a>
         <a  routerLink="/projects" routerLinkActive="activated" class="nav-item" ><i class="home icon"></i>Projects</a>
-        <a  routerLink="/activity" routerLinkActive="activated" class="nav-item" ><i class="clipboard icon"></i>Activity</a>
-        <a  routerLink="/notifications" routerLinkActive="activated" class="nav-item"><i class="envelope outline icon"></i>Notifications</a> 
+        <a *ngIf="navViewOnly" routerLink="/activity" routerLinkActive="activated" class="nav-item" ><i class="clipboard icon"></i>Activity</a>
+        <a *ngIf="navViewOnly" routerLink="/notifications" routerLinkActive="activated" class="nav-item"><i class="envelope outline icon"></i>Notifications</a> 
         <a routerLink="/support" routerLinkActive="activated" class="nav-item" ><i class="question circle outline icon"></i>Support</a> 
-        <a class="nav-item" routerLink="/login"><i class="sign-out icon "></i>Logout</a>
+        <a *ngIf="navViewOnly" class="nav-item" routerLink="/login"><i class="sign-out icon "></i>Logout</a>
       </nav>
       </div>
       <div>

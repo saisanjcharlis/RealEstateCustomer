@@ -4,11 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoginService {
-  loginStatus = 'LoggedOut';
-  loginStatusSignUp = false;
-  loginNew = 'true';
-  // Sign In succesfully (Status = loggedInProfile)
-  // Sign Up succesfully (Status = loggedInProfile)
-  // Welcome Page for UnSigned Users succesfully (Status = ViewOnlyProjects)
-  constructor() { }
+ 
+
+  checkusername(uname: string, pwd: string){
+    if(uname == "admin" && pwd == "admin123"){
+      localStorage.setItem('username',uname);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
 }

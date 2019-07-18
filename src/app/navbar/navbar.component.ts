@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { LoginService } from '../../services/login-service.service';
 declare var $:any;
 @Component({
   selector: 'app-navbar',
@@ -7,19 +6,28 @@ declare var $:any;
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  // constructor(private loginService: LoginService) { }
-  // loginStat = this.loginService.loginStatus;
-  // loginStatusSignedUp = this.loginService.loginStatusSignUp;
+
+  navViewOnly=true;
+  createProfile = true;
   ngOnInit() {
-    // let loginN = this.loginService.loginNew ;
+    if(localStorage.getItem('logStatus')=='createProfile'){
+      this.navViewOnly = true;
+      this.createProfile = false;
+    } else if(localStorage.getItem('logStatus')=='false'){
+      this.navViewOnly = false;
+    } else {
+      this.navViewOnly = true;
+      this.createProfile = false;
+    }
+    let avatar = this.navViewOnly;
     $('.ui.dropdown').dropdown();
     $('#toggle').click(function(e){
-          // if(e.currentTarget.checked && loginN == 'true'){
-          //     $('.nav').prepend('<a id="avatarMenu" href="" style="display:flex;align-items:center; color:black;"><img class="ui avatar image" src="assets/man.svg">John</a>');
-          //   }
-          // if(!e.currentTarget.checked){
-          //   $('#avatarMenu').remove();
-          // }
+          if(e.currentTarget.checked && avatar){
+              $('.nav').prepend('<a id="avatarMenu" href="" style="display:flex;align-items:center; color:black;"><img class="ui avatar image" src="assets/man.svg">John</a>');
+            }
+          if(!e.currentTarget.checked){
+            $('#avatarMenu').remove();
+          }
           if ( $('.spectra-logo-mobile').hasClass("hideLogo") ) {
             $('.spectra-logo-mobile').removeClass("hideLogo");
             return;
@@ -28,8 +36,7 @@ export class NavbarComponent implements OnInit {
           $('.mobileNavbar').css('z-index', 2);
     });
 
-    // console.log("loginStatus"+this.loginService.loginStatus+ "\n"+ "loginStatusSignUp"+this.loginService.loginStatusSignUp+"\n"+"loginNew"+this.loginService.loginNew);
- 
+   
   }
 
 }

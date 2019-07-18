@@ -18,6 +18,7 @@ import { PassbookComponent } from './passbook/passbook.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { ProjectComponent } from './projects/project/project.component';
+import { AuthGuard } from '../services/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { ProjectComponent } from './projects/project/project.component';
     Angular2AirDatepickerModule,
     BrowserAnimationsModule
   ],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
