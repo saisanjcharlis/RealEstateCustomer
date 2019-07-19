@@ -8,18 +8,23 @@ declare var $:any;
 export class NavbarComponent implements OnInit {
 
   navViewOnly=true;
+  initialAvatar=true;
   createProfile = true;
   ngOnInit() {
     if(localStorage.getItem('logStatus')=='createProfile'){
       this.navViewOnly = true;
       this.createProfile = false;
+      this.initialAvatar=false;
     } else if(localStorage.getItem('logStatus')=='false'){
       this.navViewOnly = false;
+      this.initialAvatar=false;
     } else {
       this.navViewOnly = true;
+      this.initialAvatar=true;
       this.createProfile = false;
     }
-    let avatar = this.navViewOnly;
+    let avatar = this.initialAvatar;
+    
     $('.ui.dropdown').dropdown();
     $('#toggle').click(function(e){
           if(e.currentTarget.checked && avatar){

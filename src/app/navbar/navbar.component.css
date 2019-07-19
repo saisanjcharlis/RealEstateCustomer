@@ -30,7 +30,6 @@
     margin-right:20px;
 }
 .navbar{
-    padding-top:10px;
     overflow: hidden;
     background: white;
     position:fixed;
@@ -41,48 +40,47 @@
     display: flex;
     padding-left:20px;
     padding-right:20px;
-    padding-bottom:10px;
+    position: relative;
     align-items: center;
     justify-content: space-between;
 }
 
-
-.toprow i, .toprow .avatar{
-    margin-right:10px;
-}
-.toprow .avatar{
-    margin-right:10px;
-}
-.bottomrow{
-    display: flex;
-    padding: 20px 0;
-    align-items: center;
-    justify-content: space-evenly;
-}
 .item{
-    position: relative;
     font-weight: bold;
-    color:black;
     cursor: pointer;
 }
-.bottomrow >.item:hover{
-        color: #0066ff;
-        opacity: 1;
+.navItems{
+  display: flex;
+  position: relative;
 }
-.color{
-  color: #0066ff;
-}
-.item.change:before {
-    content: ' \25CF';
-    position: absolute;
-    margin-top:20%;
-    left:60%;
-    font-size: 10px;
-  }
 
-  a {
-    text-decoration: none;
-  }
+.navFlex{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  border-radius: 5px;
+  padding:8px 8px;
+  align-items: center;
+}
+.navIcon{
+  color:#414143;
+  transform: translateX(2px);
+}
+.navItems span{
+  color:#414143;
+} 
+.color{
+  background-color: #0066ff;
+}
+.change span{
+  color:white !important;
+}
+.change i{
+  color:white !important;
+}
+a{
+  text-decoration: none;
+}
 
   
   /* Toggle Functionality */
@@ -91,7 +89,7 @@
   }
   
   #toggle:checked ~ .toggle-container .button-toggle {
-    box-shadow: 0 0 0 550px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 750px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
   }
   #toggle:checked ~ .toggle-container .button-toggle:before {
     transform: translateY(-50%) rotate(45deg) scale(1);
@@ -199,7 +197,7 @@
     transform: scaleY(0.2);
     transition: 0.5s, opacity 1s;
   }
-
+  
    .nav-item.activated:after{
     content: '';
     position: absolute;
