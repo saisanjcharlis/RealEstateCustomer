@@ -1,41 +1,63 @@
 <app-navbar></app-navbar>
-<!-- <div style="padding-top:100px;">
-    Complete your Profile for best experience
-    <div>
-        Enter Name
-    </div>
-    <div>
-        Enter Email
-    </div>
-    <div>
-        Date of Birth
-    </div>
-    <div>
-        Aadhar Number
-    </div>
-    <div>
-        PAN Number
-    </div>
-    <div>
-        Enter Passbook  - open popup so that he can enter otp for validation
-    </div>
-    
-</div> -->
-
-<form style="padding:300px 20px;" class="ui form">
-    <div class="field">
-      <label>First Name</label>
-      <input type="text" name="first-name" placeholder="First Name">
-    </div>
-    <div class="field">
-      <label>Last Name</label>
-      <input type="text" name="last-name" placeholder="Last Name">
-    </div>
-    <div class="field">
-      <div class="ui checkbox">
-        <input type="checkbox" tabindex="0" class="hidden">
-        <label>I agree to the Terms and Conditions</label>
+<div class="padTop">
+  <span class="sectionHeader">
+    Create Profile
+  </span>
+  <div class="container">
+    <form style="padding:30px 15px;" class="ui form">
+      <div class="field">
+        <label>First Name</label>
+        <input type="text" name="first-name" >
       </div>
-    </div>
-    <button class="ui button" type="submit">Submit</button>
-  </form>
+      <div class="field">
+        <label>Last Name</label>
+        <input type="text" name="last-name" >
+      </div>
+      <div class="field disabled">
+        <label>Password</label>
+        <input type="password" value="admin123" name="password" >
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" >
+      </div>
+      <div class="field disabled">
+        <label>Phone Number</label>
+        <input type="number" value="9435350679" name="phNo" >
+      </div>
+      <div class="field">
+        <label>Address</label>
+        <textarea rows="2"></textarea>
+      </div>
+      <div class="field">
+        <label>Date Of Birth</label>
+      </div>
+      <div class="field">
+        <label>Aadhar Number</label>
+        <input type="number" name="aadhar-number" >
+      </div>
+      <div class="field">
+        <label>Pan Number</label>
+        <input type="text" name="pan-number" >
+      </div>
+      <div class="field">
+        <label>Payment Method</label>
+        <select class="ui fluid dropdown">
+          <option value="">Select</option>
+          <option value="cash">Cash</option>
+          <option value="cash">Card</option>
+          <option value="cash">Online</option>
+          <option value="cash">Cheque</option>
+      </select>
+      </div>
+      <div class="field" style="margin-top:20px;margin-bottom: 50px;">
+        <i class="large credit card icon creditCard"></i>
+        <span class="payMethod">Add Payment Method</span>
+      </div>
+      <!-- <button class="ui button" type="submit">Submit</button> -->
+    </form> 
+  </div>   
+  <button class="ui button saveProfile" (click)="saveProfile()"  type="submit">Save<i class="arrow right icon" style="color:white;"></i></button>
+</div>
+
+

@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { ProjectComponent } from './projects/project/project.component';
 import { AuthGuard } from '../services/auth.guard';
+import { TransactionsComponent } from './transactions/transactions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { AuthGuard } from '../services/auth.guard';
     ProjectsComponent,
     PassbookComponent,
     CreateProfileComponent,
-    ProjectComponent
+    ProjectComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,

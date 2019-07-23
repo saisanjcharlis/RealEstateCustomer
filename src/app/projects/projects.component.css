@@ -1,0 +1,17 @@
+.padTop{
+    padding-top: 80px;
+}
+@media all and (min-width: 769px) {
+	.padTop{
+		display: none;
+  }
+}
+.sectionHeader{
+    border-radius: 0px 15px 15px 0px;
+    background-color: #0066FF;
+    color:white;
+    display: inline-block;
+    margin-top:15px;
+    padding: 5px 10px 5px 15px ;
+    margin-bottom: 20px;
+}

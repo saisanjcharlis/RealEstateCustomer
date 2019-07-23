@@ -1,0 +1,55 @@
+.padTop{
+    padding-top: 80px;
+}
+@media all and (min-width: 769px) {
+	.padTop{
+		display: none;
+  }
+}
+.sectionHeader{
+    border-radius: 0px 15px 15px 0px;
+    background-color: #0066FF;
+    color:white;
+    display: inline-block;
+    margin-top:15px;
+    padding: 5px 10px 5px 15px ;
+    margin-bottom: 20px;
+}
+.container {
+	background-color: #fff;
+	border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	overflow: hidden;
+	width: 90%;
+	max-width: 90%;
+    min-height: 480px;
+    margin:0 auto;
+}
+.saveProfile{
+    /* border: 2px solid rgb(29, 91, 185); */
+    background-color: #0066ff;
+    color:white; 
+    float:right;
+    margin-right:5%; 
+    margin-top:5%;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+.saveProfile:hover{
+    background-color:#2FCE72;
+    color:white;
+}
+form label{
+    font-weight: 500 !important;
+}
+.creditCard{
+    transform: rotate(-45deg);
+    margin-left:10px;
+    color:#828282;
+}
+.payMethod{
+    text-transform: uppercase;
+    color:#2FCE72;
+    margin-left:10px;
+    font-weight: 700;
+}

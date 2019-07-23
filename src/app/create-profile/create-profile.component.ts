@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { RouterModule , Router } from '@angular/router';
+declare var $:any;
 @Component({
   selector: 'app-create-profile',
   templateUrl: './create-profile.component.html',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routes: Router) { }
 
   ngOnInit() {
-  }
+    
 
+  }
+  saveProfile(){
+    this.routes.navigate(['/projects']);
+    localStorage.setItem('logStatus','true');
+  }
 }
