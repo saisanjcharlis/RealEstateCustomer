@@ -24,12 +24,13 @@
               "src/assets"
             ],
             "styles": [
+              "semantic/dist/semantic.min.css",
               "src/styles.css"
             ],
             "scripts": [
               "src/js/jquery-3.4.1.min.js",
-              "src/js/semantic.min.js",
-              "./node_modules/web-animations-js/web-animations.min.js"
+              "semantic/dist/semantic.min.js",
+              "node_modules/web-animations-js/web-animations.min.js"
             ]
           },
           "configurations": {

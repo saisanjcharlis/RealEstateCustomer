@@ -30,7 +30,7 @@
     margin-right:20px;
 }
 .navbar{
-    overflow: hidden;
+    /* overflow: hidden; */
     background: white;
     position:fixed;
     width:100%;
@@ -71,6 +71,9 @@
 } 
 .color{
   background-color: #0066ff;
+}
+.colorJoin{
+  background-color: #FCB332;
 }
 .change span{
   color:white !important;
@@ -269,4 +272,26 @@ a{
   .disabled{
     pointer-events: none;
     cursor: default;
+  }
+  .disabledIcon{
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.4;
+  }
+  .dropHeader{
+    color:#0066ff !important;
+    letter-spacing: 2px;
+    font-size:12px !important;
+  }
+  .itemProfile{
+    color:#414143 !important;
+    font-weight: bold !important;
+  }
+  .notificationHeader{
+    color:#ff7788 !important;
+    letter-spacing: 2px;
+    font-size:12px !important;
+  }
+  .importantText{
+    color: #0066ff !important; 
   }

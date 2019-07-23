@@ -1,11 +1,11 @@
 .padTop{
     padding-top: 80px;
 }
-@media all and (min-width: 769px) {
+/* @media all and (min-width: 769px) {
 	.padTop{
 		display: none;
   }
-}
+} */
 .sectionHeader{
     border-radius: 0px 15px 15px 0px;
     background-color: #0066FF;
@@ -26,7 +26,6 @@
     margin:0 auto;
 }
 .saveProfile{
-    /* border: 2px solid rgb(29, 91, 185); */
     background-color: #0066ff;
     color:white; 
     float:right;
@@ -36,7 +35,7 @@
     cursor: pointer;
 }
 .saveProfile:hover{
-    background-color:#2FCE72;
+    background-color:#0c65eb;
     color:white;
 }
 form label{
@@ -52,4 +51,24 @@ form label{
     color:#2FCE72;
     margin-left:10px;
     font-weight: 700;
+}
+.avatar{
+    margin-left:14.5px;
+    margin-top:10px;
+    position: relative;
+    margin-bottom:50px;
+}
+.avatar img{
+    left:50%;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    border-width: 4px;
+    padding: 4px;
+    background-image: linear-gradient(-90deg, white 50%, rgba(0, 0, 0, 0) 50%),
+                      linear-gradient(0deg, white 100%, rgba(0, 0, 0, 0) 50%);
 }

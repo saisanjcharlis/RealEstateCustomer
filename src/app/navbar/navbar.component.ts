@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 declare var $:any;
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,6 +13,7 @@ export class NavbarComponent implements OnInit {
   initialAvatar=true;
   createProfile = true;
   ngOnInit() {
+   
     if(localStorage.getItem('logStatus')=='createProfile'){
       this.navViewOnly = true;
       this.createProfile = false;
@@ -25,7 +28,7 @@ export class NavbarComponent implements OnInit {
     }
     let avatar = this.initialAvatar;
     
-    $('.ui.dropdown').dropdown();
+  
     $('#toggle').click(function(e){
           if(e.currentTarget.checked && avatar){
               $('.nav').prepend('<a id="avatarMenu" href="" style="display:flex;align-items:center; color:black;"><img class="ui avatar image" src="assets/man.svg">John</a>');
@@ -40,8 +43,7 @@ export class NavbarComponent implements OnInit {
           $('.spectra-logo-mobile').addClass("hideLogo");
           $('.mobileNavbar').css('z-index', 2);
     });
-
-   
+    $('.ui.dropdown')
+    .dropdown();
   }
-
 }

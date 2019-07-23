@@ -2,39 +2,53 @@
     <div class="toprow">
         <img alt="spectra-logo" class="ui image spectra-logo" src="assets/spectra.png"/>
         <div class="navItems">
-          <a class="item navFlex" routerLink="/profile" routerLinkActive="color change">
-              <i class="navIcon globe icon large"></i>
-              <span>Profile</span>
+          <a *ngIf="createProfile"  class="item navFlex" routerLink="/createProfile" routerLinkActive="colorJoin change">
+              <i class="navIcon plus icon large"></i>
+              <span>Join</span>
           </a>
           <a class="item navFlex" routerLink="/projects" routerLinkActive="color change">
               <i class="navIcon home icon large"></i>
               <span>Projects</span>
           </a>
-          <a class="item navFlex" routerLink="/passbook" routerLinkActive="color change">
+          <a  [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/passbook" routerLinkActive="color change">
               <i class="navIcon university icon large"></i>
               <span>Passbook</span>
           </a>
-          <a class="item navFlex" style="margin-left:80px !important;">
+          <a  [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/transactions" routerLinkActive="color change">
+            <i class="navIcon exchange icon large"></i>
+            <span>Transactions</span>
+         </a>
+         <a class="item navFlex ui dropdown" style="margin-left:80px !important;">
               <i class="navIcon bell outline icon large"></i>
-              <div class="floating ui circular label" style="background-color: #0066ff; color:white; font-size:0.75; opacity: 0.8; margin-top:14px !important; margin-left:-10.5em !important;">2</div>
+              <div *ngIf="initialAvatar" class="floating ui circular label" style="background-color: #ff7788; color:white; font-size:0.75; opacity: 0.8; margin-top:14px !important; margin-right:24px!important;">2</div>
               <span>Notification</span>
-          </a>
-          <div class="navFlex ui dropdown item">
+              <div class="menu">
+                  <div class="header notificationHeader">Notifications</div>
+                  <a class="item itemProfile">Complete your profile details
+                    <br><br>
+                   <span class="importantText">Aadhar is mandatory for real estate transactions</span> 
+                  </a>
+                  <a class="item itemProfile">Pay your EMI for plot 314 by 24th July
+                      <button class="ui primary button">Pay</button>
+                  </a>
+                  
+            </div>
+         </a>
+         <div [ngClass]="{'disabledIcon':!initialAvatar}" class="navFlex item ui pointing dropdown">
                 <!-- <img class="ui mini image" style="display:block;margin-left:12px;" id="profileAvatar" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1" /> -->
                 
               <i class="navIcon user circle icon large"></i>
               <span>Hello, John</span>
-              <!-- <div class="menu">
-                  <a class="item">
-                      <i class="cog icon "></i>
-                    Settings</a>
-                  <a class="item" routerLink="/login">
-                    <i class="sign-out icon "></i>
-                    Logout</a>
-                </div> -->
+              <div class="menu">
+                    <a class="item itemProfile" routerLink="/profile" style="font-size:14px;">View Your Profile</a>
+                    <div class="divider"></div>
+                    <div class="header dropHeader">Account</div>
+                    <a class="item itemProfile"><i class="question circle icon"></i>Help</a>
+                    <a class="item itemProfile"><i class="cog icon "></i>Settings</a>
+                    <a class="item itemProfile" routerLink="/login"><i class="sign out alternate icon "></i>Logout</a>
               </div>
-        </div>
-        
+          </div>
+         </div>
     </div>
 </div>
 <div class="mobileNavbar mobileNav">
@@ -51,7 +65,7 @@
         <a *ngIf="navViewOnly" [ngClass]="{'disabled':!initialAvatar}" routerLink="/transactions" routerLinkActive="activated" class="nav-item" ><i class="exchange icon"></i>Transactions</a>
         <a *ngIf="navViewOnly" [ngClass]="{'disabled':!initialAvatar}" routerLink="/notifications" routerLinkActive="activated" class="nav-item"><i class="envelope outline icon"></i>Notifications</a> 
         <a routerLink="/support" routerLinkActive="activated" class="nav-item" ><i class="question circle outline icon"></i>Support</a> 
-        <a *ngIf="navViewOnly" class="nav-item" routerLink="/login"><i class="sign-out icon "></i>Logout</a>
+        <a *ngIf="navViewOnly" class="nav-item" routerLink="/login"><i class="sign out alternate icon "></i>Logout</a>
       </nav>
       </div>
       <div>

@@ -11,7 +11,10 @@ export class CreateProfileComponent implements OnInit {
   constructor(private routes: Router) { }
 
   ngOnInit() {
-    
+    $('#year_first_calendar').calendar({
+      type: 'date',
+      startMode: 'year'
+    });
 
   }
   saveProfile(){
