@@ -207,3 +207,6 @@ h1{
 	opacity: 0.5;
 	color:#0066ff;
   }
+  .resendText:after, .resendText:before{
+	  box-sizing: initial !important;
+  }
