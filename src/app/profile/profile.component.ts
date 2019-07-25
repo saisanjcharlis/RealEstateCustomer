@@ -23,6 +23,15 @@ export class ProfileComponent implements OnInit {
       
   }
   ngOnInit() {
+    $('body').toast({
+      class: 'error',
+      displayTime: 0,
+      message: 'Account discontinued. Contact Customer support.'
+    });
+    $('body').toast({
+      class: 'warning',
+      message: 'Enter existing passbook details to fetch owned plots.'
+    });
   }
 
 }

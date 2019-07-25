@@ -1,6 +1,6 @@
 <div class="desktop navbar">
     <div class="toprow">
-        <img alt="spectra-logo" class="ui image spectra-logo" src="assets/spectra.png"/>
+        <img routerLink="/login" style="cursor:pointer;" alt="spectra-logo" class="ui image spectra-logo" src="assets/spectra.png"/>
         <div class="navItems">
           <a *ngIf="createProfile"  class="item navFlex" routerLink="/createProfile" routerLinkActive="colorJoin change">
               <i class="navIcon plus icon large"></i>
@@ -44,8 +44,8 @@
                     <a class="item itemProfile" routerLink="/profile" style="font-size:14px;">View Your Profile</a>
                     <div class="divider"></div>
                     <div class="header dropHeader">Account</div>
-                    <a class="item itemProfile"><i class="question circle icon"></i>Help</a>
-                    <a class="item itemProfile"><i class="cog icon "></i>Settings</a>
+                    <a class="item itemProfile" routerLink="/help"><i class="question circle icon"></i>Help</a>
+                    <a class="item itemProfile" routerLink="/settings"><i class="cog icon "></i>Settings</a>
                     <a class="item itemProfile" routerLink="/login"><i class="sign out alternate icon "></i>Logout</a>
               </div>
           </div>

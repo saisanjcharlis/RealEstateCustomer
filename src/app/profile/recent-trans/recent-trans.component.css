@@ -10,7 +10,7 @@
 		width: 100%;
 		max-width: 100%;
 		height:auto;
-		min-height: 40px;
+		min-height: 50px;
   }
 }
 @media all and (max-width: 768px) {
@@ -25,11 +25,6 @@
 		max-width: 90%;
 		height:auto;
 		min-height: 40px;
-	}
-}
-@media all and (max-width: 1150px) {
-	.transID{
-		visibility: hidden;
 	}
 }
 
@@ -56,12 +51,13 @@
 	list-style-type: none;
 	font-size: 12px;
 	padding-left: 10px !important;
+	transform: translateY(-6px); 
 }
 .transID{
 	color:black;
 }
 .emiAmount{
-	transform: translateY(-22px);
+	/* transform: translateY(-22px); */
 }
 .alignRs{
 	transform: translateY(3px);

@@ -3,10 +3,10 @@
 }
 
 .dPadTop{
-    padding: 150px 12% 0px 12%;
+    padding: 80px 3% 50px 3%;
     display:grid;
-    grid-gap: 20%;
-    grid-template-columns: 40% 40% ;
+    grid-gap: 3%;
+    grid-template-columns: 25% 44% 25% ;
  
 }
 @media all and (min-width: 769px) {
@@ -76,12 +76,15 @@
     letter-spacing: 0.7px;
     font-weight: bold;
     font-size:12px;
-    width: 30vw;
     grid-template-columns: auto auto;
 }
+.info{
+    text-align: right;
+    margin-right:10px;
+}
 .label-info{
+    margin-left:10px;
     margin-bottom:4px;
-    color:#0066ff;
 }
 .header{
     width: 100%;
