@@ -48,6 +48,16 @@
 	margin-left:5%;
     margin-top:15px;
 }
+@media all and  (min-width:460px) and (max-width: 768px) {
+    .EMIHeader{
+		margin-left:15%;
+	}
+	.container{
+		width: 70%;
+		max-width: 70%;
+	}
+}
+
 .detailedInfo {
 	right: 0;
 	width: 65%;

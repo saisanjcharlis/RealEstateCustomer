@@ -27,6 +27,17 @@
 		min-height: 40px;
 	}
 }
+@media all and  (min-width:460px) and (max-width: 768px) {
+	.container{
+		width: 70%;
+		max-width: 70%;
+	}
+}
+@media all and (max-width: 768px) {
+	.transID{
+		display:none;
+	}
+}
 
 .form-container {
 	position: absolute;
@@ -61,4 +72,18 @@
 }
 .alignRs{
 	transform: translateY(3px);
+}
+.dateInfo{
+	font-weight: bold;
+	font-size:12px;
+	margin:15px 10px;
+	 display: inline-block;
+}
+@media all and (max-width: 768px) {
+	.dateInfo{
+		margin:12px 10px !important;
+	}
+	.emiAmount{
+		transform: translateY(4px);
+	}
 }

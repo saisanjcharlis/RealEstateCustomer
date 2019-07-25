@@ -9,8 +9,27 @@
     grid-template-columns: 25% 44% 25% ;
  
 }
+.emiContainer1{
+    margin-top:40px;
+}
+@media all and  (min-width:769px) and (max-width: 1024px) {
+	
+    .dPadTop{
+        grid-gap: 3%;
+        grid-template-columns: 40% 57%;
+    
+    }
+    .emiContainer2{
+        display: none;
+    }
+}
 @media all and (min-width: 769px) {
 	.padTop{
+		display: none;
+  }
+}
+@media all and (min-width: 1025px) {
+	.emiContainer1{
 		display: none;
   }
 }
@@ -91,7 +110,7 @@
     margin-top:40px;
 	color:white;
 	background-color: #0066ff;
-	padding:5px 0 5px 5px;
+	padding:10px 0 10px 5px;
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -100,7 +119,7 @@
     width: 100%;
 	color:white;
 	background-color: #0066ff;
-	padding:5px 0 5px 5px;
+	padding:10px 0 10px 5px;
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 1px;

@@ -25,7 +25,12 @@
 	max-width: 90%;
 	min-height: 92.88px;
 }
-
+@media all and  (min-width:460px) and (max-width: 768px) {
+	.container{
+		width: 70%;
+		max-width: 70%;
+	}
+}
 .form-container {
 	position: absolute;
 	top: 0;
