@@ -10,6 +10,8 @@
 	flex-direction: column;
 	font-family: 'Roboto', sans-serif;
 	height: 100%;
+	overflow: auto;
+	padding-bottom:50px;
 }
 h3{
 	font-weight: 300 ;

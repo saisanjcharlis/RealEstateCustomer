@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
      this.hideSignUp = false;
      this.hideSignIn = true;
   }
-  dontHaveAccount(){
+  createAccount(){
     this.hideSignUp = true;
     this.hideSignIn = false;
   }

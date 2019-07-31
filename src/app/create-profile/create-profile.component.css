@@ -69,7 +69,7 @@ form label{
     color:#2FCE72;
     margin-left:10px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 500;
 }
 .avatar{
     margin-left:14.5px;
@@ -117,7 +117,7 @@ form label{
     cursor: pointer;
     opacity: 0.8;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
 	color:#2FCE72;
 }
 form{
