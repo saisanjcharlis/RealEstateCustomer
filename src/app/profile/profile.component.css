@@ -44,7 +44,7 @@
     margin-left:14.5px;
     text-transform: uppercase;
     color:#0066FF;
-    font-weight: bold;
+    font-weight: 600;
     letter-spacing: 0.5px;
     line-height: 21px;
 }
@@ -79,7 +79,7 @@
                       linear-gradient(0deg, white 100%, rgba(0, 0, 0, 0) 50%);
 }
 .profileName{
-    font-weight: bold;
+    font-weight: 500;
     font-size: 13px;
     color: #0066FF;
     margin-left:14.5px;

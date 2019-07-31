@@ -1,8 +1,8 @@
 <div class="bodyLogin">
     <div class="mobileIntro">
             <div style="text-align: center;">
-              <h1 style="color:white;margin-top:200px;">SPECTRA</h1>
-              <span style="color:white; font-weight: 800;">Powered By </span><img alt="marketfront-logo" class="marketfront-logo" align="top"
+              <h1 style="color:white;margin-top:50px;">SPECTRA</h1>
+              <span style="color:white; font-weight: 300;">Powered By </span><img alt="marketfront-logo" class="marketfront-logo" align="top"
               src="http://redlily.marketfront.in/img/marketfront-logo.png"/>
               <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a>
             </div>
@@ -28,7 +28,7 @@
               </div>
               <div class="buttonCont">
                 <button class="yellowBtn" type="submit" (click)="signUp()" routerLink="/createProfile">Let's Go<i class="fa fa-fw fa-chevron-right"></i></button>
-                <button class="blueBtn" (click)="haveAccount()">I already have an account<i class="fa fa-fw fa-chevron-right"></i></button>
+                <button class="blueBtn" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
               </div>
             </form>
             <form [@itemAnim] action="" (ngSubmit)="signIn(u1.value,p2.value)" *ngIf="hideSignIn">
@@ -41,7 +41,7 @@
                 <input id="signInPassword" #p2 type="password" placeholder="Password" autocomplete="false" required />
               <label for=password></label>
               </div>
-              <a href="#" style="font-weight: 800;"><span>Forgot your password</span></a>
+              <a href="#" style="font-weight: 300;"><span>Forgot your password</span></a>
               <div class="buttonCont">
                 <button class="yellowBtn" type="submit">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
                 <button class="blueBtn" (click)="dontHaveAccount()">Don't have an account?<i class="fa fa-fw fa-chevron-right"></i></button>
