@@ -2,9 +2,9 @@
     padding-top: 80px;
 }
 @media all and (min-width: 769px) {
-	.padTop{
+	/* .padTop{
 		display: none;
-  }
+  } */
 }
 .sectionHeader{
     border-radius: 0px 15px 15px 0px;
@@ -14,4 +14,24 @@
     margin-top:15px;
     padding: 5px 10px 5px 15px ;
     margin-bottom: 20px;
+}
+.plotHeader{
+    width: 100%;
+	color:white;
+	background-color: #0066ff;
+	padding:10px 0 10px 5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.plotHeaderFilter{
+    float:right; color:white;
+}
+@media all and (max-width: 768px) {
+	.plotHeader{
+		background-color: white;
+  }
+  .plotHeaderFilter{
+      color:#0066ff;
+  }
 }

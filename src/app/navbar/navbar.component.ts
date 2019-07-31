@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
   
     $('#toggle').click(function(e){
           if(e.currentTarget.checked && avatar){
-              $('.nav').prepend('<a id="avatarMenu" href="" style="display:flex;align-items:center; color:black;"><img class="ui avatar image" src="assets/man.svg">John</a>');
+             $('.nav').prepend('<a id="avatarMenu" style="display:flex;align-items:center;"><img class="ui mini avatar image" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1"></a>');
             }
           if(!e.currentTarget.checked){
             $('#avatarMenu').remove();

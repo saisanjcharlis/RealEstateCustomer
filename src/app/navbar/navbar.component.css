@@ -4,13 +4,13 @@
     position:fixed;
     width:100%;
     display: flex;
-    z-index: 1;
+    z-index: 2;
     /* justify-content:space-between; */
     align-items: center;
     box-shadow: 0 4px 2px -1px rgba(0,0,0,.2);
 }
 .desktop{
-  z-index: 1;
+  z-index: 2;
 }
 .hideLogo{
     display: none !important;
