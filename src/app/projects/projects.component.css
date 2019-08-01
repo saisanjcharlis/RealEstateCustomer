@@ -17,15 +17,36 @@
     padding: 5px 10px 5px 15px ;
     margin-bottom: 20px;
 }
-.plotHeader{
-    width: 100%;
-	color:white;
-	background-color: #0066ff;
+.plotHeaderMobile{
+    /* width: 100%; */
+    color:white;
+    float:right;
+    margin-top:10px;
     padding:10px 0 10px 5px;
-    
+	font-family:  'Quicksand', sans-serif;
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+}
+@media all and (min-width: 769px) {
+	.plotHeaderMobile{
+		display: none;
+  }
+}
+.plotHeader{
+    width: 100%;
+    color:white;
+	background-color: #0066ff;
+    padding:10px 0 10px 5px;
+	font-family:  'Quicksand', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+@media all and (max-width: 768px) {
+	.plotHeader{
+		display: none;
+  }
 }
 .plotHeaderFilter{
     float:right; color:white;

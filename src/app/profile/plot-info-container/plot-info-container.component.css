@@ -52,7 +52,11 @@
 .plotAction{
 	margin-left:10%;
 }
-
+@media all and (max-width: 768px) {
+	.plotAction{
+		margin-left:-4%;
+	}
+}
 .label-info{
 	color:#0066ff;
 }
@@ -62,10 +66,12 @@
 .projectName{
 	font-weight: bold;
 	font-size:18px;
+	font-family:  'Nunito', sans-serif;
 	letter-spacing: 2px;
 }
 .detail1{
 	font-style: italic;
+	font-family:  'Nunito', sans-serif;
 }
 .detail2{
 	font-weight: 600;
@@ -124,6 +130,7 @@
 	z-index: 1;
 	right: 0;
 	padding: 2px 5px;
+	font-family:  'Quicksand', sans-serif;
 	font-weight: 500;
 	background-color: #0066ff;
 	color:white;
