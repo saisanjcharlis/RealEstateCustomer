@@ -1,5 +1,5 @@
 .mobileNavbar{
-    overflow: hidden;
+    overflow: auto;
     background: white;
     position:fixed;
     width:100%;
@@ -8,7 +8,6 @@
     font-family: 'Open Sans', sans-serif; 
     /* justify-content:space-between; */
     align-items: center;
-    overflow: auto;
     box-shadow: 0 4px 2px -1px rgba(0,0,0,.2);
 }
 .desktop{
