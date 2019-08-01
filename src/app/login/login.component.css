@@ -20,16 +20,11 @@
 		padding-top:300px;
 	}	
 }
-@media all  and (min-height: 501px)  and (max-height: 769px) {
+@media all  and (min-height: 501px)  and (max-height: 769px) and (max-width: 768px) {
 	.bodyLogin{
 		padding-top:150px;
 	}	
 }
-/* @media all and (max-width: 769px) {
-	.bodyLogin{
-		padding-top:100px;
-	}	
-} */
 h3{
 	font-weight: 300 ;
 	margin-bottom: 50px;
