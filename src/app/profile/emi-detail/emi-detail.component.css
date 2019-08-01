@@ -19,7 +19,7 @@
 	background-color: #414143;
 	padding:10px 0 10px 15px;
     letter-spacing: 0.7px;
-    font-weight: bold;
+    font-weight: 500;
     grid-template-columns: auto auto;
 }
 .container {
