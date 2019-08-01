@@ -41,7 +41,7 @@
                 <input id="signInPassword" #p2 type="password" placeholder="Password" autocomplete="false" required />
               <label for=password></label>
               </div>
-              <a href="#" style="font-weight: 300;"><span>Forgot your password</span></a>
+              <a href="#" style="font-weight: 400;color:#0066ff;"><span>Forgot your password</span></a>
               <div class="buttonCont">
                 <button class="yellowBtn" type="submit">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
                 <button class="blueBtn" (click)="createAccount()">Create account<i class="fa fa-fw fa-chevron-right"></i></button>
@@ -49,11 +49,12 @@
             </form>
         </div>
         <div class="form-container side-info displayNone">
+           
           <form>
             <div style="text-align: left;">
                 <img alt="spectra-logo" class="spectra-logo" src="assets/spectra.png"/>
                 <br>
-              <span style="color:white;">Powered By</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
+              <span style="color:white;">Powered By&nbsp;</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
               src="http://redlily.marketfront.in/img/marketfront-logo.png"/>
               <h1>Buy your dream plot</h1>
               <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a>
