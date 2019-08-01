@@ -1,5 +1,4 @@
 .mobileNavbar{
-    overflow: auto;
     background: white;
     position:fixed;
     width:100%;
@@ -9,6 +8,9 @@
     /* justify-content:space-between; */
     align-items: center;
     box-shadow: 0 4px 2px -1px rgba(0,0,0,.2);
+    overflow-y: scroll;
+    padding-right: 17px;
+    box-sizing: content-box;
 }
 .desktop{
   z-index: 2;
