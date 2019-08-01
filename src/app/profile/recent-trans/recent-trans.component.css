@@ -77,7 +77,8 @@
 	font-weight: 500;
 	font-size:12px;
 	margin:15px 10px;
-	 display: inline-block;
+	font-weight: 400;
+	display: inline-block;
 }
 @media all and (max-width: 768px) {
 	.dateInfo{

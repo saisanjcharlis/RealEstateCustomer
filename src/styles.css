@@ -1,14 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     /* font-family: 'Nunito', sans-serif; */
-    /* letter-spacing: 0.5px; */
-
     /* font-family: 'Open Sans', sans-serif;   navbar and input */
-    /* font-family: 'Quicksand', sans-serif; text */
-  
-    /* font-family: 'Arvo', serif;    serif in case*/
-    /* font-family: 'Josefin Sans', sans-serif;   */
+    /* font-family: 'Quicksand', sans-serif;  */
+    font-family: 'Lato', sans-serif;  
+    
 }
 @media all and (min-width: 769px) {
 	body{
