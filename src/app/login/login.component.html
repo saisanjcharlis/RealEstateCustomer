@@ -1,7 +1,7 @@
 <div class="bodyLogin">
     <div class="mobileIntro">
             <div style="text-align: center;">
-              <h1 style="color:white;margin-top:130px;">SPECTRA</h1>
+              <h1>SPECTRA</h1>
               <span style="color:white; font-weight: 400;">Powered By </span><img alt="marketfront-logo" class="marketfront-logo" align="top"
               src="http://redlily.marketfront.in/img/marketfront-logo.png"/>
               <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a>
@@ -9,7 +9,7 @@
     </div>
     <div class="container">
         <div class="form-container sign-up-container">
-            <form [@itemAnim] action="" onSubmit="" class="form sign-up-contain" *ngIf="hideSignUp">
+            <form [@itemAnim] action="" onSubmit="" class="sign-up-contain" *ngIf="hideSignUp">
               <h3><span>Sign up</span> to experience the most efficient way of communication</h3>
               <div class="inputContainer">
                 <input id="phoneno" type="tel" placeholder="Enter Mobile Number" autocomplete="false" required />
@@ -31,7 +31,7 @@
                 <button class="blueBtn" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
               </div>
             </form>
-            <form  class="form" [@itemAnim] action="" (ngSubmit)="signIn(u1.value,p2.value)" *ngIf="hideSignIn">
+            <form [@itemAnim] action="" (ngSubmit)="signIn(u1.value,p2.value)" *ngIf="hideSignIn">
               <h3><span>Sign in</span> using your username and password</h3>
               <div class="inputContainer">
                 <input id="signInUsername" #u1 type="text" placeholder="Username" autocomplete="false" required />
@@ -48,12 +48,12 @@
               </div>
             </form>
         </div>
-        <div class="formChild form-container side-info displayNone">
+        <div class="form-container side-info displayNone">
           <form>
             <div style="text-align: left;">
-                <img alt="spectra-logo" class="spectra-logo" src="../../../assets/spectra.png"/>
+                <img alt="spectra-logo" class="spectra-logo" src="assets/spectra.png"/>
                 <br>
-              <span>Powered By</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
+              <span style="color:white;">Powered By</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
               src="http://redlily.marketfront.in/img/marketfront-logo.png"/>
               <h1>Buy your dream plot</h1>
               <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a>
