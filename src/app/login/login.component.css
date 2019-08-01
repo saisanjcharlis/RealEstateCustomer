@@ -16,19 +16,29 @@
 h3{
 	font-weight: 300 ;
 	margin-bottom: 50px;
+	color: white;
 }
 h3 span{
 	font-weight: bold;
 }
-form {
+.form {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	padding: 0 50px;
 	height: 100%;
+	background:#414143;
 }
-
+.formChild {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	background:rgba(0, 0, 0, 0.8);
+}
 .mobileIntro{
 	margin-bottom:10px;
 }
@@ -59,8 +69,8 @@ form {
 .side-info {
 	left: 0;
 	width: 50%;
-	/* background-color: #000000; */
-	background:rgba(0, 0, 0, 0.8);
+	background-color: #fff;
+	/* background:rgba(0, 0, 0, 0.8); */
 	/* background-image: url("../../../assets/house.png"); */
 	
 	
@@ -88,7 +98,7 @@ input::placeholder{
   display: flex;
   width: 100%;
   flex-direction: row-reverse;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
   padding-bottom: 3px;
   margin-bottom: 40px;
 }
@@ -97,6 +107,7 @@ input{
   border: 0;
   background: transparent;
   flex: 1 0 auto;
+  color: white;
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: 300;
@@ -113,7 +124,7 @@ input:focus ~ label {
   }
 .inputContainer label::before {
 	align-items: center;
-	color: #000;
+	color: #fff;
 	display: flex;
 	height: 30px;
 	justify-content: center;
@@ -146,8 +157,8 @@ input:focus ~ label {
 }
 h1{
 	text-transform: uppercase;
-	color:white;
 	font-size:3em ;
+	color:#414143;
 }
 
 .buttonCont{
@@ -160,8 +171,9 @@ h1{
 	flex: 1 0 auto;
 }
 .whiteBtn{
-	background:white;
-	color: black;
+	background:#414143;
+	/* background:white; */
+	color: white;
 	width: 100%;
 
 }
