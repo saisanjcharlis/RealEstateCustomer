@@ -11,11 +11,25 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	/* font-family: 'Roboto', sans-serif; */
 	height: 100%;
 	overflow: auto;
 	padding-bottom:50px;
 }
+@media all and (max-height: 500px) {
+	.bodyLogin{
+		padding-top:300px;
+	}	
+}
+@media all  and (min-height: 501px)  and (max-height: 769px) {
+	.bodyLogin{
+		padding-top:150px;
+	}	
+}
+/* @media all and (max-width: 769px) {
+	.bodyLogin{
+		padding-top:100px;
+	}	
+} */
 h3{
 	font-weight: 300 ;
 	margin-bottom: 50px;
@@ -33,7 +47,6 @@ form {
 }
 .mobileIntro{
 	margin-bottom:10px;
-	padding-top:100px;
 }
 @media all and (min-width: 769px) {
 	.mobileIntro{
