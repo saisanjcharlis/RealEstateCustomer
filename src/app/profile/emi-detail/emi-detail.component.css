@@ -9,18 +9,23 @@
 	}
 }
 .dContainer{
-	font-size:12px;
+	font-size:13px;
 	margin-top:20px;
-	color:white;
 	
 }
 .gridContainer{
 	display: grid;
-	background-color: #414143;
 	padding:10px 0 10px 15px;
-    letter-spacing: 0.7px;
+	letter-spacing: 0.7px;
+	background: white;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-weight: 500;
     grid-template-columns: auto auto;
+}
+.label{
+	color:#0066FF;
+	font-weight: 600;
+	padding: 5px 0;
 }
 .container {
 	background-color: #fff;
@@ -81,9 +86,10 @@
 	transform: translateY(3px);
 }
 .selectedDate{
-	background-color: #FCB332;
-	color:#414143;
+	/* background-color: #FCB332; */
+	background-color: #0066FF;
+	color:white;
 	display: block;
-	padding:5px 0 5px 15px;
+	padding:10px 0 10px 15px;
 	font-weight: bold;
 }

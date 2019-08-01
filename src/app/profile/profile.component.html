@@ -25,6 +25,7 @@
   </span>
   <recent-trans></recent-trans>
   <recent-trans></recent-trans>
+  
 </div>
 
 
@@ -40,7 +41,7 @@
             <span class="info">Plots Owned</span><span class="label-info">2</span>
             <span class="info">Date of Joining</span><span class="label-info">12/02/2019</span>
         </div>
-        <i class="user edit large icon" style="color:#0066ff; float:right;margin-top:10px; margin-right:20px; cursor: pointer;"></i>
+        <i class="user edit large icon" routerLink="/createProfile" style="color:#0066ff; float:right;margin-top:10px; margin-right:20px; cursor: pointer;"></i>
         <div style="clear:both; margin-bottom:10px;"></div>
       </div>
     <!-- EMI Section -->
@@ -50,20 +51,31 @@
         <emi-detail></emi-detail>
       </div>
     <!-- Transaction Section -->
-      <div>
+      <div class="trans1">
         <div class="header">Recent Transactions</div> 
         <recent-trans></recent-trans>
         <recent-trans></recent-trans>
         <recent-trans></recent-trans>
+        <recent-trans></recent-trans>
+        <recent-trans></recent-trans>
       </div>
-
+      <div class="ui blue label" style="background: #0066ff;float:right;cursor: pointer;" routerLink="/transactions">View More</div>
   </div>
 <!-- Plots Owned Section -->
   <div>
     <div class="plotHeader">Plots Owned</div> 
-    <div style="background-color: white;">
+    <div style="background-color: white; overflow-y:scroll;">
       <plot-info-container></plot-info-container>
       <plot-info-container></plot-info-container>
+      <plot-info-container></plot-info-container>
+      <plot-info-container></plot-info-container>
+      <plot-info-container></plot-info-container>
+      <plot-info-container></plot-info-container>
+    </div>
+    <div class="trans2">
+      <div class="header">Recent Transactions</div> 
+      <recent-trans></recent-trans>
+      <recent-trans></recent-trans>
     </div>
   </div>
 <!-- EMI Section -->

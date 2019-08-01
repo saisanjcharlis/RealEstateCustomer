@@ -59,3 +59,10 @@
       color:#0066ff;
   }
 }
+.searchHolder{
+    width: 500px;
+    height: auto;
+}
+/* .searchHolder::placeholder{
+    color:white;
+} */

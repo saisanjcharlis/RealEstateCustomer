@@ -71,10 +71,10 @@ form {
 	left: 0;
 	width: 50%;
 	/* background-color: #fff; */
-	/* background:rgba(0, 0, 0, 0.8); */
+	background:rgba(0, 0, 0, 0.8);
 	/* background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(67,67,67,0.6) 100%); */
 	/* background: linear-gradient(0deg,  rgba(83,105,118,1) 50%, rgba(187,210,197,1) 100%); */
-	background: linear-gradient(0deg, rgba(83,105,118,1) 0%, rgba(187,210,197,1) 100%);
+	/* background: linear-gradient(0deg, rgba(83,105,118,1) 0%, rgba(187,210,197,1) 100%); */
 	/* background-image: url("../../assets/house11.jpg"); */
 	
 	

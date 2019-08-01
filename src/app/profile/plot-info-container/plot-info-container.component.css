@@ -13,8 +13,7 @@
 	justify-content: flex-start;
 	padding:20px 15px;
 }
-
-@media all and (max-width: 768px) {
+@media all and (max-width: 1155px) {
 	.plotContainer{
 		flex-direction: column;
 		align-items: center;
@@ -26,7 +25,8 @@
 		grid-template-columns: 40% 60%;
 		margin-top:10px;
 	}
-} 
+}
+
 .plotAction{
 	margin-left:2%;
 	position: relative;
@@ -34,8 +34,8 @@
 .plotInfo{
 	display: grid;
 	font-weight: 500;
-	grid-gap:5px 2rem;
-    grid-template-columns: 30% 60%;
+	grid-gap:10px 1rem;
+    grid-template-columns: 40% 60%;
 }
 @media all and (max-width: 768px) {
 	.plotAction{
@@ -71,8 +71,15 @@
 }
 .buttonFlex{
 	/* margin-top:40px; */
+	position: absolute;
+	bottom:0;
 	display:flex;
 	flex-wrap: wrap;
+}
+@media all and  (max-width:1155px){
+	.buttonFlex{
+		position: initial;
+	}
 }
 @media all and  (min-width:1200px){
 	.buttonFlex{

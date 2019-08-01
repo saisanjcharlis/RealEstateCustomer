@@ -19,7 +19,7 @@
         grid-template-columns: 35% 62%;
     
     }
-    .emiContainer2{
+    .emiContainer2, .trans1{
         display: none;
     }
 }
@@ -29,7 +29,7 @@
   }
 }
 @media all and (min-width: 1025px) {
-	.emiContainer1{
+	.emiContainer1, .trans2{
 		display: none;
   }
 }

@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emi-detail.component.css']
 })
 export class EmiDetailComponent implements OnInit {
-
+  displayInfo = true;
   constructor() { }
-
+  closeInfo(){
+    this.displayInfo=false;
+  }
   ngOnInit() {
   }
 
