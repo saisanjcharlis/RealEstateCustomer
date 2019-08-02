@@ -116,6 +116,7 @@
     letter-spacing: 0.7px;
     font-size:12px;
     grid-template-columns: auto auto;
+    padding-bottom:30px;
 }
 .info{
     text-align: right;
@@ -167,6 +168,7 @@
     overflow-y:auto;
     overflow-x: hidden; 
     height: 530px;
+    padding-bottom:50px;
 }
 @media all and (max-width: 1024px) {
 	.plotContainer{

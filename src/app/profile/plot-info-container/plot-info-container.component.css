@@ -9,10 +9,32 @@
 } 
 .plotContainer{
 	display: flex;
+	position: relative;
 	/* overflow: hidden; */
 	justify-content: flex-start;
 	/* padding:20px 15px; */
 	padding:20px 0 20px 15px;
+}
+.nextBtn{
+	padding-top:50px;
+	position: absolute;
+	bottom:0;
+	right:50px;
+	color:#0066ff;
+	cursor: pointer;
+}
+.nextBtn1{
+	padding-top:50px;
+	position: absolute;
+	bottom:0;
+	right:80px;
+	color:#0066ff;
+	cursor: pointer;
+}
+@media all and (min-width: 1023px) {
+	.nextBtn, .nextBtn1{
+		display: none;
+	}
 }
 .plotInfo{
 	display: grid;

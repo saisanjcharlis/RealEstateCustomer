@@ -42,8 +42,6 @@
             <span class="info">Plots Owned</span><span class="label-info">2</span>
             <span class="info">Date of Joining</span><span class="label-info">12/02/2019</span>
         </div>
-        
-        <div style="clear:both; margin-bottom:10px;"></div>
       </div>
     <!-- EMI Section -->
       <div class="emiContainer1">
@@ -66,10 +64,7 @@
   <div>
     <div class="plotHeader">Plots Owned</div> 
     <div class="plotContainer">
-          <plot-info-container></plot-info-container>
-          <plot-info-container></plot-info-container>
-          <plot-info-container></plot-info-container>
-          <plot-info-container></plot-info-container>
+          <plot-info-container  *ngFor="let plot of plots"></plot-info-container>
     </div>
   </div>
 <!-- EMI Section -->
