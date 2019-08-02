@@ -42,7 +42,7 @@
 		text-align: right;
 	}
 	.plotInfo{
-		grid-template-columns: 50% 60%;
+		grid-template-columns: 30% 50%;
 		margin-top:10px;
 	}
 	.mBtn{
@@ -60,11 +60,7 @@
 	flex: 1;
 	position: relative;
 }
-@media all and (max-width: 768px) {
-	.plotAction{
-		margin-left:-4%;
-	}
-}
+
 .label-info{
 	color:#0066ff;
 }
@@ -90,6 +86,7 @@
 	color:white;
 	background-color: #0066ff;
 	cursor: pointer;
+	margin-top:5px;
 }
 .buttonFlex{
 	display:flex;
@@ -106,12 +103,34 @@
 		margin-top:60px;
 	}
 }
-@media all and  (max-width:768px){
-	.buttonFlex{
-		margin-left:30px;
+@media all and  (min-width:769px){
+	.plotButton:first-of-type{
+		flex: 1 0 auto;
+	}
+	.plotButton:nth-of-type(2){
+		flex: 1 0 auto;
+	}
+	.plotButton:nth-of-type(3){
+		flex: 1 0  auto;
 	}
 }
-.plotButton:first-of-type{
+@media all and  (max-width:768px){
+	.plotButton:nth-of-type(2){
+		flex: 1 0 auto;
+	}
+	.plotButton:nth-of-type(3){
+		flex: 1 0 auto;
+	}
+	.plotButton:nth-of-type(4){
+		flex: 1 0 auto;
+	}
+}
+@media all and  (max-width:497px){
+	.plotButton:nth-of-type(2){
+		display:none;
+	}
+}
+/* .plotButton:first-of-type{
 	flex: 1 0 auto;
 }
 .plotButton:nth-of-type(2){
@@ -119,18 +138,18 @@
 }
 .plotButton:nth-of-type(3){
 	flex: 1 0  auto;
-}
+} */
 
 .plotButton:hover{
     background-color:#0d55c0;
     color:white;
 }
 
-@media all and  (max-width:825px) {
+/* @media all and  (max-width:825px) {
 	.plotButton:nth-of-type(4){
 		flex: 1 0 auto ;
 	}
-}
+} */
 
 .imgContainer{
 	width:220px;
@@ -179,13 +198,13 @@
 		display:none;
 	}
 } 
-@media all and (min-width: 971px) {
+/* @media all and (min-width: 971px) {
 	.locBtn{
 		display:none;
 	}
-} 
-@media all  and (min-width: 769px) and (max-width: 970px) {
+}  */
+/* @media all  and (min-width: 769px) and (max-width: 970px) {
 	.locBtn{
 		display:none;
 	}
-} 
+}  */

@@ -162,3 +162,14 @@
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
+.plotContainer{
+    background-color: white; 
+    overflow-y:auto;
+    overflow-x: hidden; 
+    height: 530px;
+}
+@media all and (max-width: 1024px) {
+	.plotContainer{
+		height: 850px;
+  }
+}

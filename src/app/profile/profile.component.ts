@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
       class: 'warning',
       message: 'Enter existing passbook details to fetch owned plots.'
     });
+    $(".plotContainer").niceScroll(); 
   }
 
 }
