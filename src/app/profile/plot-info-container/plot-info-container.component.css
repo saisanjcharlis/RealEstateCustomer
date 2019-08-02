@@ -11,7 +11,14 @@
 	display: flex;
 	/* overflow: hidden; */
 	justify-content: flex-start;
-	padding:20px 15px;
+	/* padding:20px 15px; */
+	padding:20px 0 20px 15px;
+}
+.plotInfo{
+	display: grid;
+	font-weight: 500;
+	grid-gap:10px 1rem;
+    grid-template-columns: 30% 50%;
 }
 @media all and (max-width: 1155px) {
 	.plotContainer{
@@ -22,20 +29,18 @@
 		text-align: right;
 	}
 	.plotInfo{
-		grid-template-columns: 40% 60%;
+		grid-template-columns: 50% 30%;
 		margin-top:10px;
 	}
 }
-
+@media all and (min-width: 768px) and (max-width: 1154px) {
+	.plotContainer{
+		margin-top:80px;
+	}
+}
 .plotAction{
 	margin-left:2%;
 	position: relative;
-}
-.plotInfo{
-	display: grid;
-	font-weight: 500;
-	grid-gap:10px 1rem;
-    grid-template-columns: 30% 50%;
 }
 @media all and (max-width: 768px) {
 	.plotAction{
@@ -62,6 +67,14 @@
 	font-weight: 600;
 	font-size:16px;
 	letter-spacing: 1px;
+}
+@media all and (max-width: 1155px) {
+	.projectName{
+		font-size:14px;
+	}
+	.detail1, .detail2{
+		font-size:12px;
+	}
 }
 .plotButton{
 	color:white;
