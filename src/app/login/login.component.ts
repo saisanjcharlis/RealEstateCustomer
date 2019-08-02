@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, group } from '@angular/animations';
 import { LoginService } from '../../services/login-service.service';
 import { RouterModule , Router } from '@angular/router';
+declare var $:any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('logStatus','createProfile');
   }
   ngOnInit() {
+    $(document).scrollTop(0);
   }
 
 }

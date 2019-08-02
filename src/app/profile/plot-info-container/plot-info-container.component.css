@@ -35,7 +35,7 @@
 	display: grid;
 	font-weight: 500;
 	grid-gap:10px 1rem;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 50% 60%;
 }
 @media all and (max-width: 768px) {
 	.plotAction{
@@ -124,6 +124,7 @@
 	padding: 2px 5px;
 	font-family:  'Quicksand', sans-serif;
 	font-weight: 500;
+	border-bottom-left-radius: 5px;
 	background-color: #0066ff;
 	color:white;
 }

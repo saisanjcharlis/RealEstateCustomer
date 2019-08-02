@@ -89,6 +89,8 @@
 	/* background-color: #FCB332; */
 	background-color: #0066FF;
 	color:white;
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 	display: block;
 	padding:10px 0 10px 15px;
 	font-weight: bold;

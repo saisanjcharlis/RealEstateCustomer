@@ -130,7 +130,9 @@
     margin-top:40px;
     color:white;
     font-family: 'Lato', sans-serif;
-	background-color: #0066ff;
+    background-color: #0066ff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 	padding:10px 0 10px 5px;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -141,6 +143,8 @@
 	color:white;
 	background-color: #0066ff;
     padding:10px 0 10px 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     font-family: 'Lato', sans-serif;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -148,6 +152,8 @@
 }
 .plotHeader{
     width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 	color:white;
 	background-color: #0066ff;
     padding:10px 0 10px 5px;

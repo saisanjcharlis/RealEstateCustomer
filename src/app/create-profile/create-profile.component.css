@@ -1,5 +1,5 @@
 .padTop{
-    padding-top: 80px;
+    padding-top: 100px;
 }
 @media all and (min-width: 769px) {
     .mobileButton{
@@ -15,9 +15,8 @@
     border-radius: 0px 15px 15px 0px;
     background-color: #0066FF;
     color:white;
-    display: inline-block;
+    float:left;
     font-family: 'Lato', sans-serif;
-    margin-top:15px;
     padding: 5px 10px 5px 15px ;
     margin-bottom: 20px;
 }
@@ -45,7 +44,6 @@
     color:white; 
     float:right;
     margin-right:5%; 
-    margin-top:5%;
     margin-bottom: 2%;
     cursor: pointer;
 }

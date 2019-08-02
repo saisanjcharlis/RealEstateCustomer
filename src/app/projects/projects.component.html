@@ -7,21 +7,17 @@
         <div style="clear: both;"></div>
     </div> 
 </div>
-<div style="width:80%;margin:0 auto;">
+<div style="width:90%;margin:0 auto;">
         <!-- <div class="plotHeader">Plots Owned(Filter Header)  filter by location, filter by availability
             <a style="float:right; color:white;">Filter &nbsp;<i class="filter icon"></i></a>
         </div>  -->
         
         <div class="plotHeader">
-
-            <!-- <a class="ui search">
-                <input class="prompt" type="text" placeholder="Common passwords...">
-                <div class="results"></div>
-            </a> -->
-            <div class="ui transparent left icon input marginLeftSearch">
-                <i  class="fitted search icon" style="color: white; cursor: pointer;"></i>
-                <!-- <input class="searchHolder" placeholder="Search..." style="color:white;" type="text"> -->
-            </div>
+                <div class="container" >
+                  <input type="text" class="input" placeholder="Search">
+                  <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
+                  <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
+                </div>
             <a class="plotHeaderFilter">Filter &nbsp;<i class="filter icon"></i></a>
             <div style="clear: both;"></div>
         </div> 
