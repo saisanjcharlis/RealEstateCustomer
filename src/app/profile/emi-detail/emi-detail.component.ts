@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'emi-detail',
   templateUrl: './emi-detail.component.html',
   styleUrls: ['./emi-detail.component.css']
 })
-export class EmiDetailComponent implements OnInit {
-  displayInfo = true;
+export class EmiDetailComponent implements OnInit, OnChanges {
+  @Input() showMePartially: boolean;
+  @Input() dateSelected: string;
   constructor() { }
-  closeInfo(){
-    this.displayInfo=false;
-  }
   ngOnInit() {
+    
   }
-
+  ngOnChanges(){
+    var dateString = this.dateSelected;
+  }
 }

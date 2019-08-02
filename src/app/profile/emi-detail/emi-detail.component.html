@@ -1,7 +1,7 @@
-<div class="EMIHeader">
-    EMI Details
+<div *ngIf="showMePartially" class="EMIHeader">
+    EMI Details<span style="color:#0066ff;float:right;">{{dateSelected}}</span>
 </div>
-<div class="container">
+<div *ngIf="showMePartially" class="container">
     <div class="form-container detailedInfo">
       <ul class="list">
           <li>Spectra Fortune, Plot No 314</li>
@@ -28,8 +28,8 @@
 
 
 
-<div class="dContainer" *ngIf="displayInfo">
-  <span class="selectedDate">13th March 2019 <i class="close icon" style="color:white;float:right; cursor: pointer;" (click)="closeInfo()"></i></span>
+<div class="dContainer" *ngIf="showMePartially">
+  <span class="selectedDate">{{dateSelected}}</span>
   <div class="gridContainer">
     <span >Project Info</span><span class="label">Spectra Fortune, <br>Plot No. 314</span>
 

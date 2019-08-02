@@ -35,7 +35,7 @@
 	display: grid;
 	font-weight: 500;
 	grid-gap:10px 1rem;
-    grid-template-columns: 50% 60%;
+    grid-template-columns: 30% 50%;
 }
 @media all and (max-width: 768px) {
 	.plotAction{
@@ -102,7 +102,10 @@
     background-color:#0d55c0;
     color:white;
 }
-
+.plotButton:active{
+    background-color:#0d55c0;
+    color:white;
+}
 @media all and  (min-width:1042px) and (max-width:1216px){
 	.plotButton:nth-of-type(4){
 		flex: 0 0 auto;

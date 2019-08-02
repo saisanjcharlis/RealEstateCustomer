@@ -57,9 +57,13 @@ form {
 	overflow: hidden;
 	width: 850px;
 	max-width: 90%;
-	min-height: 400px;
+	min-height: 600px;
 }
-
+@media all and (max-width: 768px) {
+	.container{
+		min-height: 400px;
+	}	
+}
 .form-container {
 	position: absolute;
 	top: 0;

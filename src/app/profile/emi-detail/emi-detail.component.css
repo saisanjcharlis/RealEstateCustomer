@@ -56,6 +56,7 @@
 @media all and  (min-width:460px) and (max-width: 768px) {
     .EMIHeader{
 		margin-left:15%;
+		margin-right:15%;
 	}
 	.container{
 		width: 70%;
