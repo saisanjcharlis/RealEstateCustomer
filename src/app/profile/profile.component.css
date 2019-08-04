@@ -118,6 +118,22 @@
     grid-template-columns: auto auto;
     padding-bottom:30px;
 }
+.userName{
+    color:#0066ff;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif; 
+    text-align: center;
+    margin-bottom:10px;
+    margin-top:65px;
+}
+@media all and (max-width: 1025px) {
+	.gridContainer{
+		display: none;
+  }
+  .userName{
+    padding-bottom:30px;
+  }
+}
 .info{
     text-align: right;
     margin-right:10px;
@@ -125,6 +141,17 @@
 .label-info{
     margin-left:10px;
     margin-bottom:4px;
+}
+.mlabel{
+    background: #0066ff !important;
+    float:right;
+    cursor: pointer; 
+    margin-right:15% !important;
+}
+@media all and (max-width: 460px) {
+	.mlabel{
+        margin-right:5% !important;
+    }
 }
 .header{
     width: 100%;
@@ -170,8 +197,19 @@
     height: 530px;
     padding-bottom:50px;
 }
+
+.minusPosition{
+    color:white; 
+    float:right; 
+    display: none;
+    margin-right:20px; 
+    cursor: pointer;
+}
 @media all and (max-width: 1024px) {
 	.plotContainer{
 		height: 600px;
+  }
+  .minusPosition{
+    display: initial;
   }
 }

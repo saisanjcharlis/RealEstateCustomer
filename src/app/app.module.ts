@@ -20,6 +20,7 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
 import { ProjectComponent } from './projects/project/project.component';
 import { AuthGuard } from '../services/auth.guard';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { FeedComponent } from './profile/feed/feed.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     PassbookComponent,
     CreateProfileComponent,
     ProjectComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
