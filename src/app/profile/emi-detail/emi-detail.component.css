@@ -99,3 +99,9 @@
 .dateSelected{
 	color:#0066ff;float:right;
 }
+
+@media all and (max-width: 460px) {
+	.dateSelected{
+		margin-right:5%;
+  	}
+}
