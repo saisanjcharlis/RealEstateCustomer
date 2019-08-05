@@ -29,6 +29,8 @@
             ],
             "scripts": [
               "src/js/jquery-3.4.1.min.js",
+              "src/js/dataTables.min.js",
+              "src/js/dataTables.semanticui.min.js",
               "node_modules/jquery.nicescroll/jquery.nicescroll.js",
               "semantic/dist/semantic.min.js",
               "node_modules/web-animations-js/web-animations.min.js"

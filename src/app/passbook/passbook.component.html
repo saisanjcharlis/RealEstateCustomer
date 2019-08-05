@@ -3,7 +3,45 @@
         <span class="sectionHeader">
             Passbook
         </span>
+        <!-- <button class="ui green button" style="float:right;margin-right:1.5%;margin-top:15px;">Add a Passbook</button> -->
 </div>
-<div style="width: 10px;height: 100vh;">
 
+<div class="plotHeader">
+    <div style="float: left;margin-top:5px;">Total Plots Owned <div class="ui yellow label" style="color:white;background: #FCB332;">2</div></div>
+    <button class="ui tiny green button" (click)="addPassbook()" style="float:right;margin-right:1.5%; background: #2FCE72;"><i class="plus icon"></i>Add Passbook</button>
+    <div style="clear:both;"></div>
+</div> 
+<div class="plotContainer">
+      <plot-info-container  *ngFor="let plot of plots"></plot-info-container>
 </div>
+
+
+<div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Enter details for passbook
+        </div>
+        <div class="image content">
+          <div class="ui medium image">
+                <i class="building icon" style="margin-left:100px;"></i>
+          </div>
+          <div class="description">
+                <form class="ui form">
+                        <div class="field">
+                          <label>Plot Allotment Number</label>
+                          <input type="text" name="first-name" placeholder="First Name">
+                        </div>
+                        <div class="field">
+                          <label>OTP</label>
+                          <input type="text" name="last-name" placeholder="Last Name">
+                        </div>
+                </form>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui positive right labeled icon button" (click)="allotPassbook()" style="background: #2FCE72;">
+            Add Passbook
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+      </div>
