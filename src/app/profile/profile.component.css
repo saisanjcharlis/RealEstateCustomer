@@ -3,14 +3,14 @@
 }
 
 .dPadTop{
-    padding: 80px 3% 50px 3%;
+    padding: 80px 2% 50px 2%;
     display:grid;
-    grid-gap: 3%;
-    grid-template-columns: 25% 44% 25% ;
+    grid-gap: 1%;
+    grid-template-columns: 22% 51% 25% ;
  
 }
 .emiContainer1{
-    margin-top:40px;
+    margin-top:20px;
 }
 @media all and  (min-width:769px) and (max-width: 1024px) {
 	
@@ -127,9 +127,9 @@
     margin-top:65px;
 }
 @media all and (max-width: 1025px) {
-	.gridContainer{
+	/* .gridContainer{
 		display: none;
-  }
+  } */
   .userName{
     padding-bottom:30px;
   }
@@ -155,7 +155,7 @@
 }
 .header{
     width: 100%;
-    margin-top:40px;
+    margin-top:20px;
     color:white;
     font-family: 'Lato', sans-serif;
     background-color: #0066ff;
@@ -194,7 +194,7 @@
     background-color: white; 
     overflow-y:auto;
     overflow-x: hidden; 
-    height: 530px;
+    height: 650px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding-bottom:50px;
 }
@@ -206,11 +206,22 @@
     margin-right:20px; 
     cursor: pointer;
 }
+
+.plusPosition{
+    color:white; 
+    float:right; 
+    display: none;
+    margin-right:20px; 
+    cursor: pointer;
+}
 @media all and (max-width: 1024px) {
 	.plotContainer{
 		height: 600px;
   }
-  .minusPosition{
+  .minusPosition, .plusPosition{
     display: initial;
+  }
+   .transHide,.feed{
+      display: none;
   }
 }

@@ -45,23 +45,23 @@
       </div>
     <!-- EMI Section -->
       <div class="emiContainer1">
-        <div class="emiHeader">Upcoming EMI's<i class="minus icon minusPosition" ></i></div>
-        <emi-date></emi-date>
+        <div class="emiHeader">Upcoming EMI's<i class="minus icon minusPosition" *ngIf="showEMI" (click)="dateHide()"></i><i class="plus icon plusPosition" *ngIf="!showEMI" (click)="dateShow()"></i></div>
+        <emi-date class="emiDate"></emi-date>
       </div>
 
       <div class="emiContainer1">
-        <div class="emiHeader">New's Feed<i class="minus icon minusPosition" ></i></div>
-        <feed></feed>
+        <div class="emiHeader">New's Feed<i class="minus icon minusPosition" *ngIf="showFeed" (click)="feedHide()"></i><i *ngIf="!showFeed" class="plus icon plusPosition" (click)="feedShow()"></i></div>
+        <feed class="feed"></feed>
       </div>
     <!-- Transaction Section -->
       <div class="trans">
-        <div class="header">Recent Transactions<i class="minus icon minusPosition" ></i></div> 
-        <recent-trans></recent-trans>
-        <recent-trans></recent-trans>
-        <recent-trans></recent-trans>
-        <recent-trans></recent-trans>
-        <recent-trans></recent-trans>
-        <div class="ui blue label" style="background: #0066ff;float:right;cursor: pointer;" routerLink="/transactions">View More</div>
+        <div class="header">Recent Transactions<i class="minus icon minusPosition" *ngIf="showtrans" (click)="transHide()"></i><i class="plus icon plusPosition" *ngIf="!showtrans" (click)="transShow()"></i></div> 
+        <recent-trans class="transHide"></recent-trans>
+        <recent-trans class="transHide"></recent-trans>
+        <recent-trans class="transHide"></recent-trans>
+        <recent-trans class="transHide"></recent-trans>
+        <recent-trans class="transHide"></recent-trans>
+        <div class="ui blue label transHide" style="background: #0066ff;float:right;cursor: pointer;" routerLink="/transactions">View More</div>
       </div>
      
   </div>
@@ -74,11 +74,12 @@
   </div>
 <!-- EMI Section -->
   <div class="emiContainer2">
-    <div class="emiHeader ">News Feed</div>
-    <feed></feed>
+   
 
-    <div  style="margin-top:20px;" class="emiHeader">Upcoming EMI's</div>
+    <div class="emiHeader">Upcoming EMI's</div>
     <emi-date></emi-date>
+    <div style="margin-top:20px;" class="emiHeader ">News Feed</div>
+    <feed></feed>
   </div>
 
 </div>
