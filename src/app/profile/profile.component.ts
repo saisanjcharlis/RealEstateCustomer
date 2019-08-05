@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     this.innerWidth = window.innerWidth;
     console.log(this.innerWidth);
     if(this.innerWidth > 768){
-      $(".plotContainer").niceScroll({
+      $(".plotContainers").niceScroll({
             cursorborderradius:10,
             cursorcolor: "#0066ff", 
             cursoropacitymin: 0, 
@@ -57,11 +57,11 @@ export class ProfileComponent implements OnInit {
             oneaxismousemode: true
             }); 
     }
-    $('body').toast({
-      class: 'error',
-      displayTime: 0,
-      message: 'Account discontinued. Contact Customer support.'
-    });
+    // $('body').toast({
+    //   class: 'error',
+    //   displayTime: 0,
+    //   message: 'Account discontinued. Contact Customer support.'
+    // });
     $('body').toast({
       class: 'warning',
       message: 'Enter existing passbook details to fetch owned plots.'
