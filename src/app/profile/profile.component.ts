@@ -100,7 +100,7 @@ export class ProfileComponent implements OnInit {
     //   displayTime: 0,
     //   message: 'Account discontinued. Contact Customer support.'
     // });
-    $('body').toast({
+    $('.dPadTop').toast({
       class: 'warning',
       message: 'Enter existing passbook details to fetch owned plots.'
     });
