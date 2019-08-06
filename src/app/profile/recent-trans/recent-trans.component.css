@@ -68,10 +68,11 @@
 	color:black;
 }
 .emiAmount{
-	/* transform: translateY(-22px); */
+	transform: translateY(-8px);
+
 }
 .alignRs{
-	transform: translateY(3px);
+	transform: translateY(-2px);
 }
 .dateInfo{
 	font-weight: 500;
