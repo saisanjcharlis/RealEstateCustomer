@@ -15,10 +15,9 @@
     border-radius: 0px 15px 15px 0px;
     background-color: #0066FF;
     color:white;
-    font-weight: 600;
     float:left;
     font-family: 'Lato', sans-serif;
-    padding: 5px 10px 5px 25px ;
+    padding: 5px 10px 5px 15px ;
     margin-bottom: 20px;
 }
 .container {
@@ -31,6 +30,15 @@
     margin:0 auto;
     margin-bottom:60px;
 }
+.navIcon{
+    color:#414143;
+    /* transform: translateX(2px);*/ 
+     transform: scale(3); 
+     left:50%;
+     position: absolute;
+     border-radius: 50%;
+    border-width: 4px;
+  }
 .saveProfile{
     background-color: #0066ff;
     color:white; 
@@ -96,9 +104,7 @@ form label{
 .editButton{
     position: absolute;
     left:50%;
-    transform:translate(50%,20%);
-    /* margin-top:10px; */
-    /* z-index: 1; */
+    transform:translate(90%,50%);
 }
 @media all and (min-width: 769px) {
     .avatar img{
@@ -106,7 +112,7 @@ form label{
         padding: 5px;
     }
     .editButton{
-        transform:translate(90%,40%);
+        transform:translate(90%,50%);
     }
 }
 .cancelForm{

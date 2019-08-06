@@ -56,7 +56,14 @@
               <span style="color:white;">Powered By&nbsp;</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
               src="assets/marketfront.png"/>
               <h1>Buy your dream plot</h1>
-              <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a>
+
+              <div class="ui search">
+                <div class="ui icon input" style="width:100%;" >
+                  <input  class="prompt searchProject" type="text" placeholder="City, Agent, Zip Code...">
+                  <i class="search icon" style="color:#0066ff;"></i>
+                </div>
+              </div>
+              <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right" style="color:#0066ff; opacity:0.5;"></i></button></a>
               <div class="info">
                 <a href="#" style="margin-right:10px;">Terms of Use</a><a href="#">Social</a>
               </div>

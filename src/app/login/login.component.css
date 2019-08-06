@@ -188,6 +188,16 @@ h1{
 	width: 100%;
 
 }
+.searchProject::placeholder{
+	text-transform: capitalize;
+	font-family: "Lato", sans-serif;
+	font-weight: 500;
+}
+.searchProject{
+	border-radius: 5px !important;
+	width:100% !important;
+	
+}
 .blueBtn{
 	margin-left:10px;
 	background: #0066ff;
