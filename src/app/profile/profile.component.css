@@ -224,3 +224,7 @@
       display: none;
   }
 }
+.toast-box{
+    top:150px !important;
+    margin-top:150px !important;
+}

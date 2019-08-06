@@ -12,10 +12,11 @@ export class PassbookComponent implements OnInit {
     $('.ui.modal').modal('show');
   }
   allotPassbook(){
-    $('.padTop').toast({
+    $('body').toast({
       class: 'success',
       message: `Your passbook has been alloted`
     });
+    $('.toast-box').css("margin-top","50px");
   }
   ngOnInit() {
 
