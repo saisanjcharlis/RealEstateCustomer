@@ -7,7 +7,16 @@ declare var $:any;
 })
 export class ProjectsComponent implements OnInit {
   iconSearch = true;
-  constructor() { }
+  imagesList = [];
+  constructor() {
+    for (let i = 0; i < 50; i++) {
+      const url = 'https://loremflickr.com/640/480?random=' + (i +1);
+      this.imagesList[i] = {
+        url: url,
+        show: false
+    };
+    }
+   }
   expandSearch(){
     $(".container, .input").addClass("active");
     $("input[type='text']").focus();

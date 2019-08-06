@@ -21,6 +21,7 @@ import { ProjectComponent } from './projects/project/project.component';
 import { AuthGuard } from '../services/auth.guard';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { FeedComponent } from './profile/feed/feed.component';
+import { DeferLoadModule } from '@trademe/ng-defer-load';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { FeedComponent } from './profile/feed/feed.component';
     CommonModule,
     FormsModule,
     Angular2AirDatepickerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DeferLoadModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
