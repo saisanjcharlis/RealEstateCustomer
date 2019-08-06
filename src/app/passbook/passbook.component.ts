@@ -12,7 +12,7 @@ export class PassbookComponent implements OnInit {
     $('.ui.modal').modal('show');
   }
   allotPassbook(){
-    $('body').toast({
+    $('.padTop').toast({
       class: 'success',
       message: `Your passbook has been alloted`
     });
