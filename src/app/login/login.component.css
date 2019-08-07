@@ -180,6 +180,7 @@ h1{
 	background: #FCB332;
 	color: black;
 	flex: 1 0 auto;
+	cursor: pointer;
 }
 .whiteBtn{
 	/* background:#414143; */
@@ -188,20 +189,28 @@ h1{
 	width: 100%;
 
 }
+.passwordHelp:after {
+	width: 180px;
+	letter-spacing: 0.5px;
+	white-space: normal;
+}
 .searchProject::placeholder{
 	text-transform: capitalize;
 	font-family: "Lato", sans-serif;
 	font-weight: 500;
+	color: #414143 !important;
 }
 .searchProject{
 	border-radius: 5px !important;
 	width:100% !important;
-	
+	color:#414143 !important;
+	font-weight: 500;
 }
 .blueBtn{
 	margin-left:10px;
 	background: #0066ff;
 	color: white;
+	cursor: pointer;
 	flex: 1 0 auto;
 }
  button {
@@ -240,7 +249,7 @@ h1{
   .resendText{
 	transform: translateY(8px);
 	opacity: 0.5;
-	color:#0066ff;
+	color:#414143;
   }
   .resendText:after, .resendText:before{
 	  box-sizing: initial !important;

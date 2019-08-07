@@ -1557,7 +1557,7 @@ select.ui.dropdown {
 
 /* General rules and basic dropdowns */
 .ui.inverted.dropdown .menu {
-  background: #1B1C1D;
+  background: #414143;
   box-shadow: none;
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
@@ -1596,7 +1596,7 @@ select.ui.dropdown {
 /* Selection */
 .ui.inverted.selection.dropdown {
   border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #1B1C1D;
+  background: #414143;
   color: rgba(255, 255, 255, 0.8);
 }
 .ui.inverted.selection.dropdown:hover {
@@ -1693,7 +1693,7 @@ select.ui.dropdown {
   background: rgba(255, 255, 255, 0.35);
 }
 .ui.inverted.pointing.dropdown > .menu:after {
-  background: #1B1C1D;
+  background: #414143;
   box-shadow: -1px -1px 0 0 rgba(255, 255, 255, 0.15);
 }
 

@@ -13,7 +13,7 @@
     box-sizing: content-box;
 }
 .desktop{
-  z-index: 2;
+  z-index: 3;
   font-family: 'Nunito', sans-serif;
   letter-spacing: 0.3px;
 }

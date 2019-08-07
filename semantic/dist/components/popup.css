@@ -208,12 +208,12 @@
 
 /* Arrow Position */
 [data-tooltip][data-inverted]:before {
-  background: #1B1C1D;
+  background: #414143;
 }
 
 /* Popup  */
 [data-tooltip][data-inverted]:after {
-  background: #1B1C1D;
+  background: #414143;
   color: #FFFFFF;
   border: none;
   box-shadow: none;
@@ -380,19 +380,19 @@
 
 /* Inverted Arrow Color */
 [data-inverted][data-position~="bottom"][data-tooltip]:before {
-  background: #1B1C1D;
+  background: #414143;
   box-shadow: -1px -1px 0 0 #bababc;
 }
 [data-inverted][data-position="left center"][data-tooltip]:before {
-  background: #1B1C1D;
+  background: #414143;
   box-shadow: 1px -1px 0 0 #bababc;
 }
 [data-inverted][data-position="right center"][data-tooltip]:before {
-  background: #1B1C1D;
+  background: #414143;
   box-shadow: -1px 1px 0 0 #bababc;
 }
 [data-inverted][data-position~="top"][data-tooltip]:before {
-  background: #1B1C1D;
+  background: #414143;
 }
 [data-position~="bottom"][data-tooltip]:before {
   -webkit-transform-origin: center bottom;
@@ -620,14 +620,14 @@
 
 /* Inverted Arrow Color */
 .ui.inverted.bottom.popup:before {
-  background: #1B1C1D;
+  background: #414143;
 }
 .ui.inverted.right.center.popup:before,
 .ui.inverted.left.center.popup:before {
-  background: #1B1C1D;
+  background: #414143;
 }
 .ui.inverted.top.popup:before {
-  background: #1B1C1D;
+  background: #414143;
 }
 
 
@@ -710,7 +710,7 @@
 
 /* Inverted colors  */
 .ui.inverted.popup {
-  background: #1B1C1D;
+  background: #414143;
   color: #FFFFFF;
   border: none;
   box-shadow: none;
@@ -720,7 +720,7 @@
   color: #FFFFFF;
 }
 .ui.inverted.popup:before {
-  background-color: #1B1C1D;
+  background-color: #414143;
   box-shadow: none !important;
 }
 

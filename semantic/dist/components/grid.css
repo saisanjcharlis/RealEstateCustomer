@@ -1267,13 +1267,13 @@
 .ui.grid > .primary.row,
 .ui.grid > .primary.column,
 .ui.grid > .row > .primary.column {
-  background-color: #2185D0;
+  background-color: #0066ff;
   color: #FFFFFF;
 }
 .ui.grid > .secondary.row,
 .ui.grid > .secondary.column,
 .ui.grid > .row > .secondary.column {
-  background-color: #1B1C1D;
+  background-color: #414143;
   color: #FFFFFF;
 }
 .ui.grid > .red.row,
@@ -1303,7 +1303,7 @@
 .ui.grid > .green.row,
 .ui.grid > .green.column,
 .ui.grid > .row > .green.column {
-  background-color: #21BA45;
+  background-color: #2FCE72;
   color: #FFFFFF;
 }
 .ui.grid > .teal.row,
@@ -1315,7 +1315,7 @@
 .ui.grid > .blue.row,
 .ui.grid > .blue.column,
 .ui.grid > .row > .blue.column {
-  background-color: #2185D0;
+  background-color: #0066ff;
   color: #FFFFFF;
 }
 .ui.grid > .violet.row,
@@ -1351,7 +1351,7 @@
 .ui.grid > .black.row,
 .ui.grid > .black.column,
 .ui.grid > .row > .black.column {
-  background-color: #1B1C1D;
+  background-color: #414143;
   color: #FFFFFF;
 }
 

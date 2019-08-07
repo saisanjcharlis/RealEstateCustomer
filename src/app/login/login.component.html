@@ -4,7 +4,11 @@
               <h1>SPECTRA</h1>
               <span style="color:white; font-weight: 400;">Powered By </span><img alt="marketfront-logo" class="marketfront-logo" align="top"
               src="http://redlily.marketfront.in/img/marketfront-logo.png"/>
-              <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a>
+              <div class="ui icon fluid input" style="margin-top:10px;">
+                <input type="text" class="searchProject" (keyup.enter)="browseLimited()" placeholder="City, Agent, Zip Code...">
+                <i class="search icon"></i>
+              </div>
+              <!-- <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a> -->
             </div>
     </div>
     <div class="container">
@@ -23,11 +27,15 @@
                  <label for=otp></label>
               </div>
               <div class="inputContainer">
+                  <div data-inverted="" class="passwordHelp" data-tooltip="Password should be minimum 8 characters and contain min 1 alpha-numeric character" data-variation="" data-position="left center">
+                      <i class="resendText question circle icon" style="cursor:pointer;"></i> 
+                  </div>
+                <!-- <i class="resendText question circle icon" style="cursor:pointer;"></i> -->
                 <input id="password" type="password" placeholder="Choose a Password" autocomplete="false" required />
                <label for=password></label>
               </div>
               <div class="buttonCont">
-                <button class="yellowBtn" type="submit" (click)="signUp()" routerLink="/createProfile">Let's Go<i class="fa fa-fw fa-chevron-right"></i></button>
+                <button class="yellowBtn" type="submit" (click)="signUp()" >Let's Go<i class="fa fa-fw fa-chevron-right"></i></button>
                 <button class="blueBtn" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
               </div>
             </form>
@@ -55,15 +63,12 @@
                 <br>
               <span style="color:white;">Powered By&nbsp;</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
               src="assets/marketfront.png"/>
-              <h1>Buy your dream plot</h1>
-
-              <div class="ui search">
-                <div class="ui icon input" style="width:100%;" >
-                  <input  class="prompt searchProject" type="text" placeholder="City, Agent, Zip Code...">
-                  <i class="search icon" style="color:#0066ff;"></i>
-                </div>
+              <h1>Buy your dream home</h1>
+              <div class="ui icon fluid input">
+                <input type="text" class="searchProject" (keyup.enter)="browseLimited()" placeholder="City, Agent, Zip Code...">
+                <i class="search icon"></i>
               </div>
-              <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right" style="color:#0066ff; opacity:0.5;"></i></button></a>
+              <!-- <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right" style="color:#0066ff; opacity:0.5;"></i></button></a> -->
               <div class="info">
                 <a href="#" style="margin-right:10px;">Terms of Use</a><a href="#">Social</a>
               </div>

@@ -103,7 +103,7 @@
   background-color: #F2C037;
 }
 .success.toast {
-  background-color: #21BA45;
+  background-color: #2FCE72;
 }
 .error.toast {
   background-color: #DB2828;
@@ -115,7 +115,7 @@
   background: #cf9b0d !important;
 }
 .toast-box .success.attached.progress .bar {
-  background: #15792d !important;
+  background: #219050 !important;
 }
 .toast-box .error.attached.progress .bar {
   background: #9c1a1a !important;
@@ -126,14 +126,14 @@
 -------------- */
 
 .primary.toast {
-  background-color: #2185D0;
+  background-color: #0066ff;
 }
 .inverted.primary.toast,
 .toast-box .inverted.primary.attached.progress .bar {
   background-color: #54C8FF;
 }
 .secondary.toast {
-  background-color: #1B1C1D;
+  background-color: #414143;
 }
 .inverted.secondary.toast,
 .toast-box .inverted.secondary.attached.progress .bar {
@@ -168,7 +168,7 @@
   background-color: #D9E778;
 }
 .green.toast {
-  background-color: #21BA45;
+  background-color: #2FCE72;
 }
 .inverted.green.toast,
 .toast-box .inverted.green.attached.progress .bar {
@@ -182,7 +182,7 @@
   background-color: #6DFFFF;
 }
 .blue.toast {
-  background-color: #2185D0;
+  background-color: #0066ff;
 }
 .inverted.blue.toast,
 .toast-box .inverted.blue.attached.progress .bar {
@@ -224,7 +224,7 @@
   background-color: #DCDDDE;
 }
 .black.toast {
-  background-color: #1B1C1D;
+  background-color: #414143;
 }
 .inverted.black.toast,
 .toast-box .inverted.black.attached.progress .bar {

@@ -656,15 +656,15 @@
 --------------------*/
 
 .ui.primary.table {
-  border-top: 0.2em solid #2185D0;
+  border-top: 0.2em solid #0066ff;
 }
 .ui.inverted.primary.table {
-  background-color: #2185D0;
+  background-color: #0066ff;
   color: #FFFFFF;
 }
 .ui.ui.ui.ui.table tr.primary,
 .ui.ui.table td.primary {
-  box-shadow: 0 0 0 #1a69a4 inset;
+  box-shadow: 0 0 0 #0052cc inset;
   background: #ddf4ff;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -675,15 +675,15 @@
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.secondary.table {
-  border-top: 0.2em solid #1B1C1D;
+  border-top: 0.2em solid #414143;
 }
 .ui.inverted.secondary.table {
-  background-color: #1B1C1D;
+  background-color: #414143;
   color: #FFFFFF;
 }
 .ui.ui.ui.ui.table tr.secondary,
 .ui.ui.table td.secondary {
-  box-shadow: 0 0 0 #020203 inset;
+  box-shadow: 0 0 0 #282829 inset;
   background: #dddddd;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -770,15 +770,15 @@
   color: #8ABC1E;
 }
 .ui.green.table {
-  border-top: 0.2em solid #21BA45;
+  border-top: 0.2em solid #2FCE72;
 }
 .ui.inverted.green.table {
-  background-color: #21BA45;
+  background-color: #2FCE72;
   color: #FFFFFF;
 }
 .ui.ui.ui.ui.table tr.green,
 .ui.ui.table td.green {
-  box-shadow: 0 0 0 #198f35 inset;
+  box-shadow: 0 0 0 #26a45b inset;
   background: #d5f5d9;
   color: #1EBC30;
 }
@@ -808,23 +808,23 @@
   color: #10A3A3;
 }
 .ui.blue.table {
-  border-top: 0.2em solid #2185D0;
+  border-top: 0.2em solid #0066ff;
 }
 .ui.inverted.blue.table {
-  background-color: #2185D0;
+  background-color: #0066ff;
   color: #FFFFFF;
 }
 .ui.ui.ui.ui.table tr.blue,
 .ui.ui.table td.blue {
-  box-shadow: 0 0 0 #1a69a4 inset;
+  box-shadow: 0 0 0 #0052cc inset;
   background: #ddf4ff;
-  color: #2185D0;
+  color: #0066ff;
 }
 .ui.ui.selectable.table tr.blue:hover,
 .ui.table tr td.selectable.blue:hover,
 .ui.selectable.table tr:hover td.blue {
   background: #d3f1ff;
-  color: #2185D0;
+  color: #0066ff;
 }
 .ui.violet.table {
   border-top: 0.2em solid #6435C9;
@@ -922,15 +922,15 @@
   color: #767676;
 }
 .ui.black.table {
-  border-top: 0.2em solid #1B1C1D;
+  border-top: 0.2em solid #414143;
 }
 .ui.inverted.black.table {
-  background-color: #1B1C1D;
+  background-color: #414143;
   color: #FFFFFF;
 }
 .ui.ui.ui.ui.table tr.black,
 .ui.ui.table td.black {
-  box-shadow: 0 0 0 #020203 inset;
+  box-shadow: 0 0 0 #282829 inset;
   background: #545454;
   color: #FFFFFF;
 }

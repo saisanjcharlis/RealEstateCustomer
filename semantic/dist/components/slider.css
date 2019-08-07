@@ -38,7 +38,7 @@
 .ui.slider .inner .track-fill {
   position: absolute;
   border-radius: 4px;
-  background-color: #1B1C1D;
+  background-color: #414143;
 }
 .ui.slider:not(.vertical) .inner .track-fill {
   height: 0.4em;
@@ -233,7 +233,7 @@
 
 /* Standard */
 .ui.primary.slider .inner .track-fill {
-  background-color: #2185D0;
+  background-color: #0066ff;
 }
 .ui.primary.inverted.slider .inner .track-fill {
   background-color: #54C8FF;
@@ -241,11 +241,11 @@
 
 /* Basic */
 .ui.primary.slider.basic .inner .thumb {
-  background-color: #2185D0;
+  background-color: #0066ff;
 }
 .ui.primary.slider.basic .inner .thumb:hover,
 .ui.primary.slider.basic:focus .inner .thumb {
-  background-color: #1678c2;
+  background-color: #005ce6;
 }
 
 /* Basic Inverted */
@@ -259,7 +259,7 @@
 
 /* Standard */
 .ui.secondary.slider .inner .track-fill {
-  background-color: #1B1C1D;
+  background-color: #414143;
 }
 .ui.secondary.inverted.slider .inner .track-fill {
   background-color: #545454;
@@ -267,11 +267,11 @@
 
 /* Basic */
 .ui.secondary.slider.basic .inner .thumb {
-  background-color: #1B1C1D;
+  background-color: #414143;
 }
 .ui.secondary.slider.basic .inner .thumb:hover,
 .ui.secondary.slider.basic:focus .inner .thumb {
-  background-color: #27292a;
+  background-color: #4d4d50;
 }
 
 /* Basic Inverted */
@@ -389,7 +389,7 @@
 
 /* Standard */
 .ui.green.slider .inner .track-fill {
-  background-color: #21BA45;
+  background-color: #2FCE72;
 }
 .ui.green.inverted.slider .inner .track-fill {
   background-color: #2ECC40;
@@ -397,11 +397,11 @@
 
 /* Basic */
 .ui.green.slider.basic .inner .thumb {
-  background-color: #21BA45;
+  background-color: #2FCE72;
 }
 .ui.green.slider.basic .inner .thumb:hover,
 .ui.green.slider.basic:focus .inner .thumb {
-  background-color: #16ab39;
+  background-color: #23c065;
 }
 
 /* Basic Inverted */
@@ -441,7 +441,7 @@
 
 /* Standard */
 .ui.blue.slider .inner .track-fill {
-  background-color: #2185D0;
+  background-color: #0066ff;
 }
 .ui.blue.inverted.slider .inner .track-fill {
   background-color: #54C8FF;
@@ -449,11 +449,11 @@
 
 /* Basic */
 .ui.blue.slider.basic .inner .thumb {
-  background-color: #2185D0;
+  background-color: #0066ff;
 }
 .ui.blue.slider.basic .inner .thumb:hover,
 .ui.blue.slider.basic:focus .inner .thumb {
-  background-color: #1678c2;
+  background-color: #005ce6;
 }
 
 /* Basic Inverted */
@@ -597,7 +597,7 @@
 
 /* Standard */
 .ui.black.slider .inner .track-fill {
-  background-color: #1B1C1D;
+  background-color: #414143;
 }
 .ui.black.inverted.slider .inner .track-fill {
   background-color: #545454;
@@ -605,11 +605,11 @@
 
 /* Basic */
 .ui.black.slider.basic .inner .thumb {
-  background-color: #1B1C1D;
+  background-color: #414143;
 }
 .ui.black.slider.basic .inner .thumb:hover,
 .ui.black.slider.basic:focus .inner .thumb {
-  background-color: #27292a;
+  background-color: #4e4e50;
 }
 
 /* Basic Inverted */
@@ -628,11 +628,11 @@
 
 /* Standard */
 .ui.slider.basic .inner .thumb {
-  background-color: #1B1C1D;
+  background-color: #414143;
 }
 .ui.slider.basic .inner .thumb:hover,
 .ui.slider.basic:focus .inner .thumb {
-  background-color: #27292a;
+  background-color: #4e4e50;
 }
 
 /*--------------

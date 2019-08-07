@@ -9,7 +9,7 @@ export class ProjectsComponent implements OnInit {
   iconSearch = true;
   imagesList = [];
   constructor() {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 2; i++) {
       const url = 'https://loremflickr.com/640/480?random=' + (i +1);
       this.imagesList[i] = {
         url: url,
@@ -29,6 +29,15 @@ export class ProjectsComponent implements OnInit {
   }
   ngOnInit() {
     $(document).scrollTop(0);
+    $('.ui.range.slider')
+  .slider({
+    min: 5,
+    max: 30,
+    start: 0,
+    end: 90,
+    step: 5
+  })
+;
   }
 
 }

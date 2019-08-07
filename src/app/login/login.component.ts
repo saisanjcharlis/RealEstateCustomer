@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
   browseLimited(){
     localStorage.setItem('logStatus','false');
+    this.routes.navigate(['/projects']);
   }
   signIn(uname: string, p: string){
     let output = this.loginService.checkusername(uname,p);
@@ -44,9 +45,11 @@ export class LoginComponent implements OnInit {
   }
   signUp(){   
     localStorage.setItem('logStatus','createProfile');
+    this.routes.navigate(['/createProfile']);
   }
   ngOnInit() {
     $(document).scrollTop(0);
+
   }
 
 }

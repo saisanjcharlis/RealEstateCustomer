@@ -75,21 +75,21 @@
 
 .ui.primary.rating .active.icon {
   color: #54C8FF;
-  text-shadow: 0px -1px 0px #2185D0, -1px 0px 0px #2185D0, 0px 1px 0px #2185D0, 1px 0px 0px #2185D0;
+  text-shadow: 0px -1px 0px #0066ff, -1px 0px 0px #0066ff, 0px 1px 0px #0066ff, 1px 0px 0px #0066ff;
 }
 .ui.primary.rating .icon.selected,
 .ui.primary.rating .icon.selected.active {
   color: #21b8ff;
-  text-shadow: 0px -1px 0px #1678c2, -1px 0px 0px #1678c2, 0px 1px 0px #1678c2, 1px 0px 0px #1678c2;
+  text-shadow: 0px -1px 0px #005ce6, -1px 0px 0px #005ce6, 0px 1px 0px #005ce6, 1px 0px 0px #005ce6;
 }
 .ui.secondary.rating .active.icon {
   color: #545454;
-  text-shadow: 0px -1px 0px #1B1C1D, -1px 0px 0px #1B1C1D, 0px 1px 0px #1B1C1D, 1px 0px 0px #1B1C1D;
+  text-shadow: 0px -1px 0px #414143, -1px 0px 0px #414143, 0px 1px 0px #414143, 1px 0px 0px #414143;
 }
 .ui.secondary.rating .icon.selected,
 .ui.secondary.rating .icon.selected.active {
   color: #6e6e6e;
-  text-shadow: 0px -1px 0px #27292a, -1px 0px 0px #27292a, 0px 1px 0px #27292a, 1px 0px 0px #27292a;
+  text-shadow: 0px -1px 0px #4d4d50, -1px 0px 0px #4d4d50, 0px 1px 0px #4d4d50, 1px 0px 0px #4d4d50;
 }
 .ui.red.rating .active.icon {
   color: #FF695E;
@@ -129,12 +129,12 @@
 }
 .ui.green.rating .active.icon {
   color: #2ECC40;
-  text-shadow: 0px -1px 0px #21BA45, -1px 0px 0px #21BA45, 0px 1px 0px #21BA45, 1px 0px 0px #21BA45;
+  text-shadow: 0px -1px 0px #2FCE72, -1px 0px 0px #2FCE72, 0px 1px 0px #2FCE72, 1px 0px 0px #2FCE72;
 }
 .ui.green.rating .icon.selected,
 .ui.green.rating .icon.selected.active {
   color: #1ea92e;
-  text-shadow: 0px -1px 0px #16ab39, -1px 0px 0px #16ab39, 0px 1px 0px #16ab39, 1px 0px 0px #16ab39;
+  text-shadow: 0px -1px 0px #23c065, -1px 0px 0px #23c065, 0px 1px 0px #23c065, 1px 0px 0px #23c065;
 }
 .ui.teal.rating .active.icon {
   color: #6DFFFF;
@@ -147,12 +147,12 @@
 }
 .ui.blue.rating .active.icon {
   color: #54C8FF;
-  text-shadow: 0px -1px 0px #2185D0, -1px 0px 0px #2185D0, 0px 1px 0px #2185D0, 1px 0px 0px #2185D0;
+  text-shadow: 0px -1px 0px #0066ff, -1px 0px 0px #0066ff, 0px 1px 0px #0066ff, 1px 0px 0px #0066ff;
 }
 .ui.blue.rating .icon.selected,
 .ui.blue.rating .icon.selected.active {
   color: #21b8ff;
-  text-shadow: 0px -1px 0px #1678c2, -1px 0px 0px #1678c2, 0px 1px 0px #1678c2, 1px 0px 0px #1678c2;
+  text-shadow: 0px -1px 0px #005ce6, -1px 0px 0px #005ce6, 0px 1px 0px #005ce6, 1px 0px 0px #005ce6;
 }
 .ui.violet.rating .active.icon {
   color: #A291FB;
@@ -201,12 +201,12 @@
 }
 .ui.black.rating .active.icon {
   color: #545454;
-  text-shadow: 0px -1px 0px #1B1C1D, -1px 0px 0px #1B1C1D, 0px 1px 0px #1B1C1D, 1px 0px 0px #1B1C1D;
+  text-shadow: 0px -1px 0px #414143, -1px 0px 0px #414143, 0px 1px 0px #414143, 1px 0px 0px #414143;
 }
 .ui.black.rating .icon.selected,
 .ui.black.rating .icon.selected.active {
   color: #000000;
-  text-shadow: 0px -1px 0px #27292a, -1px 0px 0px #27292a, 0px 1px 0px #27292a, 1px 0px 0px #27292a;
+  text-shadow: 0px -1px 0px #4e4e50, -1px 0px 0px #4e4e50, 0px 1px 0px #4e4e50, 1px 0px 0px #4e4e50;
 }
 
 

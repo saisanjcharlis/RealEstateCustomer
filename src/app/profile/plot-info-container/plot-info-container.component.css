@@ -99,8 +99,6 @@
 	}
 }
 .plotButton{
-	color:white;
-	background-color: #0066ff;
 	cursor: pointer;
 	margin-top:10px;
 }
@@ -132,14 +130,6 @@
 }
 .plotButton:nth-of-type(4){
 	flex: 1 0 auto;
-}
-.plotButton:hover{
-    background-color:#0d55c0;
-    color:white;
-}
-.plotButton:active{
-    background-color:#0d55c0;
-    color:white;
 }
 @media all and  (min-width:1042px) and (max-width:1216px){
 	.plotButton:nth-of-type(4){

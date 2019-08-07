@@ -1,43 +1,96 @@
 <app-navbar></app-navbar>
-<!-- <div class="padTop">
-    <span class="sectionHeader">
-        Available Projects
-    </span>
-    <button class="ui green button pop" style="float:right;margin-right:2%;margin-top:15px;">Meet an Agent</button>
-    <button class="ui  button pop" style="float:right;margin-right:2%;margin-top:15px; background: #0066ff; color:white;">Affordability Calculator</button>
-    <button class="ui  button pop" style="float:right;margin-right:2%;margin-top:15px; background: #0066ff; color:white;">Mortgage Rate Calculator</button>
-    <div class="plotHeaderMobile">
-        <a class="plotHeaderFilter filt">Filter &nbsp;<i class="filter icon"></i></a>
-        <a class="plotHeaderFilter"><i class="th large icon"></i></a>
-        <a class="plotHeaderFilter"><i class="list large icon"></i></a>
-        <div style="clear: both;"></div>
-    </div> 
-</div>
-<div style="width:50%;margin-left:2%;">
-        
-        
-        <div class="plotHeader">
-               <span style="font-size:13px;float:left;margin-top:15px;margin-left:15px;">Filter by location: Location - Hyderabad</span>
-            <div class="container" >
-                <input type="text" class="input" placeholder="Search">
-                <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
-                <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
+
+<div class="compContainer">
+    <div class="mapContainer">
+            <div class="padTop">
+                    <span class="sectionHeader">
+                        Available Projects
+                    </span>
+                    <div class="container" >
+                            <input type="text" class="input" placeholder="Search">
+                            <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
+                            <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
+                    </div>
+                    
+                </div>
+                <button class="ui green button pop" style="float:right;margin-right:2%;margin-top:15px;">Meet an Agent</button>
+                <button class="ui blue button pop" style="float:right;margin-right:2%;margin-top:15px;">Affordability Calculator</button>
+                <button class="ui blue button pop" style="float:right;margin-right:2%;margin-top:15px;">Mortgage Rate Calculator</button>
+                <div class="plotHeaderMobile">
+                    <a class="plotHeaderFilter filt">Filter &nbsp;<i class="filter icon"></i></a>
+                    <a class="plotHeaderFilter"><i class="th large icon"></i></a>
+                    <a class="plotHeaderFilter"><i class="list large icon"></i></a>
+                    <div style="clear: both;"></div>
+                </div> 
+    </div>
+    <div class="projectContainer">
+        <div style="position: sticky;top:56px;z-index:2;">
+            <div style="padding:15px 20px 15px 15px;background: white;">
+                    <h2 style="float:left;padding:8px;color:#414143;margin-bottom:0;">Hyderabad Real Estate</h2>
+                    <div class="projectList">Upcoming Projects</div>
+                    <div class="projectList activeProject">Listings</div>
+                    <div style="clear: both;"></div>
             </div>
-            <a class="plotHeaderFilter filt">Filter &nbsp;<i class="filter icon"></i></a>
-            <a class="plotHeaderFilter"><i class="th large icon"></i></a>
-            <a class="plotHeaderFilter"><i class="list large icon"></i></a>
-            <div style="clear: both;"></div>
-        </div> 
-        <div style="background-color: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+            
+            <div class="plotHeader">
+                <div style="margin-left:20px;margin-right:10px;">Price</div>
+                <div class="ui compact selection dropdown dropDown">
+                        <input type="hidden" name="gender">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">No min</div>
+                        <div class="menu">
+                        <div class="item" data-value="1">1 cr.</div>
+                        <div class="item" data-value="1">2 cr.</div>
+                        <div class="item" data-value="0">3 cr. </div>
+                        <div class="item" data-value="0">4 cr. </div>
+                        <div class="item" data-value="0">5 cr. </div>
+                        <div class="item" data-value="0">6 cr. </div>
+                        <div class="item" data-value="0">7 cr. </div>
+                        <div class="item" data-value="0">8 cr. </div>
+                        <div class="item" data-value="0">9 cr. </div>
+                        <div class="item" data-value="0">10 cr. </div>
+                        </div>
+                </div>
+                &nbsp;to&nbsp;
+                <div class="ui compact selection dropdown dropDown">
+                        <input type="hidden" name="gender">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">No max</div>
+                        <div class="menu">
+                        <div class="item" data-value="1">1 cr.</div>
+                        <div class="item" data-value="1">2 cr.</div>
+                        <div class="item" data-value="0">3 cr. </div>
+                        <div class="item" data-value="0">4 cr. </div>
+                        <div class="item" data-value="0">5 cr. </div>
+                        <div class="item" data-value="0">6 cr. </div>
+                        <div class="item" data-value="0">7 cr. </div>
+                        <div class="item" data-value="0">8 cr. </div>
+                        <div class="item" data-value="0">9 cr. </div>
+                        <div class="item" data-value="0">10 cr. </div>
+                        </div>
+                </div>
+                <div class="moreFilter">More Filters<i class="angle down icon"></i></div>
+                <!-- <span style="font-size:13px;float:left;margin-top:15px;margin-left:15px;">Filter by location: Location - Hyderabad</span>
+                <div style="clear: both;"></div> -->
+            </div> 
+            <div class="displayInfo">
+                <span style="display:inline-block;padding:12px;font-weight: 600;color:#414143;font-size:12px;">Showing 21 out of 2107 Projects</span>
+                <span style="color:#414143;"><i class="sort amount down icon"></i>Sort</span>
+                <div data-inverted="" class="viewMode" data-tooltip="Thumbnail" data-variation="" data-position="bottom right">
+                        <i class="th black large icon" style="cursor:pointer;"></i>
+                </div>
+                <div data-inverted="" class="viewMode" style="cursor:pointer;" data-tooltip="List" data-variation="" data-position="bottom right">
+                        <i class="list black large icon"></i>
+                </div>
+
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <div style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
             <div  *ngFor="let image of imagesList" (deferLoad)="image.show = true">
                 <project *ngIf="image.show"></project>
             </div>
-            
+                        
         </div>
-</div> -->
-
-<div style="padding-top:400px;">
-    into grid 2
-    1st half side ->available projects header then map 
-    2nd half side -> table for listing projects
+    </div>
 </div>
