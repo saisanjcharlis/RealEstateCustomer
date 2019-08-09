@@ -24,36 +24,36 @@
               <path fill-rule="evenodd" clip-rule="evenodd" d="M8.78208 7.35787C8.57083 7.1304 8.57083 6.76293 8.78208 6.53546L10.0496 5.1706C10.1508 5.06138 10.2882 5 10.4315 5C10.5747 5 10.7121 5.06138 10.8133 5.1706L11.875 6.31381L9.84375 8.50109L8.78208 7.35787ZM17.8333 12.7298L12.4167 6.89709L10.3854 9.08436L15.8021 14.9171H17.8333V12.7298ZM16.75 13.7505H16.2517L11.9183 9.08436L12.4167 8.54775L16.75 13.2139V13.7505ZM7 16.6669H20V19H7V16.6669Z" fill="white"/>
             </svg>
           </div>
-          <div class="field">
-            <label>First Name</label>
-            <input type="text" name="first-name" >
+          <div class="required field">
+            <label>Name</label>
+            <input type="text" name="name" >
           </div>
-          <div class="field">
-            <label>Last Name</label>
-            <input type="text" name="last-name" >
+          <div class="required field">
+            <label>Username</label>
+            <input type="text" name="username" >
           </div>
-          <div class="field disabled">
+          <div class="required field">
             <label>Password</label>
-            <input type="password" value="admin123" name="password" >
+            <input type="password" readonly="" value="admin123" name="password" >
           </div>
           <div class="update"><span>Update Password</span></div>
-          <div class="field">
+          <div class="required field">
             <label>Email</label>
             <input type="email" name="email" >
           </div>
-          <div class="field disabled">
+          <div class="required field">
             <label>Phone Number</label>
-            <input type="number" value="9435350679" name="phNo" >
+            <input type="number" readonly="" value="9435350679" name="phNo" >
           </div>
           <div class="update"><span>Update Phone Number</span></div>
           
       </div>
       <div>
-        <div class="field">
+        <div class="required field">
             <label>Address</label>
             <textarea rows="2"></textarea>
         </div>
-        <div class="field">
+        <div class="required field">
           <label>Date Of Birth</label>
           <div class="ui calendar" id="year_first_calendar">
             <div class="ui input left icon">
@@ -62,16 +62,26 @@
             </div>
           </div>
         </div>
-        <div class="field">
+        <div class="required field">
           <label>Aadhar Number</label>
           <input type="number" name="aadhar-number" >
         </div>
-        <div class="field">
+        <div class="required field">
           <label>Pan Number</label>
           <input type="text" name="pan-number" >
         </div>
         <div class="field">
-          <label>Payment Method</label>
+          <label>Marketing Agent</label>
+          <select class="ui fluid dropdown">
+            <option value="">Select</option>
+            <option value="cash">Raju Rastogi</option>
+            <option value="cash">Shweta Tiwari</option>
+            <option value="cash">Anju Singh</option>
+            <option value="cash">John Wick</option>
+        </select>
+        </div>
+        <div class="field">
+          <label>Default Payment Method</label>
           <select class="ui fluid dropdown">
             <option value="">Select</option>
             <option value="cash">Cash</option>
@@ -79,10 +89,6 @@
             <option value="cash">Online</option>
             <option value="cash">Cheque</option>
         </select>
-        </div>
-        <div class="field" style="margin-top:20px;float:right;">
-          <i class="large credit card icon creditCard"></i>
-          <span class="payMethod">Add Payment Method</span>
         </div>
       </div>
      

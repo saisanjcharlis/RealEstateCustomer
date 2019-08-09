@@ -22,6 +22,7 @@ import { AuthGuard } from '../services/auth.guard';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { FeedComponent } from './profile/feed/feed.component';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
+import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { DeferLoadModule } from '@trademe/ng-defer-load';
     CreateProfileComponent,
     ProjectComponent,
     TransactionsComponent,
-    FeedComponent
+    FeedComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,

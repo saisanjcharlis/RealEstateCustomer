@@ -2,29 +2,32 @@
 
 <div class="compContainer">
     <div class="mapContainer">
-            <div class="padTop">
-                    <span class="sectionHeader">
-                        Available Projects
-                    </span>
-                    <div class="container" >
-                            <input type="text" class="input" placeholder="Search">
-                            <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
-                            <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
+        <div style="position: sticky;top:0;z-index:2;">
+                <div class="padTop">
+                        <span class="sectionHeader">
+                            Available Projects
+                        </span>
+                        <div class="container" >
+                                <input type="text" class="input" placeholder="Search">
+                                <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
+                                <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
+                        </div>
+                        
                     </div>
-                    
-                </div>
-                <button class="ui green button pop" style="float:right;margin-right:2%;margin-top:15px;">Meet an Agent</button>
-                <button class="ui blue button pop" style="float:right;margin-right:2%;margin-top:15px;">Affordability Calculator</button>
-                <button class="ui blue button pop" style="float:right;margin-right:2%;margin-top:15px;">Mortgage Rate Calculator</button>
-                <div class="plotHeaderMobile">
-                    <a class="plotHeaderFilter filt">Filter &nbsp;<i class="filter icon"></i></a>
-                    <a class="plotHeaderFilter"><i class="th large icon"></i></a>
-                    <a class="plotHeaderFilter"><i class="list large icon"></i></a>
-                    <div style="clear: both;"></div>
-                </div> 
+                    <button class="ui green button pop" style="float:right;margin-right:2%;margin-top:15px;">Meet an Agent</button>
+                    <button class="ui blue button pop" style="float:right;margin-right:2%;margin-top:15px;">Affordability Calculator</button>
+                    <button class="ui blue button pop" style="float:right;margin-right:2%;margin-top:15px;">Mortgage Rate Calculator</button>
+                    <div class="plotHeaderMobile">
+                        <a class="plotHeaderFilter filt">Filter &nbsp;<i class="filter icon"></i></a>
+                        <a class="plotHeaderFilter"><i class="th large icon"></i></a>
+                        <a class="plotHeaderFilter"><i class="list large icon"></i></a>
+                        <div style="clear: both;"></div>
+                    </div> 
+        </div>
+           
     </div>
     <div class="projectContainer">
-        <div style="position: sticky;top:56px;z-index:2;">
+        <div style="position: sticky;top:56px;z-index:3;">
             <div style="padding:15px 20px 15px 15px;background: white;">
                     <h2 style="float:left;padding:8px;color:#414143;margin-bottom:0;">Hyderabad Real Estate</h2>
                     <div class="projectList">Upcoming Projects</div>
@@ -69,13 +72,29 @@
                         <div class="item" data-value="0">10 cr. </div>
                         </div>
                 </div>
-                <div class="moreFilter">More Filters<i class="angle down icon"></i></div>
+                <div class="moreFilter" (click)="moreFilter()"><span *ngIf="!filterTrue">More Filters<i class="angle down icon"></i></span><span *ngIf="filterTrue">Fewer Filters<i class="angle up icon"></i></span></div>
                 <!-- <span style="font-size:13px;float:left;margin-top:15px;margin-left:15px;">Filter by location: Location - Hyderabad</span>
                 <div style="clear: both;"></div> -->
             </div> 
             <div class="displayInfo">
                 <span style="display:inline-block;padding:12px;font-weight: 600;color:#414143;font-size:12px;">Showing 21 out of 2107 Projects</span>
-                <span style="color:#414143;"><i class="sort amount down icon"></i>Sort</span>
+                <!-- <span style="color:#414143;"><i class="sort amount down icon"></i>Sort</span> -->
+
+                <div class="ui pointing dropdown" style="color:#414143;">
+                      <i class="sort amount down icon" ></i>
+                      <span>Sort</span>
+                      <div class="right menu">
+                            <a class="item">Recommended</a>
+                            <a class="item">Price</a>
+                            <a class="item">Rating</a>
+                            <a class="item">Square Yards</a>
+                            <a class="item">Newest First</a>
+                            <a class="disabled item">Upcoming</a>
+                            
+                      </div>
+                  </div>
+
+
                 <div data-inverted="" class="viewMode" data-tooltip="Thumbnail" data-variation="" data-position="bottom right">
                         <i class="th black large icon" style="cursor:pointer;"></i>
                 </div>
@@ -86,11 +105,325 @@
                 <div style="clear: both;"></div>
             </div>
         </div>
-        <div style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
-            <div  *ngFor="let image of imagesList" (deferLoad)="image.show = true">
-                <project *ngIf="image.show"></project>
+        <div class="filterMenu" *ngIf="filterTrue">
+            <span class="filterHeader">Property Type</span>
+
+
+            <div class="ui large icon buttons" style="width:25%;margin-top:20px;">
+                    <div class="ui vertical animated black fluid button" tabindex="0">
+                            <div class="hidden content">Plots</div>
+                            <div class="visible content">
+                              <i class="home icon"></i>
+                            </div>
+                    </div>
+                    <div class="ui vertical animated black fluid button" tabindex="0">
+                            <div class="hidden content">Apartments</div>
+                            <div class="visible content">
+                              <i class="city icon"></i>
+                            </div>
+                    </div>
+                    <div class="ui vertical toggle activeProperty animated black fluid button" tabindex="0">
+                            <div class="hidden content">Villas</div>
+                            <div class="visible content">
+                              <i class="place of worship icon"></i>
+                            </div>
+                    </div>
+                    <div class="ui vertical animated black fluid button" tabindex="0">
+                            <div class="hidden content">Builder</div>
+                            <div class="visible content">
+                              <i class="building icon"></i>
+                            </div>
+                    </div>
             </div>
+
+           
+            <span class="filterHeader">Listing Status</span>
+            <div class="ui toggle checkbox" style="margin-top:20px;">
+                    <input type="checkbox" name="public">
+                    <label>For Sale/Sold</label>
+            </div>
+            <hr style="margin-top:20px;">
+            <span class="filterHeader">Property Facts</span>
+            <div class="propertyFlex">
+                    <div>
+                            <div style="margin:10px 0;font-size:14px;">Square Yards</div>
+                            <div class="ui compact menu">
+                                    <div class="ui simple dropdown item">
+                                      No Min
+                                      <i class="dropdown icon"></i>
+                                      <div class="menu">
+                                            <div class="item" data-value="1">1 cr.</div>
+                                            <div class="item" data-value="1">2 cr.</div>
+                                            <div class="item" data-value="0">3 cr. </div>
+                                            <div class="item" data-value="0">4 cr. </div>
+                                            <div class="item" data-value="0">5 cr. </div>
+                                            <div class="item" data-value="0">6 cr. </div>
+                                            <div class="item" data-value="0">7 cr. </div>
+                                            <div class="item" data-value="0">8 cr. </div>
+                                            <div class="item" data-value="0">9 cr. </div>
+                                            <div class="item" data-value="0">10 cr. </div>
+                                      </div>
+                                    </div>
+                            </div>
+                            &nbsp;to&nbsp;
+            
+                            <div class="ui compact menu">
+                                    <div class="ui simple dropdown item">
+                                            No max
+                                      <i class="dropdown icon"></i>
+                                      <div class="menu">
+                                            <div class="item" data-value="1">1 cr.</div>
+                                            <div class="item" data-value="1">2 cr.</div>
+                                            <div class="item" data-value="0">3 cr. </div>
+                                            <div class="item" data-value="0">4 cr. </div>
+                                            <div class="item" data-value="0">5 cr. </div>
+                                            <div class="item" data-value="0">6 cr. </div>
+                                            <div class="item" data-value="0">7 cr. </div>
+                                            <div class="item" data-value="0">8 cr. </div>
+                                            <div class="item" data-value="0">9 cr. </div>
+                                            <div class="item" data-value="0">10 cr. </div>
+                                      </div>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="propertyFlex2">
+                                <div style="margin:10px 0;">Lot Size</div>
+                                <div class="ui compact menu">
+                                        <div class="ui simple dropdown item">
+                                          No Min
+                                          <i class="dropdown icon"></i>
+                                          <div class="menu">
+                                                <div class="item" data-value="1">1 cr.</div>
+                                                <div class="item" data-value="1">2 cr.</div>
+                                                <div class="item" data-value="0">3 cr. </div>
+                                                <div class="item" data-value="0">4 cr. </div>
+                                                <div class="item" data-value="0">5 cr. </div>
+                                                <div class="item" data-value="0">6 cr. </div>
+                                                <div class="item" data-value="0">7 cr. </div>
+                                                <div class="item" data-value="0">8 cr. </div>
+                                                <div class="item" data-value="0">9 cr. </div>
+                                                <div class="item" data-value="0">10 cr. </div>
+                                          </div>
+                                        </div>
+                                </div>
+                                &nbsp;to&nbsp;
+                
+                                <div class="ui compact menu">
+                                        <div class="ui simple dropdown item">
+                                                No max
+                                          <i class="dropdown icon"></i>
+                                          <div class="menu">
+                                                <div class="item" data-value="1">1 cr.</div>
+                                                <div class="item" data-value="1">2 cr.</div>
+                                                <div class="item" data-value="0">3 cr. </div>
+                                                <div class="item" data-value="0">4 cr. </div>
+                                                <div class="item" data-value="0">5 cr. </div>
+                                                <div class="item" data-value="0">6 cr. </div>
+                                                <div class="item" data-value="0">7 cr. </div>
+                                                <div class="item" data-value="0">8 cr. </div>
+                                                <div class="item" data-value="0">9 cr. </div>
+                                                <div class="item" data-value="0">10 cr. </div>
+                                          </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div>
+                                    <div style="margin:10px 0;">Year Built</div>
+                                    <div class="ui compact menu">
+                                            <div class="ui simple dropdown item">
+                                              No Min
+                                              <i class="dropdown icon"></i>
+                                              <div class="menu">
+                                                    <div class="item" data-value="1">2019</div>
+                                                    <div class="item" data-value="1">2018</div>
+                                                    <div class="item" data-value="0">2017</div>
+                                                    <div class="item" data-value="1">2016</div>
+                                                    <div class="item" data-value="1">2015</div>
+                                                    <div class="item" data-value="0">2014</div>
+                                                    <div class="item" data-value="1">2013</div>
+                                                    <div class="item" data-value="1">2012</div>
+                                                    <div class="item" data-value="0">2011</div>
+                                                    <div class="item" data-value="0">2010</div>
+                                                    <div class="item" data-value="0">2009</div>
+                                                    <div class="item" data-value="0">2008</div>
+                                                    <div class="item" data-value="0">2007</div>
+                                                    <div class="item" data-value="0">2006</div>
+                                                    <div class="item" data-value="0">2005</div>
+                                                    <div class="item" data-value="0">2004</div>
+                                                    <div class="item" data-value="0">2003</div>
+                                                    <div class="item" data-value="0">2002</div>
+                                                    <div class="item" data-value="0">2001</div>
+                                                    <div class="item" data-value="0">2000</div>
+                                                    <div class="item" data-value="0">1995</div>
+                                                    <div class="item" data-value="0">1990</div>
+                                                    <div class="item" data-value="0">1985</div>
+                                              </div>
+                                            </div>
+                                    </div>
+                                    &nbsp;to&nbsp;
+                    
+                                    <div class="ui compact menu">
+                                            <div class="ui simple dropdown item">
+                                                    No max
+                                              <i class="dropdown icon"></i>
+                                              <div class="menu">
+                                                <div class="item" data-value="1">2019</div>
+                                                <div class="item" data-value="1">2018</div>
+                                                <div class="item" data-value="0">2017</div>
+                                                <div class="item" data-value="1">2016</div>
+                                                <div class="item" data-value="1">2015</div>
+                                                <div class="item" data-value="0">2014</div>
+                                                <div class="item" data-value="1">2013</div>
+                                                <div class="item" data-value="1">2012</div>
+                                                <div class="item" data-value="0">2011</div>
+                                                <div class="item" data-value="0">2010</div>
+                                                <div class="item" data-value="0">2009</div>
+                                                <div class="item" data-value="0">2008</div>
+                                                <div class="item" data-value="0">2007</div>
+                                                <div class="item" data-value="0">2006</div>
+                                                <div class="item" data-value="0">2005</div>
+                                                <div class="item" data-value="0">2004</div>
+                                                <div class="item" data-value="0">2003</div>
+                                                <div class="item" data-value="0">2002</div>
+                                                <div class="item" data-value="0">2001</div>
+                                                <div class="item" data-value="0">2000</div>
+                                                <div class="item" data-value="0">1995</div>
+                                                <div class="item" data-value="0">1990</div>
+                                                <div class="item" data-value="0">1985</div>
+                                              </div>
+                                            </div>
+                                    </div>
+                                </div>
+            </div>
+
+            <hr style="margin-top:20px;">
+
+            <span class="filterHeader">Amenities</span>
+
+            <div class="propertyFlex">
+                <div>
+                        <div style="margin:10px 0;font-size:14px;">Parking Spaces</div>
+                        <div class="ui compact menu">
+                                <div class="ui simple dropdown item">
+                                 1+
+                                  <i class="dropdown icon"></i>
+                                  <div class="menu">
+                                        <div class="item" data-value="1">1+</div>
+                                        <div class="item" data-value="1">2+</div>
+                                        <div class="item" data-value="0">3+</div>
+                                        <div class="item" data-value="0">4+</div>
+                                        <div class="item" data-value="0">5+</div>
+                                  </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="propertyFlex2">
+                            <div style="margin:10px 0;">Stories</div>
+                            <div class="ui compact menu">
+                                    <div class="ui simple dropdown item">
+                                      No Min
+                                      <i class="dropdown icon"></i>
+                                      <div class="menu">
+                                            <div class="item" data-value="1">1</div>
+                                            <div class="item" data-value="1">2</div>
+                                            <div class="item" data-value="0">3</div>
+                                            <div class="item" data-value="0">4</div>
+                                            <div class="item" data-value="0">5</div>
+                                            <div class="item" data-value="0">6</div>
+                                            <div class="item" data-value="0">7</div>
+                                            <div class="item" data-value="0">8</div>
+                                            <div class="item" data-value="0">9</div>
+                                            <div class="item" data-value="0">10</div>
+                                            <div class="item" data-value="0">15</div>
+                                            <div class="item" data-value="0">20</div>
+                                      </div>
+                                    </div>
+                            </div>
+                            &nbsp;to&nbsp;
+            
+                            <div class="ui compact menu">
+                                    <div class="ui simple dropdown item">
+                                            No max
+                                      <i class="dropdown icon"></i>
+                                      <div class="menu">
+                                        <div class="item" data-value="1">1</div>
+                                        <div class="item" data-value="1">2</div>
+                                        <div class="item" data-value="0">3</div>
+                                        <div class="item" data-value="0">4</div>
+                                        <div class="item" data-value="0">5</div>
+                                        <div class="item" data-value="0">6</div>
+                                        <div class="item" data-value="0">7</div>
+                                        <div class="item" data-value="0">8</div>
+                                        <div class="item" data-value="0">9</div>
+                                        <div class="item" data-value="0">10</div>
+                                        <div class="item" data-value="0">15</div>
+                                        <div class="item" data-value="0">20</div>
+                                      </div>
+                                    </div>
+                            </div>
+                        </div>
+                        
+                </div>
+                <div class="gridAmenities">
+                        <div style="display: flex;flex-direction: column;">
+                                <div class="ui checkbox checkBox">
+                                        <input type="checkbox" tabindex="0" class="hidden">
+                                        <label>Swimming Pool</label>
+                                </div>
+                                <div class="ui checkbox checkBox">
+                                        <input type="checkbox" tabindex="0" class="hidden">
+                                        <label>Pavement</label>
+                                </div>
+                                <div class="ui checkbox checkBox">
+                                        <input type="checkbox" tabindex="0" class="hidden">
+                                        <label>Fountain Park</label>
+                                </div>
+                                <div class="ui checkbox checkBox">
+                                        <input type="checkbox" tabindex="0" class="hidden">
+                                        <label>Disabled Friendly</label>
+                                </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;">
+                                <div class="ui checkbox checkBox">
+                                        <input type="checkbox" tabindex="0" class="hidden">
+                                        <label>View</label>
+                                </div>
+                                <div class="ui checkbox checkBox">
+                                        <input type="checkbox" tabindex="0" class="hidden">
+                                        <label>Shopping</label>
+                                </div>
+                                <div class="ui checkbox checkBox">
+                                        <input type="checkbox" tabindex="0" class="hidden">
+                                        <label>Children's Park</label>
+                                </div>
+                                <div class="ui checkbox checkBox">
+                                        <input type="checkbox" tabindex="0" class="hidden">
+                                        <label>Garden</label>
+                                </div>
+                        </div>
+                </div>
+                
+            <hr style="margin-top:20px;">
+            <div class="footer">
+                <span class="ui blue tertiary button" style="font-size:15px;">Reset</span>
+                <button style="float: right;" class="ui blue button">Apply Filters</button>
+                <span style="float: right; padding:8px 0;margin-right:10px;">350+ Projects / No Matches</span>
+                
+            </div>
+        </div>
+        <div class="projects" *ngIf="!filterTrue">
+            <project></project>
+            <project></project>
+            <project></project>
+            <project></project>
+            <project></project>
+            
                         
         </div>
+        <!-- <div  *ngFor="let image of imagesList" (deferLoad)="image.show = true">
+                <project *ngIf="image.show"></project>
+        </div> -->
     </div>
 </div>

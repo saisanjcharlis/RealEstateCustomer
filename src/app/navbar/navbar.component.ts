@@ -45,5 +45,6 @@ export class NavbarComponent implements OnInit {
     });
     $('.ui.dropdown')
     .dropdown();
+ 
   }
 }

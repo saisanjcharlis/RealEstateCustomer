@@ -8,8 +8,9 @@ declare var $:any;
 export class ProjectsComponent implements OnInit {
   iconSearch = true;
   imagesList = [];
+  filterTrue = false;
   constructor() {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 5; i++) {
       const url = 'https://loremflickr.com/640/480?random=' + (i +1);
       this.imagesList[i] = {
         url: url,
@@ -17,6 +18,17 @@ export class ProjectsComponent implements OnInit {
     };
     }
    }
+  moreFilter(){
+    $('.ui.dropdown')
+    .dropdown();
+    if(this.filterTrue == false){
+      $(".displayInfo").css("display","none");
+    } else {
+      $(".displayInfo").css("display","block");
+    }
+    this.filterTrue = !this.filterTrue;
+  
+  }
   expandSearch(){
     $(".container, .input").addClass("active");
     $("input[type='text']").focus();
@@ -29,15 +41,7 @@ export class ProjectsComponent implements OnInit {
   }
   ngOnInit() {
     $(document).scrollTop(0);
-    $('.ui.range.slider')
-  .slider({
-    min: 5,
-    max: 30,
-    start: 0,
-    end: 90,
-    step: 5
-  })
-;
+    $('.ui.checkbox').checkbox();
   }
 
 }
