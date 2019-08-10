@@ -30,6 +30,11 @@
     width: 100%;
   }
 }
+@media all and (max-width: 1055px) {
+  h3{
+    display: block;
+  }
+}
 .projectList {
   color:#414143;
   padding:8px;
@@ -40,11 +45,23 @@
   margin-top:3px;
 }
 .projects{
-  margin-top:20px;
+  padding:20px;
+  margin:48px 0 0 0 !important;
 }
 .propertyFlex{
   display:flex;
   flex-wrap: wrap;
+}
+.propertyFlex div{
+  flex:1 0 auto;
+}
+.propertyFlex1{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.propertyFlex1 div{
+  flex:1 0 auto;
 }
 @media all and (max-width: 1026px) {
   .propertyFlex div{
@@ -58,6 +75,7 @@
 }
 
 .filterMenu{
+  display: none;
   flex-grow: 1;
   margin:0 20px;
   margin-top:54px;
@@ -103,22 +121,7 @@
     padding: 5px 10px 5px 25px ;
     margin-bottom: 20px;
 }
-.plotHeaderMobile{
-    /* width: 100%; */
-    color:white;
-    float:right;
-    margin-top:10px;
-    padding:10px 0 10px 5px;
-	font-family:  'Quicksand', sans-serif;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
-@media all and (min-width: 769px) {
-	.plotHeaderMobile{
-		display: none;
-  }
-}
+
 .plotHeader{
     width: 100%;
     color:white;
@@ -133,7 +136,26 @@
 .dropDown{
   border-radius: 1px !important;
 }
+.topContainer{
+  position: sticky;
+  left:0;
+  top:56px;
+  z-index:3;
+}
+@media all and (max-width: 768px) {
+  .topContainer{
+    top:40px;
+  }
+}
 .moreFilter{
+  margin-left: auto;
+  cursor: pointer;
+  margin-right:10px;
+}
+.marginRight{
+  margin-right:10px;
+}
+.moreFilter1{
   margin-left: auto;
   cursor: pointer;
   margin-right:10px;
@@ -147,26 +169,6 @@
   border-bottom: 1px solid rgba(0,0,0,0.2) ;
   background: #fff;
   padding:0 20px 0 12px;
-}
-@media all and (max-width: 768px) {
-	.plotHeader{
-		display: none;
-  }
-}
-.plotHeaderFilter{
-    float:right; 
-    color:white;
-    cursor: pointer;
-    margin-right:10px;
-}
-@media all and (max-width: 768px) {
-	.plotHeader{
-		background-color: white;
-  }
-  .plotHeaderFilter{
-      color:#0066ff;
-      margin-top:0;
-  }
 }
 /* .searchHolder{
     width: 500px;
@@ -237,4 +239,20 @@
     margin-right:5px;
   }
   
-  
+  .floatRightDrop{
+    padding-top:8px;
+    position: absolute;
+    right:0;
+  }
+  .multiple{
+    margin-top:20px;
+  }
+  .image{
+    position: relative;
+  }
+  .tagInfo{
+    opacity: 0.7;
+    position: absolute;
+    top:10px;
+    left:10px;
+  }

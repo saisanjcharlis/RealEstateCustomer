@@ -6,6 +6,11 @@
               <i class="navIcon plus icon large"></i>
               <span>Join</span>
           </a>
+          <a class="item navFlex" routerLink="/profile" routerLinkActive="color change">
+            <i class="navIcon universal access
+            icon large"></i>
+            <span>Activity</span>
+        </a>
           <a class="item navFlex" routerLink="/projects" routerLinkActive="color change">
               <i class="navIcon home icon large"></i>
               <span>Projects</span>
@@ -14,10 +19,6 @@
               <i class="navIcon university icon large"></i>
               <span>Passbook</span>
           </a>
-          <a  [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/transactions" routerLinkActive="color change">
-            <i class="navIcon exchange icon large"></i>
-            <span>Transactions</span>
-         </a>
          <a class="item navFlex ui dropdown" style="margin-left:80px !important;">
               <i class="navIcon bell outline icon large"></i>
               <div *ngIf="initialAvatar" class="floating ui circular label" style="background-color: #FCB332; color:white; font-size:0.75; opacity: 0.8; margin-top:14px !important; margin-right:24px!important;">2</div>
@@ -41,8 +42,8 @@
               <i class="navIcon user circle icon large" style="color:#0066ff;"></i>
               <span style="color:#0066ff;">Hello, John</span>
               <div class="menu">
-                    <a class="item itemProfile" routerLink="/createProfile" style="font-size:14px;">Complete Profile</a>
-                    <a class="item itemProfile" routerLink="/profile" style="font-size:14px;">View Profile</a>
+                    <a class="item itemProfile" routerLink="/createProfile" style="font-size:14px;"><i class="user portrait icon"></i>Profile Info</a>
+                    <a class="item itemProfile" routerLink="/transactions" style="font-size:14px;"><i class="exchange icon"></i>Transactions</a>
                     <div class="divider"></div>
                     <div class="header dropHeader">Account</div>
                     <a class="item itemProfile" routerLink="/help"><i class="question circle icon"></i>Help</a>

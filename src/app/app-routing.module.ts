@@ -9,6 +9,7 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { AuthGuard } from '../services/auth.guard';
+import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'createProfile', component: CreateProfileComponent },
   { path: 'transactions', component: TransactionsComponent },
   { path: 'forgotPassword', component: ForgotpasswordComponent },
+  { path: 'projectDetail', component: ProjectDetailComponent },
   { path: 'passbook', component: PassbookComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: '**', component: PageNotFoundComponent }

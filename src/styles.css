@@ -12,3 +12,7 @@ body{
 		background-color: #F7F9FC;
     }
 }
+*:focus {
+    outline: 0;
+    outline: none;
+    }

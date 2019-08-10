@@ -17,12 +17,13 @@ import { ProjectsComponent } from './projects/projects.component';
 import { PassbookComponent } from './passbook/passbook.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
-import { ProjectComponent } from './projects/project/project.component';
 import { AuthGuard } from '../services/auth.guard';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { FeedComponent } from './profile/feed/feed.component';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
+import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
+import { ProjectListComponent } from './projects/project-list/project-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,10 +38,11 @@ import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.c
     ProjectsComponent,
     PassbookComponent,
     CreateProfileComponent,
-    ProjectComponent,
     TransactionsComponent,
     FeedComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    ProjectDetailComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,
