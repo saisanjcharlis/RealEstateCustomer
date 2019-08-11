@@ -132,3 +132,12 @@ form{
     align-items: center;
     grid-gap:1rem 10rem;
 }
+#imageUpload
+{
+    display: none;
+}
+
+.avatar
+{
+    cursor: pointer;
+}

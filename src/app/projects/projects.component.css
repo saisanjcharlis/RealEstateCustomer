@@ -35,6 +35,7 @@
     display: block;
   }
 }
+
 .projectList {
   color:#414143;
   padding:8px;
@@ -43,6 +44,23 @@
   font-size:16px;
   font-weight: 700;
   margin-top:3px;
+}
+.priceMargin{
+  margin-left:20px;margin-right:10px;
+}
+
+@media all and (max-width: 460px) {
+  .priceMargin{
+    margin-left:10px;
+  }
+  .clearButton{
+    display: none;
+  }
+}
+@media all and (max-width: 460px) {
+  .projectList {
+    font-size:12px;
+  }
 }
 .projects{
   padding:20px;
@@ -83,6 +101,17 @@
 }
 .activeProperty{
   background-color: #0066ff !important;
+}
+.menu1{
+  padding:15px 20px 15px 5px;background: white;
+}
+.menu1 h2{ 
+  float:left;padding:8px;color:#414143;margin-bottom:0;
+}
+@media all and (max-width: 465px) {
+  .menu1 h2{ 
+    font-sizE:18px;
+  }
 }
 .filterHeader{
   display: block;
@@ -133,6 +162,11 @@
     justify-content: space-between;
     align-items: center;
 }
+@media all and (max-width: 560px) {
+  .plotHeader{
+    padding:10px 10px 10px 5px;
+  }
+}
 .dropDown{
   border-radius: 1px !important;
 }
@@ -151,6 +185,11 @@
   margin-left: auto;
   cursor: pointer;
   margin-right:10px;
+}
+@media all and (max-width: 768px) {
+  .moreFilter{
+    margin-right:0;
+  }
 }
 .marginRight{
   margin-right:10px;

@@ -23,19 +23,19 @@
     </div>
     <div class="projectContainer">
         <div class="topContainer">
-            <div style="padding:15px 20px 15px 15px;background: white;">
-                    <h2 style="float:left;padding:8px;color:#414143;margin-bottom:0;">Hyderabad Real Estate</h2>
+            <div class="menu1">
+                    <h2>Hyderabad Real Estate</h2>
                     <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
                     <div class="projectList listing activeProject" (click)="changetoListing()">Listings</div>
                     <div style="clear: both;"></div>
             </div>
             
             <div class="plotHeader">
-                <div style="margin-left:20px;margin-right:10px;">Price</div>
-                <div class="ui compact selection dropdown dropDown">
+                <div class="priceMargin">Price</div>
+                <div class="ui compact selection dropdown dropDown" style="width: 120px;">
                         <input type="hidden" name="gender">
                         <i class="dropdown icon"></i>
-                        <div class="default text">No min</div>
+                        <div class="default text">Min</div>
                         <div class="menu">
                         <div class="item" data-value="1">1 cr.</div>
                         <div class="item" data-value="1">2 cr.</div>
@@ -50,10 +50,10 @@
                         </div>
                 </div>
                 &nbsp;to&nbsp;
-                <div class="ui compact selection dropdown dropDown">
+                <div class="ui compact selection dropdown dropDown" style="width: 120px;">
                         <input type="hidden" name="gender">
                         <i class="dropdown icon"></i>
-                        <div class="default text">No max</div>
+                        <div class="default text">Max</div>
                         <div class="menu">
                         <div class="item" data-value="1">1 cr.</div>
                         <div class="item" data-value="1">2 cr.</div>
@@ -70,7 +70,7 @@
                 <div class="moreFilter" >
                         <span (click)="moreFilter()" *ngIf="!filterTrue">Filters<i class="angle down icon marginRight"></i></span>
                         <span (click)="moreFilter()" *ngIf="filterTrue">Filters<i class="angle up icon marginRight"></i></span>
-                        <span>Clear</span>
+                        <span (click)="triggerPropertyView()" class="clearButton">Clear</span>
                 </div>
                 <!-- <div class="moreFilter1"><span>Clear</span></div> -->
                 <!-- <span style="font-size:13px;float:left;margin-top:15px;margin-left:15px;">Filter by location: Location - Hyderabad</span>
@@ -111,20 +111,20 @@
 
             <div class="ui large icon buttons" style="width:25%;margin-top:20px;">
                     <div (click)="toggleActive($event)" class="ui vertical animated activeProperty black fluid button" tabindex="0">
-                            <div class="hidden content" style="pointer-events: none"><i class="home icon"></i></div>
-                            <div class="visible content" style="pointer-events: none">Plots</div>
+                            <div class="hidden content hiddenContent" style="pointer-events: none"><i class="home icon"></i></div>
+                            <div class="visible content visibleContent" style="pointer-events: none">Plots</div>
                     </div>
                     <div (click)="toggleActive($event)" class="ui vertical animated black fluid button" tabindex="0">
-                            <div class="hidden content" style="pointer-events: none"><i class="city icon"></i></div>
-                            <div class="visible content" style="pointer-events: none">Apartments</div>
+                            <div class="hidden content hiddenContent" style="pointer-events: none"><i class="city icon"></i></div>
+                            <div class="visible content visibleContent" style="pointer-events: none">Apartments</div>
                     </div>
                     <div (click)="toggleActive($event)" class="ui vertical toggle animated black fluid button" tabindex="0">
-                            <div class="hidden content" style="pointer-events: none"> <i class="place of worship icon"></i></div>
-                            <div class="visible content" style="pointer-events: none">Villas</div>
+                            <div class="hidden content hiddenContent" style="pointer-events: none"> <i class="place of worship icon"></i></div>
+                            <div class="visible content visibleContent" style="pointer-events: none">Villas</div>
                     </div>
                     <div (click)="toggleActive($event)" class="ui vertical animated black fluid button" tabindex="0">
-                            <div class="hidden content" style="pointer-events: none"><i class="building icon"></i></div>
-                            <div class="visible content" style="pointer-events: none">Builder</div>
+                            <div class="hidden content hiddenContent" style="pointer-events: none"><i class="building icon"></i></div>
+                            <div class="visible content visibleContent" style="pointer-events: none">Builder</div>
                     </div>
             </div>
 

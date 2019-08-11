@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 declare var $:any;
 @Component({
   selector: 'app-projects',
@@ -6,6 +6,16 @@ declare var $:any;
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+  @HostListener('window:resize', ['$event'])
+  onResize(event){
+    if(event.target.innerWidth>480)
+     {
+      this.triggerPropertyViewNormal();
+     }
+     else{
+      this.triggerPropertyView();
+     }
+  } 
   iconSearch = true;
   imagesList = [];
   images = [
@@ -30,6 +40,18 @@ export class ProjectsComponent implements OnInit {
     };
     }
    }
+  triggerPropertyView(){
+    $('.hiddenContent').removeClass('hidden');
+    $('.visibleContent').removeClass('visible');
+    $('.hiddenContent').addClass('visible');
+    $('.visibleContent').addClass('hidden');
+  }
+  triggerPropertyViewNormal(){
+    $('.hiddenContent').removeClass('visible');
+    $('.visibleContent').removeClass('hidden');
+    $('.hiddenContent').addClass('hidden');
+    $('.visibleContent').addClass('visible');
+  }
   triggerView(){
     this.thumbnail = !this.thumbnail;
   }
