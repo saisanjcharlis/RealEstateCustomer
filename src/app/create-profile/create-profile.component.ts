@@ -9,14 +9,23 @@ declare var $:any;
 export class CreateProfileComponent implements OnInit {
 
   constructor(private routes: Router) { }
+
+//   var reader:any,
+// target:EventTarget;
+// reader= new FileReader();
+// reader.onload = function (imgsrc:any){
+// var fileUrl = imgsrc.target.result;
+// }
+
+
   url = '';
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
 
       reader.readAsDataURL(event.target.files[0]); 
-      reader.onload = (event) => { 
-        this.url = event.target.result;
+      reader.onload = (imgsrc: any) => { 
+        this.url = imgsrc.target.result;
       }
     }
   }
