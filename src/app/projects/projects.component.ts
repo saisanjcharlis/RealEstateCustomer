@@ -99,6 +99,15 @@ export class ProjectsComponent implements OnInit {
   ngOnInit() {
     $(document).scrollTop(0);
     $('.ui.checkbox').checkbox();
+      if(window.innerWidth>480)
+       {
+        this.triggerPropertyViewNormal();
+       }
+       else{
+        this.triggerPropertyView();
+       }
+    
+
   }
 
 }
