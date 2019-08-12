@@ -121,69 +121,56 @@
                     </div> 
                     <div class="grid2">
                             <div style="font-size:18px;font-weight: bold; letter-spacing: 1px;font-family: 'Quicksand', sans-serif; margin-bottom:10px;">Tour this Property</div>
-                            
-                                <div class="containerWindow">
-                                    <div style="width: 625%; left: 0px;" class="itemContainer animate">
-                                        <div class="itemsPage" role="radiogroup"><button class="ldpGrayDayOptionContainer selected" role="radio"
-                                                aria-checked="true">
-                                                <div class="dayOfTheWeek">Monday</div>
-                                                <div class="dayOfTheMonth">12</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Tuesday</div>
-                                                <div class="dayOfTheMonth">13</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Wednesday</div>
-                                                <div class="dayOfTheMonth">14</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Thursday</div>
-                                                <div class="dayOfTheMonth">15</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Friday</div>
-                                                <div class="dayOfTheMonth">16</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Saturday</div>
-                                                <div class="dayOfTheMonth">17</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Sunday</div>
-                                                <div class="dayOfTheMonth">18</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Monday</div>
-                                                <div class="dayOfTheMonth">19</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Tuesday</div>
-                                                <div class="dayOfTheMonth">20</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Wednesday</div>
-                                                <div class="dayOfTheMonth">21</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Thursday</div>
-                                                <div class="dayOfTheMonth">22</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Friday</div>
-                                                <div class="dayOfTheMonth">23</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Saturday</div>
-                                                <div class="dayOfTheMonth">24</div>
-                                                <div class="month">Aug</div>
-                                            </button><button class="ldpGrayDayOptionContainer" role="radio" aria-checked="false">
-                                                <div class="dayOfTheWeek">Sunday</div>
-                                                <div class="dayOfTheMonth">25</div>
-                                                <div class="month">Aug</div>
-                                            </button></div>
+                            <div style="width: 360px;position: relative;">
+                                    <div class="leftArrowContainer" (click)="leftDate()">
+                                        <div class="leftArrow disabled">
+                                            <svg class="SvgIcon rfSvg slide-previous">
+                                                <svg viewBox="0 0 24 24">
+                                                    <g fill-rule="evenodd">
+                                                        <path d="M16.426 23.134L5.074 11.78a.25.25 0 0 1 0-.353L16.426.073a.25.25 0 0 1 .355 0l1.06 1.06a.25.25 0 0 1 0 .355L7.724 11.603 17.841 21.72a.25.25 0 0 1 0 .355l-1.06 1.06a.25.25 0 0 1-.355 0"></path>
+                                                    </g>
+                                                </svg>
+                                            </svg>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="rightArrowContainer" (click)="rightDate()">
+                                        <div class="rightArrow">
+                                            <svg class="SvgIcon rfSvg slide-next">
+                                                <svg viewBox="0 0 24 24">
+                                                    <g fill-rule="evenodd">
+                                                        <path d="M7.134 23.134l-1.06-1.06a.25.25 0 0 1 0-.355L16.19 11.603 6.074 1.488a.25.25 0 0 1 0-.355l1.06-1.06a.25.25 0 0 1 .354 0L18.84 11.427a.25.25 0 0 1 0 .353L7.488 23.134a.25.25 0 0 1-.354 0"></path>
+                                                    </g>
+                                                </svg>
+                                            </svg></div>
+                                    </div>
+                                        <div class="containerWindow">
+                                            <div style="width: 625%; left: 0px;" class="itemContainer animate">
+                                                <div class="itemsPage" role="radiogroup">
+                                                    <button class="ldpGrayDayOptionContainer selected" (click)="selectDate($event)">
+                                                        <div class="dayOfTheWeek">Monday</div>
+                                                        <div class="dayOfTheMonth">12</div>
+                                                        <div class="month">Aug</div>
+                                                    </button>
+                                                    <button class="ldpGrayDayOptionContainer" (click)="selectDate($event)">
+                                                        <div class="dayOfTheWeek">Tuesday</div>
+                                                        <div class="dayOfTheMonth">13</div>
+                                                        <div class="month">Aug</div>
+                                                    </button>
+                                                    <button class="ldpGrayDayOptionContainer" (click)="selectDate($event)">
+                                                        <div class="dayOfTheWeek">Wednesday</div>
+                                                        <div class="dayOfTheMonth">14</div>
+                                                        <div class="month">Aug</div>
+                                                    </button>
+                                                    <button class="ldpGrayDayOptionContainer" (click)="selectDate($event)">
+                                                        <div class="dayOfTheWeek">Thursday</div>
+                                                        <div class="dayOfTheMonth">15</div>
+                                                        <div class="month">Aug</div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+                            
 
                                 
                             <button class="ui blue fluid button">Schedule Tour</button>

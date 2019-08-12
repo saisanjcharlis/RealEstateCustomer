@@ -71,17 +71,13 @@
                         <i (click)="moreFilter()" class="funnel dollar large icon filterIcon"></i>
                         <span class="filterDesktop" (click)="moreFilter()" *ngIf="!filterTrue">Filters<i class="angle down icon marginRight"></i></span>
                         <span class="filterDesktop" (click)="moreFilter()" *ngIf="filterTrue">Filters<i class="angle up icon marginRight"></i></span>
-                        <span (click)="triggerPropertyView()" class="clearButton">Clear</span>
+                        <span class="clearButton">Clear</span>
                 </div>
-                <!-- <div class="moreFilter1"><span>Clear</span></div> -->
-                <!-- <span style="font-size:13px;float:left;margin-top:15px;margin-left:15px;">Filter by location: Location - Hyderabad</span>
-                <div style="clear: both;"></div> -->
             </div> 
             <div class="displayInfo">
-                <span style="display:inline-block;padding:12px;font-weight: 600;color:#414143;font-size:12px;">Showing 21 out of 2107 Projects</span>
-                <!-- <span style="color:#414143;"><i class="sort amount down icon"></i>Sort</span> -->
+                <span style="display:inline-block;padding:12px 0;font-weight: 600;color:#414143;font-size:12px;">Showing 21 out of 2107 Projects</span>
 
-                <div class="ui pointing dropdown" style="color:#414143;">
+                <div class="ui pointing dropdown" style="margin-left:10px;color:#414143;">
                       <i class="sort amount down icon" ></i>
                       <span>Sort</span>
                       <div class="right menu">
@@ -303,13 +299,13 @@
                         <img routerLink="/projectDetail" style="cursor: pointer;" src={{image}}>
                    </div>
                    <div class="content">
-                                <i class="right floated like outline icon"></i>
-                                <i class="right floated star outline icon"></i>
-                                <i class="right floated share alternate icon"></i>
+                                <i class="right floated large like outline icon"></i>
+                                <i class="right floated large star outline icon"></i>
+                                <i class="right floated large share alternate icon"></i>
                                 <a class="header" routerLink="/projectDetail" >Spectra Fortune</a>
-                                <div class="meta"><span>Built in 1997</span><span style="float: right;color:#0066ff;"><i class="rupee sign icon"></i>15999</span></div>
+                                <div class="meta"><span>Built in 1997</span></div>
                                 <div class="description">
-                                                <b>1397 Avg Sq.Ft</b>
+                                                <b>1397 Avg Sq.Ft <span style="float: right;color:#0066ff;"><i class="rupee sign icon"></i>15999</span></b>
                                                 <br>
                                                 <span>Kamineni Hospitals, Opp: Big Bazar, L.B.Nagar, Hyderabad, Telangana, India.</span>
                                         

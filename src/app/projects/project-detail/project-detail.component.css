@@ -1,14 +1,24 @@
 .mainContainer{
    margin:0 25px;
 }
+@media all and (max-width: 800px) {
+    .mainContainer{
+        margin:0 10px;
+     }
+}
 .shareButton{
     position: fixed;
     left:1px;
-    
     display: flex;
     flex-direction: column;
     z-index: 5;
     top:300px;
+}
+.circular.button{
+    opacity: 0.8;
+}
+.circular.button:hover{
+    opacity: 1;
 }
 .topInfo{
     display: flex;
@@ -43,8 +53,13 @@
 .grid2{
     display: flex;flex-direction: column;align-items: center; flex:1 0 auto;padding:0 20px;
 }
-@media all and (max-width: 700px) {
+@media all and (max-width: 800px) {
     .ui.celled.horizontal.list, .grid2, .round{
+       display: none;
+    }
+}
+@media all and (max-width: 800px) {
+    .grid2{
        display: none;
     }
 }
@@ -74,7 +89,7 @@
     height: 20px;
   }
 .ui.segment{
-    padding: 1em 0 !important;
+    padding: 1em!important;
 }
 .gridContainer{
     display: grid;
@@ -82,7 +97,7 @@
     grid-gap:10px 1rem;
     grid-template-columns: 60% 40%;
 }
-@media all and (max-width: 700px) {
+@media all and (max-width: 800px) {
     .gridContainer{
         display: block;
         margin:0 20px 80px 20px;
@@ -106,11 +121,14 @@
     }
   }
 .bottomMenu div{
-    background: #0066ff;
+    background: #2FCE72;
     border-radius:3px;
     color:white; 
     cursor: pointer;
     padding: 0 10px;
+}
+.bottomMenu div:hover, .bottomMenu div:active{
+    background: green;
 }
 .bottomMenu span{
    display: block;
@@ -148,3 +166,90 @@
         width: 40%;
     }
   }
+.leftArrowContainer{
+    left: 0;
+    height: auto;
+    position: absolute;
+    z-index: 1;
+}
+.rightArrowContainer{
+    right: 0;
+    height: auto;
+    position: absolute;
+    z-index: 1;
+}
+.containerWindow {
+    left: 25px;
+    width: 310px;
+    position: relative;
+    overflow: hidden;
+}
+.ldpGrayDayOptionContainer div{
+    pointer-events: none;
+}
+.selected {
+    border: 2px solid #0066ff !important;
+    color: #585858 !important;
+    padding: 0;
+    box-shadow: 0 3px 4px 0 #ccc;
+}
+.itemContainer {
+    position: relative;
+}
+.itemsPage {
+    float: left;
+    padding: 10px 0 15px;
+    white-space: nowrap;
+}
+@media screen and (min-width: 900px){
+    .ldpGrayDayOptionContainer {
+        width: 70px;
+        margin-left: 9px;
+        margin-right: 2px;
+    }
+}
+.ldpGrayDayOptionContainer {
+    box-sizing: unset;
+    font-size: .625rem;
+    font-weight: 400;
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px;
+    margin-right: 11px;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff;
+    border-radius: 2px 2px 2px 2px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 80px;
+    height: 80px;
+    border: 1px solid #d1d1d1;
+    padding: 1px;
+    color: #777;
+}
+.ldpGrayDayOptionContainer .dayOfTheWeek {
+    text-transform: uppercase;
+    padding-top: 8px;
+}
+.ldpGrayDayOptionContainer .dayOfTheMonth {
+    font-size: 1.75rem;
+    font-weight: 200;
+    text-align: center;
+    vertical-align: top;
+}
+.ldpGrayDayOptionContainer .month {
+    text-transform: uppercase;
+    padding-bottom: 8px;
+}
+.rightArrow, .leftArrow {
+    cursor: pointer;
+    margin-top: 39px;
+    fill: #999;
+}
+.rightArrow .rfSvg, .leftArrow .rfSvg{
+    fill: inherit;
+}
+.SvgIcon {
+    height: 30px;
+    width: 30px;
+}

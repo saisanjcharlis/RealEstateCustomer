@@ -8,7 +8,16 @@ declare var $:any;
 export class ProjectDetailComponent implements OnInit {
 
   constructor() { }
-
+  rightDate(){
+    $('.itemContainer').animate({left: "-=105px"},500);
+  }
+  leftDate(){
+    $('.itemContainer').animate({left: "+=105px"},500);
+  }
+  selectDate(e){
+    $('.ldpGrayDayOptionContainer.selected').removeClass('selected');
+    $(e.target).addClass("selected");
+  }
   ngOnInit() {
     $('.ui.rating').rating();
     $('.demo.menu .item').tab();

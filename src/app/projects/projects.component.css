@@ -46,7 +46,7 @@
   margin-top:3px;
 }
 .priceMargin{
-  margin-left:20px;margin-right:10px;
+  margin-left:10px;margin-right:10px;
 }
 
 @media all and (max-width: 460px) {
@@ -60,8 +60,8 @@
   }
 }
 .projects{
-  padding:20px;
-  margin:48px 0 0 0 !important;
+  /* padding:20px; */
+  margin:58px 0 0 0 !important;
 }
 .propertyFlex{
   display:flex;
