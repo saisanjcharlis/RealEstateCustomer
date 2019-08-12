@@ -68,8 +68,9 @@
                         </div>
                 </div>
                 <div class="moreFilter" >
-                        <span (click)="moreFilter()" *ngIf="!filterTrue">Filters<i class="angle down icon marginRight"></i></span>
-                        <span (click)="moreFilter()" *ngIf="filterTrue">Filters<i class="angle up icon marginRight"></i></span>
+                        <i (click)="moreFilter()" class="funnel dollar large icon filterIcon"></i>
+                        <span class="filterDesktop" (click)="moreFilter()" *ngIf="!filterTrue">Filters<i class="angle down icon marginRight"></i></span>
+                        <span class="filterDesktop" (click)="moreFilter()" *ngIf="filterTrue">Filters<i class="angle up icon marginRight"></i></span>
                         <span (click)="triggerPropertyView()" class="clearButton">Clear</span>
                 </div>
                 <!-- <div class="moreFilter1"><span>Clear</span></div> -->

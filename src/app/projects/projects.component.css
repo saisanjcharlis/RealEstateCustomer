@@ -53,9 +53,6 @@
   .priceMargin{
     margin-left:10px;
   }
-  .clearButton{
-    display: none;
-  }
 }
 @media all and (max-width: 460px) {
   .projectList {
@@ -103,10 +100,18 @@
   background-color: #0066ff !important;
 }
 .menu1{
-  padding:15px 20px 15px 5px;background: white;
+  padding:15px 5px 15px 5px;background: white;
 }
 .menu1 h2{ 
   float:left;padding:8px;color:#414143;margin-bottom:0;
+}
+.filterIcon{
+  margin-left:5px;
+}
+@media all and (min-width: 561px) {
+  .filterIcon{
+    display: none;
+  }
 }
 @media all and (max-width: 465px) {
   .menu1 h2{ 
@@ -166,6 +171,17 @@
   .plotHeader{
     padding:10px 10px 10px 5px;
   }
+  .plotHeader .dropDown{
+    min-height: 2em !important;
+    padding-top:0.48em !important;
+    padding-bottom: 0.48em !important;
+  }
+  .ui.compact .dropdown.icon{
+    padding: 0.55em !important;
+  }
+  .marginRight{
+    display: none;
+  }
 }
 .dropDown{
   border-radius: 1px !important;
@@ -194,6 +210,16 @@
 .marginRight{
   margin-right:10px;
 }
+
+@media all and (max-width: 560px) {
+  .filterDesktop{
+    display: none !important;
+  }
+  .clearButton{
+    display: none;
+  }
+}
+
 .moreFilter1{
   margin-left: auto;
   cursor: pointer;
