@@ -9,7 +9,17 @@ declare var $:any;
 export class CreateProfileComponent implements OnInit {
 
   constructor(private routes: Router) { }
+  url = '';
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
 
+      reader.readAsDataURL(event.target.files[0]); 
+      reader.onload = (event) => { 
+        this.url = event.target.result;
+      }
+    }
+  }
   ngOnInit() {
     $('#year_first_calendar').calendar({
       type: 'date',

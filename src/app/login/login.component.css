@@ -247,7 +247,7 @@ h1{
 	  transform: translateY(8px);
   }
   .resendText{
-	transform: translateY(8px);
+	/* transform: translateY(8px); */
 	opacity: 0.5;
 	color:#414143;
   }
