@@ -88,6 +88,7 @@ form label{
 .avatar img{
     left:50%;
     width:70px;
+    height: 70px;
     position: absolute;
     transform:translate(-50%,-50%);
     -webkit-border-radius: 50%;
@@ -109,6 +110,7 @@ form label{
 @media all and (min-width: 769px) {
     .avatar img{
         width:100px;
+        height: 100px;
         padding: 5px;
     }
     .editButton{
