@@ -20,6 +20,12 @@
 .circular.button:hover{
     opacity: 1;
 }
+.grid2Button{
+    display: flex;
+}
+.grid2Button button{
+    flex:1 0 auto;
+}
 .topInfo{
     display: flex;
     position: relative;
