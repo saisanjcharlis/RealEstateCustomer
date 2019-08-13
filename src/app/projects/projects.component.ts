@@ -29,7 +29,6 @@ export class ProjectsComponent implements OnInit {
     "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg",
     "http://www.spectraindia.in/wp-content/uploads/2016/09/Prado1.jpg"
   ];
-  thumbnail=true;
   filterTrue = false;
   constructor() {
     for (let i = 0; i < 5; i++) {
@@ -51,9 +50,6 @@ export class ProjectsComponent implements OnInit {
     $('.visibleContent').removeClass('hidden');
     $('.hiddenContent').addClass('hidden');
     $('.visibleContent').addClass('visible');
-  }
-  triggerView(){
-    this.thumbnail = !this.thumbnail;
   }
   toggleActive(e){
     e.target.classList.toggle("activeProperty");
@@ -108,6 +104,9 @@ export class ProjectsComponent implements OnInit {
        }
     
 
+  }
+  ngAfterViewInit() {
+    $('.ui.rating').rating();
   }
 
 }

@@ -14,10 +14,6 @@
                         </div>
                         
                     </div>
-                    <button class="ui green button pop" style="float:right;margin-right:2%;margin-top:15px;">Meet an Agent</button>
-                    <button class="ui blue button pop" style="float:right;margin-right:2%;margin-top:15px;">Affordability Calculator</button>
-                    <button class="ui blue button pop" style="float:right;margin-right:2%;margin-top:15px;">Mortgage Rate Calculator</button>
-                   
         </div>
            
     </div>
@@ -91,15 +87,6 @@
                       </div>
                   </div>
 
-
-                <div data-inverted="" (click)="triggerView()" class="viewMode" data-tooltip="Thumbnail" data-variation="" data-position="bottom right">
-                        <i class="th black large icon" style="cursor:pointer;"></i>
-                </div>
-                <div data-inverted="" (click)="triggerView()" class="viewMode" style="cursor:pointer;" data-tooltip="List" data-variation="" data-position="bottom right">
-                        <i class="list black large icon"></i>
-                </div>
-
-                <div style="clear: both;"></div>
             </div>
         </div>
         <div class="filterMenu" >
@@ -289,7 +276,7 @@
                 
             </div>
         </div>
-        <div class="projects ui two stackable cards" *ngIf="thumbnail">
+        <div class="projects ui two stackable cards">
                 <div class="card" *ngFor="let image of images">
                    <div class="image">
                         <div class="tagInfo">
@@ -299,28 +286,26 @@
                         <img routerLink="/projectDetail" style="cursor: pointer;" src={{image}}>
                    </div>
                    <div class="content">
-                                <i class="right floated large like outline icon"></i>
-                                <i class="right floated large star outline icon"></i>
-                                <i class="right floated large share alternate icon"></i>
+                                <i class="right floated large black like outline icon"></i>
+                                <i class="right floated large black share alternate icon"></i>
                                 <a class="header" routerLink="/projectDetail" >Spectra Fortune</a>
-                                <div class="meta"><span>Built in 1997</span></div>
+                                <div style="margin-top:10px;" class="meta">
+                                        <span>Built in 1997</span>
+                                        <span class="right floated ui mini star yellow rating" data-rating="3" data-max-rating="5"></span>
+                                </div>
                                 <div class="description">
-                                                <b>1397 Avg Sq.Ft <span style="float: right;color:#0066ff;"><i class="rupee sign icon"></i>15999</span></b>
+                                                <b>1397-4000 Sq.Ft.<span style="float: right;color:#0066ff;"><i class="rupee sign icon"></i>15999<span style="color:#414143;font-weight: normal;"> onwards</span></span></b>
                                                 <br>
-                                                <span>Kamineni Hospitals, Opp: Big Bazar, L.B.Nagar, Hyderabad, Telangana, India.</span>
+                                                <span> L.B.Nagar</span>
                                         
                                 </div>
-                                <div class="meta">Listing provided By Spectra</div>
+                                <div class="meta">
+                                        <span>Listing provided By Spectra</span>
+                                </div>
+                                
                    </div>
                 </div>
              
-        </div>
-        <div *ngIf="!thumbnail" class="projects">
-             <project-list></project-list>  
-             <project-list></project-list>  
-             <project-list></project-list>  
-             <project-list></project-list>  
-             <project-list></project-list>  
         </div>
         <!-- <div class="projects" *ngFor="let image of imagesList" (deferLoad)="image.show = true">
                 <project *ngIf="image.show"></project>

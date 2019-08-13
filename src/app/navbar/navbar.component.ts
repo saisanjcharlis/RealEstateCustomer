@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
 
   navViewOnly=true;
   initialAvatar=true;
+  accountName = "Login";
   createProfile = true;
   ngOnInit() {
    
@@ -27,7 +28,9 @@ export class NavbarComponent implements OnInit {
       this.createProfile = false;
     }
     let avatar = this.initialAvatar;
-    
+    if(avatar == true){
+      this.accountName = "Hello, John";
+    }
   
     $('#toggle').click(function(e){
           if(e.currentTarget.checked && avatar){
@@ -43,8 +46,7 @@ export class NavbarComponent implements OnInit {
           $('.spectra-logo-mobile').addClass("hideLogo");
           $('.mobileNavbar').css('z-index', 2);
     });
-    $('.ui.dropdown')
-    .dropdown();
- 
+    $('.ui.dropdown').dropdown();
+    $('.ui.navFlex.dropdown').dropdown({transition: 'drop' }).dropdown({ on: 'hover' });
   }
 }

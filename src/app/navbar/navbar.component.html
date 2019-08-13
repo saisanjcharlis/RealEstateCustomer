@@ -6,7 +6,7 @@
               <i class="navIcon plus icon large"></i>
               <span>Join</span>
           </a>
-          <a class="item navFlex" routerLink="/profile" routerLinkActive="color change">
+          <a [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/profile" routerLinkActive="color change">
             <i class="navIcon universal access
             icon large"></i>
             <span>Activity</span>
@@ -36,19 +36,23 @@
                   
             </div>
          </a>
-         <div [ngClass]="{'disabledIcon':!initialAvatar}" class="navFlex item ui pointing dropdown">
+         <div  class="navFlex item ui dropdown">
                 <!-- <img class="ui mini image" style="display:block;margin-left:12px;" id="profileAvatar" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1" /> -->
                 
-              <i class="navIcon user circle icon large" style="color:#0066ff;"></i>
-              <span style="color:#0066ff;">Hello, John</span>
+              <i class="navIcon user circle icon large"></i>
+              <span>{{accountName}}</span>
               <div class="menu">
-                    <a class="item itemProfile" routerLink="/createProfile" style="font-size:14px;"><i class="user portrait icon"></i>Profile Info</a>
-                    <a class="item itemProfile" routerLink="/transactions" style="font-size:14px;"><i class="exchange icon"></i>Transactions</a>
-                    <div class="divider"></div>
-                    <div class="header dropHeader">Account</div>
-                    <a class="item itemProfile" routerLink="/help"><i class="question circle icon"></i>Help</a>
-                    <a class="item itemProfile" routerLink="/settings"><i class="cog icon "></i>Settings</a>
-                    <a class="item itemProfile" routerLink="/login"><i class="sign out alternate icon "></i>Logout</a>
+                    <div *ngIf="!initialAvatar" class="ui error message">
+                        <div class="header">Error</div>
+                        <p>You must log-in to see all categories</p>
+                    </div>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/createProfile" style="font-size:14px;"><i class="user portrait icon"></i>Profile Info</a>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/transactions" style="font-size:14px;"><i class="exchange icon"></i>Transactions</a>
+                    <div *ngIf="initialAvatar" class="divider"></div>
+                    <div *ngIf="initialAvatar" class="header dropHeader">Account</div>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/help"><i class="question circle icon"></i>Help</a>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/settings"><i class="cog icon "></i>Settings</a>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/login"><i class="sign out alternate icon "></i>Logout</a>
               </div>
           </div>
          </div>

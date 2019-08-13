@@ -1,7 +1,7 @@
 .mainContainer{
    margin:0 25px;
 }
-@media all and (max-width: 800px) {
+@media all and (max-width: 930px) {
     .mainContainer{
         margin:0 10px;
      }
@@ -22,6 +22,7 @@
 }
 .topInfo{
     display: flex;
+    position: relative;
     color:#414143;
     align-items: center;
     padding-top:80px;
@@ -54,11 +55,11 @@
     display: flex;flex-direction: column;align-items: center; flex:1 0 auto;padding:0 20px;
 }
 @media all and (max-width: 800px) {
-    .ui.celled.horizontal.list, .grid2, .round{
+    .ui.celled.horizontal.list, .round{
        display: none;
     }
 }
-@media all and (max-width: 800px) {
+@media all and (max-width: 930px) {
     .grid2{
        display: none;
     }
@@ -75,7 +76,7 @@
     border-radius: 0 !important;
     box-shadow: none !important;
 }
-@media all and (max-width: 850px) {
+@media all and (max-width: 930px) {
     .ui.pointing.secondary.demo.menu{
       display: none;
     }
@@ -97,7 +98,7 @@
     grid-gap:10px 1rem;
     grid-template-columns: 60% 40%;
 }
-@media all and (max-width: 800px) {
+@media all and (max-width: 930px) {
     .gridContainer{
         display: block;
         margin:0 20px 80px 20px;
@@ -115,8 +116,16 @@
     background: white;
     box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
 }
-@media all and (min-width: 801px) {
-    .bottomMenu{
+
+.menuHeader{
+    font-size:18px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif; 
+    color:#0066ff;
+    padding-bottom:20px;
+}
+@media all and (min-width: 931px) {
+    .bottomMenu, .menuHeader{
       display: none;
     }
   }
@@ -153,7 +162,7 @@
 .keyDetailsList .keyDetail{
     align-self: stretch;
     width: 100%;
-    font-size:18px;
+    font-size:16px;
     padding: .5rem 0;
     display: flex;
     justify-content: space-between;
@@ -187,7 +196,7 @@
 .ldpGrayDayOptionContainer div{
     pointer-events: none;
 }
-.selected {
+.selectedDate {
     border: 2px solid #0066ff !important;
     color: #585858 !important;
     padding: 0;
@@ -252,4 +261,60 @@
 .SvgIcon {
     height: 30px;
     width: 30px;
+}
+.tagInfo{
+    opacity: 0.7;
+    position: absolute;
+    top:10px;
+    left:10px;
+}
+.checkListOverview{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-end;
+}
+.checkListOverview div{
+    width: 40%;
+    align-self: stretch;
+    padding: .5rem 0;
+    display: flex;
+}
+@media screen and (max-width: 670px){
+    .checkListOverview div{
+        width: 100%;
+    }
+}
+.bankList img{
+    margin:10px 10px 0 0;
+    border-radius: 3px;
+    border: solid 1px #eaeaea;
+}
+.downloads{
+    display: flex;
+    justify-content: space-between;
+}
+.downloads a{
+    flex:1 0 auto;
+}
+.neighbourhoodList .item{
+    margin-top:10px;
+    font-size:16px;
+}
+.modal .content{
+    text-align: center !important;
+}
+.locationMap{
+    width:  50% !important;
+}
+@media screen and (max-width: 930px){
+    .locationMap{
+        width:  68% !important;
+    }
+}
+@media screen and (max-width: 768px){
+    .locationMap{
+        width:  95% !important;
+    }
 }
