@@ -37,7 +37,7 @@
             <label>Password</label>
             <input type="password" readonly="" value="admin123" name="password" >
           </div>
-          <div class="update"><span>Update Password</span></div>
+          <div (click)="updatePasswordModal()" class="update"><span>Update Password</span></div>
           <div class="required field">
             <label>Email</label>
             <input type="email" name="email" >
@@ -101,3 +101,32 @@
 </div>
 
 
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Enter Current and New Password
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+          <i class="sync alternate icon" style="margin-left:100px;"></i>
+    </div>
+    <div class="description">
+          <form class="ui form">
+                  <div class="field">
+                    <label>Current Password</label>
+                    <input [(ngModel)]="currentPassword" type="password" name="currentPassword" placeholder="Current Password">
+                  </div>
+                  <div class="field">
+                    <label>New Password</label>
+                    <input id="newPassword" [(ngModel)]="newPassword" type="password" name="newPassword" placeholder="New Password">
+                  </div>
+          </form>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui negative right labeled icon button" (click)="check($event)" >
+      {{checkString}}
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>

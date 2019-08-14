@@ -38,7 +38,7 @@
 
 .projectList {
   color:#414143;
-  padding:8px;
+  padding:9px;
   float:right;
   cursor: pointer;
   font-size:16px;
@@ -203,7 +203,10 @@
   }
 }
 .moreFilter{
+  display: flex;
+  flex-wrap: nowrap;
   margin-left: auto;
+  padding-left: 10px;
   cursor: pointer;
   margin-right:10px;
 }
@@ -215,7 +218,10 @@
 .marginRight{
   margin-right:10px;
 }
-
+.filterDesktop{
+display: flex;
+flex-wrap: nowrap;
+}
 @media all and (max-width: 560px) {
   .filterDesktop{
     display: none !important;

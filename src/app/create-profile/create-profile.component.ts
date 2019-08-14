@@ -9,15 +9,61 @@ declare var $:any;
 export class CreateProfileComponent implements OnInit {
 
   constructor(private routes: Router) { }
+  password = "admin123";
+  currentPassword;
+  newPassword;
+  updatePasswordModal(){
+    $('.ui.modal')
+  .modal({
+    closable  : false,
+    onDeny    : function(){
+      return false;
+    },
+    onApprove : function() {
+      // if(this.newPassword.length>=6){
+      //   $('body').toast({
+      //     class: 'success',
+      //     message: 'Password Updated Succesfully.'
+      //   });
+      //   $('.toast-box').css("margin-top","50px");
+      //   return true;
+      // }
+      var newPass = $('#newPassword');
+      if(newPass.val().length<=5 && newPass.val().length>0){
+        $('body').toast({
+          class: 'warning',
+          message: 'Meet Password requirements.'
+        });
+        $('.toast-box').css("margin-top","50px");
+        return false;
+      } else if (newPass.val().length>5){
+        $('body').toast({
+          class: 'success',
+          message: 'Password Updated Successfully.'
+        });
+        $('.toast-box').css("margin-top","50px");
+        return true;
+      } return false;
 
-//   var reader:any,
-// target:EventTarget;
-// reader= new FileReader();
-// reader.onload = function (imgsrc:any){
-// var fileUrl = imgsrc.target.result;
-// }
 
 
+      
+    }
+  })
+  .modal('show')
+;
+  }
+
+  checkString = "Check";
+  check(e){
+    if(this.password == this.currentPassword){
+      $(e.target).removeClass("negative"); 
+      $(e.target).addClass("positive"); 
+      this.checkString = "Set Password";
+    }else{
+      alert("Wrong password!");
+    }
+  }
   url = '';
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {

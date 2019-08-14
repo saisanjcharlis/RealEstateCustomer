@@ -24,6 +24,7 @@ import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ImageGalleryComponent } from './projects/project-detail/image-gallery/image-gallery.component';
+import { ProfileinfoComponent } from './profileinfo/profileinfo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { ImageGalleryComponent } from './projects/project-detail/image-gallery/i
     FeedComponent,
     ForgotpasswordComponent,
     ProjectDetailComponent,
-    ImageGalleryComponent
+    ImageGalleryComponent,
+    ProfileinfoComponent
   ],
   imports: [
     BrowserModule,

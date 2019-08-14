@@ -7,11 +7,11 @@
                         <span class="sectionHeader">
                             Available Projects
                         </span>
-                        <div class="container" >
+                        <!-- <div class="container" >
                                 <input type="text" class="input" placeholder="Search">
                                 <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
                                 <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
-                        </div>
+                        </div> -->
                         
                     </div>
         </div>
@@ -21,48 +21,61 @@
         <div class="topContainer">
             <div class="menu1">
                     <h2>Hyderabad Real Estate</h2>
-                    <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
+                    <div class="container" >
+                                <input type="text" class="input" placeholder="Search">
+                                <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
+                                <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
+                        </div>
+                    <!-- <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
                     <div class="projectList listing activeProject" (click)="changetoListing()">Listings</div>
-                    <div style="clear: both;"></div>
+                    <div style="clear: both;"></div> -->
             </div>
             
             <div class="plotHeader">
                 <div class="priceMargin">Price</div>
-                <div class="ui compact selection dropdown dropDown" style="width: 120px;">
-                        <input type="hidden" name="gender">
+                <div class="ui fluid selection dropdown">
+                        <input type="hidden" name="priceMin">
                         <i class="dropdown icon"></i>
-                        <div class="default text">Min</div>
+                        <div class="default text" >Min</div>
                         <div class="menu">
-                        <div class="item" data-value="1">1 cr.</div>
-                        <div class="item" data-value="1">2 cr.</div>
-                        <div class="item" data-value="0">3 cr. </div>
-                        <div class="item" data-value="0">4 cr. </div>
-                        <div class="item" data-value="0">5 cr. </div>
-                        <div class="item" data-value="0">6 cr. </div>
-                        <div class="item" data-value="0">7 cr. </div>
-                        <div class="item" data-value="0">8 cr. </div>
-                        <div class="item" data-value="0">9 cr. </div>
-                        <div class="item" data-value="0">10 cr. </div>
+                             <div class="item" data-value="1">10 Lakhs</div>
+                             <div class="item" data-value="1">20 Lakhs</div>
+                             <div class="item" data-value="0">30 Lakhs</div>
+                             <div class="item" data-value="0">40 Lakhs</div>
+                             <div class="item" data-value="0">50 Lakhs</div>
+                             <div class="item" data-value="0">60 Lakhs</div>
+                             <div class="item" data-value="0">70 Lakhs</div>
+                             <div class="item" data-value="0">80 Lakhs</div>
+                             <div class="item" data-value="0">90 Lakhs</div>
+                             <div class="item" data-value="0">1 Cr</div>
+                             <div class="item" data-value="0">2 Cr</div>
+                             <div class="item" data-value="0">3 Cr</div>
+                             <div class="item" data-value="0">4 Cr</div>
+                             <div class="item" data-value="0">5 Cr</div>
                         </div>
-                </div>
-                &nbsp;to&nbsp;
-                <div class="ui compact selection dropdown dropDown" style="width: 120px;">
-                        <input type="hidden" name="gender">
+                      </div>
+                      &nbsp;to&nbsp;
+                      <div class="ui fluid selection dropdown">
+                        <input type="hidden" name="priceMax">
                         <i class="dropdown icon"></i>
                         <div class="default text">Max</div>
                         <div class="menu">
-                        <div class="item" data-value="1">1 cr.</div>
-                        <div class="item" data-value="1">2 cr.</div>
-                        <div class="item" data-value="0">3 cr. </div>
-                        <div class="item" data-value="0">4 cr. </div>
-                        <div class="item" data-value="0">5 cr. </div>
-                        <div class="item" data-value="0">6 cr. </div>
-                        <div class="item" data-value="0">7 cr. </div>
-                        <div class="item" data-value="0">8 cr. </div>
-                        <div class="item" data-value="0">9 cr. </div>
-                        <div class="item" data-value="0">10 cr. </div>
+                                <div class="item" data-value="1">10 Lakhs</div>
+                                <div class="item" data-value="1">20 Lakhs</div>
+                                <div class="item" data-value="0">30 Lakhs</div>
+                                <div class="item" data-value="0">40 Lakhs</div>
+                                <div class="item" data-value="0">50 Lakhs</div>
+                                <div class="item" data-value="0">60 Lakhs</div>
+                                <div class="item" data-value="0">70 Lakhs</div>
+                                <div class="item" data-value="0">80 Lakhs</div>
+                                <div class="item" data-value="0">90 Lakhs</div>
+                                <div class="item" data-value="0">1 Cr</div>
+                                <div class="item" data-value="0">2 Cr</div>
+                                <div class="item" data-value="0">3 Cr</div>
+                                <div class="item" data-value="0">4 Cr</div>
+                                <div class="item" data-value="0">5 Cr</div>
                         </div>
-                </div>
+                      </div>
                 <div class="moreFilter" >
                         <i (click)="moreFilter()" class="funnel dollar large icon filterIcon"></i>
                         <span class="filterDesktop" (click)="moreFilter()" *ngIf="!filterTrue">Filters<i class="angle down icon marginRight"></i></span>
@@ -86,13 +99,14 @@
                             
                       </div>
                   </div>
-
+                    <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
+                    <div class="projectList listing activeProject" (click)="changetoListing()">Listings</div>
+                    <div style="clear: both;"></div>
             </div>
         </div>
         <div class="filterMenu" >
             <span class="filterHeader">Property Type</span>
-
-
+           
             <div class="ui large icon buttons" style="width:25%;margin-top:20px;">
                     <div (click)="toggleActive($event)" class="ui vertical animated activeProperty black fluid button" tabindex="0">
                             <div class="hidden content hiddenContent" style="pointer-events: none"><i class="home icon"></i></div>
@@ -118,10 +132,12 @@
                     <input checked type="checkbox" name="public">
                     <label>For Sale/Sold</label>
             </div>
+
+
             <hr style="margin-top:20px;">
             <span class="filterHeader">Property Facts</span>
             <div class="propertyFlex1">
-                        <div class="ui basic button multiple search selection dropdown">
+                        <div class="ui basic button multiple search selection dropdown propertyFacts">
                             <input type="hidden" name="day">
                             <div class="default text" style="width: 100%;">Square Yards</div>
                             <i class="angle down icon floatRightDrop"></i>
@@ -139,7 +155,7 @@
                                 <div class="item" data-value="11">11</div>
                             </div>
                         </div>
-                        <div class="ui basic button multiple search selection dropdown">
+                        <div class="ui basic button multiple search selection dropdown propertyFacts">
                                 <input type="hidden" name="day" >
                                 <div class="default text" style="width: 100%;">Lot Size</div>
                                 <i class="angle down icon floatRightDrop"></i>
@@ -157,7 +173,7 @@
                                     <div class="item" data-value="11">11</div>
                                 </div>
                             </div>
-                            <div class="ui basic button multiple search selection dropdown">
+                            <div class="ui basic button multiple search selection dropdown propertyFacts">
                                     <input type="hidden" name="day">
                                     <div class="default text" style="width: 100%;">Year Built</div>
                                     <i class="angle down icon floatRightDrop"></i>
@@ -203,8 +219,8 @@
                                 <div class="item" data-value="1">1+</div>
                                 <div class="item" data-value="2">2+</div>
                                 <div class="item" data-value="3">3+</div>
-                                <div class="item" data-value="3">4+</div>
-                                <div class="item" data-value="3">5+</div>
+                                <div class="item" data-value="4">4+</div>
+                                <div class="item" data-value="5">5+</div>
                             </div>
                         </div>
                         <div class="ui basic button multiple search selection dropdown">
@@ -215,16 +231,16 @@
                                     <div class="item" data-value="1">1</div>
                                     <div class="item" data-value="2">2</div>
                                     <div class="item" data-value="3">3</div>
-                                    <div class="item" data-value="3">4</div>
-                                    <div class="item" data-value="3">5</div>
-                                    <div class="item" data-value="4">6</div>
-                                    <div class="item" data-value="5">7</div>
-                                    <div class="item" data-value="1">8</div>
-                                    <div class="item" data-value="2">9</div>
-                                    <div class="item" data-value="3">10</div>
-                                    <div class="item" data-value="3">15</div>
-                                    <div class="item" data-value="3">20</div>
-                                    <div class="item" data-value="3">30</div>
+                                    <div class="item" data-value="4">4</div>
+                                    <div class="item" data-value="5">5</div>
+                                    <div class="item" data-value="6">6</div>
+                                    <div class="item" data-value="7">7</div>
+                                    <div class="item" data-value="8">8</div>
+                                    <div class="item" data-value="9">9</div>
+                                    <div class="item" data-value="10">10</div>
+                                    <div class="item" data-value="15">15</div>
+                                    <div class="item" data-value="20">20</div>
+                                    <div class="item" data-value="30">30</div>
                                 </div>
                         </div>
 
@@ -286,17 +302,17 @@
                         <img routerLink="/projectDetail" style="cursor: pointer;" src={{image}}>
                    </div>
                    <div class="content">
-                                <i class="right floated large black like outline icon"></i>
-                                <i class="right floated large black share alternate icon"></i>
+                                <i class="right floated large blue like outline icon"></i>
+                                <i class="right floated large blue share alternate icon"></i>
                                 <a class="header" routerLink="/projectDetail" >Spectra Fortune</a>
                                 <div style="margin-top:10px;" class="meta">
-                                        <span>Built in 2017</span>
+                                        <span>Balanagar</span>
                                         <span class="right floated ui mini star yellow rating" data-rating="3" data-max-rating="5"></span>
                                 </div>
                                 <div class="description">
                                                 <b>1397-4000 Sq.Ft.<span style="float: right;color:#0066ff;"><i class="rupee sign icon"></i>15999<span style="color:#414143;font-weight: normal;"> onwards</span></span></b>
-                                                <br>
-                                                <span>Balanagar</span>
+                                                
+                                                
                                         
                                 </div>
                                 <div class="meta">

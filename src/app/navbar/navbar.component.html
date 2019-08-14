@@ -46,8 +46,9 @@
                         <div class="header">Error</div>
                         <p>You must log-in to see all categories</p>
                     </div>
-                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/createProfile" style="font-size:14px;"><i class="user portrait icon"></i>Profile Info</a>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/profileInfo" style="font-size:14px;"><i class="user portrait icon"></i>Profile</a>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/transactions" style="font-size:14px;"><i class="exchange icon"></i>Transactions</a>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/messages" style="font-size:14px;"><i class="envelope outline icon"></i>Messages</a>
                     <div *ngIf="initialAvatar" class="divider"></div>
                     <div *ngIf="initialAvatar" class="header dropHeader">Account</div>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/help"><i class="question circle icon"></i>Help</a>

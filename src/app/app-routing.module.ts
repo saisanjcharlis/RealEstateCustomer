@@ -10,6 +10,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { AuthGuard } from '../services/auth.guard';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
+import { ProfileinfoComponent } from './profileinfo/profileinfo.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'transactions', component: TransactionsComponent },
   { path: 'forgotPassword', component: ForgotpasswordComponent },
   { path: 'projectDetail', component: ProjectDetailComponent },
+  { path: 'profileInfo', component: ProfileinfoComponent },
   { path: 'passbook', component: PassbookComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: '**', component: PageNotFoundComponent }
