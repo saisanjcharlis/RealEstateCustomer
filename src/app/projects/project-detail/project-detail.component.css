@@ -299,10 +299,16 @@
 }
 .downloads{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .downloads a{
     flex:1 0 auto;
+}
+@media screen and (max-width: 436px){
+    .downloads a:last-of-type{
+        margin-top:10px ;
+    }
 }
 .neighbourhoodList .item{
     margin-top:10px;

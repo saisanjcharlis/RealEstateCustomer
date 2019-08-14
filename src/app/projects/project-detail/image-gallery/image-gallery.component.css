@@ -18,7 +18,7 @@ body {
 	/* margin: 0 auto; */
 	max-width: 600px;
 	/* max-height: 100vh; */
-	background-color: none;
+	background-color: #414143;
 }
 
 
@@ -71,12 +71,14 @@ body {
 .controls {
 	font-size: 15px;
 	border-top: none;
+	padding-bottom: 10px;
 }
 .move-btn {
 	display: inline-block;
 	width: 50%;
 	border: none;
-  	color: #414143;
+	font-weight: bold;
+  	color: white;
 	background-color: transparent;
 	padding: 0.2em 1.5em;
 }
