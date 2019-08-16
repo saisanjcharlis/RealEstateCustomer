@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   signIn(uname: string, p: string){
     let output = this.loginService.checkusername(uname,p);
     if(output==true){
-      this.routes.navigate(['/profile']);
+      this.routes.navigate(['/activity']);
       localStorage.setItem('logStatus','true');
     }
     else{
