@@ -5,7 +5,6 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PassbookComponent } from './passbook/passbook.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
-import { TransactionsComponent } from './transactions/transactions.component';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { AuthGuard } from '../services/auth.guard';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
@@ -16,7 +15,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'activity', canActivate : [AuthGuard] , component: ActivityComponent},
   { path: 'createProfile', component: CreateProfileComponent },
-  { path: 'transactions', component: TransactionsComponent },
   { path: 'forgotPassword', component: ForgotpasswordComponent },
   { path: 'projectDetail', component: ProjectDetailComponent },
   { path: 'profile', component: ProfileComponent },

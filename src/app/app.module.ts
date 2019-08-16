@@ -17,7 +17,6 @@ import { PassbookComponent } from './passbook/passbook.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { AuthGuard } from '../services/auth.guard';
-import { TransactionsComponent } from './transactions/transactions.component';
 import { FeedComponent } from './activity/feed/feed.component';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
@@ -26,6 +25,7 @@ import { ImageGalleryComponent } from './projects/project-detail/image-gallery/i
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ActivityComponent } from './activity/activity.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TransactionsComponent } from './profile/transactions/transactions.component';
 import { ProfileInfoComponent } from './profile/profile-info/profile-info.component';
 import { MessagesComponent } from './profile/messages/messages.component';
 @NgModule({
@@ -41,7 +41,6 @@ import { MessagesComponent } from './profile/messages/messages.component';
     ProjectsComponent,
     PassbookComponent,
     CreateProfileComponent,
-    TransactionsComponent,
     FeedComponent,
     ForgotpasswordComponent,
     ProjectDetailComponent,
@@ -49,6 +48,7 @@ import { MessagesComponent } from './profile/messages/messages.component';
     SidebarComponent,
     ActivityComponent,
     ProfileComponent,
+    TransactionsComponent,
     ProfileInfoComponent,
     MessagesComponent
   ],
