@@ -8,7 +8,14 @@ declare var $:any;
 export class TransactionsComponent implements OnInit {
 
   constructor() { }
+  onHide(hide: boolean){
+    if(hide){
+      $('.gridContainer').css( "grid-template-columns", "15% 80%" );
+    } else {
+      $('.gridContainer').css( "grid-template-columns", "4% 90%" );
+    }
 
+  }
   ngOnInit() {
     $('.pop').popup({
       inline     : true,

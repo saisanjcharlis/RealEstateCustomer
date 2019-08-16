@@ -124,25 +124,12 @@
 .activeProperty{
   background-color: #0066ff !important;
 }
-.menu1{
-  padding:15px 5px 15px 5px;
-  background: white;
-}
-.menu1 h2{ 
-  /* float:left; */
-  padding:8px;color:#414143;margin-bottom:0;
-}
 .filterIcon{
   margin-left:5px;
 }
 @media all and (min-width: 561px) {
   .filterIcon{
     display: none;
-  }
-}
-@media all and (max-width: 465px) {
-  .menu1 h2{ 
-    font-sizE:18px;
   }
 }
 .filterHeader{
@@ -307,18 +294,6 @@ flex-wrap: nowrap;
     /* box-shadow: inset 5px 0px 5px 0px rgba(0,0,0,0.1); */
   }
   
-  .input{
-    border: 0px;
-    border-bottom: 2px solid #fff;
-    background: transparent;
-    width: 0%;
-    padding: 5px 0;
-    height: 100%;
-    outline: none;
-    color: #0066FF;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
   
   .container .icon{
     color: #ffffff;
@@ -335,17 +310,7 @@ flex-wrap: nowrap;
     transition: all 0.5s ease;
   }
   
-  .input.active{
-    width: 98%;
-    
-    padding-left: 5px;
-    transition: all 0.5s 0.8s ease;
-  }
   
-  input::placeholder {
-    color: #0066ff;
-    opacity: 0.7;
-  }
   .filt{
     margin-left:40px;
     margin-right:5px;
@@ -368,3 +333,32 @@ flex-wrap: nowrap;
     top:10px;
     left:10px;
   }
+
+
+
+  .menu1{
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .editable{
+    width: auto !important;
+    border:none !important;
+    outline:none !important;
+    width: 100% !important;
+    background:transparent !important;
+    float:left;
+    padding:6px;
+    color:#414143;
+    margin-bottom:0;
+    font-size:1.5em !important;
+    font-weight: bold;
+ }
+
+@media all and (max-width: 768px) {
+  .menu1{
+    margin-top:10px;
+  }
+}

@@ -1,19 +1,20 @@
 <div class="padTop">
         
     
-        <div class="sectionHeader active">
+        <div class="sectionHeader" routerLink="/profile" routerLinkActive="active">
           Profile Info
         </div>
-        <div class="sectionHeader">
+        <div class="sectionHeader" routerLink="/transactions" routerLinkActive="active">
           Transactions
         </div>
-        <div class="sectionHeader">
+        <div class="sectionHeader" routerLink="/messages" routerLinkActive="active">
           Messages
         </div>
-        <div class="sectionHeader">
+        <div class="sectionHeader" routerLink="/settings" routerLinkActive="active">
           Settings
         </div>
-        <div class="sectionHeaderArrow">
-            <i class="arrow alternate large circle left outline icon"></i>
-        </div>
+        
+</div>
+<div class="sectionHeaderArrow" (click)="hideSidebar()">
+    <i class="arrow alternate large circle left outline icon"></i>
 </div>

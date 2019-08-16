@@ -28,6 +28,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { TransactionsComponent } from './profile/transactions/transactions.component';
 import { ProfileInfoComponent } from './profile/profile-info/profile-info.component';
 import { MessagesComponent } from './profile/messages/messages.component';
+import { SettingsComponent } from './profile/settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { MessagesComponent } from './profile/messages/messages.component';
     ProfileComponent,
     TransactionsComponent,
     ProfileInfoComponent,
-    MessagesComponent
+    MessagesComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

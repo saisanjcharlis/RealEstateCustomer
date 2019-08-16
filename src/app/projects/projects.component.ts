@@ -18,6 +18,7 @@ export class ProjectsComponent implements OnInit {
   } 
   iconSearch = true;
   imagesList = [];
+  location="Hyderabad Real Estate";
   images = [
     "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
     "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg",
@@ -71,7 +72,6 @@ export class ProjectsComponent implements OnInit {
     .dropdown();
 
     if(this.filterTrue == false){
-      console.log('filter clicked');
       $('.filterMenu').transition('fade down');
       $('.filterMenu').css('display','initial');
       $(".projects").css('display','none');
@@ -86,14 +86,15 @@ export class ProjectsComponent implements OnInit {
   
   }
   expandSearch(){
-    $(".container, .input").addClass("active");
-    $("input[type='text']").focus();
+    $('.editable').removeAttr("disabled");
+    $('.editable').focus();
+    $('.editable').css('color','#0066ff');
     this.iconSearch = false;
   }
   cancel(){
-    $(".container, .input").removeClass("active");
-    $(".input").val("");
     this.iconSearch = true;
+    $('.editable').css('color','#000');
+    $('.editable').attr("disabled",true);
   }
   ngOnInit() {
     $(document).scrollTop(0);

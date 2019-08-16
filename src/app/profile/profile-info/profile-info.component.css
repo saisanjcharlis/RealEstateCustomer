@@ -1,0 +1,107 @@
+.gridContainer{
+    display: grid;
+    grid-gap:10px 1rem;
+    padding-top:100px;
+    grid-template-columns: 15% 80%;
+}
+.header{
+    background-color: #0066ff;
+    padding: 5px 0 5px 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color:white;
+    font-family: 'Quicksand', sans-serif; 
+    font-weight: 600;
+}
+
+
+@media all and (max-width: 768px) {
+    .mobileHide {
+      display: none;
+    }
+    .gridContainer{
+        display: block;
+        margin:0 2%;
+    }
+  }
+.content{
+    background: white;
+    position: relative;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+    padding:10px 20px;
+}
+.editDisabled{
+    border:none !important;
+    margin-top: -2px !important;
+    outline:none !important;
+    background:transparent !important;
+    color:#0066ff !important;
+    opacity: 1 !important;
+}
+.inline.field{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+@media all and (min-width: 560px) and (max-width: 1000px){
+    .inline.field{
+        width: 60%;
+    }
+}
+@media all and (min-width: 1001px){
+    .inline.field{
+        width: 40%;
+    }
+}
+.inline.field label{
+    flex: 1 0 auto;
+}
+@media all and (max-width: 1085px) and (min-width: 769px){
+    .gridContainer{
+        grid-template-columns: 20% 70%;
+    }
+  }
+.edit{
+    position: absolute;
+    right:20px;
+}
+.avatar{
+    margin-left:14.5px;
+    margin-top:20px;
+    cursor: pointer;
+    position: relative;
+    margin-bottom:50px;
+}
+.avatar img{
+    left:50%;
+    width:70px;
+    height: 70px;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    border-width: 4px;
+    padding: 4px;
+    background-image: linear-gradient(-90deg, rgb(250, 250, 250) 50%, rgba(0, 0, 0, 0) 50%),
+                      linear-gradient(0deg, rgb(250, 250, 250) 100%, rgba(0, 0, 0, 0) 50%);
+}
+.editButton{
+    position: absolute;
+    left:50%;
+    transform:translate(90%,50%);
+}
+@media all and (min-width: 769px) {
+    .avatar img{
+        width:100px;
+        height: 100px;
+        padding: 5px;
+    }
+    .editButton{
+        transform:translate(90%,50%);
+    }
+}

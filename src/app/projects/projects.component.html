@@ -20,15 +20,16 @@
         <div class="projectContainer ui form">
                 <div class="topContainer">
                         <div class="menu1">
-                                <h2>Hyderabad Real Estate</h2>
+                                <!-- <h2>Hyderabad Real Estate</h2> -->
+                                <input type="text" [(ngModel)]="location" disabled class="editable">
+                                <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted large search icon" style="color:#0066ff; cursor: pointer;padding-right: 20px;"></i>
+                                <i (click)="cancel()" *ngIf="!iconSearch" class="fitted large cancel icon" style="color:#0066ff; cursor: pointer;padding-right: 20px;"></i>
                                 <!-- <div class="container" >
                                 <input type="text" class="input" placeholder="Search">
                                 <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
                                 <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
                         </div> -->
-                                <!-- <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
-                    <div class="projectList listing activeProject" (click)="changetoListing()">Listings</div>
-                    <div style="clear: both;"></div> -->
+                                
                         </div>
 
                         <div class="plotHeader">

@@ -9,7 +9,10 @@ import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.c
 import { AuthGuard } from '../services/auth.guard';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ActivityComponent } from './activity/activity.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileInfoComponent } from './profile/profile-info/profile-info.component';
+import { MessagesComponent } from './profile/messages/messages.component';
+import { TransactionsComponent } from './profile/transactions/transactions.component';
+import { SettingsComponent } from './profile/settings/settings.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -17,7 +20,10 @@ const routes: Routes = [
   { path: 'createProfile', component: CreateProfileComponent },
   { path: 'forgotPassword', component: ForgotpasswordComponent },
   { path: 'projectDetail', component: ProjectDetailComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'messages', component: MessagesComponent },
+  { path: 'transactions', component: TransactionsComponent },
+  { path: 'profile', component: ProfileInfoComponent },
+  { path: 'settings', component: SettingsComponent },
   { path: 'passbook', component: PassbookComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: '**', component: PageNotFoundComponent }

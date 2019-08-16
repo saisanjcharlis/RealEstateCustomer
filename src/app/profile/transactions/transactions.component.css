@@ -1,14 +1,27 @@
-.padTop{
-    padding-top: 80px;
+.gridContainer{
+    display: grid;
+    grid-gap:10px 1rem;
+    padding-top:100px;
+    grid-template-columns: 15% 80%;
 }
-.sectionHeader{
-    border-radius: 0px 15px 15px 0px;
-    background-color: #0066FF;
+.header{
+    background-color: #0066ff;
+    padding: 5px 0 5px 5px;
     color:white;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Quicksand', sans-serif; 
     font-weight: 600;
-    display: inline-block;
-    margin-top:15px;
-    padding: 5px 15px 5px 25px ;
-    margin-bottom: 20px;
+}
+
+
+@media all and (max-width: 768px) {
+    .mobileHide {
+      display: none;
+    }
+    .gridContainer{
+        display: block;
+        margin:0 2%;
+    }
+  }
+.content{
+    background: white;
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'messages',
-  templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+  selector: 'app-settings',
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.css']
 })
-export class MessagesComponent implements OnInit {
+export class SettingsComponent implements OnInit {
 
   constructor() { }
   onHide(hide: boolean){
