@@ -20,14 +20,6 @@ export class CreateProfileComponent implements OnInit {
       return false;
     },
     onApprove : function() {
-      // if(this.newPassword.length>=6){
-      //   $('body').toast({
-      //     class: 'success',
-      //     message: 'Password Updated Succesfully.'
-      //   });
-      //   $('.toast-box').css("margin-top","50px");
-      //   return true;
-      // }
       var newPass = $('#newPassword');
       if(newPass.val().length<=5 && newPass.val().length>0){
         $('body').toast({

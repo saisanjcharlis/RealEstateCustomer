@@ -4,7 +4,7 @@
     <div class="mainContainer">
         <div class="header">Profile Information</div>
         <div class="content ui form">
-                <button class="ui basic blue small button edit">Edit Profile</button>
+                <button class="ui basic blue small button edit" (click)="editEnabled()">{{options}}</button>
 
                 <div class="avatar" (click)="uploadPicture()">
                       <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" />
@@ -13,7 +13,7 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.78208 7.35787C8.57083 7.1304 8.57083 6.76293 8.78208 6.53546L10.0496 5.1706C10.1508 5.06138 10.2882 5 10.4315 5C10.5747 5 10.7121 5.06138 10.8133 5.1706L11.875 6.31381L9.84375 8.50109L8.78208 7.35787ZM17.8333 12.7298L12.4167 6.89709L10.3854 9.08436L15.8021 14.9171H17.8333V12.7298ZM16.75 13.7505H16.2517L11.9183 9.08436L12.4167 8.54775L16.75 13.2139V13.7505ZM7 16.6669H20V19H7V16.6669Z" fill="white"/>
                       </svg>
                 </div>
-
+                <input (change)="onSelectFile($event)" id="imageUpload" type="file" name="profile_photo" placeholder="Photo"  accept="image/*" required="" capture>
                 <div class="inline field">
                     <label>Name</label>
                     <input disabled type="text" class="editDisabled" value="John Keane">

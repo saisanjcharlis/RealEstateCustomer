@@ -39,6 +39,15 @@
     color:#0066ff !important;
     opacity: 1 !important;
 }
+.editEnabled{
+    border: 1px solid rgba(34,36,38,.15) !important;
+    outline:0 !important;
+    background: #fff !important;
+}
+#imageUpload
+{
+    display: none;
+}
 .inline.field{
     display: flex;
     width: 80%;
@@ -93,6 +102,7 @@
 .editButton{
     position: absolute;
     left:50%;
+    display: none;
     transform:translate(90%,50%);
 }
 @media all and (min-width: 769px) {

@@ -7,7 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileInfoComponent implements OnInit {
   constructor() { }
-  title="Shweta";
+  options="Edit Profile";
+  editEnabled(){
+    $('.editDisabled').removeAttr("disabled");
+    $('.editDisabled').addClass('editEnabled');
+    this.options="Save Profile";
+    $('.edit').removeClass("blue");
+    $('.edit').addClass("green");
+    $('.editButton').css("display","initial");
+  }
+  uploadPicture(){
+    $("#imageUpload").click();
+  }
+  url = '';
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); 
+      reader.onload = (imgsrc: any) => { 
+        this.url = imgsrc.target.result;
+      }
+    }
+  }
   onHide(hide: boolean){
     if(hide){
       $('.gridContainer').css( "grid-template-columns", "15% 80%" );
