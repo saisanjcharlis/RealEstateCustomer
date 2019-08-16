@@ -162,6 +162,11 @@
   bottom:0;
 
 }
+@media all and (max-width: 768px) {
+  .footer{
+    padding-bottom:30px;
+  }
+}
 .gridAmenities{
   margin-top:20px;
   display: grid;
