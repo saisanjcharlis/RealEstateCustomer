@@ -110,29 +110,7 @@
     position: relative;
     padding: 5px 10px 5px 15px ;
 }
-.gridContainer{
-    display: grid;
-    letter-spacing: 0.7px;
-    font-size:12px;
-    grid-template-columns: auto auto;
-    padding-bottom:30px;
-}
-.userName{
-    color:#0066ff;
-    font-weight: bold;
-    font-family: 'Quicksand', sans-serif; 
-    text-align: center;
-    margin-bottom:10px;
-    margin-top:65px;
-}
-@media all and (max-width: 1025px) {
-	/* .gridContainer{
-		display: none;
-  } */
-  .userName{
-    padding-bottom:30px;
-  }
-}
+
 .info{
     text-align: right;
     margin-right:10px;

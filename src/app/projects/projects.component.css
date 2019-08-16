@@ -90,7 +90,7 @@
 .two.fields>.field{
   flex: 1 1 auto;
   margin-right:20px !important;
-  min-width: 100% ;
+  /* min-width: 100% ; */
   /* width: 100% !important; */
 }
 .propertyFlex1 .field label{
@@ -98,6 +98,22 @@
 }
 .ui.form .fields>.field:first-child {
   border: 1px solid rgba(34,36,38,.15) !important;
+  min-width: 70px;
+}
+@media all and (min-width: 625px) {
+  .ui.form .fields>.field:first-child {
+    min-width: 120px;
+  }
+}
+@media all and (min-width: 920px) {
+  .ui.form .fields>.field:first-child {
+    min-width: 240px;
+  }
+}
+@media all and (min-width: 1027px) {
+  .ui.form .fields>.field:first-child {
+    min-width: 140px;
+  }
 }
 .ui.form .fields {
   display: flex;

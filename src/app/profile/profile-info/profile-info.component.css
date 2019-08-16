@@ -26,10 +26,17 @@
   }
 .content{
     background: white;
+    display: grid;
+    grid-gap:10px 1rem;
+    grid-template-columns: 50% 50%;
     position: relative;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 20px;
-    padding:10px 20px;
+    padding:70px 20px 20px 20px;
+}
+.content label{
+    text-align: right;
+    padding: 9.5px 14px;
 }
 .editDisabled{
     border:none !important;
@@ -50,7 +57,7 @@
 }
 .inline.field{
     display: flex;
-    width: 80%;
+    width: 90%;
     justify-content: space-between;
     align-items: center;
 }
@@ -75,12 +82,11 @@
 .edit{
     position: absolute;
     right:20px;
+    top:20px;
 }
 .avatar{
-    margin-left:14.5px;
-    margin-top:20px;
     cursor: pointer;
-    position: relative;
+    /* position: relative; */
     margin-bottom:50px;
 }
 .avatar img{

@@ -29,6 +29,7 @@ import { TransactionsComponent } from './profile/transactions/transactions.compo
 import { ProfileInfoComponent } from './profile/profile-info/profile-info.component';
 import { MessagesComponent } from './profile/messages/messages.component';
 import { SettingsComponent } from './profile/settings/settings.component';
+import { SavedsearchComponent } from './activity/savedsearch/savedsearch.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { SettingsComponent } from './profile/settings/settings.component';
     TransactionsComponent,
     ProfileInfoComponent,
     MessagesComponent,
-    SettingsComponent
+    SettingsComponent,
+    SavedsearchComponent
   ],
   imports: [
     BrowserModule,

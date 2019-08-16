@@ -40,6 +40,9 @@ export class ProjectsComponent implements OnInit {
     };
     }
    }
+  addCoBuy(){
+    $('.ui.modal.coBuy').modal('setting', 'transition', 'horizontal flip').modal('show');
+  }
   triggerPropertyView(){
     $('.hiddenContent').removeClass('hidden');
     $('.visibleContent').removeClass('visible');
@@ -97,6 +100,7 @@ export class ProjectsComponent implements OnInit {
     $('.editable').attr("disabled",true);
   }
   ngOnInit() {
+
     $(document).scrollTop(0);
     $('.ui.checkbox').checkbox();
       if(window.innerWidth>480)
@@ -110,7 +114,10 @@ export class ProjectsComponent implements OnInit {
 
   }
   ngAfterViewInit() {
+    this.addCoBuy();
     $('.ui.rating').rating();
   }
-
+  ngOnDestroy(){
+    $('body .modals').remove();
+  }
 }
