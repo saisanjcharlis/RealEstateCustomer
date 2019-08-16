@@ -1,330 +1,432 @@
 <app-navbar></app-navbar>
 
 <div class="compContainer">
-    <div class="mapContainer">
-        <div style="position: sticky;top:0;z-index:2;">
-                <div class="padTop">
-                        <span class="sectionHeader">
-                            Available Projects
-                        </span>
-                        <!-- <div class="container" >
+        <div class="mapContainer">
+                <div style="position: sticky;top:0;z-index:2;">
+                        <div class="padTop">
+                                <span class="sectionHeader">
+                                        Available Projects
+                                </span>
+                                <!-- <div class="container" >
                                 <input type="text" class="input" placeholder="Search">
                                 <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
                                 <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
                         </div> -->
-                        
-                    </div>
+
+                        </div>
+                </div>
+
         </div>
-           
-    </div>
-    <div class="projectContainer">
-        <div class="topContainer">
-            <div class="menu1">
-                    <h2>Hyderabad Real Estate</h2>
-                    <div class="container" >
+        <div class="projectContainer ui form">
+                <div class="topContainer">
+                        <div class="menu1">
+                                <h2>Hyderabad Real Estate</h2>
+                                <!-- <div class="container" >
                                 <input type="text" class="input" placeholder="Search">
                                 <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
                                 <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
-                        </div>
-                    <!-- <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
+                        </div> -->
+                                <!-- <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
                     <div class="projectList listing activeProject" (click)="changetoListing()">Listings</div>
                     <div style="clear: both;"></div> -->
-            </div>
-            
-            <div class="plotHeader">
-                <div class="priceMargin">Price</div>
-                <div class="ui fluid selection dropdown">
-                        <input type="hidden" name="priceMin">
-                        <i class="dropdown icon"></i>
-                        <div class="default text" >Min</div>
-                        <div class="menu">
-                             <div class="item" data-value="1">10 Lakhs</div>
-                             <div class="item" data-value="1">20 Lakhs</div>
-                             <div class="item" data-value="0">30 Lakhs</div>
-                             <div class="item" data-value="0">40 Lakhs</div>
-                             <div class="item" data-value="0">50 Lakhs</div>
-                             <div class="item" data-value="0">60 Lakhs</div>
-                             <div class="item" data-value="0">70 Lakhs</div>
-                             <div class="item" data-value="0">80 Lakhs</div>
-                             <div class="item" data-value="0">90 Lakhs</div>
-                             <div class="item" data-value="0">1 Cr</div>
-                             <div class="item" data-value="0">2 Cr</div>
-                             <div class="item" data-value="0">3 Cr</div>
-                             <div class="item" data-value="0">4 Cr</div>
-                             <div class="item" data-value="0">5 Cr</div>
-                        </div>
-                      </div>
-                      &nbsp;to&nbsp;
-                      <div class="ui fluid selection dropdown">
-                        <input type="hidden" name="priceMax">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Max</div>
-                        <div class="menu">
-                                <div class="item" data-value="1">10 Lakhs</div>
-                                <div class="item" data-value="1">20 Lakhs</div>
-                                <div class="item" data-value="0">30 Lakhs</div>
-                                <div class="item" data-value="0">40 Lakhs</div>
-                                <div class="item" data-value="0">50 Lakhs</div>
-                                <div class="item" data-value="0">60 Lakhs</div>
-                                <div class="item" data-value="0">70 Lakhs</div>
-                                <div class="item" data-value="0">80 Lakhs</div>
-                                <div class="item" data-value="0">90 Lakhs</div>
-                                <div class="item" data-value="0">1 Cr</div>
-                                <div class="item" data-value="0">2 Cr</div>
-                                <div class="item" data-value="0">3 Cr</div>
-                                <div class="item" data-value="0">4 Cr</div>
-                                <div class="item" data-value="0">5 Cr</div>
-                        </div>
-                      </div>
-                <div class="moreFilter" >
-                        <i (click)="moreFilter()" class="funnel dollar large icon filterIcon"></i>
-                        <span class="filterDesktop" (click)="moreFilter()" *ngIf="!filterTrue">Filters<i class="angle down icon marginRight"></i></span>
-                        <span class="filterDesktop" (click)="moreFilter()" *ngIf="filterTrue">Filters<i class="angle up icon marginRight"></i></span>
-                        <span class="clearButton">Clear</span>
-                </div>
-            </div> 
-            <div class="displayInfo">
-                <span style="display:inline-block;padding:12px 0;font-weight: 600;color:#414143;font-size:12px;">Showing 21 out of 2107 Projects</span>
-
-                <div class="ui pointing dropdown" style="margin-left:10px;color:#414143;">
-                      <i class="sort amount down icon" ></i>
-                      <span>Sort</span>
-                      <div class="right menu">
-                            <a class="item">Recommended</a>
-                            <a class="item">Price</a>
-                            <a class="item">Rating</a>
-                            <a class="item">Square Yards</a>
-                            <a class="item">Newest First</a>
-                            <a class="disabled item">Upcoming</a>
-                            
-                      </div>
-                  </div>
-                    <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
-                    <div class="projectList listing activeProject" (click)="changetoListing()">Listings</div>
-                    <div style="clear: both;"></div>
-            </div>
-        </div>
-        <div class="filterMenu" >
-            <span class="filterHeader">Property Type</span>
-           
-            <div class="ui large icon buttons" style="width:25%;margin-top:20px;">
-                    <div (click)="toggleActive($event)" class="ui vertical animated activeProperty black fluid button" tabindex="0">
-                            <div class="hidden content hiddenContent" style="pointer-events: none"><i class="home icon"></i></div>
-                            <div class="visible content visibleContent" style="pointer-events: none">Plots</div>
-                    </div>
-                    <div (click)="toggleActive($event)" class="ui vertical animated black fluid button" tabindex="0">
-                            <div class="hidden content hiddenContent" style="pointer-events: none"><i class="city icon"></i></div>
-                            <div class="visible content visibleContent" style="pointer-events: none">Apartments</div>
-                    </div>
-                    <div (click)="toggleActive($event)" class="ui vertical toggle animated black fluid button" tabindex="0">
-                            <div class="hidden content hiddenContent" style="pointer-events: none"> <i class="place of worship icon"></i></div>
-                            <div class="visible content visibleContent" style="pointer-events: none">Villas</div>
-                    </div>
-                    <div (click)="toggleActive($event)" class="ui vertical animated black fluid button" tabindex="0">
-                            <div class="hidden content hiddenContent" style="pointer-events: none"><i class="building icon"></i></div>
-                            <div class="visible content visibleContent" style="pointer-events: none">Builder</div>
-                    </div>
-            </div>
-
-           
-            <span class="filterHeader">Listing Status</span>
-            <div class="ui toggle  checkbox" style="margin-top:20px;">
-                    <input checked type="checkbox" name="public">
-                    <label>For Sale/Sold</label>
-            </div>
-
-
-            <hr style="margin-top:20px;">
-            <span class="filterHeader">Property Facts</span>
-            <div class="propertyFlex1">
-                        <div class="ui basic button multiple search selection dropdown propertyFacts">
-                            <input type="hidden" name="day">
-                            <div class="default text" style="width: 100%;">Square Yards</div>
-                            <i class="angle down icon floatRightDrop"></i>
-                            <div class="menu">
-                                <div class="item" data-value="1">1</div>
-                                <div class="item" data-value="2">2</div>
-                                <div class="item" data-value="3">3</div>
-                                <div class="item" data-value="4">4</div>
-                                <div class="item" data-value="5">5</div>
-                                <div class="item" data-value="6">6</div>
-                                <div class="item" data-value="7">7</div>
-                                <div class="item" data-value="8">8</div>
-                                <div class="item" data-value="9">9</div>
-                                <div class="item" data-value="10">10</div>
-                                <div class="item" data-value="11">11</div>
-                            </div>
-                        </div>
-                        <div class="ui basic button multiple search selection dropdown propertyFacts">
-                                <input type="hidden" name="day" >
-                                <div class="default text" style="width: 100%;">Lot Size</div>
-                                <i class="angle down icon floatRightDrop"></i>
-                                <div class="menu">
-                                    <div class="item" data-value="1">1</div>
-                                    <div class="item" data-value="2">2</div>
-                                    <div class="item" data-value="3">3</div>
-                                    <div class="item" data-value="4">4</div>
-                                    <div class="item" data-value="5">5</div>
-                                    <div class="item" data-value="6">6</div>
-                                    <div class="item" data-value="7">7</div>
-                                    <div class="item" data-value="8">8</div>
-                                    <div class="item" data-value="9">9</div>
-                                    <div class="item" data-value="10">10</div>
-                                    <div class="item" data-value="11">11</div>
-                                </div>
-                            </div>
-                            <div class="ui basic button multiple search selection dropdown propertyFacts">
-                                    <input type="hidden" name="day">
-                                    <div class="default text" style="width: 100%;">Year Built</div>
-                                    <i class="angle down icon floatRightDrop"></i>
-                                    <div class="menu">
-                                        <div class="item" data-value="1">2019</div>
-                                        <div class="item" data-value="2">2018</div>
-                                        <div class="item" data-value="3">2017</div>
-                                        <div class="item" data-value="3">2016</div>
-                                        <div class="item" data-value="3">2015</div>
-                                        <div class="item" data-value="4">2014</div>
-                                        <div class="item" data-value="5">2013</div>
-                                        <div class="item" data-value="1">2012</div>
-                                        <div class="item" data-value="2">2011</div>
-                                        <div class="item" data-value="3">2010</div>
-                                        <div class="item" data-value="3">2009</div>
-                                        <div class="item" data-value="3">2008</div>
-                                        <div class="item" data-value="6">2007</div>
-                                        <div class="item" data-value="7">2006</div>
-                                        <div class="item" data-value="8">2005</div>
-                                        <div class="item" data-value="9">2004</div>
-                                        <div class="item" data-value="10">2003</div>
-                                        <div class="item" data-value="11">2002</div>
-                                        <div class="item" data-value="11">2001</div>
-                                        <div class="item" data-value="11">2000</div>
-                                        <div class="item" data-value="11">1995</div>
-                                        <div class="item" data-value="11">1990</div>
-                                        <div class="item" data-value="11">1985</div>
-                                        <div class="item" data-value="11">1980</div>
-                                    </div>
-                                </div>
-            </div>
-
-            <hr style="margin-top:20px;">
-
-            <span class="filterHeader">Amenities</span>
-
-            <div class="propertyFlex">
-                    <div class="ui basic button multiple search selection dropdown">
-                            <input type="hidden" name="day" >
-                            <div class="default text" style="width: 100%;">Parking Spaces</div>
-                            <i class="angle down icon floatRightDrop"></i>
-                            <div class="menu">
-                                <div class="item" data-value="1">1+</div>
-                                <div class="item" data-value="2">2+</div>
-                                <div class="item" data-value="3">3+</div>
-                                <div class="item" data-value="4">4+</div>
-                                <div class="item" data-value="5">5+</div>
-                            </div>
-                        </div>
-                        <div class="ui basic button multiple search selection dropdown">
-                                <input type="hidden" name="day">
-                                <div class="default text" style="width: 100%;">Stories</div>
-                                <i class="angle down icon floatRightDrop"></i>
-                                <div class="menu">
-                                    <div class="item" data-value="1">1</div>
-                                    <div class="item" data-value="2">2</div>
-                                    <div class="item" data-value="3">3</div>
-                                    <div class="item" data-value="4">4</div>
-                                    <div class="item" data-value="5">5</div>
-                                    <div class="item" data-value="6">6</div>
-                                    <div class="item" data-value="7">7</div>
-                                    <div class="item" data-value="8">8</div>
-                                    <div class="item" data-value="9">9</div>
-                                    <div class="item" data-value="10">10</div>
-                                    <div class="item" data-value="15">15</div>
-                                    <div class="item" data-value="20">20</div>
-                                    <div class="item" data-value="30">30</div>
-                                </div>
                         </div>
 
-                </div>
-                <div class="gridAmenities">
-                        <div style="display: flex;flex-direction: column;">
-                                <div class="ui checkbox checkBox">
-                                        <input type="checkbox" tabindex="0" class="hidden">
-                                        <label>Swimming Pool</label>
+                        <div class="plotHeader">
+                                <div class="priceMargin">Price</div>
+                                <div class="ui fluid selection dropdown">
+                                        <input type="hidden" name="priceMin">
+                                        <i class="dropdown icon"></i>
+                                        <div class="default text">Min</div>
+                                        <div class="menu">
+                                                <div class="item" data-value="1">10 Lakhs</div>
+                                                <div class="item" data-value="1">20 Lakhs</div>
+                                                <div class="item" data-value="0">30 Lakhs</div>
+                                                <div class="item" data-value="0">40 Lakhs</div>
+                                                <div class="item" data-value="0">50 Lakhs</div>
+                                                <div class="item" data-value="0">60 Lakhs</div>
+                                                <div class="item" data-value="0">70 Lakhs</div>
+                                                <div class="item" data-value="0">80 Lakhs</div>
+                                                <div class="item" data-value="0">90 Lakhs</div>
+                                                <div class="item" data-value="0">1 Cr</div>
+                                                <div class="item" data-value="0">2 Cr</div>
+                                                <div class="item" data-value="0">3 Cr</div>
+                                                <div class="item" data-value="0">4 Cr</div>
+                                                <div class="item" data-value="0">5 Cr</div>
+                                        </div>
                                 </div>
-                                <div class="ui checkbox checkBox">
-                                        <input type="checkbox" tabindex="0" class="hidden">
-                                        <label>Pavement</label>
+                                &nbsp;to&nbsp;
+                                <div class="ui fluid selection dropdown">
+                                        <input type="hidden" name="priceMax">
+                                        <i class="dropdown icon"></i>
+                                        <div class="default text">Max</div>
+                                        <div class="menu">
+                                                <div class="item" data-value="1">10 Lakhs</div>
+                                                <div class="item" data-value="1">20 Lakhs</div>
+                                                <div class="item" data-value="0">30 Lakhs</div>
+                                                <div class="item" data-value="0">40 Lakhs</div>
+                                                <div class="item" data-value="0">50 Lakhs</div>
+                                                <div class="item" data-value="0">60 Lakhs</div>
+                                                <div class="item" data-value="0">70 Lakhs</div>
+                                                <div class="item" data-value="0">80 Lakhs</div>
+                                                <div class="item" data-value="0">90 Lakhs</div>
+                                                <div class="item" data-value="0">1 Cr</div>
+                                                <div class="item" data-value="0">2 Cr</div>
+                                                <div class="item" data-value="0">3 Cr</div>
+                                                <div class="item" data-value="0">4 Cr</div>
+                                                <div class="item" data-value="0">5 Cr</div>
+                                        </div>
                                 </div>
-                                <div class="ui checkbox checkBox">
-                                        <input type="checkbox" tabindex="0" class="hidden">
-                                        <label>Fountain Park</label>
-                                </div>
-                                <div class="ui checkbox checkBox">
-                                        <input type="checkbox" tabindex="0" class="hidden">
-                                        <label>Disabled Friendly</label>
+                                <div class="moreFilter">
+                                        <!-- <i (click)="moreFilter()" class="funnel dollar large icon filterIcon"></i> -->
+                                        <span class="filterDesktop" (click)="moreFilter()" *ngIf="!filterTrue">Filters<i
+                                                        class="angle down icon marginRight"></i></span>
+                                        <span class="filterDesktop" (click)="moreFilter()" *ngIf="filterTrue">Filters<i
+                                                        class="angle up icon marginRight"></i></span>
+                                        <span class="clearButton">Clear</span>
                                 </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;">
-                                <div class="ui checkbox checkBox">
-                                        <input type="checkbox" tabindex="0" class="hidden">
-                                        <label>View</label>
+                        <div class="displayInfo">
+                                <span class="totalProjectsInfo">Showing 21 out of 2107 Projects</span>
+
+                                <div class="ui pointing dropdown sortDrop" style="margin-left:10px;color:#414143;">
+                                        <i class="sort amount down icon"></i>
+                                        <span>Sort</span>
+                                        <div class="right menu">
+                                                <a class="item">Recommended</a>
+                                                <a class="item">Price</a>
+                                                <a class="item">Rating</a>
+                                                <a class="item">Square Yards</a>
+                                                <a class="item">Newest First</a>
+                                                <a class="disabled item">Upcoming</a>
+
+                                        </div>
                                 </div>
-                                <div class="ui checkbox checkBox">
-                                        <input type="checkbox" tabindex="0" class="hidden">
-                                        <label>Shopping</label>
+                                <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
+                                <div class="projectList listing activeProject" (click)="changetoListing()">Listings
                                 </div>
-                                <div class="ui checkbox checkBox">
-                                        <input type="checkbox" tabindex="0" class="hidden">
-                                        <label>Children's Park</label>
-                                </div>
-                                <div class="ui checkbox checkBox">
-                                        <input type="checkbox" tabindex="0" class="hidden">
-                                        <label>Garden</label>
-                                </div>
+                                <div style="clear: both;"></div>
                         </div>
                 </div>
-                
-            <hr style="margin-top:20px;">
-            <div class="footer">
-                <span class="ui blue tertiary button" style="font-size:15px;">Reset</span>
-                <button style="float: right;" class="ui blue button">Apply Filters</button>
-                <span style="float: right; padding:8px 0;margin-right:10px;">350+ Projects / No Matches</span>
-                
-            </div>
-        </div>
-        <div class="projects ui two stackable cards">
-                <div class="card" *ngFor="let image of images">
-                   <div class="image">
-                        <div class="tagInfo">
-                                <div class="ui red label">Posted: 04 Aug 2019</div>
-                                <div class="ui blue label">Hyderabad</div>
+                <div class="filterMenu">
+                        <span class="filterHeader">Property Type</span>
+
+                        <div class="ui large icon buttons" style="width:25%;margin-top:20px;">
+                                <div (click)="toggleActive($event)"
+                                        class="ui vertical animated activeProperty black fluid button" tabindex="0">
+                                        <div class="hidden content hiddenContent" style="pointer-events: none"><i
+                                                        class="home icon"></i></div>
+                                        <div class="visible content visibleContent" style="pointer-events: none">Plots
+                                        </div>
+                                </div>
+                                <div (click)="toggleActive($event)" class="ui vertical animated black fluid button"
+                                        tabindex="0">
+                                        <div class="hidden content hiddenContent" style="pointer-events: none"><i
+                                                        class="city icon"></i></div>
+                                        <div class="visible content visibleContent" style="pointer-events: none">
+                                                Apartments</div>
+                                </div>
+                                <div (click)="toggleActive($event)"
+                                        class="ui vertical toggle animated black fluid button" tabindex="0">
+                                        <div class="hidden content hiddenContent" style="pointer-events: none"> <i
+                                                        class="place of worship icon"></i></div>
+                                        <div class="visible content visibleContent" style="pointer-events: none">Villas
+                                        </div>
+                                </div>
+                                <div (click)="toggleActive($event)" class="ui vertical animated black fluid button"
+                                        tabindex="0">
+                                        <div class="hidden content hiddenContent" style="pointer-events: none"><i
+                                                        class="building icon"></i></div>
+                                        <div class="visible content visibleContent" style="pointer-events: none">Builder
+                                        </div>
+                                </div>
                         </div>
-                        <img routerLink="/projectDetail" style="cursor: pointer;" src={{image}}>
-                   </div>
-                   <div class="content">
-                                <i class="right floated large blue like outline icon"></i>
-                                <i class="right floated large blue share alternate icon"></i>
-                                <a class="header" routerLink="/projectDetail" >Spectra Fortune</a>
-                                <div style="margin-top:10px;" class="meta">
-                                        <span>Balanagar</span>
-                                        <span class="right floated ui mini star yellow rating" data-rating="3" data-max-rating="5"></span>
+
+
+                        <span class="filterHeader">Listing Status</span>
+                        <div class="ui toggle  checkbox" style="margin-top:20px;">
+                                <input checked type="checkbox" name="public">
+                                <label>For Sale/Sold</label>
+                        </div>
+
+
+                        <hr style="margin-top:20px;">
+                        <span class="filterHeader">Property Facts</span>
+                        <div class="propertyFlex1">
+                                <div class="field">
+                                        <label>Square Yards</label>
+                                        <div class="two fields">
+                                                <div class="ui field fluid selection dropdown">
+                                                        <input type="hidden" name="squareYards">
+                                                        <i class="dropdown icon"></i>
+                                                        <div class="default text">Min</div>
+                                                        <div class="menu">
+                                                                <div class="item" data-value="1">1</div>
+                                                                <div class="item" data-value="2">2</div>
+                                                                <div class="item" data-value="3">3</div>
+                                                                <div class="item" data-value="4">4</div>
+                                                                <div class="item" data-value="5">5</div>
+                                                                <div class="item" data-value="6">6</div>
+                                                                <div class="item" data-value="7">7</div>
+                                                                <div class="item" data-value="8">8</div>
+                                                                <div class="item" data-value="9">9</div>
+                                                                <div class="item" data-value="10">10</div>
+                                                                <div class="item" data-value="11">11</div>
+                                                        </div>
+                                                </div>
+                                                <div class="ui field fluid selection dropdown">
+                                                        <input type="hidden" name="priceMax">
+                                                        <i class="dropdown icon"></i>
+                                                        <div class="default text">Max</div>
+                                                        <div class="menu">
+                                                                <div class="item" data-value="1">1</div>
+                                                                <div class="item" data-value="2">2</div>
+                                                                <div class="item" data-value="3">3</div>
+                                                                <div class="item" data-value="4">4</div>
+                                                                <div class="item" data-value="5">5</div>
+                                                                <div class="item" data-value="6">6</div>
+                                                                <div class="item" data-value="7">7</div>
+                                                                <div class="item" data-value="8">8</div>
+                                                                <div class="item" data-value="9">9</div>
+                                                                <div class="item" data-value="10">10</div>
+                                                                <div class="item" data-value="11">11</div>
+                                                        </div>
+                                                </div>
+                                        </div>
                                 </div>
-                                <div class="description">
-                                                <b>1397-4000 Sq.Ft.<span style="float: right;color:#0066ff;"><i class="rupee sign icon"></i>15999<span style="color:#414143;font-weight: normal;"> onwards</span></span></b>
-                                                
-                                                
-                                        
+                                <div class="field">
+                                        <label>Lot Size</label>
+                                        <div class="two fields">
+                                                <div class="ui field fluid selection dropdown">
+                                                        <input type="hidden" name="lotSize">
+                                                        <i class="dropdown icon"></i>
+                                                        <div class="default text">Min</div>
+                                                        <div class="menu">
+                                                                <div class="item" data-value="1">1</div>
+                                                                <div class="item" data-value="2">2</div>
+                                                                <div class="item" data-value="3">3</div>
+                                                                <div class="item" data-value="4">4</div>
+                                                                <div class="item" data-value="5">5</div>
+                                                                <div class="item" data-value="6">6</div>
+                                                                <div class="item" data-value="7">7</div>
+                                                                <div class="item" data-value="8">8</div>
+                                                                <div class="item" data-value="9">9</div>
+                                                                <div class="item" data-value="10">10</div>
+                                                                <div class="item" data-value="11">11</div>
+                                                        </div>
+                                                </div>
+                                                <div class="ui field fluid selection dropdown">
+                                                        <input type="hidden" name="priceMax">
+                                                        <i class="dropdown icon"></i>
+                                                        <div class="default text">Max</div>
+                                                        <div class="menu">
+                                                                <div class="item" data-value="1">1</div>
+                                                                <div class="item" data-value="2">2</div>
+                                                                <div class="item" data-value="3">3</div>
+                                                                <div class="item" data-value="4">4</div>
+                                                                <div class="item" data-value="5">5</div>
+                                                                <div class="item" data-value="6">6</div>
+                                                                <div class="item" data-value="7">7</div>
+                                                                <div class="item" data-value="8">8</div>
+                                                                <div class="item" data-value="9">9</div>
+                                                                <div class="item" data-value="10">10</div>
+                                                                <div class="item" data-value="11">11</div>
+                                                        </div>
+                                                </div>
+                                        </div>
                                 </div>
-                                <div class="meta">
-                                        <span>Listing provided By Spectra</span>
+                                <div class="field">
+                                        <label>Year Built</label>
+                                        <div class="two fields">
+                                                <div class="ui field fluid selection dropdown">
+                                                        <input type="hidden" name="squareYards">
+                                                        <i class="dropdown icon"></i>
+                                                        <div class="default text">Min</div>
+                                                        <div class="menu">
+                                                                <div class="item" data-value="1">2019</div>
+                                                                <div class="item" data-value="2">2018</div>
+                                                                <div class="item" data-value="3">2017</div>
+                                                                <div class="item" data-value="3">2016</div>
+                                                                <div class="item" data-value="3">2015</div>
+                                                                <div class="item" data-value="4">2014</div>
+                                                                <div class="item" data-value="5">2013</div>
+                                                                <div class="item" data-value="1">2012</div>
+                                                                <div class="item" data-value="2">2011</div>
+                                                                <div class="item" data-value="3">2010</div>
+                                                                <div class="item" data-value="3">2009</div>
+                                                                <div class="item" data-value="3">2008</div>
+                                                                <div class="item" data-value="6">2007</div>
+                                                                <div class="item" data-value="7">2006</div>
+                                                                <div class="item" data-value="8">2005</div>
+                                                                <div class="item" data-value="9">2004</div>
+                                                                <div class="item" data-value="10">2003</div>
+                                                                <div class="item" data-value="11">2002</div>
+                                                                <div class="item" data-value="11">2001</div>
+                                                                <div class="item" data-value="11">2000</div>
+                                                                <div class="item" data-value="11">1995</div>
+                                                                <div class="item" data-value="11">1990</div>
+                                                                <div class="item" data-value="11">1985</div>
+                                                                <div class="item" data-value="11">1980</div>
+                                                        </div>
+                                                </div>
+                                                <div class="ui field fluid selection dropdown">
+                                                        <input type="hidden" name="priceMax">
+                                                        <i class="dropdown icon"></i>
+                                                        <div class="default text">Max</div>
+                                                        <div class="menu">
+                                                                <div class="item" data-value="1">2019</div>
+                                                                <div class="item" data-value="2">2018</div>
+                                                                <div class="item" data-value="3">2017</div>
+                                                                <div class="item" data-value="3">2016</div>
+                                                                <div class="item" data-value="3">2015</div>
+                                                                <div class="item" data-value="4">2014</div>
+                                                                <div class="item" data-value="5">2013</div>
+                                                                <div class="item" data-value="1">2012</div>
+                                                                <div class="item" data-value="2">2011</div>
+                                                                <div class="item" data-value="3">2010</div>
+                                                                <div class="item" data-value="3">2009</div>
+                                                                <div class="item" data-value="3">2008</div>
+                                                                <div class="item" data-value="6">2007</div>
+                                                                <div class="item" data-value="7">2006</div>
+                                                                <div class="item" data-value="8">2005</div>
+                                                                <div class="item" data-value="9">2004</div>
+                                                                <div class="item" data-value="10">2003</div>
+                                                                <div class="item" data-value="11">2002</div>
+                                                                <div class="item" data-value="11">2001</div>
+                                                                <div class="item" data-value="11">2000</div>
+                                                                <div class="item" data-value="11">1995</div>
+                                                                <div class="item" data-value="11">1990</div>
+                                                                <div class="item" data-value="11">1985</div>
+                                                                <div class="item" data-value="11">1980</div>
+                                                        </div>
+                                                </div>
+                                        </div>
                                 </div>
-                                
-                   </div>
+                        </div>
+
+                        <hr style="margin-top:20px;">
+
+                        <span class="filterHeader">Amenities</span>
+
+                        <div class="propertyFlex">
+                                <div class="ui basic button multiple search selection dropdown">
+                                        <input type="hidden" name="day">
+                                        <div class="default text" style="width: 100%;">Parking Spaces</div>
+                                        <i class="angle down icon floatRightDrop"></i>
+                                        <div class="menu">
+                                                <div class="item" data-value="1">1+</div>
+                                                <div class="item" data-value="2">2+</div>
+                                                <div class="item" data-value="3">3+</div>
+                                                <div class="item" data-value="4">4+</div>
+                                                <div class="item" data-value="5">5+</div>
+                                        </div>
+                                </div>
+                                <div class="ui basic button multiple search selection dropdown">
+                                        <input type="hidden" name="day">
+                                        <div class="default text" style="width: 100%;">Stories</div>
+                                        <i class="angle down icon floatRightDrop"></i>
+                                        <div class="menu">
+                                                <div class="item" data-value="1">1</div>
+                                                <div class="item" data-value="2">2</div>
+                                                <div class="item" data-value="3">3</div>
+                                                <div class="item" data-value="4">4</div>
+                                                <div class="item" data-value="5">5</div>
+                                                <div class="item" data-value="6">6</div>
+                                                <div class="item" data-value="7">7</div>
+                                                <div class="item" data-value="8">8</div>
+                                                <div class="item" data-value="9">9</div>
+                                                <div class="item" data-value="10">10</div>
+                                                <div class="item" data-value="15">15</div>
+                                                <div class="item" data-value="20">20</div>
+                                                <div class="item" data-value="30">30</div>
+                                        </div>
+                                </div>
+
+                        </div>
+                        <div class="gridAmenities">
+                                <div style="display: flex;flex-direction: column;">
+                                        <div class="ui checkbox checkBox">
+                                                <input type="checkbox" tabindex="0" class="hidden">
+                                                <label>Swimming Pool</label>
+                                        </div>
+                                        <div class="ui checkbox checkBox">
+                                                <input type="checkbox" tabindex="0" class="hidden">
+                                                <label>Pavement</label>
+                                        </div>
+                                        <div class="ui checkbox checkBox">
+                                                <input type="checkbox" tabindex="0" class="hidden">
+                                                <label>Fountain Park</label>
+                                        </div>
+                                        <div class="ui checkbox checkBox">
+                                                <input type="checkbox" tabindex="0" class="hidden">
+                                                <label>Disabled Friendly</label>
+                                        </div>
+                                </div>
+                                <div style="display: flex;flex-direction: column;">
+                                        <div class="ui checkbox checkBox">
+                                                <input type="checkbox" tabindex="0" class="hidden">
+                                                <label>View</label>
+                                        </div>
+                                        <div class="ui checkbox checkBox">
+                                                <input type="checkbox" tabindex="0" class="hidden">
+                                                <label>Shopping</label>
+                                        </div>
+                                        <div class="ui checkbox checkBox">
+                                                <input type="checkbox" tabindex="0" class="hidden">
+                                                <label>Children's Park</label>
+                                        </div>
+                                        <div class="ui checkbox checkBox">
+                                                <input type="checkbox" tabindex="0" class="hidden">
+                                                <label>Garden</label>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <hr style="margin-top:20px;">
+                        <div class="footer">
+                                <span class="ui blue tertiary button" style="font-size:15px;">Reset</span>
+                                <button style="float: right;" class="ui blue button">Apply Filters</button>
+                                <span style="float: right; padding:8px 0;margin-right:10px;">350+ Projects / No
+                                        Matches</span>
+
+                        </div>
                 </div>
-             
-        </div>
-        <!-- <div class="projects" *ngFor="let image of imagesList" (deferLoad)="image.show = true">
+                <div class="projects ui two stackable cards" *ngIf="!filterTrue">
+                        <div class="card" *ngFor="let image of images">
+                                <div class="image">
+                                        <div class="tagInfo">
+                                                <div class="ui red label">Posted: 04 Aug 2019</div>
+                                                <div class="ui blue label">Hyderabad</div>
+                                        </div>
+                                        <img routerLink="/projectDetail" style="cursor: pointer;" src={{image}}>
+                                </div>
+                                <div class="content">
+                                        <i class="right floated large blue like outline icon"></i>
+                                        <i class="right floated large blue share alternate icon"></i>
+                                        <a class="header" routerLink="/projectDetail">Spectra Fortune</a>
+                                        <div style="margin-top:10px;" class="meta">
+                                                <span>Balanagar</span>
+                                                <span class="right floated ui mini star yellow rating" data-rating="3"
+                                                        data-max-rating="5"></span>
+                                        </div>
+                                        <div class="description">
+                                                <b>1397-4000 Sq.Ft.<span style="float: right;color:#0066ff;"><i
+                                                                        class="rupee sign icon"></i>15999<span
+                                                                        style="color:#414143;font-weight: normal;">
+                                                                        onwards</span></span></b>
+
+
+
+                                        </div>
+                                        <div class="meta">
+                                                <span>Listing provided By Spectra</span>
+                                        </div>
+
+                                </div>
+                        </div>
+
+                </div>
+                <!-- <div class="projects" *ngFor="let image of imagesList" (deferLoad)="image.show = true">
                 <project *ngIf="image.show"></project>
         </div> -->
-    </div>
+        </div>
 </div>

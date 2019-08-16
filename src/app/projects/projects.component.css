@@ -78,22 +78,42 @@
 .propertyFlex1{
   display:flex;
   flex-wrap: wrap;
+  margin-top:10px;
   justify-content: space-between;
 }
-.propertyFlex1 div{
-  flex:1 0 auto;
+.two.fields{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.two.fields>.field{
+  flex: 1 1 auto;
+  margin-right:20px !important;
+  min-width: 100% ;
+  /* width: 100% !important; */
+}
+.propertyFlex1 .field label{
+  font-weight: 500 !important;
+}
+.ui.form .fields>.field:first-child {
+  border: 1px solid rgba(34,36,38,.15) !important;
+}
+.ui.form .fields {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 1em !important;
 }
 @media all and (max-width: 1026px) {
   .propertyFlex div{
-    margin-right:10px;
+    margin-right:10px !important;
   }
 }
-@media all and (min-width: 1027px) {
-  .propertyFlex2{
-    margin-left:20px;
+@media all and (min-width: 768px) {
+  .two.fields>.field{
+    margin-top:10px;
   }
 }
-
 .filterMenu{
   display: none;
   flex-grow: 1;
@@ -105,10 +125,12 @@
   background-color: #0066ff !important;
 }
 .menu1{
-  padding:15px 5px 15px 5px;background: white;
+  padding:15px 5px 15px 5px;
+  background: white;
 }
 .menu1 h2{ 
-  float:left;padding:8px;color:#414143;margin-bottom:0;
+  /* float:left; */
+  padding:8px;color:#414143;margin-bottom:0;
 }
 .filterIcon{
   margin-left:5px;
@@ -184,9 +206,9 @@
   .ui.compact .dropdown.icon{
     padding: 0.55em !important;
   }
-  .marginRight{
+  /* .marginRight{
     display: none;
-  }
+  } */
 }
 .dropDown{
   border-radius: 1px !important;
@@ -194,6 +216,7 @@
 .topContainer{
   position: sticky;
   left:0;
+  background: #fff;
   top:56px;
   z-index:3;
 }
@@ -222,15 +245,28 @@
 display: flex;
 flex-wrap: nowrap;
 }
-@media all and (max-width: 560px) {
-  .filterDesktop{
-    display: none !important;
+
+.totalProjectsInfo{
+  display:inline-block;
+  padding:12px 0;
+  font-weight: 600;
+  color:#414143;
+  font-size:12px;
+}
+@media all and (max-width: 402px) {
+  .totalProjectsInfo{
+    display: none;
   }
+  .sortDrop{
+    padding: 12px 0;
+    margin-left:0px !important;
+  }
+}
+@media all and (max-width: 560px) {
   .clearButton{
     display: none;
   }
 }
-
 .moreFilter1{
   margin-left: auto;
   cursor: pointer;

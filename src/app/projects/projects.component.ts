@@ -71,9 +71,10 @@ export class ProjectsComponent implements OnInit {
     .dropdown();
 
     if(this.filterTrue == false){
+      console.log('filter clicked');
       $('.filterMenu').transition('fade down');
       $('.filterMenu').css('display','initial');
-      $('.projects').css('display','none');
+      $(".projects").css('display','none');
       $(".displayInfo").css("display","none");
     } else {
       $('.filterMenu').transition('fade up');
