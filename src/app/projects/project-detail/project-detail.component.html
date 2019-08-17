@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
    <!-- Floating Buttons -->
 <div class="shareButton">
-        <button class="ui circular blue icon button">
+        <button (click)="addFavorite()" class="ui circular blue icon button">
             <i class="like icon"></i>
         </button>
         <button style="margin-top:10px;" class="ui circular blue icon button">
@@ -163,6 +163,7 @@
                                         
                                 </div>
                                 <div class="ui tab segment" data-tab="seventh">
+                                        <div class="menuHeader">Similar Properties</div>
                                         <div class="projects ui two stackable cards">
                                                 <div class="card" *ngFor="let image of images">
                                                    <div class="image">

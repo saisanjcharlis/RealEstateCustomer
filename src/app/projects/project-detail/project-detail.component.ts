@@ -21,6 +21,15 @@ export class ProjectDetailComponent implements OnInit {
     $('.ldpGrayDayOptionContainer.selectedDate').removeClass('selectedDate');
     $(e.target).addClass("selectedDate");
   }
+  addFavorite(){
+    $('body')
+  .toast({
+    message: 'Liked this project',
+    class: 'blue', 
+    showProgress: 'bottom'
+  })
+;
+  }
   addCoBuy(){
     $('.ui.modal.coBuy').modal('show');
   }
@@ -41,5 +50,7 @@ export class ProjectDetailComponent implements OnInit {
   ngAfterViewInit() {
     $('.ui.rating').rating();
   }
-
+  ngOnDestroy(){
+    $('body .modal').remove();
+  }
 }

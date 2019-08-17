@@ -30,6 +30,7 @@ import { ProfileInfoComponent } from './profile/profile-info/profile-info.compon
 import { MessagesComponent } from './profile/messages/messages.component';
 import { SettingsComponent } from './profile/settings/settings.component';
 import { SavedsearchComponent } from './activity/savedsearch/savedsearch.component';
+import { FavoritesComponent } from './activity/favorites/favorites.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { SavedsearchComponent } from './activity/savedsearch/savedsearch.compone
     ProfileInfoComponent,
     MessagesComponent,
     SettingsComponent,
-    SavedsearchComponent
+    SavedsearchComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

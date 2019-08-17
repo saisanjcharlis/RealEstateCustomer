@@ -40,6 +40,8 @@ export class ProjectsComponent implements OnInit {
     };
     }
    }
+
+
   addCoBuy(){
     $('.ui.modal.coBuy').modal('setting', 'transition', 'horizontal flip').modal('show');
   }
@@ -114,10 +116,13 @@ export class ProjectsComponent implements OnInit {
 
   }
   ngAfterViewInit() {
-    this.addCoBuy();
+    if(window.innerWidth>768){
+      this.addCoBuy();
+    }
+   
     $('.ui.rating').rating();
   }
   ngOnDestroy(){
-    $('body .modals').remove();
+    $('body .modal').remove();
   }
 }
