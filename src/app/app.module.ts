@@ -32,7 +32,6 @@ import { SettingsComponent } from './profile/settings/settings.component';
 import { SavedsearchComponent } from './activity/savedsearch/savedsearch.component';
 import { FavoritesComponent } from './activity/favorites/favorites.component';
 
-import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,9 +66,7 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     FormsModule,
     Angular2AirDatepickerModule,
     BrowserAnimationsModule,
-    DeferLoadModule,
-    NgxMapboxGLModule.withConfig({
-      accessToken: 'pk.eyJ1IjoiY2hhcmxpc3NhaXNhbmoiLCJhIjoiY2p6aHl6bmE1MTBudTNjbGJqMDl5a2Y0aiJ9.kdPD9Bn9QRGL8PcJTkUKew'})
+    DeferLoadModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
