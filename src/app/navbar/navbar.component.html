@@ -19,7 +19,7 @@
               <i class="navIcon university icon large"></i>
               <span>Passbook</span>
           </a>
-         <a class="item navFlex ui dropdown" style="margin-left:80px !important;">
+         <a [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex ui dropdown" style="margin-left:80px !important;">
               <i class="navIcon bell outline icon large"></i>
               <div *ngIf="initialAvatar" class="floating ui circular label" style="background-color: #FCB332; color:white; font-size:0.75; opacity: 0.8; margin-top:14px !important; margin-right:24px!important;">2</div>
               <span>Notification</span>
@@ -44,7 +44,7 @@
               <div class="menu">
                     <div *ngIf="!initialAvatar" class="ui error message">
                         <div class="header">Error</div>
-                        <p>You must log-in to see all categories</p>
+                        <p>You must Join to see all categories</p>
                     </div>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/profile" style="font-size:14px;"><i class="user portrait icon"></i>Profile</a>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/transactions" style="font-size:14px;"><i class="exchange icon"></i>Transactions</a>

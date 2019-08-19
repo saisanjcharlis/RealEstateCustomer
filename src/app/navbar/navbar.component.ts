@@ -13,9 +13,6 @@ export class NavbarComponent implements OnInit {
   initialAvatar=true;
   accountName = "Login";
   createProfile = true;
-  hello(){
-    console.log("hello");
-  }
   ngOnInit() {
    
     if(localStorage.getItem('logStatus')=='createProfile'){
