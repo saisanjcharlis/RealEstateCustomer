@@ -3,16 +3,28 @@
         <span class="sectionHeader">
             Passbook
         </span>
-        <!-- <button class="ui green button" style="float:right;margin-right:1.5%;margin-top:15px;">Add a Passbook</button> -->
+        <button class="ui tiny green button" (click)="addPassbook()" style="float:right;margin-right:2%;margin-top:15px;"><i class="plus icon"></i>Add Passbook</button>
 </div>
 
 <div class="plotHeader">
-    <div style="float: left;margin-top:5px;">Total Plots Owned <div class="ui green label">2</div></div>
-    <button class="ui tiny green button" (click)="addPassbook()" style="float:right;margin-right:1.5%"><i class="plus icon"></i>Add Passbook</button>
+    <div style="float: left;margin-top:5px;">Total Plots Owned <div *ngIf="plots" class="ui green label">2</div></div>
+    <!-- <button class="ui tiny green button" (click)="addPassbook()" style="float:right;margin-right:1.5%"><i class="plus icon"></i>Add Passbook</button> -->
     <div style="clear:both;"></div>
 </div> 
 <div class="plotContainer">
       <plot-info-container  *ngFor="let plot of plots"></plot-info-container>
+        <div *ngIf="plots.length ==0" class="passbook">
+            <i class="massive black book icon"></i>
+          <div>
+              <button (click)="addPassbook()" class="ui huge green tertiary button">Add a passbook</button><span>to display passbook details</span>
+          </div>
+          OR
+              <button class="ui huge primary tertiary button" routerLink="/projects">Buy a Plot</button>
+              <div class="ui icon input" style="margin-top:10px;">
+                  <input type="text" class="searchProject"  placeholder="City, Agent, Zip Code...">
+                  <i class="search icon"></i>
+                </div>
+        </div>
 </div>
 
 
@@ -23,7 +35,7 @@
         </div>
         <div class="image content">
           <div class="ui medium image">
-                <i class="building icon" style="margin-left:100px;"></i>
+                <i class="black building icon" style="margin-left:100px;"></i>
           </div>
           <div class="description">
                 <form class="ui form">

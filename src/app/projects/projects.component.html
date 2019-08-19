@@ -2,34 +2,40 @@
 
 <div class="compContainer">
         <div class="mapContainer">
-                <div style="position: sticky;top:0;z-index:2;">
+                <div class="topHeader">
                         <div class="padTop">
-                                <span class="sectionHeader">
-                                        Available Projects
-                                </span>
-                                <!-- <div class="container" >
-                                <input type="text" class="input" placeholder="Search">
-                                <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
-                                <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
-                        </div> -->
-
+                                <span class="sectionHeader">Available Projects</span>
                         </div>
                 </div>
+                <!-- <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[10]" [center]="[78.48, 17.38]"></mgl-map> -->
+                <mgl-map [style]="'mapbox://styles/mapbox/light-v9'" [zoom]="15.5" [center]="[78.48, 17.38]" [pitch]="45" [bearing]="-17.6" (load)="onLoad($event)">
+                        <mgl-layer id="3d-buildings" source="composite" sourceLayer="building" [filter]="['==', 'extrude', 'true']" type="fill-extrusion" [minzoom]="15"
+                        [paint]="{
+                                'fill-extrusion-color': '#aaa',
+                                'fill-extrusion-height': [
+                                'interpolate', ['linear'], ['zoom'],
+                                15, 0,
+                                15.05, ['get', 'height']
+                                ],
+                                'fill-extrusion-base': [
+                                'interpolate',
+                                ['linear'], ['zoom'],
+                                15, 0,
+                                15.05, ['get', 'min_height']
+                                ],
+                                'fill-extrusion-opacity': .6
+                        }"
+                        [before]="labelLayerId"></mgl-layer>
+                </mgl-map>
 
         </div>
         <div class="projectContainer ui form">
                 <div class="topContainer">
                         <div class="menu1">
-                                <!-- <h2>Hyderabad Real Estate</h2> -->
                                 <input type="text" [(ngModel)]="location" disabled class="editable">
                                 <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted large search icon" style="color:#0066ff; cursor: pointer;padding-right: 20px;"></i>
                                 <i (click)="cancel()" *ngIf="!iconSearch" class="fitted large cancel icon" style="color:#0066ff; cursor: pointer;padding-right: 20px;"></i>
-                                <!-- <div class="container" >
-                                <input type="text" class="input" placeholder="Search">
-                                <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted search icon" style="color:#0066ff; cursor: pointer;"></i>
-                                <i (click)="cancel()" *ngIf="!iconSearch" class="fitted cancel icon" style="color:#0066ff; cursor: pointer;"></i>
-                        </div> -->
-                                
+                              
                         </div>
 
                         <div class="plotHeader">

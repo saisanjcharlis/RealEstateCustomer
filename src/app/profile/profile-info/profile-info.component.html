@@ -4,6 +4,7 @@
     <div class="mainContainer">
         <div class="header">Profile Information</div>
         <div class="content ui form">
+                <button class="ui basic red small button editCancel" *ngIf="cancel" (click)="cancelEdit()">Cancel</button>
                 <button class="ui basic blue small button edit" (click)="editEnabled()">{{options}}</button>
 
                 <div class="avatar" (click)="uploadPicture()">

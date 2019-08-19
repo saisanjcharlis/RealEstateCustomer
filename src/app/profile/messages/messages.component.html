@@ -4,11 +4,23 @@
     <div class="mainContainer">
         <div class="header">Messages</div>
         <div class="content">
-            <p>Message1</p>
-            <p>Message2</p>
-            <p>Message3</p>
-            <p>Message4</p>
-            <p>Message5</p>
+           <div class="messageContainer" *ngFor="let message of messages">
+                <div class="ui checkbox">
+                        <input type="checkbox" name="example">
+                        <label>
+                            <i class="navIcon user circle icon large"></i>
+                            <span style="font-weight: 600;">Joseph Kennedy</span>
+                        </label>
+                </div>
+                
+                <div class="ui grey label" style="margin-left:10px;">Collection</div>
+                <span style="margin-left:20px;">Hi Joseph, Your payment for Plot No. 314 for project is pending..</span>
+                <i style="float:right;" class="ellipsis vertical icon"></i>
+               
+                
+           </div>
+           <div class="ui blue label" style="margin-top:20px;float:right;cursor: pointer;">View More</div>
+     
         </div>
     </div>
 </div>

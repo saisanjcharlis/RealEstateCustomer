@@ -6,7 +6,7 @@
 }
 .header{
     background-color: #0066ff;
-    padding: 5px 0 5px 5px;
+    padding: 15px 0 15px 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color:white;
@@ -82,6 +82,11 @@
 .edit{
     position: absolute;
     right:20px;
+    top:20px;
+}
+.editCancel{
+    position: absolute;
+    right:130px;
     top:20px;
 }
 .avatar{

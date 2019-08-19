@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Map, SymbolLayout } from 'mapbox-gl';
 declare var $:any;
 @Component({
   selector: 'app-projects',
@@ -19,6 +20,18 @@ export class ProjectsComponent implements OnInit {
   iconSearch = true;
   imagesList = [];
   location="Hyderabad Real Estate";
+  labelLayerId: string;
+
+  onLoad(mapInstance: Map) {
+    const layers = mapInstance.getStyle().layers!;
+
+    for (let i = 0; i < layers.length; i++) {
+      if (layers[i].type === 'symbol' && (<SymbolLayout>layers[i].layout)['text-field']) {
+        this.labelLayerId = layers[i].id;
+        break;
+      }
+    }
+  }
   images = [
     "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
     "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg",

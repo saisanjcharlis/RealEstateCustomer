@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $:any;
 @Component({
   selector: 'profile-info',
   templateUrl: './profile-info.component.html',
@@ -7,15 +7,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileInfoComponent implements OnInit {
   constructor() { }
+  cancel=false;
   options="Edit Profile";
-  editEnabled(){
-    $('.editDisabled').removeAttr("disabled");
-    $('.editDisabled').addClass('editEnabled');
-    this.options="Save Profile";
-    $('.edit').removeClass("blue");
-    $('.edit').addClass("green");
-    $('.editButton').css("display","initial");
+  cancelEdit(){
+    this.cancel = false;
+    $('.editDisabled').attr("disabled");
+    $('.editDisabled').removeClass('editEnabled');
+    this.options="Edit";
+    $('.edit').removeClass("green");
+    $('.edit').addClass("blue");
+    $('.editButton').css("display","none");
   }
+  editEnabled(){
+    if(this.options == "Save Profile"){
+      $('body').toast({
+        message: 'Profile Update Successfully',
+        class: 'green', 
+        showProgress: 'bottom'
+      });
+      this.cancelEdit();
+    } else {
+      this.cancel = true;
+      $('.editDisabled').removeAttr("disabled");
+      $('.editDisabled').addClass('editEnabled');
+      this.options="Save Profile";
+      $('.edit').removeClass("blue");
+      $('.edit').addClass("green");
+      $('.editButton').css("display","initial");
+    }
+
+
+
+  }
+ 
   uploadPicture(){
     $("#imageUpload").click();
   }

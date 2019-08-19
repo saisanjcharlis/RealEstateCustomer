@@ -11,5 +11,7 @@ export class PlotInfoContainerComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  ngAfterViewInit() {
+    $('.ui.rating').rating();
+  }
 }

@@ -48,7 +48,11 @@
                     </div>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/profile" style="font-size:14px;"><i class="user portrait icon"></i>Profile</a>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/transactions" style="font-size:14px;"><i class="exchange icon"></i>Transactions</a>
-                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/messages" style="font-size:14px;"><i class="envelope outline icon"></i>Messages</a>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/messages" style="font-size:14px;">
+                      <i class="envelope outline icon"></i>
+                      <div *ngIf="initialAvatar" class="floating ui red circular label" style=" font-size:0.7em; opacity: 0.6; margin-top:14px !important; margin-right:24px!important;">NEW</div>
+                      Messages
+                    </a>
                     <div *ngIf="initialAvatar" class="divider"></div>
                     <div *ngIf="initialAvatar" class="header dropHeader">Account</div>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/help"><i class="question circle icon"></i>Help</a>

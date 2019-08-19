@@ -22,13 +22,11 @@ export class ProjectDetailComponent implements OnInit {
     $(e.target).addClass("selectedDate");
   }
   addFavorite(){
-    $('body')
-  .toast({
+    $('body').toast({
     message: 'Liked this project',
     class: 'blue', 
     showProgress: 'bottom'
-  })
-;
+  });
   }
   addCoBuy(){
     $('.ui.modal.coBuy').modal('show');

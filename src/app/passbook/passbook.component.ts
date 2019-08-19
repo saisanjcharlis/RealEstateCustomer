@@ -20,7 +20,7 @@ export class PassbookComponent implements OnInit {
   }
   ngOnInit() {
 
-    this.plots =  ['Windstorm', 'Bombasto','asdas'];
+    this.plots =  ['Windstorm','asd'];
   }
 
 }

@@ -6,7 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-
+  messages = [
+    "Message 1",
+    "Message 2",
+    "Message 3",
+    "Message 4",
+    "Message 5",
+    "Message 6"
+  ];
   constructor() { }
   onHide(hide: boolean){
     if(hide){
