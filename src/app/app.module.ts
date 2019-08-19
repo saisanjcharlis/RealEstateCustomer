@@ -31,7 +31,7 @@ import { MessagesComponent } from './profile/messages/messages.component';
 import { SettingsComponent } from './profile/settings/settings.component';
 import { SavedsearchComponent } from './activity/savedsearch/savedsearch.component';
 import { FavoritesComponent } from './activity/favorites/favorites.component';
-
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +66,10 @@ import { FavoritesComponent } from './activity/favorites/favorites.component';
     FormsModule,
     Angular2AirDatepickerModule,
     BrowserAnimationsModule,
-    DeferLoadModule
+    DeferLoadModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAnYFalZXuQfrNGTWnWMtEWbXDG3_788Ak'
+    })
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

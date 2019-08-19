@@ -7,6 +7,9 @@ declare var $:any;
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+  latitude = -28.68352;
+  longitude = -147.20785;
+  mapType = 'satellite';
   @HostListener('window:resize', ['$event'])
   onResize(event){
     if(event.target.innerWidth>480)
