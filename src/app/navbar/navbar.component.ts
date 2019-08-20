@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { LoginComponent } from '../login/login.component';
+import { RouterModule , Router, ActivatedRoute, NavigationStart } from '@angular/router';
 declare var $:any;
 
 @Component({
@@ -9,24 +11,44 @@ declare var $:any;
   providers: [LoginComponent]
 })
 export class NavbarComponent implements OnInit {
+  constructor(private loginComp: LoginComponent,private route: ActivatedRoute, private router: Router, private loc: Location){
 
+  }
   navViewOnly=true;
   initialAvatar=true;
   accountName = "Login/Sign Up";
   createProfile = true;
   loginOrSign(){
-    if(this.accountName=="Login/Sign Up"){
-      // console.log("Open Modal for Logging In");
+    let routeActivate = this.route.snapshot.routeConfig.path;
+    if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
       this.loginComp.openModal();
     }
+    if(this.accountName=="Login/Sign Up" && routeActivate == "projects"){
+      this.router.navigate(['/login']);
+    }
+    if(localStorage.getItem('logStatus')=='createProfile'){
+      this.router.navigate(['/createProfile']);
+    }
   }
-  constructor(private loginComp: LoginComponent){
-
+  logout(){
+    let routeActivate = this.route.snapshot.routeConfig.path;
+    localStorage.setItem('logStatus','false');
+    if(routeActivate == "login"){
+      this.router.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+      let currentUrl = this.router.url + '?';
+      this.router.navigateByUrl(currentUrl)
+        .then(() => {
+          this.router.navigated = false;
+          this.router.navigate([this.router.url]);
+        });     
+    }
+    this.router.navigate(['/login']);
   }
   ngOnInit() {
    
     if(localStorage.getItem('logStatus')=='createProfile'){
       this.navViewOnly = true;
+      this.accountName = "Complete Profile";
       this.createProfile = false;
       this.initialAvatar=false;
     } else if(localStorage.getItem('logStatus')=='false'){

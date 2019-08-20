@@ -30,7 +30,9 @@
     display: none;
   }
 }
-
+.marginLeft{
+  margin-left: 80px;
+}
 .spectra-logo{
     margin-right:20px;
 }
@@ -39,6 +41,7 @@
     background: white;
     position:fixed;
     width:100%;
+    height:7vh;
     box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
 }
 .toprow{

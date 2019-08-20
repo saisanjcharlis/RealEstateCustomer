@@ -41,9 +41,9 @@
             <input id="signInPassword" #p2 type="password" placeholder="Password" autocomplete="false" required />
           <label for=password></label>
           </div>
-          <div class="ui error message" style="width: 100%;">
+          <div *ngIf="errors.length>0" class="ui error message" style="width: 100%;">
             <ul class="list">
-              <li>Please select at least two skills</li>
+              <li *ngFor="let error of errors">{{error}}</li>
             </ul>
           </div>
           <a routerLink="/forgotPassword" style="font-weight: 400;color:#0066ff;"><span>Forgot your password</span></a>
@@ -52,17 +52,17 @@
             <button class="blueBtn" (click)="createAccount()">Create account<i class="fa fa-fw fa-chevron-right"></i></button>
           </div>
         </form>
-        <form [@itemAnim] action="" onSubmit="" class="sign-up-contain" *ngIf="hideSignUp">
+        <form [@itemAnim] action="" (ngSubmit)="signUp(phNumber.value,otp.value, pwd.value)" class="sign-up-contain" *ngIf="hideSignUp">
             <h3><span>Sign up</span> to experience the most efficient way of communication</h3>
             <div class="inputContainer">
-              <input id="phoneno" type="tel" placeholder="Mobile Number" autocomplete="false" required />
+              <input id="phoneno" type="number" #phNumber placeholder="Mobile Number" autocomplete="false" required />
               <label for=phoneno></label>
             </div>
             <div class="inputContainer">
               <!-- <span class="resendText">Wait30s</span> Wait for 30 second icon -->
               <i class="resendText spinner  loading icon"></i>
                <!-- <i class="resend redo icon"></i> -->
-               <input id="otp" type="text" placeholder="Enter OTP" autocomplete="false" required />
+               <input id="otp" type="text" #otp placeholder="Enter OTP" autocomplete="false" required />
                <label for=otp></label>
             </div>
             <div class="inputContainer">
@@ -70,11 +70,16 @@
                     <i class="resendText question circle icon" style="cursor:pointer;"></i> 
                 </div>
               <!-- <i class="resendText question circle icon" style="cursor:pointer;"></i> -->
-              <input id="password" type="password" placeholder="Enter Password" autocomplete="false" required />
+              <input id="password" #pwd type="password" placeholder="Enter Password" autocomplete="false" required />
              <label for=password></label>
             </div>
+            <div *ngIf="errors1.length>0" class="ui error message" style="width: 100%;">
+              <ul class="list">
+                <li *ngFor="let error of errors1">{{error}}</li>
+              </ul>
+            </div>
             <div class="buttonCont">
-              <button class="yellowBtn" type="submit" (click)="signUp()" >Sign Up<i class="fa fa-fw fa-chevron-right"></i></button>
+              <button class="yellowBtn" type="submit">Sign Up<i class="fa fa-fw fa-chevron-right"></i></button>
               <button class="blueBtn" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
             </div>
           </form>

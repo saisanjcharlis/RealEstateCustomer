@@ -11,8 +11,8 @@
 	linear-gradient(135deg, #FCB332 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
 	linear-gradient(225deg, #FCB332 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px; */
 	height: 100%;
-	background-size: 64px 128px;
-	padding-top:50px;
+	/* background-size: 64px 128px; */
+	padding-top:7vh;
 	
 	/* overflow: auto; */
 	padding-bottom:50px;
@@ -61,7 +61,7 @@ form {
 	display: flex;
 	background-image: url(https://s.zillowstatic.com/homepage/static/_Desktop_overlay.jpg);
 
-	height: 92vh;
+	height: 93vh;
 	justify-content: center;
 	margin-bottom:10px;
 }
@@ -160,7 +160,7 @@ input:focus ~ label {
   input[type='text'] ~ label::before {
 	content: "\f007";
   }
-  input[type='tel'] ~ label::before {
+  input[type='number'] ~ label::before {
 	content: "\f095";
   }
   input[type='password'] ~ label::before {
