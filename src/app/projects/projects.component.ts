@@ -1,5 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Map, SymbolLayout } from 'mapbox-gl';
+import { Marker } from '../../models/marker';
+import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { LocationsService } from '../../services/locations.service';
+import {Location} from '@angular/common';
+import { MapsService } from '../../services/maps.service';
 declare var $:any;
 @Component({
   selector: 'app-projects',
@@ -7,24 +11,34 @@ declare var $:any;
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  longitude = 78.4867;
-  latitude = 17.3850;
-  mapType = 'satellite';
-  zoom = 12;
-  icon = { url: 'https://image.flaticon.com/icons/svg/33/33622.svg', scaledSize: { width: 50, height: 50 } };
-  markers = [
-    { latitude: 17.3850, longitude: 78.4867, plotNumbers: "213" },
-    { latitude: 17.31, longitude: 78.4867, plotNumbers: "33"  },
-    { latitude: 17.32, longitude: 78.4867, plotNumbers: "56" },
-    { latitude: 17.3850, longitude: 78.4167, plotNumbers: "413"  }
-    ];
+  constructor(
+    private locationService: LocationsService,
+    private mapApiLoader: MapsAPILoader,
+    private mapsService: MapsService) {
+    for (let i = 0; i < 5; i++) {
+          const url = 'https://loremflickr.com/640/480?random=' + (i +1);
+          this.imagesList[i] = {
+            url: url,
+            show: false
+        };
+        }
+   }
+  public lat: number;
+  public lng: number;
+  public zoom: number;
+  public openedWindow: number;
+  public markers: Marker[] = this.locationService.getMarkers();
+
+
+  icon = { url: 'https://image.flaticon.com/icons/svg/33/33622.svg', scaledSize: { width: 40, height: 40 } };
     
-    placeMarker(position: any) {
-    const lat = position.coords.lat;
-    const lng = position.coords.lng;
-    const plotNumber = position.coords.plotNumbers;
-    this.markers.push({ latitude: lat, longitude: lng, plotNumbers: plotNumber});
-    }
+    // placeMarker(position: any) {
+    // const lat = position.coords.lat;
+    // const lng = position.coords.lng;
+    // const plotNumber = position.coords.plotNumbers;
+    // const projName = position.coords.projectName;
+    // this.markers.push({ lat: lat, lng: lng, plotNumbers: plotNumber,projectName: projName, city: 'asd',state:'sada','postalcode':'21131','projectLink':'asdas'});
+    // }
   markerClick(e){
     console.log(e);
   }
@@ -41,18 +55,9 @@ export class ProjectsComponent implements OnInit {
   iconSearch = true;
   imagesList = [];
   location="Hyderabad Real Estate";
-  labelLayerId: string;
 
-  onLoad(mapInstance: Map) {
-    const layers = mapInstance.getStyle().layers!;
 
-    for (let i = 0; i < layers.length; i++) {
-      if (layers[i].type === 'symbol' && (<SymbolLayout>layers[i].layout)['text-field']) {
-        this.labelLayerId = layers[i].id;
-        break;
-      }
-    }
-  }
+
   images = [
     "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
     "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg",
@@ -65,15 +70,7 @@ export class ProjectsComponent implements OnInit {
     "http://www.spectraindia.in/wp-content/uploads/2016/09/Prado1.jpg"
   ];
   filterTrue = false;
-  constructor() {
-    for (let i = 0; i < 5; i++) {
-      const url = 'https://loremflickr.com/640/480?random=' + (i +1);
-      this.imagesList[i] = {
-        url: url,
-        show: false
-    };
-    }
-   }
+  
 
 
   addCoBuy(){
@@ -137,6 +134,9 @@ export class ProjectsComponent implements OnInit {
   }
   ngOnInit() {
 
+    this.lat = this.mapsService.lat;
+    this.lng = this.mapsService.lng;
+    this.zoom = this.mapsService.zoom;
     $(document).scrollTop(0);
     $('.ui.checkbox').checkbox();
       if(window.innerWidth>480)
@@ -153,7 +153,7 @@ export class ProjectsComponent implements OnInit {
     if(window.innerWidth>768){
       // this.addCoBuy();
     }
-   
+    console.log(this.markers);
     $('.ui.rating').rating();
   }
   ngOnDestroy(){

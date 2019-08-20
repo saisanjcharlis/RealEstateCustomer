@@ -1,18 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LoginComponent } from '../login/login.component';
 declare var $:any;
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  providers: [LoginComponent]
 })
 export class NavbarComponent implements OnInit {
 
   navViewOnly=true;
   initialAvatar=true;
-  accountName = "Login";
+  accountName = "Login/Sign Up";
   createProfile = true;
+  loginOrSign(){
+    if(this.accountName=="Login/Sign Up"){
+      // console.log("Open Modal for Logging In");
+      this.loginComp.openModal();
+    }
+  }
+  constructor(private loginComp: LoginComponent){
+
+  }
   ngOnInit() {
    
     if(localStorage.getItem('logStatus')=='createProfile'){

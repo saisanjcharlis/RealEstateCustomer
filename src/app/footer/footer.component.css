@@ -1,0 +1,19 @@
+.info{
+    text-align: center;
+    font-size:10px;
+    width: 70%;
+    margin:0 auto;
+    padding-top:50px;
+}
+.bottomContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.marketfront-logo{
+    width: 8%;
+    margin-left:5px;
+}
+.spectra-logo{
+    /* display: inline !important; */
+}

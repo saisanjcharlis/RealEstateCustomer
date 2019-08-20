@@ -1,79 +1,102 @@
+<app-navbar></app-navbar>
 <div class="bodyLogin">
-    <div class="mobileIntro">
-            <div style="text-align: center;">
-              <h1>SPECTRA</h1>
-              <span style="color:white; font-weight: 400;">Powered By </span><img alt="marketfront-logo" class="marketfront-logo" align="top"
-              src="http://redlily.marketfront.in/img/marketfront-logo.png"/>
-              <div class="ui icon fluid input" style="margin-top:10px;">
-                <input type="text" class="searchProject" (keyup.enter)="browseLimited()" placeholder="City, Agent, Zip Code...">
-                <i class="search icon"></i>
-              </div>
-              <!-- <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right"></i></button></a> -->
-            </div>
-    </div>
-    <div class="container">
-        <div class="form-container sign-up-container">
-            <form [@itemAnim] action="" onSubmit="" class="sign-up-contain" *ngIf="hideSignUp">
-              <h3><span>Sign up</span> to experience the most efficient way of communication</h3>
-              <div class="inputContainer">
-                <input id="phoneno" type="tel" placeholder="Mobile Number" autocomplete="false" required />
-                <label for=phoneno></label>
-              </div>
-              <div class="inputContainer">
-                <!-- <span class="resendText">Wait30s</span> Wait for 30 second icon -->
-                <i class="resendText spinner  loading icon"></i>
-                 <!-- <i class="resend redo icon"></i> -->
-                 <input id="otp" type="text" placeholder="Enter OTP" autocomplete="false" required />
-                 <label for=otp></label>
-              </div>
-              <div class="inputContainer">
-                  <div data-inverted="" class="passwordHelp" data-tooltip="Password should be minimum 8 characters and contain min 1 alpha-numeric character" data-variation="" data-position="left center">
-                      <i class="resendText question circle icon" style="cursor:pointer;"></i> 
+    <div class="intro">
+            <div style="text-align: center;margin-top:100px;">
+              <h1 style="font-family: 'Crimson Text', serif;">Explore your Ideal Home</h1>
+              <div style="color:white;font-size:14px;">We'll help you find a place you'll love</div>
+              <div class="ui multiple search selection dropdown" style="margin-top:30px;width:100%;height: 40px;">
+                  <input type="hidden" name="search">
+                  <i class="search blue icon"></i>
+                  <div class="default text">City, Agent, Zip Code...</div>
+                  <div class="menu">
+                    <div routerLink="/projects" class="item" data-value="1"><i class="location arrow blue icon"></i>Hyderabad</div>
+                    <div class="item" data-value="2"><i class="location arrow blue icon"></i>Bangalore</div>
                   </div>
-                <!-- <i class="resendText question circle icon" style="cursor:pointer;"></i> -->
-                <input id="password" type="password" placeholder="Enter Password" autocomplete="false" required />
-               <label for=password></label>
+                </div>
+              
               </div>
-              <div class="buttonCont">
-                <button class="yellowBtn" type="submit" (click)="signUp()" >Let's Go<i class="fa fa-fw fa-chevron-right"></i></button>
-                <button class="blueBtn" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
-              </div>
-            </form>
-            <form [@itemAnim] action="" (ngSubmit)="signIn(u1.value,p2.value)" *ngIf="hideSignIn">
-              <h3><span>Sign in</span> using your username and password</h3>
-              <div class="inputContainer">
-                <input id="signInUsername" #u1 type="text" placeholder="Username" autocomplete="false" required />
-                <label for=username></label>
-              </div>
-              <div class="inputContainer">
-                <input id="signInPassword" #p2 type="password" placeholder="Password" autocomplete="false" required />
-              <label for=password></label>
-              </div>
-              <a routerLink="/forgotPassword" style="font-weight: 400;color:#0066ff;"><span>Forgot your password</span></a>
-              <div class="buttonCont">
-                <button class="yellowBtn" type="submit">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
-                <button class="blueBtn" (click)="createAccount()">Create account<i class="fa fa-fw fa-chevron-right"></i></button>
-              </div>
-            </form>
+    </div>
+    <div class="options">
+        <div class="textInfo">
+          We have the most listings and constant updates.<br>
+          So you’ll never miss out.
         </div>
-        <div class="form-container side-info displayNone">
-          <form>
-            <div style="text-align: left;">
-                <img alt="spectra-logo" class="spectra-logo" src="assets/spectra.png"/>
-                <br>
-              <span style="color:white;">Powered By&nbsp;</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
-              src="assets/marketfront.png"/>
-              <h1>Buy your dream home</h1>
-              <div class="ui icon fluid input">
-                <input type="text" class="searchProject" (keyup.enter)="browseLimited()" placeholder="City, Agent, Zip Code...">
-                <i class="search icon"></i>
-              </div>
-              <!-- <a (click)="browseLimited()" routerLink="/projects"><button class="whiteBtn">Browse Projects<i class="fa fa-fw fa-chevron-right" style="color:#0066ff; opacity:0.5;"></i></button></a> -->
-              <div class="info">
-                <a href="#" style="margin-right:10px;">Terms of Use</a><a href="#">Social</a>
-              </div>
+        <hr class="hr">
+    </div>
+    <footer></footer>
+  </div>
+
+
+<div class="ui modal" style="width: 40%;">
+  <i class="close icon"></i>
+  <div class="container">
+    <div class="form-container sign-up-container">
+        <form [@itemAnim] action="" (ngSubmit)="signIn(u1.value,p2.value)" *ngIf="hideSignIn">
+          <h3><span>Sign in</span> using your username and password</h3>
+          <div class="inputContainer">
+            <input id="signInUsername" #u1 type="text" name="username" placeholder="Username" autocomplete="false" required />
+            <label for=username></label>
+          </div>
+          <div class="inputContainer">
+            <input id="signInPassword" #p2 type="password" placeholder="Password" autocomplete="false" required />
+          <label for=password></label>
+          </div>
+          <div class="ui error message" style="width: 100%;">
+            <ul class="list">
+              <li>Please select at least two skills</li>
+            </ul>
+          </div>
+          <a routerLink="/forgotPassword" style="font-weight: 400;color:#0066ff;"><span>Forgot your password</span></a>
+          <div class="buttonCont">
+            <button class="yellowBtn positive" type="submit">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
+            <button class="blueBtn" (click)="createAccount()">Create account<i class="fa fa-fw fa-chevron-right"></i></button>
+          </div>
+        </form>
+        <form [@itemAnim] action="" onSubmit="" class="sign-up-contain" *ngIf="hideSignUp">
+            <h3><span>Sign up</span> to experience the most efficient way of communication</h3>
+            <div class="inputContainer">
+              <input id="phoneno" type="tel" placeholder="Mobile Number" autocomplete="false" required />
+              <label for=phoneno></label>
+            </div>
+            <div class="inputContainer">
+              <!-- <span class="resendText">Wait30s</span> Wait for 30 second icon -->
+              <i class="resendText spinner  loading icon"></i>
+               <!-- <i class="resend redo icon"></i> -->
+               <input id="otp" type="text" placeholder="Enter OTP" autocomplete="false" required />
+               <label for=otp></label>
+            </div>
+            <div class="inputContainer">
+                <div data-inverted="" class="passwordHelp" data-tooltip="Password should be minimum 8 characters and contain min 1 alpha-numeric character" data-variation="" data-position="left center">
+                    <i class="resendText question circle icon" style="cursor:pointer;"></i> 
+                </div>
+              <!-- <i class="resendText question circle icon" style="cursor:pointer;"></i> -->
+              <input id="password" type="password" placeholder="Enter Password" autocomplete="false" required />
+             <label for=password></label>
+            </div>
+            <div class="buttonCont">
+              <button class="yellowBtn" type="submit" (click)="signUp()" >Sign Up<i class="fa fa-fw fa-chevron-right"></i></button>
+              <button class="blueBtn" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
             </div>
           </form>
-        </div>
     </div>
-  </div>
+  
+</div>
+</div>
+<!-- <div class="form-container side-info displayNone">
+    <form>
+      <div style="text-align: left;">
+          <img alt="spectra-logo" class="spectra-logo" src="assets/spectra.png"/>
+          <br>
+        <span style="color:white;">Powered By&nbsp;</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
+        src="assets/marketfront.png"/>
+        <h1>Buy your dream home</h1>
+        <div class="ui icon fluid input">
+          <input type="text" class="searchProject" (keyup.enter)="browseLimited()" placeholder="City, Agent, Zip Code...">
+          <i class="search icon"></i>
+        </div>
+        <div class="info">
+          <a href="#" style="margin-right:10px;">Terms of Use</a><a href="#">Social</a>
+        </div>
+      </div>
+    </form>
+  </div> -->

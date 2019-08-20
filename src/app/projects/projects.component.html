@@ -9,8 +9,9 @@
                 </div>
                 <agm-map 
                         (mapClick)="placeMarker($event)" 
-                        [latitude]='latitude' 
-                        [longitude]='longitude' 
+                        [latitude]='lat' 
+                        [longitude]='lng' 
+                        [disableDefaultUI]="false"
                         [zoom]="zoom" 
                         [disableDoubleClickZoom]="true">
                         <agm-marker 
@@ -20,12 +21,13 @@
                                 [label]="marker.plotNumbers"
                                 [opacity]="0.6"
                                 *ngFor="let marker of markers" 
-                                [latitude]="marker.latitude"
-                                [longitude]="marker.longitude"
+                                [latitude]="marker.lat"
+                                [longitude]="marker.lng"
                                 (markerClick)="markerClick($event)">
                                         <agm-info-window #window>
-                                        <h6>Longitude: {{marker.longitude}}</h6>
-                                        <h6>Latitude: {{marker.latitude}}</h6>
+                                        <h3>Project Name: {{marker.projectName}}</h3>
+                                        <h5>Plots Remaining: {{marker.plotNumbers}}</h5>
+                                        <button class="ui tiny button blue plotButton">View Project</button>
                                         </agm-info-window>
                         </agm-marker> 
               </agm-map>

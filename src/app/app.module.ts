@@ -32,6 +32,9 @@ import { SettingsComponent } from './profile/settings/settings.component';
 import { SavedsearchComponent } from './activity/savedsearch/savedsearch.component';
 import { FavoritesComponent } from './activity/favorites/favorites.component';
 import { AgmCoreModule } from '@agm/core';
+import { LocationsService } from '../services/locations.service';
+import { MapsService } from '../services/maps.service';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +60,8 @@ import { AgmCoreModule } from '@agm/core';
     MessagesComponent,
     SettingsComponent,
     SavedsearchComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,7 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'AIzaSyCmZRbVe0NCyJB91vrGLrcb8pKAWFEsTwQ'
     })
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, LocationsService, MapsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

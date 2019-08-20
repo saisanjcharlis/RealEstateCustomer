@@ -10,15 +10,11 @@
 	/* background:
 	linear-gradient(135deg, #FCB332 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
 	linear-gradient(225deg, #FCB332 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px; */
-	background-color:#FCB332;
-	background-size: 64px 128px;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
 	height: 100%;
-	overflow: auto;
+	background-size: 64px 128px;
+	padding-top:50px;
+	
+	/* overflow: auto; */
 	padding-bottom:50px;
 }
 @media all and (max-height: 500px) {
@@ -46,13 +42,28 @@ form {
 	padding: 0 50px;
 	height: 100%;
 }
-.mobileIntro{
-	margin-bottom:10px;
+.options{
+	text-align: center;
+	font-family: 'Nunito', sans-serif;
+	font-weight: bold;
+	font-size:24px;
 }
-@media all and (min-width: 769px) {
-	.mobileIntro{
-		display: none;
-	}	
+.textInfo{
+	margin-top:50px;
+	line-height: 30px;
+}
+.hr{
+	border: 1px solid #0066ff;
+	width: 10%;
+	margin-top:50px;
+}
+.intro{
+	display: flex;
+	background-image: url(https://s.zillowstatic.com/homepage/static/_Desktop_overlay.jpg);
+
+	height: 92vh;
+	justify-content: center;
+	margin-bottom:10px;
 }
 .container {
 	background-color: #fff;
@@ -62,7 +73,7 @@ form {
 	position: relative;
 	overflow: hidden;
 	width: 850px;
-	max-width: 90%;
+	max-width: 100%;
 	min-height: 500px;
 }
 @media all and (max-width: 768px) {
@@ -79,6 +90,7 @@ form {
 
 .side-info {
 	left: 0;
+	display:none;
 	width: 50%;
 	/* background-color: #fff; */
 	background:rgba(0, 0, 0, 0.8);
@@ -91,7 +103,7 @@ form {
 }
 .sign-up-container {
 	right: 0;
-	width: 50%;
+	width: 100%;
 	opacity: 1;
 }
 @media all and (max-width: 768px) {
@@ -167,7 +179,7 @@ input:focus ~ label {
 	color: #FCB332 !important;
 }
 h1{
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-size:3em ;
 	letter-spacing: 2px;
 	font-family: 'Josefin Sans', sans-serif;

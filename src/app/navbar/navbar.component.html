@@ -2,10 +2,6 @@
     <div class="toprow">
         <img routerLink="/login" style="cursor:pointer;" alt="spectra-logo" class="ui image spectra-logo" src="assets/spectra.png"/>
         <div class="navItems">
-          <a *ngIf="createProfile"  class="item navFlex" routerLink="/createProfile" routerLinkActive="colorJoin change">
-              <i class="navIcon plus icon large"></i>
-              <span>Join</span>
-          </a>
           <a [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/activity" routerLinkActive="color change">
             <i class="navIcon universal access
             icon large"></i>
@@ -36,16 +32,12 @@
                   
             </div>
          </a>
-         <div  class="navFlex item ui dropdown">
+         <div (click)="loginOrSign()" class="navFlex item ui dropdown">
                 <!-- <img class="ui mini image" style="display:block;margin-left:12px;" id="profileAvatar" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1" /> -->
                 
               <i class="navIcon user circle icon large"></i>
               <span>{{accountName}}</span>
               <div class="menu">
-                    <div *ngIf="!initialAvatar" class="ui error message">
-                        <div class="header">Error</div>
-                        <p>You must Join to see all categories</p>
-                    </div>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/profile" style="font-size:14px;"><i class="user portrait icon"></i>Profile</a>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/transactions" style="font-size:14px;"><i class="exchange icon"></i>Transactions</a>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/messages" style="font-size:14px;">

@@ -281,6 +281,7 @@ a{
   .disabledIcon{
     pointer-events: none;
     cursor: default;
+    display:none;
     opacity: 0.4;
   }
   .dropHeader{

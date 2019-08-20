@@ -18,8 +18,11 @@ declare var $:any;
   providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
-  hideSignUp=true;
-  hideSignIn=false;
+  hideSignUp=false;
+  hideSignIn=true;
+  public openModal(){
+    $('.ui.modal').modal('show');   
+  }
   constructor(private loginService: LoginService, private routes: Router) { }
   haveAccount(){
      this.hideSignUp = false;
@@ -36,6 +39,8 @@ export class LoginComponent implements OnInit {
   signIn(uname: string, p: string){
     let output = this.loginService.checkusername(uname,p);
     if(output==true){
+      $('.ui.modal').modal('hide');  
+      // $('body .modal').remove();
       this.routes.navigate(['/activity']);
       localStorage.setItem('logStatus','true');
     }
@@ -49,6 +54,7 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit() {
     $(document).scrollTop(0);
+    localStorage.setItem('logStatus','false');
 
   }
 
