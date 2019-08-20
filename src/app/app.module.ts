@@ -68,7 +68,7 @@ import { AgmCoreModule } from '@agm/core';
     BrowserAnimationsModule,
     DeferLoadModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAnYFalZXuQfrNGTWnWMtEWbXDG3_788Ak'
+      apiKey: 'AIzaSyCmZRbVe0NCyJB91vrGLrcb8pKAWFEsTwQ'
     })
   ],
   providers: [AuthGuard],

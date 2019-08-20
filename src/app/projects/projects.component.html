@@ -7,10 +7,27 @@
                                 <span class="sectionHeader">Available Projects</span>
                         </div>
                 </div>
-                <!-- <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[10]" [center]="[78.48, 17.38]"></mgl-map> -->
-                
-                <agm-map [latitude]='latitude' [longitude]='longitude' 
-                [mapTypeId]='mapType'>
+                <agm-map 
+                        (mapClick)="placeMarker($event)" 
+                        [latitude]='latitude' 
+                        [longitude]='longitude' 
+                        [zoom]="zoom" 
+                        [disableDoubleClickZoom]="true">
+                        <agm-marker 
+                                [iconUrl]="icon"
+                                (mouseOver)="window.open()" 
+                                (mouseOut)="window.close()" 
+                                [label]="marker.plotNumbers"
+                                [opacity]="0.6"
+                                *ngFor="let marker of markers" 
+                                [latitude]="marker.latitude"
+                                [longitude]="marker.longitude"
+                                (markerClick)="markerClick($event)">
+                                        <agm-info-window #window>
+                                        <h6>Longitude: {{marker.longitude}}</h6>
+                                        <h6>Latitude: {{marker.latitude}}</h6>
+                                        </agm-info-window>
+                        </agm-marker> 
               </agm-map>
         </div>
         <div class="projectContainer ui form">

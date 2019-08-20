@@ -7,9 +7,27 @@ declare var $:any;
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  latitude = -28.68352;
-  longitude = -147.20785;
+  longitude = 78.4867;
+  latitude = 17.3850;
   mapType = 'satellite';
+  zoom = 12;
+  icon = { url: 'https://image.flaticon.com/icons/svg/33/33622.svg', scaledSize: { width: 50, height: 50 } };
+  markers = [
+    { latitude: 17.3850, longitude: 78.4867, plotNumbers: "213" },
+    { latitude: 17.31, longitude: 78.4867, plotNumbers: "33"  },
+    { latitude: 17.32, longitude: 78.4867, plotNumbers: "56" },
+    { latitude: 17.3850, longitude: 78.4167, plotNumbers: "413"  }
+    ];
+    
+    placeMarker(position: any) {
+    const lat = position.coords.lat;
+    const lng = position.coords.lng;
+    const plotNumber = position.coords.plotNumbers;
+    this.markers.push({ latitude: lat, longitude: lng, plotNumbers: plotNumber});
+    }
+  markerClick(e){
+    console.log(e);
+  }
   @HostListener('window:resize', ['$event'])
   onResize(event){
     if(event.target.innerWidth>480)
@@ -133,7 +151,7 @@ export class ProjectsComponent implements OnInit {
   }
   ngAfterViewInit() {
     if(window.innerWidth>768){
-      this.addCoBuy();
+      // this.addCoBuy();
     }
    
     $('.ui.rating').rating();
