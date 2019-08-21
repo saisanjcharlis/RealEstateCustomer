@@ -33,6 +33,10 @@ export class LoginComponent implements OnInit {
      this.hideSignUp = false;
      this.hideSignIn = true;
   }
+  forgotPassword(){
+    $('.ui.modal').modal('hide');  
+    this.routes.navigate(['/forgotPassword']);
+  }
   createAccount(){
     this.errors=[];
     this.hideSignUp = true;
@@ -42,9 +46,17 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('logStatus','false');
     this.routes.navigate(['/projects']);
   }
-
+  hoverCard(e){
+    $(e.target.querySelector('button')).removeClass('basic');
+    $(e.target.querySelector('button')).addClass('blue');
+    $(e.target).addClass("animate"); 
+  }
+  hoverCardRemove(e){
+    $(e.target.querySelector('button')).removeClass('blue');
+    $(e.target.querySelector('button')).addClass('basic');
+    $(e.target).removeClass("animate"); 
+  }
   signIn(uname: string, p: string){
-    console.log("Hello");
     this.errors=[];
     let output = this.loginService.checkusername(uname,p);
     if(output==true){
@@ -67,8 +79,8 @@ export class LoginComponent implements OnInit {
   signUp(mobileNumber, otp, password){  
     let minAlphabet = new RegExp("^(?=.*[A-Z])");
     let minNumber = new RegExp("^(?=.*[0-9])");
-    let minSpecChar = new RegExp("^(?=.[!@#\$%\^&])");
-    let minCount = new RegExp("^(?=.{8,})	");
+    let minSpecChar = new RegExp("(?=.[!@#\$%\^&])");
+    let minCount = new RegExp("(?=.{8,})");
     this.errors1=[];
     if(!minAlphabet.test(password)){
       this.errors1.push("Password must contain at least 1 uppercase alphabetical character");
@@ -82,7 +94,7 @@ export class LoginComponent implements OnInit {
     if(!minCount.test(password)){
       this.errors1.push("Password must be eight characters or longer");
     }
-    localStorage.setItem('logStatus','createProfile');
+    
     if(mobileNumber.length !== 10){
       this.errors1.push("Enter Valid Mobile Number");
     }
@@ -92,21 +104,28 @@ export class LoginComponent implements OnInit {
     if(password.length==0){
       this.errors1.push("Enter Password");
     }
-    if(mobileNumber.length == 10 && otp.length>0 && password.length>0){
+    if(mobileNumber.length == 10 && otp.length>0 && password.length >0 && minSpecChar.test(password) && minAlphabet.test(password) && minNumber.test(password) && minCount.test(password)){
       $('.ui.modal').modal('hide');  
+      localStorage.setItem('logStatus','createProfile');
       this.routes.navigate(['/createProfile']);
     }
     
   }
   ngOnInit() {
     $(document).scrollTop(0);
+
     if(localStorage.getItem('logStatus')=='true'){
 
-    } else {
+    } 
+    else {
       localStorage.setItem('logStatus','false');
     };
     
 
+  }
+  ngOnDestroy(){
+    $('.ui.modal').modal('hide');  
+    $('body .modal').remove();
   }
 
 }

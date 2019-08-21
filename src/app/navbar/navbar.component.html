@@ -1,6 +1,6 @@
 <div class="desktop navbar">
     <div class="toprow">
-        <img routerLink="/login" style="cursor:pointer;" alt="spectra-logo" class="ui image spectra-logo" src="assets/spectra.png"/>
+        <img (click)="home()" style="cursor:pointer;" alt="spectra-logo" class="ui image spectra-logo" src="assets/spectra.png"/>
         <div class="navItems">
           <a [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/activity" routerLinkActive="color change">
             <i class="navIcon universal access
@@ -74,6 +74,9 @@
       </div>
       <div>
         <!-- <img alt="spectra-logo" class="ui image spectra-logo-mobile" src="assets/spectra.png"/> -->
+      </div>
+      <div (click)="loginOrSign()" class="item loginNav">
+          <span>{{accountName}}</span>
       </div>
 </div>
   

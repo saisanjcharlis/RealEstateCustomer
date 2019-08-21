@@ -4,7 +4,7 @@
             <div style="text-align: center;margin-top:100px;">
               <h1 style="font-family: 'Crimson Text', serif;">Explore your Ideal Home</h1>
               <div style="color:white;font-size:14px;">We'll help you find a place you'll love</div>
-              <div class="ui multiple search selection dropdown" style="margin-top:30px;width:100%;height: 40px;">
+              <div class="ui multiple search selection dropdown dropDownSearch" >
                   <input type="hidden" name="search">
                   <i class="search blue icon"></i>
                   <div class="default text">City, Agent, Zip Code...</div>
@@ -22,12 +22,32 @@
           So you’ll never miss out.
         </div>
         <hr class="hr">
+
+        <div class="cards">
+          <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" class="card" routerLink="/projects">
+            <img class="cardImage" src="https://s.zillowstatic.com/homepage/static/Buy_a_home.png">
+            <span class="cardHeader">Buy a Home</span>
+            <span class="cardInfo">Find your place with an immersive photo experience and the most listings,<br> including things you won’t find anywhere else.</span>
+            <button class="ui basic button cardButton">
+                Search Homes
+            </button>
+          </div>
+          <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" class="card">
+              <img class="cardImage" src="https://s.zillowstatic.com/homepage/static/Buy_a_home.png">
+              <span class="cardHeader">Meet an Agent</span>
+              <span class="cardInfo">Meet an agent and get all details about <br>property details and price plans.</span>
+              <button class="ui basic button cardButton">
+                  Schedule
+              </button>
+            </div>
+        </div>
+
     </div>
     <footer></footer>
   </div>
 
 
-<div class="ui modal" style="width: 40%;">
+<div class="ui modal modalSign">
   <i class="close icon"></i>
   <div class="container">
     <div class="form-container sign-up-container">
@@ -46,14 +66,14 @@
               <li *ngFor="let error of errors">{{error}}</li>
             </ul>
           </div>
-          <a routerLink="/forgotPassword" style="font-weight: 400;color:#0066ff;"><span>Forgot your password</span></a>
+          <a (click)="forgotPassword()" style="cursor:pointer;font-weight: 400;color:#0066ff;"><span>Forgot your password</span></a>
           <div class="buttonCont">
             <button class="yellowBtn positive" type="submit">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
             <button class="blueBtn" (click)="createAccount()">Create account<i class="fa fa-fw fa-chevron-right"></i></button>
           </div>
         </form>
         <form [@itemAnim] action="" (ngSubmit)="signUp(phNumber.value,otp.value, pwd.value)" class="sign-up-contain" *ngIf="hideSignUp">
-            <h3><span>Sign up</span> to experience the most efficient way of communication</h3>
+            <h3><span>Sign up</span> to experience the most <br> efficient way of communication</h3>
             <div class="inputContainer">
               <input id="phoneno" type="number" #phNumber placeholder="Mobile Number" autocomplete="false" required />
               <label for=phoneno></label>
@@ -73,7 +93,7 @@
               <input id="password" #pwd type="password" placeholder="Enter Password" autocomplete="false" required />
              <label for=password></label>
             </div>
-            <div *ngIf="errors1.length>0" class="ui error message" style="width: 100%;">
+            <div *ngIf="errors1.length>0" class="ui error message" style="width: 100%;overflow-y:auto;max-height: 100px;">
               <ul class="list">
                 <li *ngFor="let error of errors1">{{error}}</li>
               </ul>

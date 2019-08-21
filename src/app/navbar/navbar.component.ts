@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   }
   navViewOnly=true;
   initialAvatar=true;
-  accountName = "Login/Sign Up";
+  accountName;
   createProfile = true;
   loginOrSign(){
     let routeActivate = this.route.snapshot.routeConfig.path;
@@ -29,6 +29,12 @@ export class NavbarComponent implements OnInit {
     if(localStorage.getItem('logStatus')=='createProfile'){
       this.router.navigate(['/createProfile']);
     }
+  }
+  home(){
+    if(localStorage.getItem('logStatus') !=='createProfile'){
+      this.router.navigate(['/login']);
+    }
+   
   }
   logout(){
     let routeActivate = this.route.snapshot.routeConfig.path;
@@ -45,14 +51,15 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   ngOnInit() {
-   
     if(localStorage.getItem('logStatus')=='createProfile'){
+     
       this.navViewOnly = true;
       this.accountName = "Complete Profile";
       this.createProfile = false;
       this.initialAvatar=false;
     } else if(localStorage.getItem('logStatus')=='false'){
       this.navViewOnly = false;
+      this.accountName = "Login/Sign Up";
       this.initialAvatar=false;
     } else {
       this.navViewOnly = true;
@@ -65,10 +72,14 @@ export class NavbarComponent implements OnInit {
     }
   
     $('#toggle').click(function(e){
+      if(e.currentTarget.checked){
+          $('.loginNav').addClass("hideLogo");
+        }
           if(e.currentTarget.checked && avatar){
              $('.nav').prepend('<a id="avatarMenu" href="/profile"  style="display:flex;align-items:center;"><img class="ui mini avatar image" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1"></a>');
             }
           if(!e.currentTarget.checked){
+            $('.loginNav').removeClass("hideLogo");
             $('#avatarMenu').remove();
           }
           if ( $('.spectra-logo-mobile').hasClass("hideLogo") ) {
