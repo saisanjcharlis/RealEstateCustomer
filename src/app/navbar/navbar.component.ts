@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   navViewOnly=true;
   initialAvatar=true;
   accountName;
+  projectsDisplay = true;
   createProfile = true;
   loginOrSign(){
     let routeActivate = this.route.snapshot.routeConfig.path;
@@ -32,7 +33,7 @@ export class NavbarComponent implements OnInit {
   }
   home(){
     if(localStorage.getItem('logStatus') !=='createProfile'){
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     }
    
   }
@@ -51,6 +52,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   ngOnInit() {
+   
     if(localStorage.getItem('logStatus')=='createProfile'){
      
       this.navViewOnly = true;
@@ -70,7 +72,10 @@ export class NavbarComponent implements OnInit {
     if(avatar == true){
       this.accountName = "Hello, John";
     }
-  
+    let routeActivate = this.route.snapshot.routeConfig.path;
+    if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
+      this.projectsDisplay=false;
+    }
     $('#toggle').click(function(e){
       if(e.currentTarget.checked){
           $('.loginNav').addClass("hideLogo");

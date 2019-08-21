@@ -1,12 +1,18 @@
 <app-navbar></app-navbar>
-
+<div class="menu">
+        <button class="ui tiny button basic basicButton">Price</button>
+        <button class="ui tiny button basic basicButton">Beds</button>
+        <button class="ui tiny button basic basicButton">Home Type</button>
+        <button class="ui tiny button basic basicButton">More</button>
+        <button class="ui tiny button blue ">Save Search</button>
+</div>
 <div class="compContainer">
         <div class="mapContainer">
-                <div class="topHeader">
+                <!-- <div class="topHeader">
                         <div class="padTop">
                                 <span class="sectionHeader">Available Projects</span>
                         </div>
-                </div>
+                </div> -->
                 <agm-map 
                         
                         [latitude]='lat' 
@@ -33,15 +39,26 @@
               </agm-map>
         </div>
         <div class="projectContainer ui form">
+                <div class="info">
+                        <h2>Hyderabad Real Estate</h2>
+                        <div style="font-weight: 600;margin-bottom: 15px;">
+                                <span>300 results</span>
+                                <span style="float: right;">Sort By:</span>
+                        </div>
+                        <!-- <div class="errorContent">
+                                We could not find this area. Please check your spelling or enter a valid ZIP code.
+                                <i class="cancel icon" style="float: right;"></i>
+                        </div> -->
+                </div>
                 <div class="topContainer">
-                        <div class="menu1">
+                        <!-- <div class="menu1">
                                 <input type="text" [(ngModel)]="location" disabled class="editable">
                                 <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted large search icon" style="color:#0066ff; cursor: pointer;padding-right: 20px;"></i>
                                 <i (click)="cancel()" *ngIf="!iconSearch" class="fitted large cancel icon" style="color:#0066ff; cursor: pointer;padding-right: 20px;"></i>
                               
-                        </div>
+                        </div> -->
 
-                        <div class="plotHeader">
+                        <!-- <div class="plotHeader">
                                 <div class="priceMargin">Price</div>
                                 <div class="ui fluid selection dropdown">
                                         <input type="hidden" name="priceMin">
@@ -87,15 +104,14 @@
                                         </div>
                                 </div>
                                 <div class="moreFilter">
-                                        <!-- <i (click)="moreFilter()" class="funnel dollar large icon filterIcon"></i> -->
                                         <span class="filterDesktop" (click)="moreFilter()" *ngIf="!filterTrue">Filters<i
                                                         class="angle down icon marginRight"></i></span>
                                         <span class="filterDesktop" (click)="moreFilter()" *ngIf="filterTrue">Filters<i
                                                         class="angle up icon marginRight"></i></span>
                                         <span class="clearButton">Clear</span>
                                 </div>
-                        </div>
-                        <div class="displayInfo">
+                        </div> -->
+                        <!-- <div class="displayInfo">
                                 <span class="totalProjectsInfo">Showing 21 out of 2107 Projects</span>
 
                                 <div class="ui pointing dropdown sortDrop" style="margin-left:10px;color:#414143;">
@@ -115,9 +131,9 @@
                                 <div class="projectList listing activeProject" (click)="changetoListing()">Listings
                                 </div>
                                 <div style="clear: both;"></div>
-                        </div>
+                        </div> -->
                 </div>
-                <div class="filterMenu">
+                <!-- <div class="filterMenu">
                         <span class="filterHeader">Property Type</span>
 
                         <div class="ui large icon buttons" style="width:25%;margin-top:20px;">
@@ -398,45 +414,38 @@
                                 <span style="float: right; padding:8px 0;margin-right:10px;">No Matches</span>
 
                         </div>
-                </div>
+                </div> -->
                 <div class="projects ui two stackable cards" *ngIf="!filterTrue">
                         <div class="card" *ngFor="let image of images">
                                 <div class="image">
                                         <div class="tagInfo">
-                                                <div class="ui red label">Posted: 04 Aug 2019</div>
-                                                <div class="ui blue label">Hyderabad</div>
+                                                <div class="ui blue label">Posted: 04 Aug 2019</div>
                                         </div>
+                                        <i class="rightFloated large like outline icon" (click)="likedProject($event)"></i>
+                                        <span class="ratingFloat ui mini star blue rating" data-rating="3"
+                                                        data-max-rating="5"></span>
                                         <img routerLink="/projectDetail" style="cursor: pointer;" src={{image}}>
                                 </div>
                                 <div class="content">
-                                        <i class="right floated large blue like outline icon"></i>
-                                        <i class="right floated large blue share alternate icon"></i>
                                         <a class="header" routerLink="/projectDetail">Spectra Fortune</a>
-                                        <div style="margin-top:10px;" class="meta">
-                                                <span>Balanagar</span>
-                                                <span class="right floated ui mini star yellow rating" data-rating="3"
-                                                        data-max-rating="5"></span>
-                                        </div>
+                                        <span style="float: right;font-weight: bold;">
+                                                <i class="rupee sign icon"></i>
+                                                <span style="font-size:1.2em;">15,999</span>
+                                                <span style="color:#414143;font-weight: normal;"> onwards</span>
+                                        </span>
                                         <div class="description">
-                                                <b>1397-4000 Sq.Ft.<span style="float: right;color:#0066ff;"><i
-                                                                        class="rupee sign icon"></i>15999<span
-                                                                        style="color:#414143;font-weight: normal;">
-                                                                        onwards</span></span></b>
-
-
-
+                                                <b>1397-4000</b> sqft
                                         </div>
-                                        <div class="meta">
-                                                <span>Listing provided By Spectra</span>
+                                        <div style="margin-top:10px;" class="meta">
+                                                <b>Plot No.31, Balanagar, Hyderabad</b>
+                                                <span style="float: right;"> <i class="circle green icon"></i> <b>For Sale</b></span>
                                         </div>
+                                        
 
                                 </div>
                         </div>
 
                 </div>
-                <!-- <div class="projects" *ngFor="let image of imagesList" (deferLoad)="image.show = true">
-                <project *ngIf="image.show"></project>
-        </div> -->
         </div>
 </div>
 <!-- <div class="ui modal coBuy" style="width: 350px; height: 350px;">

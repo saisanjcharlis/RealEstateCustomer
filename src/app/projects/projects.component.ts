@@ -149,6 +149,11 @@ export class ProjectsComponent implements OnInit {
     
 
   }
+  likedProject(e){
+    $(e.target).css('color','#0066ff'); 
+    $(e.target).removeClass('outline');
+    $(e.target).transition('bounce');
+  }
   ngAfterViewInit() {
     if(window.innerWidth>768){
       // this.addCoBuy();
