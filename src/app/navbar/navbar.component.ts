@@ -32,7 +32,8 @@ export class NavbarComponent implements OnInit {
     }
   }
   home(){
-    if(localStorage.getItem('logStatus') !=='createProfile'){
+    let routeActivate = this.route.snapshot.routeConfig.path;
+    if(localStorage.getItem('logStatus') !=='createProfile' || routeActivate == "projects"){
       this.router.navigate(['/']);
     }
    

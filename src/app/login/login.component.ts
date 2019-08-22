@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { trigger, style, transition, animate, group } from '@angular/animations';
 import { LoginService } from '../../services/login-service.service';
 import { RouterModule , Router } from '@angular/router';
@@ -18,6 +18,18 @@ declare var $:any;
   providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
+  @HostListener('window:resize', ['$event'])
+  onResize(event){
+    if(event.target.innerWidth>768)
+     {
+       $('.dropDownSearch').removeClass('large');
+       $('.dropDownSearch').addClass('massive');
+     }
+     else{
+      $('.dropDownSearch').removeClass('massive');
+      $('.dropDownSearch').addClass('large');
+     }
+  }
   hideSignUp=false;
   hideSignIn=true;
   userName="";
