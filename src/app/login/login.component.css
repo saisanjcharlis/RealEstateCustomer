@@ -82,7 +82,7 @@ input.search{
 }
 @media all and (max-width: 768px) {
 	.dropDownSearch{
-		width:75%;
+		width:100%;
 	}
 	.slogan{
 		font-size:18px;

@@ -4,6 +4,7 @@ export interface Marker {
     plotNumbers: string;
     projectName: string;
     city: string;
+    icon;
     state: string;
     postalcode: string;
     projectLink: string;

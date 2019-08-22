@@ -299,18 +299,6 @@
 .dropDown{
   border-radius: 1px !important;
 }
-.topContainer{
-  position: sticky;
-  left:0;
-  background: #fff;
-  top:56px;
-  z-index:3;
-}
-@media all and (max-width: 768px) {
-  .topContainer{
-    top:40px;
-  }
-}
 .moreFilter{
   display: flex;
   flex-wrap: nowrap;
@@ -318,6 +306,9 @@
   padding-left: 10px;
   cursor: pointer;
   margin-right:10px;
+}
+.red{
+  color: red !important;
 }
 @media all and (max-width: 768px) {
   .moreFilter{
@@ -454,6 +445,21 @@ flex-wrap: nowrap;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .noResultText{
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size:24px;
+  }
+  .dropDownSearch{
+    font-weight: bold !important;
+    width:80%;
+  }
+  @media all and (max-width: 768px) {
+    .dropDownSearch{
+      width:100%;
+    }
   }
 
   .editable{

@@ -4,7 +4,7 @@
             <div style="text-align: center;margin-top:100px;">
               <div class="headerText" >Explore your</div><div id="headerText" class="headerText">Ideal Home</div>
               <div class="slogan" >We'll help you find a place you'll love</div>
-              <div class="ui multiple massive search selection dropdown dropDownSearch" >
+              <div class="ui multiple huge search selection dropdown dropDownSearch" >
                   <input type="hidden" name="search">
                   <i class="search blue icon" style="height: 100%;"></i>
                   <div class="default text searchText">City, Agent, Zip Code...</div>
@@ -50,11 +50,6 @@
 <div class="ui modal modalSign">
   <i class="close icon"></i>
   <div class="container">
-      <div  style="padding:10px 0;float: right;margin-right:20px; ">
-          <button class="ui blue basic button">Business</button>
-          <button class="ui yellow button">Customer</button>
-         
-        </div>
     <div class="form-container sign-up-container">
         <form [@itemAnim] action="" (ngSubmit)="signIn(u1.value,p2.value)" *ngIf="hideSignIn">
           <h3><span>Sign in</span> using your username and password</h3>
@@ -113,31 +108,42 @@
 </div>
 </div>
 
+
+
 <div class="ui modal agentModal">
   <i class="close icon"></i>
-  Form for Meet an Agent
-  Contact Number
-  Email
-  Name
-  City
-
+  <div class="header">
+    Enter details for passbook
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+          <i class="black building icon" style="margin-left:100px;"></i>
+    </div>
+    <div class="description">
+          <form class="ui form">
+    <div class="field">
+      <label>Name</label>
+      <input type="text" name="name" placeholder="Name">
+    </div>
+    <div class="field">
+      <label>City</label>
+      <input type="text" name="city" placeholder="City">
+    </div>
+    <div class="field">
+      <label>Contact Number</label>
+      <input type="number" name="contact" placeholder="Contact">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="last-name" placeholder="Email">
+    </div>
+  </form>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui positive right labeled icon button" (click)="allotPassbook()" >
+      Add Passbook
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
 </div>
-
-<!-- <div class="form-container side-info displayNone">
-    <form>
-      <div style="text-align: left;">
-          <img alt="spectra-logo" class="spectra-logo" src="assets/spectra.png"/>
-          <br>
-        <span style="color:white;">Powered By&nbsp;</span><img alt="marketfront-logo" class="marketfront-logo" align="top"
-        src="assets/marketfront.png"/>
-        <h1>Buy your dream home</h1>
-        <div class="ui icon fluid input">
-          <input type="text" class="searchProject" (keyup.enter)="browseLimited()" placeholder="City, Agent, Zip Code...">
-          <i class="search icon"></i>
-        </div>
-        <div class="info">
-          <a href="#" style="margin-right:10px;">Terms of Use</a><a href="#">Social</a>
-        </div>
-      </div>
-    </form>
-  </div> -->

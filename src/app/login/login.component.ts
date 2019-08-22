@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit {
     if(event.target.innerWidth>768)
      {
        $('.dropDownSearch').removeClass('large');
-       $('.dropDownSearch').addClass('massive');
+       $('.dropDownSearch').addClass('huge');
      }
      else{
-      $('.dropDownSearch').removeClass('massive');
+      $('.dropDownSearch').removeClass('huge');
       $('.dropDownSearch').addClass('large');
      }
   }
@@ -131,10 +131,10 @@ export class LoginComponent implements OnInit {
     if(window.innerWidth>768)
     {
       $('.dropDownSearch').removeClass('large');
-      $('.dropDownSearch').addClass('massive');
+      $('.dropDownSearch').addClass('huge');
     }
     else{
-     $('.dropDownSearch').removeClass('massive');
+     $('.dropDownSearch').removeClass('huge');
      $('.dropDownSearch').addClass('large');
     }
 

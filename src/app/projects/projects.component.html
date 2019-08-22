@@ -13,11 +13,6 @@
 </div>
 <div class="compContainer">
         <div class="mapContainer">
-                <!-- <div class="topHeader">
-                        <div class="padTop">
-                                <span class="sectionHeader">Available Projects</span>
-                        </div>
-                </div> -->
                 <agm-map 
                         
                         [latitude]='lat' 
@@ -26,159 +21,46 @@
                         [zoom]="zoom" 
                         [disableDoubleClickZoom]="true">
                         <agm-marker 
-                                [iconUrl]="icon"
+                                
                                 (mouseOver)="window.open()" 
                                 (mouseOut)="window.close()" 
-                                [label]="marker.plotNumbers"
-                                [opacity]="0.6"
+                             
                                 *ngFor="let marker of markers" 
+                                [iconUrl]="marker.icon"
                                 [latitude]="marker.lat"
                                 [longitude]="marker.lng"
                                 (markerClick)="markerClick($event)">
-                                        <agm-info-window #window>
-                                        <h3>Project Name: {{marker.projectName}}</h3>
-                                        <h5>Plots Remaining: {{marker.plotNumbers}}</h5>
-                                        <button class="ui tiny button blue plotButton">View Project</button>
+                                        <agm-info-window  #window>
+                                                <div style="display: grid; grid-template-columns: 55% 38%;grid-gap: 0 15px;">
+                                                        <img width="150" src="http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg">
+                                                        <div>
+                                                                        <span style="font-size:12px;font-weight: bold;">{{marker.projectName}}</span>
+                                                                        <div style="margin-top:5px;"></div>
+                                                                        <span style="font-weight: bold;">340-700 </span><span style="font-size:10px;font-weight: normal;color:#414143;">sqyd</span><br>
+                                                                        <div style="margin-top:5px;"></div>
+                                                                        <span style="color:#0066ff;font-weight: bold;">₹5,60,000 <span style="font-size:8px;font-weight: normal;color:#414143;">onwards</span>  </span>
+                                                        </div>
+                                                                
+                                                </div>
+                                                
+                                                <!-- <button class="ui tiny button blue plotButton">View Project</button> -->
                                         </agm-info-window>
                         </agm-marker> 
               </agm-map>
         </div>
         <div class="projectContainer ui form">
                 <div class="info">
-                        <h2>Hyderabad Real Estate</h2>
+                        <h2 *ngIf="projects.length!=0">Hyderabad Real Estate</h2>
                         <div style="font-weight: 600;margin-bottom: 15px;">
-                                <span>300 results</span>
+                                <span>{{projects.length}} results</span>
                                 <span style="float: right;">Sort By:</span>
                         </div>
-                        <div class="errorContent">
+                        <div *ngIf="projects.length == 0" class="errorContent">
                                 We could not find this area. Please check your spelling or enter a valid ZIP code.
                                 <i class="cancel icon" style="float: right;"></i>
                         </div>
                 </div>
-                <div class="topContainer">
-                        <!-- <div class="menu1">
-                                <input type="text" [(ngModel)]="location" disabled class="editable">
-                                <i (click)="expandSearch()" *ngIf="iconSearch" class="fitted large search icon" style="color:#0066ff; cursor: pointer;padding-right: 20px;"></i>
-                                <i (click)="cancel()" *ngIf="!iconSearch" class="fitted large cancel icon" style="color:#0066ff; cursor: pointer;padding-right: 20px;"></i>
-                              
-                        </div> -->
-
-                        <!-- <div class="plotHeader">
-                                <div class="priceMargin">Price</div>
-                                <div class="ui fluid selection dropdown">
-                                        <input type="hidden" name="priceMin">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Min</div>
-                                        <div class="menu">
-                                                <div class="item" data-value="1">10 Lakhs</div>
-                                                <div class="item" data-value="1">20 Lakhs</div>
-                                                <div class="item" data-value="0">30 Lakhs</div>
-                                                <div class="item" data-value="0">40 Lakhs</div>
-                                                <div class="item" data-value="0">50 Lakhs</div>
-                                                <div class="item" data-value="0">60 Lakhs</div>
-                                                <div class="item" data-value="0">70 Lakhs</div>
-                                                <div class="item" data-value="0">80 Lakhs</div>
-                                                <div class="item" data-value="0">90 Lakhs</div>
-                                                <div class="item" data-value="0">1 Cr</div>
-                                                <div class="item" data-value="0">2 Cr</div>
-                                                <div class="item" data-value="0">3 Cr</div>
-                                                <div class="item" data-value="0">4 Cr</div>
-                                                <div class="item" data-value="0">5 Cr</div>
-                                        </div>
-                                </div>
-                                &nbsp;to&nbsp;
-                                <div class="ui fluid selection dropdown">
-                                        <input type="hidden" name="priceMax">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Max</div>
-                                        <div class="menu">
-                                                <div class="item" data-value="1">10 Lakhs</div>
-                                                <div class="item" data-value="1">20 Lakhs</div>
-                                                <div class="item" data-value="0">30 Lakhs</div>
-                                                <div class="item" data-value="0">40 Lakhs</div>
-                                                <div class="item" data-value="0">50 Lakhs</div>
-                                                <div class="item" data-value="0">60 Lakhs</div>
-                                                <div class="item" data-value="0">70 Lakhs</div>
-                                                <div class="item" data-value="0">80 Lakhs</div>
-                                                <div class="item" data-value="0">90 Lakhs</div>
-                                                <div class="item" data-value="0">1 Cr</div>
-                                                <div class="item" data-value="0">2 Cr</div>
-                                                <div class="item" data-value="0">3 Cr</div>
-                                                <div class="item" data-value="0">4 Cr</div>
-                                                <div class="item" data-value="0">5 Cr</div>
-                                        </div>
-                                </div>
-                                <div class="moreFilter">
-                                        <span class="filterDesktop" (click)="moreFilter()" *ngIf="!filterTrue">Filters<i
-                                                        class="angle down icon marginRight"></i></span>
-                                        <span class="filterDesktop" (click)="moreFilter()" *ngIf="filterTrue">Filters<i
-                                                        class="angle up icon marginRight"></i></span>
-                                        <span class="clearButton">Clear</span>
-                                </div>
-                        </div> -->
-                        <!-- <div class="displayInfo">
-                                <span class="totalProjectsInfo">Showing 21 out of 2107 Projects</span>
-
-                                <div class="ui pointing dropdown sortDrop" style="margin-left:10px;color:#414143;">
-                                        <i class="sort amount down icon"></i>
-                                        <span>Sort</span>
-                                        <div class="right menu">
-                                                <a class="item">Recommended</a>
-                                                <a class="item">Price</a>
-                                                <a class="item">Rating</a>
-                                                <a class="item">Square Yards</a>
-                                                <a class="item">Newest First</a>
-                                                <a class="disabled item">Upcoming</a>
-
-                                        </div>
-                                </div>
-                                <div class="projectList upcoming" (click)="changeToUpcoming()">Upcoming</div>
-                                <div class="projectList listing activeProject" (click)="changetoListing()">Listings
-                                </div>
-                                <div style="clear: both;"></div>
-                        </div> -->
-                </div>
-                <!-- <div class="filterMenu">
-                        <span class="filterHeader">Property Type</span>
-
-                        <div class="ui large icon buttons" style="width:25%;margin-top:20px;">
-                                <div (click)="toggleActive($event)"
-                                        class="ui vertical animated activeProperty black fluid button" tabindex="0">
-                                        <div class="hidden content hiddenContent" style="pointer-events: none"><i
-                                                        class="home icon"></i></div>
-                                        <div class="visible content visibleContent" style="pointer-events: none">Plots
-                                        </div>
-                                </div>
-                                <div (click)="toggleActive($event)" class="ui vertical animated black fluid button"
-                                        tabindex="0">
-                                        <div class="hidden content hiddenContent" style="pointer-events: none"><i
-                                                        class="city icon"></i></div>
-                                        <div class="visible content visibleContent" style="pointer-events: none">
-                                                Apartments</div>
-                                </div>
-                                <div (click)="toggleActive($event)"
-                                        class="ui vertical toggle animated black fluid button" tabindex="0">
-                                        <div class="hidden content hiddenContent" style="pointer-events: none"> <i
-                                                        class="place of worship icon"></i></div>
-                                        <div class="visible content visibleContent" style="pointer-events: none">Villas
-                                        </div>
-                                </div>
-                                <div (click)="toggleActive($event)" class="ui vertical animated black fluid button"
-                                        tabindex="0">
-                                        <div class="hidden content hiddenContent" style="pointer-events: none"><i
-                                                        class="building icon"></i></div>
-                                        <div class="visible content visibleContent" style="pointer-events: none">Builder
-                                        </div>
-                                </div>
-                        </div>
-
-
-                        <span class="filterHeader">Listing Status</span>
-                        <div class="ui toggle  checkbox" style="margin-top:20px;">
-                                <input checked type="checkbox" name="public">
-                                <label>For Sale/Sold</label>
-                        </div>
-
+                <!-- 
 
                         <hr style="margin-top:20px;">
                         <span class="filterHeader">Property Facts</span>
@@ -420,36 +302,48 @@
 
                         </div>
                 </div> -->
-                <div class="projects ui two stackable cards" *ngIf="!filterTrue">
-                        <div class="card" *ngFor="let image of images">
+                <div class="projects ui two stackable cards" >
+                        <div class="card" *ngFor="let project of projects;" >
                                 <div class="image">
                                         <div class="tagInfo">
-                                                <div class="ui blue label">Posted: 04 Aug 2019</div>
+                                                <div class="ui blue label">Posted: {{project.postedOn}}</div>
                                         </div>
-                                        <i class="rightFloated large like outline icon" (click)="likedProject($event)"></i>
+                                        <i class="rightFloated large like  icon" [ngClass]="{'outline': !project.likedStatus, 'blue': project.likedStatus}" (click)="likedProject($event)"></i>
                                         <span class="ratingFloat ui mini star blue rating" data-rating="3"
                                                         data-max-rating="5"></span>
-                                        <img routerLink="/projectDetail" style="cursor: pointer;" src={{image}}>
+                                        <img routerLink="/projectDetail" style="cursor: pointer;" src={{project.imageUrl}}>
                                 </div>
                                 <div class="content">
-                                        <a class="header" routerLink="/projectDetail">Spectra Fortune</a>
+                                        <a class="header" routerLink="/projectDetail">{{project.projectName}}</a>
                                         <span class="priceInfo">
                                                 <i class="rupee sign icon"></i>
-                                                <span style="font-size:18px;">15,999 </span>
+                                                <span style="font-size:18px;">{{project.minPriceParsed}} </span>
                                                 <span class="onwards"> onwards</span>
                                         </span>
                                         <div class="description">
-                                                <b>1397-4000</b><span style="font-size:12px;margin-left:5px;">sqft</span> 
+                                                <b>{{project.minSize}}-{{project.maxSize}}</b><span style="font-size:12px;margin-left:5px;">sqyd</span> 
                                         </div>
                                         <div style="margin-top:10px;" class="meta">
-                                                <b>Plot No.31, Balanagar<br> Hyderabad, TS 500032</b>
-                                                <span style="float: right;"> <i class="circle green icon"></i> <b>For Sale</b></span>
+                                                <b>{{project.address1}}<br> {{project.address2}}</b>
+                                                <span style="float: right;"> <i [ngClass]="{'red': project.saleStatus == 'Sold'}" class="circle green icon"></i> <b>{{project.saleStatus}}</b></span>
                                         </div>
                                         
 
                                 </div>
                         </div>
 
+                </div>
+                <div style="display: flex; justify-content: center;flex-direction: column;align-items: center;" *ngIf="projects.length==0">
+                        <div class="noResultText">Browse for projects</div>
+                        <div class="ui multiple huge search selection dropdown dropDownSearch" >
+                                <input type="hidden" name="search">
+                                <i class="search blue icon" style="height: 100%;"></i>
+                                <div class="default text searchText">City, Agent, Zip Code...</div>
+                                <div class="menu">
+                                  <div routerLink="/projects" class="item" data-value="1"><i class="location arrow blue icon"></i>Hyderabad</div>
+                                  <div class="item" data-value="2"><i class="location arrow blue icon"></i>Bangalore</div>
+                                </div>
+                        </div>
                 </div>
         </div>
 </div>
@@ -470,19 +364,19 @@
         <div class="ui header">Home Type</div>
         <div class="marginLeft">
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" name="plots">
+                        <input type="checkbox" (change)="homeTypeFilter($event)" name="plots">
                         <label>Plots</label>
                 </div>
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" name="apartments">
+                        <input type="checkbox" (change)="homeTypeFilter($event)" name="apartments">
                         <label>Apartments</label>
                 </div>
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" name="villas">
+                        <input type="checkbox" (change)="homeTypeFilter($event)" name="villas">
                         <label>Villas</label>
                 </div>
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" name="builder">
+                        <input type="checkbox" (change)="homeTypeFilter($event)" name="builder">
                         <label>Builder</label>
                 </div>
         </div>
@@ -493,14 +387,14 @@
         <br>
         <div class="ui basic buttons" style="margin-top:10px;">
                 <div class="ui button">Any</div>
-                <div class="ui button">1+</div>
-                <div class="ui button">2+</div>
-                <div class="ui button">3+</div>
-                <div class="ui button">4+</div>
-                <div class="ui button">5+</div>
+                <div class="ui button">1<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui button">2<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui button">3<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui button">4<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui button">5<span *ngIf="plusYes" class="plusBed">+</span></div>
         </div>
         <div class="ui checkbox marginBottom">
-                        <input type="checkbox" name="exact">
+                        <input (change)="addPlus()" type="checkbox" name="exact">
                         <label>Use exact match</label>
         </div>
       
