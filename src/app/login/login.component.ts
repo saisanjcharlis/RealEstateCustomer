@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
   errors=[];
   errors1=[];
   public openModal(){
-    $('.ui.modal').modal('show');   
+   
+    $('.ui.modal.modalSign').modal('show');   
   }
   constructor(private loginService: LoginService, private routes: Router) { }
  
@@ -88,6 +89,9 @@ export class LoginComponent implements OnInit {
       }
     }
   }
+  agentModal(){
+    $('.ui.modal.agentModal').modal('show');   
+  }
   signUp(mobileNumber, otp, password){  
     let minAlphabet = new RegExp("^(?=.*[A-Z])");
     let minNumber = new RegExp("^(?=.*[0-9])");
@@ -124,6 +128,16 @@ export class LoginComponent implements OnInit {
     
   }
   ngOnInit() {
+    if(window.innerWidth>768)
+    {
+      $('.dropDownSearch').removeClass('large');
+      $('.dropDownSearch').addClass('massive');
+    }
+    else{
+     $('.dropDownSearch').removeClass('massive');
+     $('.dropDownSearch').addClass('large');
+    }
+
     $(document).scrollTop(0);
 
     if(localStorage.getItem('logStatus')=='true'){

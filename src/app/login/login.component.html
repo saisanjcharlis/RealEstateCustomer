@@ -3,7 +3,7 @@
     <div class="intro">
             <div style="text-align: center;margin-top:100px;">
               <div class="headerText" >Explore your</div><div id="headerText" class="headerText">Ideal Home</div>
-              <div style="color:white;font-size:24px;margin-top:20px;">We'll help you find a place you'll love</div>
+              <div class="slogan" >We'll help you find a place you'll love</div>
               <div class="ui multiple massive search selection dropdown dropDownSearch" >
                   <input type="hidden" name="search">
                   <i class="search blue icon" style="height: 100%;"></i>
@@ -32,7 +32,7 @@
                 Search Homes
             </button>
           </div>
-          <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" class="card">
+          <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" (click)="agentModal()" class="card">
               <img class="cardImage" src="https://s.zillowstatic.com/homepage/static/Buy_a_home.png">
               <span class="cardHeader">Meet an Agent</span>
               <span class="cardInfo">Meet an agent and get all details about <br>property details and price plans.</span>
@@ -50,6 +50,11 @@
 <div class="ui modal modalSign">
   <i class="close icon"></i>
   <div class="container">
+      <div  style="padding:10px 0;float: right;margin-right:20px; ">
+          <button class="ui blue basic button">Business</button>
+          <button class="ui yellow button">Customer</button>
+         
+        </div>
     <div class="form-container sign-up-container">
         <form [@itemAnim] action="" (ngSubmit)="signIn(u1.value,p2.value)" *ngIf="hideSignIn">
           <h3><span>Sign in</span> using your username and password</h3>
@@ -107,6 +112,17 @@
   
 </div>
 </div>
+
+<div class="ui modal agentModal">
+  <i class="close icon"></i>
+  Form for Meet an Agent
+  Contact Number
+  Email
+  Name
+  City
+
+</div>
+
 <!-- <div class="form-container side-info displayNone">
     <form>
       <div style="text-align: left;">

@@ -1,9 +1,14 @@
 <app-navbar></app-navbar>
 <div class="menu">
-        <button class="ui tiny button basic basicButton">Price</button>
-        <button class="ui tiny button basic basicButton">Beds</button>
-        <button class="ui tiny button basic basicButton">Home Type</button>
-        <button class="ui tiny button basic basicButton">More</button>
+        <div class="ui mini icon input locationButton">
+                <input type="text" placeholder="Location, Zipcode">
+                <i class="search blue icon"></i>
+        </div>
+        <button class="ui tiny button basic basicButton statusButton">Status</button>
+        <button class="ui tiny button basic basicButton priceButton">Price</button>
+        <button class="ui tiny button basic basicButton bedsButton">Beds</button>
+        <button class="ui tiny button basic basicButton homeButton">Home Type</button>
+        <button class="ui tiny button basic basicButton moreButton">More</button>
         <button class="ui tiny button blue ">Save Search</button>
 </div>
 <div class="compContainer">
@@ -45,10 +50,10 @@
                                 <span>300 results</span>
                                 <span style="float: right;">Sort By:</span>
                         </div>
-                        <!-- <div class="errorContent">
+                        <div class="errorContent">
                                 We could not find this area. Please check your spelling or enter a valid ZIP code.
                                 <i class="cancel icon" style="float: right;"></i>
-                        </div> -->
+                        </div>
                 </div>
                 <div class="topContainer">
                         <!-- <div class="menu1">
@@ -428,16 +433,16 @@
                                 </div>
                                 <div class="content">
                                         <a class="header" routerLink="/projectDetail">Spectra Fortune</a>
-                                        <span style="float: right;font-weight: bold;">
+                                        <span class="priceInfo">
                                                 <i class="rupee sign icon"></i>
-                                                <span style="font-size:1.2em;">15,999</span>
-                                                <span style="color:#414143;font-weight: normal;"> onwards</span>
+                                                <span style="font-size:18px;">15,999 </span>
+                                                <span class="onwards"> onwards</span>
                                         </span>
                                         <div class="description">
-                                                <b>1397-4000</b> sqft
+                                                <b>1397-4000</b><span style="font-size:12px;margin-left:5px;">sqft</span> 
                                         </div>
                                         <div style="margin-top:10px;" class="meta">
-                                                <b>Plot No.31, Balanagar, Hyderabad</b>
+                                                <b>Plot No.31, Balanagar<br> Hyderabad, TS 500032</b>
                                                 <span style="float: right;"> <i class="circle green icon"></i> <b>For Sale</b></span>
                                         </div>
                                         
@@ -461,3 +466,114 @@
                 </div>
         </div>
 </div> -->
+<div class="ui homePop popup bottom center transition hidden">
+        <div class="ui header">Home Type</div>
+        <div class="marginLeft">
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" name="plots">
+                        <label>Plots</label>
+                </div>
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" name="apartments">
+                        <label>Apartments</label>
+                </div>
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" name="villas">
+                        <label>Villas</label>
+                </div>
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" name="builder">
+                        <label>Builder</label>
+                </div>
+        </div>
+      
+</div>
+<div class="ui bedPop popup top right transition hidden">
+        <div class="ui header">Bedrooms</div>
+        <br>
+        <div class="ui basic buttons" style="margin-top:10px;">
+                <div class="ui button">Any</div>
+                <div class="ui button">1+</div>
+                <div class="ui button">2+</div>
+                <div class="ui button">3+</div>
+                <div class="ui button">4+</div>
+                <div class="ui button">5+</div>
+        </div>
+        <div class="ui checkbox marginBottom">
+                        <input type="checkbox" name="exact">
+                        <label>Use exact match</label>
+        </div>
+      
+</div>
+
+<div class="ui pricePop popup top right transition hidden">
+        <div class="ui header">Price Range</div>
+        <div class="priceInput">
+                <div class="ui input">
+                        <input type="text" placeholder="Min">
+                </div>
+                <span style="padding:9.5px;">-</span>
+                <div class="ui input">
+                        <input type="text" placeholder="Max">
+                </div> 
+        </div>
+        <div class="priceListGrid">
+                <div class="ui list">
+                        <div class="item"><i class="rupee sign icon"></i>0+</div>
+                        <div class="item"><i class="rupee sign icon"></i>10,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>20,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>30,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>40,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>50,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>60,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>70,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>80,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>90,00,000+</div>
+                </div>
+                <div class="ui list">
+                        <div class="item"><i class="rupee sign icon"></i>50,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>60,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>70,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>80,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>90,00,000+</div>
+                        <div class="item"><i class="rupee sign icon"></i>1 Cr+</div>
+                        <div class="item"><i class="rupee sign icon"></i>1.25 Cr+</div>
+                        <div class="item"><i class="rupee sign icon"></i>1.5 Cr+</div>
+                        <div class="item"><i class="rupee sign icon"></i>1.75 Cr+</div>
+                        <div class="item"><i class="rupee sign icon"></i>Any Price</div>
+                </div>
+        </div>
+      
+</div>
+<div class="ui statusPop popup top right transition hidden">
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" name="plots">
+                        <label style="font-size:14px;font-weight: 600;"><i class="circle green icon"></i>For Sale</label>
+                </div>
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" name="plots">
+                        <label style="font-size:14px;font-weight: 600;"><i class="circle red icon"></i>Sold</label>
+                </div>
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" name="plots">
+                        <label style="font-size:14px;font-weight: 600;"><i class="circle blue icon"></i>Upcomings</label>
+                </div>
+</div>
+<div class="ui savedSearchPop popup bottom right transition hidden">
+        <div style="border-bottom: 1px solid red;">
+                asd
+        </div>
+        <div>
+                asd
+        </div>
+        <div>
+                asd
+        </div>
+        <div>
+                asd
+        </div>
+</div>
+
+
+
+

@@ -146,15 +146,51 @@ export class ProjectsComponent implements OnInit {
        else{
         this.triggerPropertyView();
        }
-    
+   
 
   }
+ 
   likedProject(e){
-    $(e.target).css('color','#0066ff'); 
-    $(e.target).removeClass('outline');
-    $(e.target).transition('bounce');
+    $(e.target).transition('pulse');
+    if( $(event.target).hasClass('blue')){
+      $(e.target).removeClass('blue'); 
+      $(e.target).addClass('outline');
+    } else {
+      $(e.target).addClass('blue'); 
+      $(e.target).removeClass('outline');
+     
+      $('body').toast({
+        message: 'You have liked this project.',
+        displayTime: 1000,
+        class: 'blue'
+      });
+    }
+   
+    $('.toast-box').css("margin-top","50px");
   }
   ngAfterViewInit() {
+    $('.homeButton').popup({
+      popup : $('.homePop'),
+      on    : 'click'
+    });
+    $('.bedsButton').popup({
+      popup : $('.bedPop'),
+      on    : 'click'
+    });
+    $('.priceButton').popup({
+      popup : $('.pricePop'),
+      on    : 'click'
+    });
+    $('.statusButton').popup({
+      popup : $('.statusPop'),
+      on    : 'click'
+    });
+    $('.locationButton').popup({
+      popup : $('.savedSearchPop'),
+      on    : 'click'
+    });
+
+
     if(window.innerWidth>768){
       // this.addCoBuy();
     }
