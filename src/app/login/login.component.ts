@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   errors=[];
   errors1=[];
   public openModal(){
-   
+   console.log("hello");
     $('.ui.modal.modalSign').modal('show');   
   }
   constructor(private loginService: LoginService, private routes: Router) { }
@@ -91,6 +91,13 @@ export class LoginComponent implements OnInit {
   }
   agentModal(){
     $('.ui.modal.agentModal').modal('show');   
+  }
+  allotAgent(){
+    $('body').toast({
+      class: 'success',
+      message: `Your passbook has been alloted`
+    });
+    $('.toast-box').css("margin-top","50px");
   }
   signUp(mobileNumber, otp, password){  
     let minAlphabet = new RegExp("^(?=.*[A-Z])");

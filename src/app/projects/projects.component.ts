@@ -177,6 +177,19 @@ export class ProjectsComponent implements OnInit {
     $('.listing').addClass('activeProject');
     $('.upcoming').removeClass('activeProject');
   }
+  addBed(e){
+    
+    if($(e.target).hasClass('blue'))
+    {
+      $(e.target).removeClass('blue');
+      $(e.target).addClass('basic');
+    } else {
+      $(e.target).removeClass('basic');
+      $(e.target).addClass('blue');
+    }
+    
+
+  }
   moreFilter(){
     $('.ui.dropdown')
     .dropdown();

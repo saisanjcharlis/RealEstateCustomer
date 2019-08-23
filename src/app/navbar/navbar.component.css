@@ -17,6 +17,9 @@
   font-family: 'Nunito', sans-serif;
   letter-spacing: 0.3px;
 }
+.acountButton{
+  display: none !important;
+}
 .hideLogo{
     display: none !important;
 }

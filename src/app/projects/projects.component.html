@@ -52,8 +52,19 @@
                 <div class="info">
                         <h2 *ngIf="projects.length!=0">Hyderabad Real Estate</h2>
                         <div style="font-weight: 600;margin-bottom: 15px;">
-                                <span>{{projects.length}} results</span>
-                                <span style="float: right;">Sort By:</span>
+                                <span style="padding:9.42px 0;display:inline-block;">{{projects.length}} results</span>
+                                <div style="float: right;">
+                                                <span >Sort By: </span>
+                                                <select  class="ui tiny dropdown">
+                                                                <option value="">None</option>
+                                                                <option value="AL">Price (High to Low)</option>
+                                                                <option value="AL">Price (Low to High)</option>
+                                                                <option value="AL">Newest</option>
+                                                                <option value="AL">Square Yards</option>
+                                                </select>
+                                </div>
+                               <div style="clear:both;"></div>
+                                
                         </div>
                         <div *ngIf="projects.length == 0" class="errorContent">
                                 We could not find this area. Please check your spelling or enter a valid ZIP code.
@@ -325,7 +336,7 @@
                                         </div>
                                         <div style="margin-top:10px;" class="meta">
                                                 <b>{{project.address1}}<br> {{project.address2}}</b>
-                                                <span style="float: right;"> <i [ngClass]="{'red': project.saleStatus == 'Sold'}" class="circle green icon"></i> <b>{{project.saleStatus}}</b></span>
+                                                <span style="float: right;"> <i [ngClass]="{'red': project.saleStatus == 'Sold'}" class="circle blue icon"></i> <b>{{project.saleStatus}}</b></span>
                                         </div>
                                         
 
@@ -364,7 +375,7 @@
         <div class="ui header">Home Type</div>
         <div class="marginLeft">
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" (change)="homeTypeFilter($event)" name="plots">
+                        <input type="checkbox" checked (change)="homeTypeFilter($event)" name="plots">
                         <label>Plots</label>
                 </div>
                 <div class="ui checkbox marginBottom">
@@ -385,13 +396,13 @@
 <div class="ui bedPop popup top right transition hidden">
         <div class="ui header">Bedrooms</div>
         <br>
-        <div class="ui basic buttons" style="margin-top:10px;">
-                <div class="ui button">Any</div>
-                <div class="ui button">1<span *ngIf="plusYes" class="plusBed">+</span></div>
-                <div class="ui button">2<span *ngIf="plusYes" class="plusBed">+</span></div>
-                <div class="ui button">3<span *ngIf="plusYes" class="plusBed">+</span></div>
-                <div class="ui button">4<span *ngIf="plusYes" class="plusBed">+</span></div>
-                <div class="ui button">5<span *ngIf="plusYes" class="plusBed">+</span></div>
+        <div class="ui buttons" style="margin-top:10px;">
+                <div class="ui blue button" (click)="addBed($event)">Any</div>
+                <div class="ui basic button" (click)="addBed($event)">1<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui basic button" (click)="addBed($event)">2<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui basic button" (click)="addBed($event)">3<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui basic button" (click)="addBed($event)">4<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui basic button" (click)="addBed($event)">5<span *ngIf="plusYes" class="plusBed">+</span></div>
         </div>
         <div class="ui checkbox marginBottom">
                         <input (change)="addPlus()" type="checkbox" name="exact">
@@ -441,11 +452,11 @@
 </div>
 <div class="ui statusPop popup top right transition hidden">
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" name="plots">
+                        <input checked type="checkbox" name="plots">
                         <label style="font-size:14px;font-weight: 600;"><i class="circle green icon"></i>For Sale</label>
                 </div>
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" name="plots">
+                        <input checked type="checkbox" name="plots">
                         <label style="font-size:14px;font-weight: 600;"><i class="circle red icon"></i>Sold</label>
                 </div>
                 <div class="ui checkbox marginBottom">
@@ -454,17 +465,14 @@
                 </div>
 </div>
 <div class="ui savedSearchPop popup bottom right transition hidden">
-        <div style="border-bottom: 1px solid red;">
-                asd
+        <div class="savedSearchList" >
+                <i class="clock blue outline icon"></i><span style="font-weight: 600;">Bangalore, KA</span>
         </div>
-        <div>
-                asd
+        <div  class="savedSearchList">
+                <i class="clock blue outline icon"></i><span style="font-weight: 600;">Hyderabad, TS</span>  
         </div>
-        <div>
-                asd
-        </div>
-        <div>
-                asd
+        <div  class="currentLoc">
+                <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Current Location</span> 
         </div>
 </div>
 

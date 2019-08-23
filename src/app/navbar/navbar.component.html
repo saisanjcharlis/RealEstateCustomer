@@ -32,14 +32,11 @@
                   
             </div>
          </a>
-         <button class="ui blue basic button">Business</button>
-         <button class="ui yellow basic button">Login</button>
-         <!-- <div class="ui buttons" style="padding:10px 0;">
-          <button class="ui blue basic button">Business</button>
-          <button class="ui yellow basic button">Customer</button>
-         
-        </div> -->
-         <div [ngClass]="{'marginLeft':!initialAvatar}" (click)="loginOrSign()" class="navFlex item ui dropdown">
+         <div style="padding:10px;">
+            <button  class="ui blue basic button" (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" *ngIf="buttonsEnable">Business</button>
+            <button class="ui yellow basic button" (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" *ngIf="buttonsEnable" (click)="loginOrSign()">Login</button>
+         </div>
+         <div [ngClass]="{'marginLeft':!initialAvatar, 'acountButton': buttonsEnable}" (click)="loginActions()" class="navFlex  item ui dropdown">
                 <!-- <img class="ui mini image" style="display:block;margin-left:12px;" id="profileAvatar" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1" /> -->
                 
               <i class="navIcon user circle icon large"></i>
@@ -85,7 +82,7 @@
       <div>
         <!-- <img alt="spectra-logo" class="ui image spectra-logo-mobile" src="assets/spectra.png"/> -->
       </div>
-      <div (click)="loginOrSign()" class="item loginNav">
+      <div (click)="loginActions()" class="item loginNav">
           <span>{{accountName}}</span>
       </div>
 </div>

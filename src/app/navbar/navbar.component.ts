@@ -15,7 +15,9 @@ export class NavbarComponent implements OnInit {
 
   }
   navViewOnly=true;
+  disableProfileAction=true;
   initialAvatar=true;
+  buttonsEnable=false;
   accountName;
   projectsDisplay = true;
   createProfile = true;
@@ -24,8 +26,20 @@ export class NavbarComponent implements OnInit {
     if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
       this.loginComp.openModal();
     }
+  }
+  mouseHover(e){
+    $(e.target).removeClass('basic');
+  }
+  mouseLeave(e){
+    $(e.target).addClass('basic');
+  }
+  loginActions(){
+    let routeActivate = this.route.snapshot.routeConfig.path;
+    // if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
+    //   this.loginComp.openModal();
+    // }
     if(this.accountName=="Login/Sign Up" && routeActivate == "projects"){
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     }
     if(localStorage.getItem('logStatus')=='createProfile'){
       this.router.navigate(['/createProfile']);
@@ -53,7 +67,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   ngOnInit() {
-   
+
     if(localStorage.getItem('logStatus')=='createProfile'){
      
       this.navViewOnly = true;
@@ -63,6 +77,7 @@ export class NavbarComponent implements OnInit {
     } else if(localStorage.getItem('logStatus')=='false'){
       this.navViewOnly = false;
       this.accountName = "Login/Sign Up";
+      this.disableProfileAction = false;
       this.initialAvatar=false;
     } else {
       this.navViewOnly = true;
@@ -77,6 +92,11 @@ export class NavbarComponent implements OnInit {
     if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
       this.projectsDisplay=false;
     }
+    if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
+      this.buttonsEnable=true;
+    }
+
+
     $('#toggle').click(function(e){
       if(e.currentTarget.checked){
           $('.loginNav').addClass("hideLogo");
