@@ -95,7 +95,7 @@ export class LoginComponent implements OnInit {
   allotAgent(){
     $('body').toast({
       class: 'success',
-      message: `Your passbook has been alloted`
+      message: `Check mail for Information.`
     });
     $('.toast-box').css("margin-top","50px");
   }

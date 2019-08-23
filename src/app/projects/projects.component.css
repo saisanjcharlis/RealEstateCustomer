@@ -36,6 +36,9 @@
   border: 1px solid #E96E2F;
   padding: .5em;
 }
+.priceListGrid .ui.list .item{
+  cursor: pointer;
+}
 .basicButton{
   color:#0066ff !important;
   font-weight: bold !important;
@@ -89,6 +92,9 @@
   width:200px;
   border-bottom:1px solid grey;
 }
+.savedSearchList > * {
+  pointer-events: none;
+}
 .savedSearchList:hover, .currentLoc:hover{
   color:#0066ff;
   cursor: pointer;
@@ -96,6 +102,9 @@
 .currentLoc{
   padding:10px;
   width:200px;
+}
+.currentLoc > *{
+  pointer-events: none;
 }
 .marginLeft{
   margin:10px 50px 10px 20px;
@@ -441,6 +450,7 @@ flex-wrap: nowrap;
    position: absolute;
    right:10px;
    top:10px;
+   opacity: 0.8;
    cursor: pointer;
    transition: all 0.5s; 
   }
@@ -489,10 +499,21 @@ flex-wrap: nowrap;
     font-size:1.5em !important;
     font-weight: bold;
  }
-
+.filterMobile{
+  display: none;
+}
 @media all and (max-width: 768px) {
   .menu1{
     margin-top:10px;
+  }
+  .statusButton, .priceButton, .bedsButton, .homeButton, .moreButton, .clearButton{
+    display: none;
+  }
+  .filterMobile{
+    display: block;
+    padding: 5px 0;
+    font-weight: bold;
+    float: right;
   }
 }
 agm-map{

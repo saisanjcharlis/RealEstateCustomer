@@ -14,6 +14,8 @@ declare var $:any;
 export class ProjectsComponent implements OnInit {
   homeTypes=[];
   plusYes = true;
+  minPriceFilterValue="0+";
+  maxPriceFilterValue="Any Price";
   constructor(
     private locationService: LocationsService,
     private mapApiLoader: MapsAPILoader,
@@ -61,7 +63,7 @@ export class ProjectsComponent implements OnInit {
   imagesList = [];
   location="Hyderabad Real Estate";
 
-  projects = [
+  hyderabadProjects = [
     {
       "projectName": "Spectra Fortune",
       "minPrice": 5600000,
@@ -80,7 +82,7 @@ export class ProjectsComponent implements OnInit {
       "zipcode": "500032",
       "lat": "12323213",
       "long": "1321331",
-      "homeType": "plot",
+      "homeType": "plots",
       "beds": [3,4,5],
       "agents": []
     },
@@ -102,7 +104,7 @@ export class ProjectsComponent implements OnInit {
       "zipcode": "500032",
       "lat": "12323213",
       "long": "1321331",
-      "homeType": "plot",
+      "homeType": "plots",
       "beds": [1,2,3,4,5],
       "agents": []
     },
@@ -124,23 +126,46 @@ export class ProjectsComponent implements OnInit {
       "zipcode": "500032",
       "lat": "12323213",
       "long": "1321331",
-      "homeType": "plot",
+      "homeType": "apartments",
       "beds": [3,4,5],
       "agents": []
     }
   ];
-
-  images = [
-    "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/09/Prado1.jpgz",
-    "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/09/Prado1.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/09/Prado1.jpg"
-  ];
+  projects = this.hyderabadProjects;
+  selectLocation(e){
+   let locName = $(e.target).children('span').text();
+   if(locName.includes('Bangalore')){
+     this.locationSelected = "Bangalore, KA";
+     this.location = "Bangalore Real Estate";
+     this.projects=[];
+   }
+   if(locName.includes('Hyderabad')){
+    this.locationSelected = "Hyderabad, TS";
+    this.location="Hyderabad Real Estate";
+    this.projects=this.hyderabadProjects;
+   }
+   if(locName.includes('Current')){
+    this.locationSelected = "Hyderabad, TS";
+    this.location="Hyderabad Real Estate";
+    this.projects=this.hyderabadProjects;
+   }
+  }
+  clearFilters(e){
+    this.locationSelected="";
+    $(e.target).removeClass('basic');
+    $('body').toast({
+      message: 'Clearing Filters',
+      class : 'blue',
+    });
+    $('.toast-box').css("margin-top","50px");
+    setTimeout(function(){ 
+      $(e.target).addClass('basic'); 
+    }, 3000);
+    
+   
+    
+    this.projects=this.hyderabadProjects;
+  }
   filterTrue = false;
   
   addPlus(){
@@ -255,17 +280,38 @@ export class ProjectsComponent implements OnInit {
    
     $('.toast-box').css("margin-top","50px");
   }
+  locationSelected = "Hyderabad, TS";
+  locationSearch(e){
+    if(e.toLowerCase().includes("hyderabad")){
+      this.projects = this.hyderabadProjects;
+    } else {
+      this.projects = [];
+    }
+  }
+  minPriceFilter(e){
+    this.minPriceFilterValue = $(e.target).text();
+  }
+  maxPriceFilter(e){
+    this.maxPriceFilterValue = $(e.target).text();
+  }
   homeTypeFilter(e){
-    let propLabel=$(e.target).parent().text().trim();
+    let propLabel=$(e.target).parent().text().trim().toLowerCase();
     if(e.target.checked == false){
-      this.homeTypes=this.homeTypes.filter(function(types) {
-        return types.indexOf(propLabel.toLowerCase()) === -1;
-      });
+        this.projects = this.projects.filter( (project)=>{
+          return project.homeType.indexOf(propLabel) === -1;
+        });
+
     }
     else{
-      this.homeTypes.push($(e.target).parent().text().trim().toLowerCase());
+      this.hyderabadProjects.map((project)=>{
+        if(project.homeType.includes(propLabel)){
+          this.projects.push(project);
+        }
+      });
+
     }
-    console.log(this.homeTypes);
+    
+
   }
   ngAfterViewInit() {
     $('.ui.dropdown').dropdown();

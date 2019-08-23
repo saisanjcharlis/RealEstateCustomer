@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="menu">
         <div class="ui mini icon input locationButton">
-                <input type="text" placeholder="Location, Zipcode">
+                <input [ngModel]="locationSelected" style="font-weight: bold;color:#0066ff;" (ngModelChange)="locationSearch($event)" type="text" placeholder="Location, Zipcode">
                 <i class="search blue icon"></i>
         </div>
         <button class="ui tiny button basic basicButton statusButton">Status</button>
@@ -9,7 +9,11 @@
         <button class="ui tiny button basic basicButton bedsButton">Beds</button>
         <button class="ui tiny button basic basicButton homeButton">Home Type</button>
         <button class="ui tiny button basic basicButton moreButton">More</button>
-        <button class="ui tiny button blue ">Save Search</button>
+        <button class="ui tiny button blue">Save Search</button>
+        <button class="ui basic right floated tiny button blue clearButton" (click)="clearFilters($event)">Clear</button>
+        <button class="ui filterMobile tiny blue icon button">
+                <i class="filter icon"></i>
+        </button>
 </div>
 <div class="compContainer">
         <div class="mapContainer">
@@ -31,8 +35,8 @@
                                 [longitude]="marker.lng"
                                 (markerClick)="markerClick($event)">
                                         <agm-info-window  #window>
-                                                <div style="display: grid; grid-template-columns: 55% 38%;grid-gap: 0 15px;">
-                                                        <img width="150" src="http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg">
+                                                <div style="display: grid; grid-template-columns: 45% 45%;grid-gap: 0 15px;">
+                                                        <img width="120" src="assets/house.svg">
                                                         <div>
                                                                         <span style="font-size:12px;font-weight: bold;">{{marker.projectName}}</span>
                                                                         <div style="margin-top:5px;"></div>
@@ -42,17 +46,16 @@
                                                         </div>
                                                                 
                                                 </div>
-                                                
-                                                <!-- <button class="ui tiny button blue plotButton">View Project</button> -->
                                         </agm-info-window>
                         </agm-marker> 
+                        <agm-circle [latitude]="17.385" [longitude]="78.0867" [fillColor]="green" [radius]="60000"></agm-circle>
               </agm-map>
         </div>
         <div class="projectContainer ui form">
                 <div class="info">
                         <h2 *ngIf="projects.length!=0">Hyderabad Real Estate</h2>
                         <div style="font-weight: 600;margin-bottom: 15px;">
-                                <span style="padding:9.42px 0;display:inline-block;">{{projects.length}} results</span>
+                                <span style="padding:5px 0;display:inline-block;">{{projects.length}} results</span>
                                 <div style="float: right;">
                                                 <span >Sort By: </span>
                                                 <select  class="ui tiny dropdown">
@@ -67,167 +70,11 @@
                                 
                         </div>
                         <div *ngIf="projects.length == 0" class="errorContent">
-                                We could not find this area. Please check your spelling or enter a valid ZIP code.
+                                We could not find any projects with that criteria. Clear filters and search again.
                                 <i class="cancel icon" style="float: right;"></i>
                         </div>
                 </div>
                 <!-- 
-
-                        <hr style="margin-top:20px;">
-                        <span class="filterHeader">Property Facts</span>
-                        <div class="propertyFlex1">
-                                <div class="field">
-                                        <label>Square Yards</label>
-                                        <div class="two fields">
-                                                <div class="ui field fluid selection dropdown">
-                                                        <input type="hidden" name="squareYards">
-                                                        <i class="dropdown icon"></i>
-                                                        <div class="default text">Min</div>
-                                                        <div class="menu">
-                                                                <div class="item" data-value="1">1</div>
-                                                                <div class="item" data-value="2">2</div>
-                                                                <div class="item" data-value="3">3</div>
-                                                                <div class="item" data-value="4">4</div>
-                                                                <div class="item" data-value="5">5</div>
-                                                                <div class="item" data-value="6">6</div>
-                                                                <div class="item" data-value="7">7</div>
-                                                                <div class="item" data-value="8">8</div>
-                                                                <div class="item" data-value="9">9</div>
-                                                                <div class="item" data-value="10">10</div>
-                                                                <div class="item" data-value="11">11</div>
-                                                        </div>
-                                                </div>
-                                                <div class="ui field fluid selection dropdown">
-                                                        <input type="hidden" name="priceMax">
-                                                        <i class="dropdown icon"></i>
-                                                        <div class="default text">Max</div>
-                                                        <div class="menu">
-                                                                <div class="item" data-value="1">1</div>
-                                                                <div class="item" data-value="2">2</div>
-                                                                <div class="item" data-value="3">3</div>
-                                                                <div class="item" data-value="4">4</div>
-                                                                <div class="item" data-value="5">5</div>
-                                                                <div class="item" data-value="6">6</div>
-                                                                <div class="item" data-value="7">7</div>
-                                                                <div class="item" data-value="8">8</div>
-                                                                <div class="item" data-value="9">9</div>
-                                                                <div class="item" data-value="10">10</div>
-                                                                <div class="item" data-value="11">11</div>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="field">
-                                        <label>Lot Size</label>
-                                        <div class="two fields">
-                                                <div class="ui field fluid selection dropdown">
-                                                        <input type="hidden" name="lotSize">
-                                                        <i class="dropdown icon"></i>
-                                                        <div class="default text">Min</div>
-                                                        <div class="menu">
-                                                                <div class="item" data-value="1">1</div>
-                                                                <div class="item" data-value="2">2</div>
-                                                                <div class="item" data-value="3">3</div>
-                                                                <div class="item" data-value="4">4</div>
-                                                                <div class="item" data-value="5">5</div>
-                                                                <div class="item" data-value="6">6</div>
-                                                                <div class="item" data-value="7">7</div>
-                                                                <div class="item" data-value="8">8</div>
-                                                                <div class="item" data-value="9">9</div>
-                                                                <div class="item" data-value="10">10</div>
-                                                                <div class="item" data-value="11">11</div>
-                                                        </div>
-                                                </div>
-                                                <div class="ui field fluid selection dropdown">
-                                                        <input type="hidden" name="priceMax">
-                                                        <i class="dropdown icon"></i>
-                                                        <div class="default text">Max</div>
-                                                        <div class="menu">
-                                                                <div class="item" data-value="1">1</div>
-                                                                <div class="item" data-value="2">2</div>
-                                                                <div class="item" data-value="3">3</div>
-                                                                <div class="item" data-value="4">4</div>
-                                                                <div class="item" data-value="5">5</div>
-                                                                <div class="item" data-value="6">6</div>
-                                                                <div class="item" data-value="7">7</div>
-                                                                <div class="item" data-value="8">8</div>
-                                                                <div class="item" data-value="9">9</div>
-                                                                <div class="item" data-value="10">10</div>
-                                                                <div class="item" data-value="11">11</div>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="field">
-                                        <label>Year Built</label>
-                                        <div class="two fields">
-                                                <div class="ui field fluid selection dropdown">
-                                                        <input type="hidden" name="squareYards">
-                                                        <i class="dropdown icon"></i>
-                                                        <div class="default text">Min</div>
-                                                        <div class="menu">
-                                                                <div class="item" data-value="1">2019</div>
-                                                                <div class="item" data-value="2">2018</div>
-                                                                <div class="item" data-value="3">2017</div>
-                                                                <div class="item" data-value="3">2016</div>
-                                                                <div class="item" data-value="3">2015</div>
-                                                                <div class="item" data-value="4">2014</div>
-                                                                <div class="item" data-value="5">2013</div>
-                                                                <div class="item" data-value="1">2012</div>
-                                                                <div class="item" data-value="2">2011</div>
-                                                                <div class="item" data-value="3">2010</div>
-                                                                <div class="item" data-value="3">2009</div>
-                                                                <div class="item" data-value="3">2008</div>
-                                                                <div class="item" data-value="6">2007</div>
-                                                                <div class="item" data-value="7">2006</div>
-                                                                <div class="item" data-value="8">2005</div>
-                                                                <div class="item" data-value="9">2004</div>
-                                                                <div class="item" data-value="10">2003</div>
-                                                                <div class="item" data-value="11">2002</div>
-                                                                <div class="item" data-value="11">2001</div>
-                                                                <div class="item" data-value="11">2000</div>
-                                                                <div class="item" data-value="11">1995</div>
-                                                                <div class="item" data-value="11">1990</div>
-                                                                <div class="item" data-value="11">1985</div>
-                                                                <div class="item" data-value="11">1980</div>
-                                                        </div>
-                                                </div>
-                                                <div class="ui field fluid selection dropdown">
-                                                        <input type="hidden" name="priceMax">
-                                                        <i class="dropdown icon"></i>
-                                                        <div class="default text">Max</div>
-                                                        <div class="menu">
-                                                                <div class="item" data-value="1">2019</div>
-                                                                <div class="item" data-value="2">2018</div>
-                                                                <div class="item" data-value="3">2017</div>
-                                                                <div class="item" data-value="3">2016</div>
-                                                                <div class="item" data-value="3">2015</div>
-                                                                <div class="item" data-value="4">2014</div>
-                                                                <div class="item" data-value="5">2013</div>
-                                                                <div class="item" data-value="1">2012</div>
-                                                                <div class="item" data-value="2">2011</div>
-                                                                <div class="item" data-value="3">2010</div>
-                                                                <div class="item" data-value="3">2009</div>
-                                                                <div class="item" data-value="3">2008</div>
-                                                                <div class="item" data-value="6">2007</div>
-                                                                <div class="item" data-value="7">2006</div>
-                                                                <div class="item" data-value="8">2005</div>
-                                                                <div class="item" data-value="9">2004</div>
-                                                                <div class="item" data-value="10">2003</div>
-                                                                <div class="item" data-value="11">2002</div>
-                                                                <div class="item" data-value="11">2001</div>
-                                                                <div class="item" data-value="11">2000</div>
-                                                                <div class="item" data-value="11">1995</div>
-                                                                <div class="item" data-value="11">1990</div>
-                                                                <div class="item" data-value="11">1985</div>
-                                                                <div class="item" data-value="11">1980</div>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-
-                        <hr style="margin-top:20px;">
 
                         <span class="filterHeader">Amenities</span>
 
@@ -301,17 +148,7 @@
                                         <div class="ui checkbox checkBox">
                                                 <input type="checkbox" tabindex="0" class="hidden">
                                                 <label>Garden</label>
-                                        </div>
-                                </div>
-                        </div>
-
-                        <hr style="margin-top:20px;">
-                        <div class="footer">
-                                <span class="ui blue tertiary button" style="font-size:15px;">Reset</span>
-                                <button style="float: right;" class="ui blue button">Apply Filters</button>
-                                <span style="float: right; padding:8px 0;margin-right:10px;">No Matches</span>
-
-                        </div>
+                            
                 </div> -->
                 <div class="projects ui two stackable cards" >
                         <div class="card" *ngFor="let project of projects;" >
@@ -358,19 +195,6 @@
                 </div>
         </div>
 </div>
-<!-- <div class="ui modal coBuy" style="width: 350px; height: 350px;">
-        <i class="close icon"></i>
-        <div class="header">
-          Add a co-buyer
-        </div>
-        <div class="content">
-                <img style="width:100%;" src="../../../assets/co-buyer.png">
-                <p>Get instant feedback from your co-buyer on your favorite homes and saved searches.</p>
-                <div class="ui fluid input">
-                        <input type="text" placeholder="Enter their email address...">
-                </div>
-        </div>
-</div> -->
 <div class="ui homePop popup bottom center transition hidden">
         <div class="ui header">Home Type</div>
         <div class="marginLeft">
@@ -379,7 +203,7 @@
                         <label>Plots</label>
                 </div>
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" (change)="homeTypeFilter($event)" name="apartments">
+                        <input type="checkbox" checked (change)="homeTypeFilter($event)" name="apartments">
                         <label>Apartments</label>
                 </div>
                 <div class="ui checkbox marginBottom">
@@ -415,37 +239,37 @@
         <div class="ui header">Price Range</div>
         <div class="priceInput">
                 <div class="ui input">
-                        <input type="text" placeholder="Min">
+                        <input [ngModel]="minPriceFilterValue" type="text" placeholder="Min">
                 </div>
                 <span style="padding:9.5px;">-</span>
                 <div class="ui input">
-                        <input type="text" placeholder="Max">
+                        <input [ngModel]="maxPriceFilterValue" type="text" placeholder="Max">
                 </div> 
         </div>
         <div class="priceListGrid">
                 <div class="ui list">
-                        <div class="item"><i class="rupee sign icon"></i>0+</div>
-                        <div class="item"><i class="rupee sign icon"></i>10,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>20,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>30,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>40,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>50,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>60,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>70,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>80,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>90,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>0+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>10,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>20,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>30,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>40,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>50,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>60,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>70,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>80,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>90,00,000+</div>
                 </div>
                 <div class="ui list">
-                        <div class="item"><i class="rupee sign icon"></i>50,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>60,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>70,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>80,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>90,00,000+</div>
-                        <div class="item"><i class="rupee sign icon"></i>1 Cr+</div>
-                        <div class="item"><i class="rupee sign icon"></i>1.25 Cr+</div>
-                        <div class="item"><i class="rupee sign icon"></i>1.5 Cr+</div>
-                        <div class="item"><i class="rupee sign icon"></i>1.75 Cr+</div>
-                        <div class="item"><i class="rupee sign icon"></i>Any Price</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>50,00,000+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>60,00,000+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>70,00,000+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>80,00,000+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>90,00,000+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>1 Cr+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>1.25 Cr+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>1.5 Cr+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>1.75 Cr+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>Any Price</div>
                 </div>
         </div>
       
@@ -465,13 +289,13 @@
                 </div>
 </div>
 <div class="ui savedSearchPop popup bottom right transition hidden">
-        <div class="savedSearchList" >
+        <div class="savedSearchList" (click)="selectLocation($event)">
                 <i class="clock blue outline icon"></i><span style="font-weight: 600;">Bangalore, KA</span>
         </div>
-        <div  class="savedSearchList">
+        <div  class="savedSearchList" (click)="selectLocation($event)">
                 <i class="clock blue outline icon"></i><span style="font-weight: 600;">Hyderabad, TS</span>  
         </div>
-        <div  class="currentLoc">
+        <div  class="currentLoc" (click)="selectLocation($event)">
                 <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Current Location</span> 
         </div>
 </div>
