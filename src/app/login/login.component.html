@@ -4,14 +4,9 @@
             <div style="text-align: center;margin-top:100px;">
               <div class="headerText" >Explore your</div><div id="headerText" class="headerText">Ideal Home</div>
               <div class="slogan" >We'll help you find a place you'll love</div>
-              <div class="ui multiple huge search selection dropdown dropDownSearch" >
-                  <input type="hidden" name="search">
-                  <i class="search blue icon" style="height: 100%;"></i>
-                  <div class="default text searchText">City, Agent, Zip Code...</div>
-                  <div class="menu">
-                    <div routerLink="/projects" class="item" data-value="1"><i class="location arrow blue icon"></i>Hyderabad</div>
-                    <div class="item" data-value="2"><i class="location arrow blue icon"></i>Bangalore</div>
-                  </div>
+                <div class="ui icon input" style="margin-top:50px;">
+                        <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" (ngModelChange)="locationSearch($event)" type="text" placeholder={{searchPlaceholder}}>
+                        <i class="search large blue icon"></i>
                 </div>
               
               </div>
@@ -33,7 +28,7 @@
             </button>
           </div>
           <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" (click)="agentModal()" class="card">
-              <img class="cardImage" src="https://s.zillowstatic.com/homepage/static/Buy_a_home.png">
+              <img class="cardImage" src="https://s.zillowstatic.com/homepage/static/Sell_a_home.png">
               <span class="cardHeader">Meet an Agent</span>
               <span class="cardInfo">Meet an agent and get all details about <br>property details and price plans.</span>
               <button class="ui basic button cardButton">
@@ -147,3 +142,15 @@
     </div>
   </div>
 </div>
+<div class="ui savedSearchPop popup bottom right transition hidden">
+  <div class="savedSearchList" (click)="selectLocation($event)">
+          <i class="clock blue outline icon"></i><span style="font-weight: 600;">Bangalore, KA</span>
+  </div>
+  <div  class="savedSearchList" (click)="selectLocation($event)">
+          <i class="clock blue outline icon"></i><span style="font-weight: 600;">Hyderabad, TS</span>  
+  </div>
+  <div  class="currentLoc" (click)="selectLocation($event)">
+          <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Current Location</span> 
+  </div>
+</div>
+

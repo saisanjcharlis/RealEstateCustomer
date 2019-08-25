@@ -18,39 +18,51 @@
 <div class="compContainer">
         <div class="mapContainer">
                 <agm-map 
-                        
+                        #gm
+                        [styles]="styles"
+                        (mapClick)="mapClicked($event)"
                         [latitude]='lat' 
                         [longitude]='lng' 
                         [disableDefaultUI]="false"
                         [zoom]="zoom" 
                         [disableDoubleClickZoom]="true">
-                        <agm-marker 
-                                
-                                (mouseOver)="window.open()" 
-                                (mouseOut)="window.close()" 
-                             
+                        <!-- <agm-polygon 
+                        [paths]="paths"
+                        [clickable]="false"
+                        [fillColor]="false"
+                        >
+                        </agm-polygon> -->
+                                <agm-polyline 
+                                [strokeColor]="strokeColorMap"
+                                [strokeOpacity]="0.5"
+                                >
+                                        <agm-polyline-point *ngFor="let point of paths" [latitude]="point.lat" [longitude]="point.lng">
+                                        </agm-polyline-point>
+                                </agm-polyline>
+                                <agm-marker 
+                                (mouseOver)="onMouseOver(gm,window)"
+                                (markerClick)="markerClick($event)"
                                 *ngFor="let marker of markers" 
                                 [iconUrl]="marker.icon"
                                 [latitude]="marker.lat"
                                 [longitude]="marker.lng"
-                                (markerClick)="markerClick($event)">
-                                        <agm-info-window  #window>
-                                                <div style="display: grid; grid-template-columns: 45% 45%;grid-gap: 0 15px;">
-                                                        <img width="120" src="assets/house.svg">
+                                >
+                                <agm-info-window #window>
+                                        <div>
+                                                        <i class="city fitted large icon" ></i><span style="font-size:12px;font-weight: bold;"> {{marker.projectName}}</span>
                                                         <div>
-                                                                        <span style="font-size:12px;font-weight: bold;">{{marker.projectName}}</span>
-                                                                        <div style="margin-top:5px;"></div>
-                                                                        <span style="font-weight: bold;">340-700 </span><span style="font-size:10px;font-weight: normal;color:#414143;">sqyd</span><br>
-                                                                        <div style="margin-top:5px;"></div>
-                                                                        <span style="color:#0066ff;font-weight: bold;">₹5,60,000 <span style="font-size:8px;font-weight: normal;color:#414143;">onwards</span>  </span>
+                                                                        <span style="font-weight: bold;text-align: right">340-700 </span>
+                                                                        <span style="font-size:10px;font-weight: normal;color:#414143;">sqyd</span>
                                                         </div>
-                                                                
-                                                </div>
-                                        </agm-info-window>
-                        </agm-marker> 
-                         <agm-circle [latitude]="17.385" [longitude]="78.0867" [radius]="60000"></agm-circle>
-                        <!-- <agm-circle [latitude]="17.385" [longitude]="78.0867" [fillColor]="green" [radius]="60000"></agm-circle> -->
-              </agm-map>
+                                                        <div>
+                                                                        <span style="color:#0066ff;font-weight: bold;text-align: right">₹5,60,000 </span> 
+                                                                        <span style="font-size:8px;font-weight: normal;color:#414143;">onwards</span>  
+                                                               
+                                                        </div>
+                                        </div>
+                                </agm-info-window>
+                                </agm-marker> 
+                         </agm-map>
         </div>
         <div class="projectContainer ui form">
                 <div class="info">
@@ -277,16 +289,16 @@
 </div>
 <div class="ui statusPop popup top right transition hidden">
                 <div class="ui checkbox marginBottom">
-                        <input checked type="checkbox" name="plots">
-                        <label style="font-size:14px;font-weight: 600;"><i class="circle green icon"></i>For Sale</label>
+                        <input (change)="statusTypeFilter($event)" checked type="checkbox" name="plots">
+                        <label style="font-size:14px;font-weight: 600;"><i class="circle blue icon"></i>For Sale</label>
                 </div>
                 <div class="ui checkbox marginBottom">
-                        <input checked type="checkbox" name="plots">
+                        <input (change)="statusTypeFilter($event)"  checked type="checkbox" name="plots">
                         <label style="font-size:14px;font-weight: 600;"><i class="circle red icon"></i>Sold</label>
                 </div>
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" name="plots">
-                        <label style="font-size:14px;font-weight: 600;"><i class="circle blue icon"></i>Upcomings</label>
+                        <input (change)="statusTypeFilter($event)" type="checkbox" name="plots">
+                        <label style="font-size:14px;font-weight: 600;"><i class="circle green  icon"></i>Upcomings</label>
                 </div>
 </div>
 <div class="ui savedSearchPop popup bottom right transition hidden">
@@ -298,6 +310,100 @@
         </div>
         <div  class="currentLoc" (click)="selectLocation($event)">
                 <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Current Location</span> 
+        </div>
+</div>
+<div class="ui moreFilterPop popup bottom right transition hidden">
+       <div class="ui header">Bathrooms</div>
+        <br>
+        <div class="ui buttons" style="margin-top:10px;">
+                <div class="ui blue button" (click)="addBed($event)">Any</div>
+                <div class="ui basic button" (click)="addBed($event)">1<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui basic button" (click)="addBed($event)">1.5<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui basic button" (click)="addBed($event)">2<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui basic button" (click)="addBed($event)">3<span *ngIf="plusYes" class="plusBed">+</span></div>
+                <div class="ui basic button" (click)="addBed($event)">4<span *ngIf="plusYes" class="plusBed">+</span></div>
+        </div>
+        <br>
+        <br>
+        <div style="display: grid;grid-template-columns: 40% 60%;grid-gap: 10px 0;">
+                        <span>Parking Spots</span>
+                        <select  class="ui tiny fluid dropdown" >
+                                        <option value="">None</option>
+                                        <option value="AL">Price (High to Low)</option>
+                                        <option value="AL">Price (Low to High)</option>
+                                        <option value="AL">Newest</option>
+                                        <option value="AL">Square Yards</option>
+                        </select>
+                        <span>Square Feet</span>
+                        <div style="display: flex;">
+                                        <select  class="ui tiny fluid dropdown" >
+                                                        <option value="">None</option>
+                                                        <option value="AL">Price (High to Low)</option>
+                                                        <option value="AL">Price (Low to High)</option>
+                                                        <option value="AL">Newest</option>
+                                                        <option value="AL">Square Yards</option>
+                                        </select>
+                                        <div style="width:10px;"></div>
+                                        <select  class="ui tiny fluid dropdown">
+                                                        <option value="">None</option>
+                                                        <option value="AL">Price (High to Low)</option>
+                                                        <option value="AL">Price (Low to High)</option>
+                                                        <option value="AL">Newest</option>
+                                                        <option value="AL">Square Yards</option>
+                                        </select> 
+                        </div>
+                        <span>Year Built</span>
+                        <div style="display: flex;">
+                                        <select  class="ui tiny fluid dropdown" >
+                                                        <option value="">None</option>
+                                                        <option value="AL">Price (High to Low)</option>
+                                                        <option value="AL">Price (Low to High)</option>
+                                                        <option value="AL">Newest</option>
+                                                        <option value="AL">Square Yards</option>
+                                        </select>
+                                        <div style="width:10px;"></div>
+                                        <select  class="ui tiny fluid dropdown" >
+                                                        <option value="">None</option>
+                                                        <option value="AL">Price (High to Low)</option>
+                                                        <option value="AL">Price (Low to High)</option>
+                                                        <option value="AL">Newest</option>
+                                                        <option value="AL">Square Yards</option>
+                                        </select> 
+                        </div>
+                        <span>Number of Stories</span>
+                        <select  class="ui tiny fluid dropdown" >
+                                        <option value="">None</option>
+                                        <option value="AL">Price (High to Low)</option>
+                                        <option value="AL">Price (Low to High)</option>
+                                        <option value="AL">Newest</option>
+                                        <option value="AL">Square Yards</option>
+                        </select>
+        </div>
+        <div class="ui header">Other Amenities</div>
+        <div class="marginLeft">
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" checked (change)="homeTypeFilter($event)" name="plots">
+                        <label>Plots</label>
+                </div>
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" checked (change)="homeTypeFilter($event)" name="apartments">
+                        <label>Apartments</label>
+                </div>
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" (change)="homeTypeFilter($event)" name="villas">
+                        <label>Villas</label>
+                </div>
+                <div class="ui checkbox marginBottom">
+                        <input type="checkbox" (change)="homeTypeFilter($event)" name="builder">
+                        <label>Builder</label>
+                </div>
+        </div>
+        <div style="display: grid;grid-template-columns: 40% 60%;">
+                <span>Keywords</span>
+                <div class="ui input">
+                                <input type="text" placeholder="Search...">
+                              </div>
+
         </div>
 </div>
 

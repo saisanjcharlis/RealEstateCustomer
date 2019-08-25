@@ -37,18 +37,7 @@ export class ProjectsComponent implements OnInit {
   public markers: Marker[] = this.locationService.getMarkers();
 
 
-    
-    // placeMarker(position: any) {
-    // const lat = position.coords.lat;
-    // const lng = position.coords.lng;
-    // const plotNumber = position.coords.plotNumbers;
-    // const projName = position.coords.projectName;
-    // this.markers.push({ lat: lat, lng: lng, plotNumbers: plotNumber,projectName: projName, city: 'asd',state:'sada','postalcode':'21131','projectLink':'asdas'});
-    // }
-  markerClick(e){
-    this.router.navigate(['/projectDetail']);
-    console.log(e);
-  }
+  
   @HostListener('window:resize', ['$event'])
   onResize(event){
     if(event.target.innerWidth>480)
@@ -62,7 +51,221 @@ export class ProjectsComponent implements OnInit {
   iconSearch = true;
   imagesList = [];
   location="Hyderabad Real Estate";
-
+  styles = [
+    {
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#ebe3cd"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#523735"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#f5f1e6"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#c9b2a6"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.land_parcel",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#dcd2be"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.land_parcel",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#ae9e90"
+        }
+      ]
+    },
+    {
+      "featureType": "landscape.natural",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dfd2ae"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dfd2ae"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#93817c"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#a5b076"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#447530"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#f5f1e6"
+        }
+      ]
+    },
+    {
+      "featureType": "road.arterial",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#fdfcf8"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#f8c967"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#e9bc62"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway.controlled_access",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#e98d58"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway.controlled_access",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#db8555"
+        }
+      ]
+    },
+    {
+      "featureType": "road.local",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#806b63"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dfd2ae"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#8f7d77"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#ebe3cd"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.station",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dfd2ae"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#b9d3c2"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#92998d"
+        }
+      ]
+    }
+  ];
   hyderabadProjects = [
     {
       "projectName": "Spectra Fortune",
@@ -134,20 +337,27 @@ export class ProjectsComponent implements OnInit {
   projects = this.hyderabadProjects;
   selectLocation(e){
    let locName = $(e.target).children('span').text();
+   localStorage.setItem('projectsDomain',$(e.target).children('span').text());
    if(locName.includes('Bangalore')){
      this.locationSelected = "Bangalore, KA";
      this.location = "Bangalore Real Estate";
      this.projects=[];
+     this.lat = 12.9716;
+     this.lng = 77.5946;
    }
    if(locName.includes('Hyderabad')){
     this.locationSelected = "Hyderabad, TS";
     this.location="Hyderabad Real Estate";
     this.projects=this.hyderabadProjects;
+    this.lat = this.mapsService.lat;
+    this.lng = this.mapsService.lng;
    }
    if(locName.includes('Current')){
     this.locationSelected = "Hyderabad, TS";
     this.location="Hyderabad Real Estate";
     this.projects=this.hyderabadProjects;
+    this.lat = this.mapsService.lat;
+    this.lng = this.mapsService.lng;
    }
   }
   clearFilters(e){
@@ -167,7 +377,19 @@ export class ProjectsComponent implements OnInit {
     this.projects=this.hyderabadProjects;
   }
   filterTrue = false;
-  
+  paths = [
+      { lat: 17.364410712210564, lng: 77.87957648390443},
+      { lat: 17.460067118859435, lng: 78.00317267531068},
+      { lat: 17.54257955735634, lng: 77.89605597609193},
+      { lat: 17.623745618515255, lng: 78.04711798781068},
+      { lat: 18.72508731475603, lng: 77.84217862243918},
+      { lat: 19.036942323532987, lng: 79.20448330993918},
+      { lat: 18.41265587905062, lng: 79.34730557556418},
+      { lat: 18.016094792514508, lng: 79.36927823181418},
+      { lat: 17.48246499888581, lng: 79.58900479431418},
+      { lat: 16.947265244343928, lng: 78.77601651306418},
+      { lat: 17.020815443417963, lng: 78.19374112243918},
+      { lat: 17.367161112721906, lng: 77.89711026306418}];
   addPlus(){
     this.plusYes = !this.plusYes;
   }
@@ -189,7 +411,6 @@ export class ProjectsComponent implements OnInit {
   }
   toggleActive(e){
     e.target.classList.toggle("activeProperty");
-    console.log(e.target);
   }
   changeToUpcoming(){
     
@@ -245,10 +466,33 @@ export class ProjectsComponent implements OnInit {
     $('.editable').attr("disabled",true);
   }
   ngOnInit() {
+    if(localStorage.getItem('projectsDomain').includes('Hyderabad')){
+     this.locationSelected = "Hyderabad, TS";
+     this.location="Hyderabad Real Estate";
+     this.projects=this.hyderabadProjects;
+    } else if(localStorage.getItem('projectsDomain').includes('Bangalore')) {
+      this.locationSelected = "Bangalore, KA";
+      this.location = "Bangalore Real Estate";
+      this.projects=[];
+    } 
+     else if(localStorage.getItem('projectsDomain').includes('Current Location')) {
+      this.locationSelected = "Hyderabad, TS";
+      this.location = "Hyderabad Real Estate";
+      this.projects=this.hyderabadProjects;
+    } else {
+        this.locationSelected = "";
+        this.location="";
+        this.projects=[];
+    }
+
 
     this.lat = this.mapsService.lat;
     this.lng = this.mapsService.lng;
     this.zoom = this.mapsService.zoom;
+    if(this.locationSelected.includes("Bangalore")){
+      this.lat = 12.9716;
+      this.lng = 77.5946;
+    }
     $(document).scrollTop(0);
     $('.ui.checkbox').checkbox();
       if(window.innerWidth>480)
@@ -261,7 +505,7 @@ export class ProjectsComponent implements OnInit {
    
 
   }
- 
+  strokeColorMap='#0066ff';
   likedProject(e){
     $(e.target).transition('pulse');
     if( $(event.target).hasClass('blue')){
@@ -280,6 +524,27 @@ export class ProjectsComponent implements OnInit {
    
     $('.toast-box').css("margin-top","50px");
   }
+  infoWindowOpened = null;
+  previous_info_window = null;
+  mapClicked(e){
+    if (this.previous_info_window != null ) {
+      this.previous_info_window.close()
+      }  
+  }
+  markerClick(e){
+    this.router.navigate(['/projectDetail']);
+  }
+  onMouseOver(gm, window) {
+    if (this.previous_info_window == null)
+      this.previous_info_window = window;
+    else{
+      this.infoWindowOpened = window;
+      this.previous_info_window.close()
+    }
+    this.previous_info_window = window;
+  
+    window.open();
+  }
   locationSelected = "Hyderabad, TS";
   locationSearch(e){
     if(e.toLowerCase().includes("hyderabad")){
@@ -289,10 +554,39 @@ export class ProjectsComponent implements OnInit {
     }
   }
   minPriceFilter(e){
-    this.minPriceFilterValue = $(e.target).text();
+    this.projects = this.hyderabadProjects;
+    this.minPriceFilterValue = $(e.target).text().substring(0, $(e.target).text().length - 1);
+    let minNumber = $(e.target).text().substring(0, $(e.target).text().length - 1).split(',').join('');
+    let maxNumber  = this.maxPriceFilterValue.substring(0, $(e.target).text().length - 1).split(',').join('');
+    if(this.maxPriceFilterValue=="Any Price"){
+      this.projects = this.projects.filter( (project) =>{
+        return project.minPrice>= minNumber;
+      });
+    } else {
+      let maxPriceNumber = parseInt(maxNumber, 10);
+      this.projects = this.projects.filter( (project) =>{
+        return project.minPrice>= minNumber && project.minPrice <= maxPriceNumber;
+      });
+    }
+    
   }
   maxPriceFilter(e){
-    this.maxPriceFilterValue = $(e.target).text();
+    this.projects = this.hyderabadProjects;
+    this.maxPriceFilterValue = $(e.target).text().substring(0, $(e.target).text().length - 1);
+    let maxNumber = $(e.target).text().substring(0, $(e.target).text().length - 1).split(',').join('');
+    let minNumber  = this.minPriceFilterValue.substring(0, $(e.target).text().length - 1).split(',').join('');
+    if(this.maxPriceFilterValue=="Any Price"){
+      this.projects = this.projects.filter( (project) =>{
+        return project.minPrice<= maxNumber;
+      });
+    } else {
+      let maxPriceNumber = parseInt(maxNumber, 10);
+      let minPriceNumber = parseInt(minNumber, 10);
+      this.projects = this.projects.filter( (project) =>{
+        return project.minPrice>= minPriceNumber && project.minPrice <= maxPriceNumber;
+      });
+    }
+
   }
   homeTypeFilter(e){
     let propLabel=$(e.target).parent().text().trim().toLowerCase();
@@ -305,6 +599,25 @@ export class ProjectsComponent implements OnInit {
     else{
       this.hyderabadProjects.map((project)=>{
         if(project.homeType.includes(propLabel)){
+          this.projects.push(project);
+        }
+      });
+
+    }
+    
+
+  }
+  statusTypeFilter(e){
+    let propLabel=$(e.target).parent().text().trim().toLowerCase();
+    if(e.target.checked == false){
+        this.projects = this.projects.filter( (project)=>{
+          return project.saleStatus.toLowerCase().indexOf(propLabel) === -1;
+        });
+
+    }
+    else{
+      this.hyderabadProjects.map((project)=>{
+        if(project.saleStatus.toLowerCase().includes(propLabel)){
           this.projects.push(project);
         }
       });
@@ -335,12 +648,15 @@ export class ProjectsComponent implements OnInit {
       popup : $('.savedSearchPop'),
       on    : 'click'
     });
+    $('.moreButton').popup({
+      popup : $('.moreFilterPop'),
+      on    : 'click'
+    });
 
 
     if(window.innerWidth>768){
       // this.addCoBuy();
     }
-    console.log(this.markers);
     $('.ui.rating').rating();
   }
   ngOnDestroy(){

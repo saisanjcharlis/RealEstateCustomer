@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { trigger, style, transition, animate, group } from '@angular/animations';
 import { LoginService } from '../../services/login-service.service';
 import { RouterModule , Router } from '@angular/router';
+import { ProjectsComponent } from '../projects/projects.component';
 declare var $:any;
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ declare var $:any;
       ])
     ])
   ],
-  providers: [LoginService]
+  providers: [LoginService, ProjectsComponent]
 })
 export class LoginComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
@@ -26,21 +27,42 @@ export class LoginComponent implements OnInit {
        $('.dropDownSearch').addClass('huge');
      }
      else{
+      this.searchPlaceholder = "Location";
       $('.dropDownSearch').removeClass('huge');
       $('.dropDownSearch').addClass('large');
      }
   }
+  locationSelected = "";
   hideSignUp=false;
   hideSignIn=true;
   userName="";
   errors=[];
   errors1=[];
+  searchPlaceholder="Enter a location, zipcode, agent";
   public openModal(){
-   console.log("hello");
     $('.ui.modal.modalSign').modal('show');   
   }
-  constructor(private loginService: LoginService, private routes: Router) { }
- 
+  constructor(private loginService: LoginService, private routes: Router, private projects: ProjectsComponent) { }
+  locationSearch(e){
+    if(e.toLowerCase().includes("hyderabad")){
+      this.routes.navigate(['/projects']);
+    } else {
+    }
+  }
+  locationSearchEnter(e){
+    if(e.target.value.toLowerCase().includes("hyderabad")){
+      this.routes.navigate(['/projects']);
+    } else {
+      console.log(e.target.value.toLowerCase());
+      localStorage.setItem('projectsDomain', e.target.value.toLowerCase());
+      this.routes.navigate(['/projects']);
+    }
+   
+  }
+  selectLocation(e){
+    localStorage.setItem('projectsDomain',$(e.target).children('span').text());
+    this.routes.navigate(['/projects']);
+  }
   haveAccount(){
      this.errors1=[];
      this.hideSignUp = false;
@@ -141,6 +163,7 @@ export class LoginComponent implements OnInit {
       $('.dropDownSearch').addClass('huge');
     }
     else{
+     this.searchPlaceholder = "Location";
      $('.dropDownSearch').removeClass('huge');
      $('.dropDownSearch').addClass('large');
     }
@@ -155,6 +178,13 @@ export class LoginComponent implements OnInit {
     };
     
 
+  }
+  ngAfterViewInit() {
+    $('.locationButton').popup({
+      popup : $('.savedSearchPop'),
+      on    : 'click',
+      position   : 'bottom left',
+    });
   }
   ngOnDestroy(){
     $('.ui.modal').modal('hide');  

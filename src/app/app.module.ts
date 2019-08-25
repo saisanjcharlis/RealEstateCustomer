@@ -75,7 +75,7 @@ import { FooterComponent } from './footer/footer.component';
       apiKey: 'AIzaSyCmZRbVe0NCyJB91vrGLrcb8pKAWFEsTwQ'
     })
   ],
-  providers: [AuthGuard, LocationsService, MapsService],
+  providers: [AuthGuard, LocationsService, MapsService, ProjectsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
