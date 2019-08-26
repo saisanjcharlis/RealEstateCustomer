@@ -78,7 +78,8 @@ export class CreateProfileComponent implements OnInit {
     $("#imageUpload").click();
   }
   saveProfile(){
-    this.routes.navigate(['/projects']);
+    localStorage.setItem("newUser","true");
+    this.routes.navigate(['/activity']);
     localStorage.setItem('logStatus','true');
   }
 }

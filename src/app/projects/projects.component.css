@@ -11,11 +11,6 @@
 .mapContainer{
   width: 40%;
 }
-.topHeader{
-  position: absolute;
-  top:0;
-  z-index:2 !important;
-}
 .menu{
   padding-top: 56px;
   padding:66px 10px 10px 10px;
@@ -36,9 +31,7 @@
   border: 1px solid #E96E2F;
   padding: .5em;
 }
-.priceListGrid .ui.list .item{
-  cursor: pointer;
-}
+
 .basicButton{
   color:#0066ff !important;
   font-weight: bold !important;
@@ -56,32 +49,11 @@
   font-size:10px;
   font-weight: normal;
 }
-.colorBlue{
-  color:#0066ff;
-}
-.blueUndo{
-  color:black;
-}
 .priceInput{
   display: flex;
   margin-top:10px;
 }
-.priceListGrid{
-  display: grid;
-  margin-top:10px;
-  grid-template-columns: 50% 50%;
-  grid-gap: 0 9.5px;
 
-}
-.priceListGrid .ui.list{
-  margin:0 !important;
-}
-.priceListGrid .ui.list .item{
-  margin:5px 0!important;
-}
-.priceListGrid .ui.list .item .icon{
-  opacity: 0.8;
-}
 .savedSearchPop{
   padding: 0 0 !important;
   border-radius: 0 !important;
@@ -107,7 +79,9 @@
   pointer-events: none;
 }
 .marginLeft{
-  margin:10px 50px 10px 20px;
+  /* margin:10px 50px 10px 20px; */
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 .marginBottom{
   margin:10px 0;
@@ -137,29 +111,6 @@
   }
 }
 
-.projectList {
-  color:#414143;
-  padding:9px;
-  float:right;
-  cursor: pointer;
-  font-size:16px;
-  font-weight: 700;
-  margin-top:3px;
-}
-.priceMargin{
-  margin-left:10px;margin-right:10px;
-}
-
-@media all and (max-width: 460px) {
-  .priceMargin{
-    margin-left:10px;
-  }
-}
-@media all and (max-width: 460px) {
-  .projectList {
-    font-size:12px;
-  }
-}
 .projects{
   /* padding:20px; */
   margin:0 !important;
@@ -169,194 +120,25 @@
     margin:58px 0 58px 0 !important;
   }
 }
-.propertyFlex{
-  display:flex;
-  flex-wrap: wrap;
-}
-.propertyFlex div{
-  flex:1 0 auto;
-}
-.propertyFlex1{
-  display:flex;
-  flex-wrap: wrap;
-  margin-top:10px;
-  justify-content: space-between;
-}
-.two.fields{
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.two.fields>.field{
-  flex: 1 1 auto;
-  margin-right:20px !important;
-  /* min-width: 100% ; */
-  /* width: 100% !important; */
-}
-.propertyFlex1 .field label{
-  font-weight: 500 !important;
-}
-.ui.form .fields>.field:first-child {
-  border: 1px solid rgba(34,36,38,.15) !important;
-  min-width: 70px;
-}
-@media all and (min-width: 625px) {
-  .ui.form .fields>.field:first-child {
-    min-width: 120px;
-  }
-}
-@media all and (min-width: 920px) {
-  .ui.form .fields>.field:first-child {
-    min-width: 240px;
-  }
-}
-@media all and (min-width: 1027px) {
-  .ui.form .fields>.field:first-child {
-    min-width: 140px;
-  }
-}
-.ui.form .fields {
-  display: flex;
-  flex-direction: row;
-  margin: 0 0 1em !important;
-}
-@media all and (max-width: 1026px) {
-  .propertyFlex div{
-    margin-right:10px !important;
-  }
-}
-@media all and (min-width: 768px) {
-  .two.fields>.field{
-    margin-top:10px;
-  }
-}
-.filterMenu{
-  display: none;
-  flex-grow: 1;
-  margin:0 20px;
-  margin-top:54px;
-  position: relative;
-}
+
+
+
 .activeProperty{
   background-color: #0066ff !important;
-}
-.filterIcon{
-  margin-left:5px;
-}
-@media all and (min-width: 561px) {
-  .filterIcon{
-    display: none;
-  }
-}
-.filterHeader{
-  display: block;
-  margin-top:20px;
-  font-size:18px;
-  color:#414143;
-  font-weight: 500;
-}
-.footer{
-  padding:10px 0;
-  width: 100%;
-  align-items:center;
-  bottom:0;
-
-}
-@media all and (max-width: 768px) {
-  .footer{
-    padding-bottom:30px;
-  }
-}
-.gridAmenities{
-  margin-top:20px;
-  display: grid;
-  grid-template-columns: 50% 50%;
 }
 .checkBox{
   margin-top:10px;
 }
-.activeProject{
-  color:blue;
-  border-bottom: 3px solid #0066ff;
-}
-.sectionHeader{
-    border-radius: 0px 15px 15px 0px;
-    background-color: #0066FF;
-    color:white;
-    font-family: 'Lato', sans-serif;
-    font-weight: 600;
-    display: inline-block;
-    margin-top:15px;
-    padding: 5px 10px 5px 25px ;
-    margin-bottom: 20px;
-}
 
-.plotHeader{
-    width: 100%;
-    color:white;
-    padding:20px 10px 20px 5px;
-    background-color: rgba(0, 102, 255,1);
-    font-weight: 600;
-    letter-spacing: 1px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 @media all and (max-width: 560px) {
-  .plotHeader{
-    padding:10px 10px 10px 5px;
-  }
-  .plotHeader .dropDown{
-    min-height: 2em !important;
-    padding-top:0.48em !important;
-    padding-bottom: 0.48em !important;
-  }
   .ui.compact .dropdown.icon{
     padding: 0.55em !important;
   }
-  /* .marginRight{
-    display: none;
-  } */
-}
-.dropDown{
-  border-radius: 1px !important;
-}
-.moreFilter{
-  display: flex;
-  flex-wrap: nowrap;
-  margin-left: auto;
-  padding-left: 10px;
-  cursor: pointer;
-  margin-right:10px;
 }
 .red{
   color: red !important;
 }
-@media all and (max-width: 768px) {
-  .moreFilter{
-    margin-right:0;
-  }
-}
-.marginRight{
-  margin-right:10px;
-}
-.filterDesktop{
-display: flex;
-flex-wrap: nowrap;
-}
-
-.totalProjectsInfo{
-  display:inline-block;
-  padding:12px 0;
-  font-weight: 600;
-  color:#414143;
-  font-size:12px;
-}
 @media all and (max-width: 402px) {
-  .totalProjectsInfo{
-    display: none;
-  }
   .sortDrop{
     padding: 12px 0;
     margin-left:0px !important;
@@ -367,73 +149,16 @@ flex-wrap: nowrap;
     display: none;
   }
 }
-.moreFilter1{
-  margin-left: auto;
-  cursor: pointer;
-  margin-right:10px;
-}
-
-.viewMode{
-  float:right;
-  margin-top:10px;
-}
-.displayInfo{
-  border-bottom: 1px solid rgba(0,0,0,0.2) ;
-  background: #fff;
-  padding:0 20px 0 12px;
-}
-/* .searchHolder{
-    width: 500px;
-    height: auto;
-} */
-/* .searchHolder::placeholder{
-    color:white;
-} */
 
 
-.container{
-    width: 0px;
-    height: 50px;
-    float:right;
-    background: white;
-    text-align: center;
-    /* line-height: 45px; */
-    padding-right: 50px;
-    transition: all 0.5s ease;
-    border-radius:4px;
-    margin-top:5px;
-    position: relative;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    /* box-shadow: inset 5px 0px 5px 0px rgba(0,0,0,0.1); */
-  }
   
-  
-  .container .icon{
-    color: #ffffff;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  
-  .container.active{
-    width: 300px;
-    padding-left: 25px;
-    transition: all 0.5s ease;
-  }
-  
+
   
   .filt{
     margin-left:40px;
     margin-right:5px;
   }
   
-  .floatRightDrop{
-    padding-top:8px;
-    position: absolute;
-    right:0;
-  }
   .multiple{
     margin-top:20px;
   }
@@ -462,13 +187,6 @@ flex-wrap: nowrap;
   .header{
     line-height: 0 !important;
     display: inline !important;
-  }
-
-  .menu1{
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
   .noResultText{
     padding-top: 20px;
@@ -519,4 +237,25 @@ flex-wrap: nowrap;
 agm-map{
   height: 100%;
   width: 100%;
+}
+
+
+.priceListGrid{
+  display: grid;
+  margin-top:10px;
+  grid-template-columns: 50% 50%;
+  grid-gap: 0 9.5px;
+
+}
+.priceListGrid .ui.list{
+  margin:0 !important;
+}
+.priceListGrid .ui.list .item{
+  margin:5px 0!important;
+}
+.priceListGrid .ui.list .item .icon{
+  opacity: 0.8;
+}
+.priceListGrid .ui.list .item{
+  cursor: pointer;
 }

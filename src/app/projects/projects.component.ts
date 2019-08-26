@@ -5,11 +5,13 @@ import { LocationsService } from '../../services/locations.service';
 import {Location} from '@angular/common';
 import { MapsService } from '../../services/maps.service';
 import { Router} from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 declare var $:any;
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.css'],
+  providers: [LoginComponent]
 })
 export class ProjectsComponent implements OnInit {
   homeTypes=[];
@@ -20,6 +22,7 @@ export class ProjectsComponent implements OnInit {
     private locationService: LocationsService,
     private mapApiLoader: MapsAPILoader,
     private mapsService: MapsService,
+    private login: LoginComponent,
     private router: Router) {
     for (let i = 0; i < 5; i++) {
           const url = 'https://loremflickr.com/640/480?random=' + (i +1);
@@ -334,6 +337,14 @@ export class ProjectsComponent implements OnInit {
       "agents": []
     }
   ];
+  saveSearch(){
+    if(localStorage.getItem("logStatus")=="false"){
+      alert("Login First");
+    } else {
+      localStorage.setItem("saveSearch","true");
+    }
+   
+  }
   projects = this.hyderabadProjects;
   selectLocation(e){
    let locName = $(e.target).children('span').text();
@@ -376,7 +387,7 @@ export class ProjectsComponent implements OnInit {
     
     this.projects=this.hyderabadProjects;
   }
-  filterTrue = false;
+  
   paths = [
       { lat: 17.364410712210564, lng: 77.87957648390443},
       { lat: 17.460067118859435, lng: 78.00317267531068},
@@ -412,17 +423,6 @@ export class ProjectsComponent implements OnInit {
   toggleActive(e){
     e.target.classList.toggle("activeProperty");
   }
-  changeToUpcoming(){
-    
-    $('.listing').removeClass('activeProject');
-    $('.upcoming').addClass('activeProject');
-    
-  }
-  changetoListing(){
-    
-    $('.listing').addClass('activeProject');
-    $('.upcoming').removeClass('activeProject');
-  }
   addBed(e){
     
     if($(e.target).hasClass('blue'))
@@ -440,18 +440,6 @@ export class ProjectsComponent implements OnInit {
     $('.ui.dropdown')
     .dropdown();
 
-    if(this.filterTrue == false){
-      $('.filterMenu').transition('fade down');
-      $('.filterMenu').css('display','initial');
-      $(".projects").css('display','none');
-      $(".displayInfo").css("display","none");
-    } else {
-      $('.filterMenu').transition('fade up');
-      $('.filterMenu').css('display','none');
-      $('.projects').css('display','flex');
-      $(".displayInfo").css("display","block");
-    }
-    this.filterTrue = !this.filterTrue;
   
   }
   expandSearch(){
@@ -650,7 +638,8 @@ export class ProjectsComponent implements OnInit {
     });
     $('.moreButton').popup({
       popup : $('.moreFilterPop'),
-      on    : 'click'
+      on    : 'click',
+      lastResort: true
     });
 
 

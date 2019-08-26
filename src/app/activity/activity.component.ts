@@ -60,8 +60,15 @@ public transShow(): void {
   this.showtrans = true;
   $('.transHide').css('display', 'initial');
 }
-
+newUserDisplay = false;
+saveSearch = false;
   ngOnInit() {
+    if(localStorage.getItem('newUser')=="true"){
+      this.newUserDisplay = true;
+    }
+    if(localStorage.getItem('saveSearch')=="true"){
+      this.saveSearch = true;
+    }
     this.innerWidth = window.innerWidth;
     if(this.innerWidth > 768){
       $(".plotContainers").niceScroll({
@@ -96,11 +103,11 @@ public transShow(): void {
             oneaxismousemode: true
             }); 
     }
-    $('body').toast({
-      class: 'warning',
-      message: 'Enter existing passbook details to fetch owned plots.'
-    });
-    $('.toast-box').css("margin-top","50px");
+    // $('body').toast({
+    //   class: 'warning',
+    //   message: 'Enter existing passbook details to fetch owned plots.'
+    // });
+    // $('.toast-box').css("margin-top","50px");
     this.plots =  ['Windstorm', 'Bombasto'];
 
   }

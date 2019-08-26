@@ -2,7 +2,6 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { trigger, style, transition, animate, group } from '@angular/animations';
 import { LoginService } from '../../services/login-service.service';
 import { RouterModule , Router } from '@angular/router';
-import { ProjectsComponent } from '../projects/projects.component';
 declare var $:any;
 @Component({
   selector: 'app-login',
@@ -16,7 +15,7 @@ declare var $:any;
       ])
     ])
   ],
-  providers: [LoginService, ProjectsComponent]
+  providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
@@ -42,7 +41,7 @@ export class LoginComponent implements OnInit {
   public openModal(){
     $('.ui.modal.modalSign').modal('show');   
   }
-  constructor(private loginService: LoginService, private routes: Router, private projects: ProjectsComponent) { }
+  constructor(private loginService: LoginService, private routes: Router) { }
   locationSearch(e){
     if(e.toLowerCase().includes("hyderabad")){
       this.routes.navigate(['/projects']);
@@ -96,8 +95,10 @@ export class LoginComponent implements OnInit {
     let output = this.loginService.checkusername(uname,p);
     if(output==true){
       $('.ui.modal').modal('hide');  
-      this.routes.navigate(['/activity']);
       localStorage.setItem('logStatus','true');
+      localStorage.setItem('saveSearch','true');
+      localStorage.setItem('newUser','false');
+      this.routes.navigate(['/activity']);
     }
     else{
       if(uname.length==0){

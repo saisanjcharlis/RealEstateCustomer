@@ -28,8 +28,138 @@
 </div>
 
 
+
+<div class="firstView" *ngIf="newUserDisplay && !saveSearch">
+    <img width="10%" src="assets/house_new.png">
+    <span>Oops! No Activities Yet!</span>
+    <span>Search for Properties Now</span>
+    <button routerLink="/projects" class="ui button blue">Start Your Search</button>
+</div>
+
+
+
+<div class="container">
+  <div *ngIf="!newUserDisplay">
+      <span class="containerHeader">My Properties (2)</span>
+      <div class="boxContainer">
+        <!-- <span><i class="city large icon" ></i>You have no owned properties</span>
+        <br><span style="margin-left:28px;">Browse to stay up to date on price and status changes.</span>
+        <br>
+        <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Homes</button> -->
+        <div style="position: relative;margin-bottom:10px;">
+            <span style="font-weight: bold;"><i class="city large icon" ></i>Spectra Galaxy</span>
+            <div class="propertyInfo">
+                <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
+                <span>EMI Amount</span><span class="propertyInfoColor" >18000</span>
+                <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
+            </div>
+            <button style="position: absolute;right:0;bottom:10px;" class="ui button blue">Manage</button>
+            <div class="ui divider"></div>
+        </div>
+        <div style="position: relative;margin-bottom:10px;">
+            <span style="font-weight: bold;"><i class="city large icon" ></i>Spectra Galaxy</span>
+            <div class="propertyInfo">
+                <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
+                <span>EMI Amount</span><span class="propertyInfoColor" >18000</span>
+                <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
+            </div>
+            <button style="position: absolute;right:0;bottom:10px;" class="ui button blue">Manage</button>
+        </div>
+      </div>
+  </div>
+  
+  <div class="gridContainer">
+    <div *ngIf="!newUserDisplay">
+      <span class="containerHeader">Payments</span>
+      <div class="boxContainer">
+        <!-- <span><i class="wallet large icon" ></i>You have not completed any transactions</span> -->
+        <span style="font-weight: bold;"><i class="wallet large icon" ></i>Last Payment Received</span><span style="float: right;font-weight: bold;color:#0066ff;">₹ 15000</span><br>
+        <div class="lastPaymentInfo">
+            <span>on 28th Aug 2019</span>
+            <span> for property <br><b>Spectra Galaxy, Plot No. 314</b></span>
+            <br>
+            <button routerLink="/transactions"  style="margin-top:10px;" class="ui button blue">All Transactions</button>
+        </div>
+        
+      </div>
+    </div>
+    <!-- <div>
+      <span class="containerHeader">Upcoming EMI's</span>
+      <div class="boxContainer">
+        <span style="font-weight: bold;"><i class="wallet large icon" ></i>EMI Calender</span><br>
+        <div class="lastPaymentInfo">
+            <div class="emiContainer">
+                <div class="emiHeader">Upcoming EMI's<i class="minus icon minusPosition" *ngIf="showEMI" (click)="dateHide()"></i><i class="plus icon plusPosition" *ngIf="!showEMI" (click)="dateShow()"></i></div>
+                <emi-date class="emiDate"></emi-date>
+            </div>
+            <br>
+        </div>
+        
+      </div>
+    </div> -->
+    <div *ngIf="!newUserDisplay || saveSearch">
+      <span class="containerHeader">Latest Favorites</span>
+      <div class="boxContainer">
+        <!-- <span><i class="like outline large icon" ></i>You have no favorites</span>
+        <br><span  style="margin-left:28px;">Favorite homes while you browse to stay up to date on price and status changes.</span> -->
+        <div style="margin-bottom:10px;">
+            <span style="font-weight: bold;"><i class="like outline large icon" ></i>Spectra Galaxy</span><span style="float:right;font-weight: bold;">Hyderabad</span>
+            <div class="favInfo">
+                <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
+                <span>Year Built</span><span class="propertyInfoColor" >2017</span>
+                <!-- <span>Location</span><span class="propertyInfoColor">Hyderabad</span> -->
+            </div>
+        </div>
+        <button routerLink="/fav" style="margin-left:28px;" class="ui button blue">My Favorites</button>
+      </div>
+    </div>
+    <div *ngIf="!newUserDisplay || saveSearch">
+      <span class="containerHeader">Saved Searches</span>
+      <div class="boxContainer">
+        <!-- <span><i class="search large icon" ></i>You have not saved any searches.</span>
+        <br><span  style="margin-left:28px;">Get notifications when new homes that match your criteria hit the market.</span> -->
+        <div class="ui relaxed divided list">
+            <div class="item">
+              <i class="large search middle aligned icon"></i>
+              <div class="content">
+                <a class="header">Hyderabad</a>
+                <div class="description">Updated 10 mins ago</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="large search middle aligned icon"></i>
+              <div class="content">
+                <a class="header">Bangalore</a>
+                <div class="description">Updated 22 mins ago</div>
+              </div>
+            </div>
+          </div>
+        <button routerLink="/fav"  style="margin-top:10px;margin-left:28px;" class="ui button blue">My Saved Searches</button>
+      </div>
+    </div>
+  </div>
+ 
+
+ 
+
+  
+  
+
+
+ 
+
+</div>
+<!-- <div class="emiContainer">
+    <div class="emiHeader">Upcoming EMI's<i class="minus icon minusPosition" *ngIf="showEMI" (click)="dateHide()"></i><i class="plus icon plusPosition" *ngIf="!showEMI" (click)="dateShow()"></i></div>
+    <emi-date class="emiDate"></emi-date>
+</div> -->
+
+
 <div class="dPadTop">
-    <div>
+
+    
+    
+    <!-- <div>
 
       <div class="savedSearch">
         <div class="headerSearch">Saved Searches</div> 
@@ -37,10 +167,9 @@
         <savedsearch></savedsearch>
         <savedsearch></savedsearch>
        </div>
-      <!-- <favorites></favorites> -->
+      <favorites></favorites>
       
-      
-    <!-- EMI Section -->
+    
       <div class="emiContainer1">
         <div class="emiHeader">Upcoming EMI's<i class="minus icon minusPosition" *ngIf="showEMI" (click)="dateHide()"></i><i class="plus icon plusPosition" *ngIf="!showEMI" (click)="dateShow()"></i></div>
         <emi-date class="emiDate"></emi-date>
@@ -50,7 +179,7 @@
         <div class="emiHeader">Messages<i class="minus icon minusPosition" *ngIf="showFeed" (click)="feedHide()"></i><i *ngIf="!showFeed" class="plus icon plusPosition" (click)="feedShow()"></i></div>
         <feed class="feed"></feed>
       </div>
-    <!-- Transaction Section -->
+
       <div class="trans">
         <div class="header">Recent Transactions<i class="minus icon minusPosition" *ngIf="showtrans" (click)="transHide()"></i><i class="plus icon plusPosition" *ngIf="!showtrans" (click)="transShow()"></i></div> 
         <recent-trans class="transHide"></recent-trans>
@@ -62,14 +191,14 @@
       </div>
      
   </div>
-<!-- Plots Owned Section -->
+
   <div>
     <div class="plotHeader">Plots Owned</div> 
     <div class="plotContainer">
           <plot-info-container  *ngFor="let plot of plots"></plot-info-container>
     </div>
   </div>
-<!-- EMI Section -->
+
   <div class="emiContainer2">
    
 
@@ -77,6 +206,6 @@
     <emi-date></emi-date>
     <div style="margin-top:20px;" class="emiHeader ">Messages</div>
     <feed></feed>
-  </div>
+  </div> -->
 
 </div>

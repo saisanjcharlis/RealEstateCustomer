@@ -133,7 +133,7 @@
         margin-right:5% !important;
     }
 }
-.header{
+/* .header{
     width: 100%;
     margin-top:20px;
     color:white;
@@ -145,7 +145,7 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-}
+} */
 .headerSearch{
     width: 100%;
     color:white;
@@ -220,4 +220,78 @@
 .toast-box{
     top:150px !important;
     margin-top:150px !important;
+}
+.firstView{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top:100px;
+}
+.firstView span{
+    font-size:18px;
+    font-weight: bold;
+    margin:10px 0;
+}
+.container{
+    padding-top:100px;
+    /* margin:0 35% 0 2%; */
+    margin:0 15%;
+}
+.containerHeader{
+    margin-top:20px;
+    display: inline-block;
+    font-size:24px;
+    font-weight: bold;
+}
+.boxContainer{
+    border-width: 1px;
+    border-color: #e2e2e2;
+    border-style: solid;
+    border-radius: 4px 4px 4px 4px;
+    /* margin-top: 1rem; */
+    padding:10px;
+    margin: 1rem 10px 0 10px;
+}
+.propertyInfo{
+    margin-left:28px;
+    display: grid;
+    grid-template-columns: 20% 20%;
+}
+.favInfo{
+    display: grid;
+    margin-left:28px;
+    grid-template-columns: 40% 40%;
+}
+@media all and (max-width: 950px) {
+    .propertyInfo{
+        grid-template-columns: 30% 30%;
+  }
+}
+@media all and (max-width: 600px) {
+    .propertyInfo{
+        grid-template-columns: 50% 50%;
+  }
+}
+.propertyInfoColor{
+    color:blue;
+}
+.lastPaymentInfo{
+    margin-left:28px;
+}
+.emiContainer{
+    width:100%;
+}
+.gridContainer{
+    /* display: grid;
+    grid-template-columns: 48% 48%;
+    grid-gap:0 4%; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.gridContainer div{
+    flex: 0 50%;
+}
+.header{
+    color: #0066ff !important;
 }

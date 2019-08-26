@@ -12,6 +12,7 @@ export class PassbookComponent implements OnInit {
     $('.ui.modal').modal('show');
   }
   allotPassbook(){
+    localStorage.setItem('newUser',"false");
     $('body').toast({
       class: 'success',
       message: `Your passbook has been alloted`

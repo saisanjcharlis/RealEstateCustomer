@@ -64,6 +64,7 @@ export class NavbarComponent implements OnInit {
           this.router.navigate([this.router.url]);
         });     
     }
+    localStorage.setItem('saveSearch','false');
     this.router.navigate(['/login']);
   }
   ngOnInit() {
