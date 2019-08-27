@@ -27,7 +27,6 @@ export class PassbookComponent implements OnInit {
   }
   ngOnInit() {
 
-    this.plots =  ['Windstorm','asd'];
   }
 
 }

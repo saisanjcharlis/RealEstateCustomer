@@ -1,44 +1,17 @@
 <app-navbar></app-navbar>
-<!-- <div class="padTop">
-        <span class="sectionHeader">
-            Passbook
-        </span>
-        <button class="ui tiny green button" (click)="addPassbook()" style="float:right;margin-right:2%;margin-top:15px;"><i class="plus icon"></i>Add Passbook</button>
-</div>
-
-<div class="plotHeader">
-    <div style="float: left;margin-top:5px;">Total Plots Owned <div *ngIf="plots" class="ui green label">2</div></div>
-   
-    <div style="clear:both;"></div>
-</div> 
-<div class="plotContainer">
-      <plot-info-container  *ngFor="let plot of plots"></plot-info-container>
-        <div *ngIf="plots.length ==0" class="passbook">
-            <i class="massive black book icon"></i>
-          <div>
-              <button (click)="addPassbook()" class="ui huge green tertiary button">Add a passbook</button><span>to display passbook details</span>
-          </div>
-          OR
-              <button class="ui huge primary tertiary button" routerLink="/projects">Buy a Plot</button>
-              <div class="ui icon input" style="margin-top:10px;">
-                  <input type="text" class="searchProject"  placeholder="City, Agent, Zip Code...">
-                  <i class="search icon"></i>
-                </div>
-        </div>
-</div> -->
 
 <div class="container">
     <div>
         <span class="containerHeader">Passbooks <div class="ui green label">1</div></span><button class="ui  green button" (click)="addPassbook()" style="float:right;margin-top:15px;"><i class="plus icon"></i>Add Passbook</button>
         <div class="boxContainer">
-          <div *ngIf="newUserDisplay">
+          <div>
               <span><i class="city blue large icon" ></i>You have no owned properties</span>
               <br><div style="margin-left:28px;">Browse to stay up to date on price and status changes.</div>
               <br>
               <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Homes</button>
           </div>
           
-          <div *ngIf="!newUserDisplay" class="propContainer">
+          <div class="propContainer">
               <span style="font-weight: bold;"><i class="city blue large icon" ></i>Spectra Galaxy</span>
               <div class="propertyInfo">
                   <span>Plot Number</span><span class="propertyInfoColor">214</span>
