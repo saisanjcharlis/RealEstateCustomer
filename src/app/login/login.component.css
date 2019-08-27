@@ -449,10 +449,14 @@ input[type="number"]::-webkit-outer-spin-button {
   pointer-events: none;
 }
 .scrollButton{
-  position: absolute; bottom:20px;left:50%;
+  position: absolute; bottom:40px;left:50%;
   animation: bounce 2s infinite;
 }
-
+@media all and (max-width: 768px) {
+  .scrollButton{
+		display: none;
+	}
+}
 @-webkit-keyframes bounce {
 	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}	
 	40% {-webkit-transform: translateY(-30px);}

@@ -25,6 +25,7 @@ export class PassbookComponent implements OnInit {
     });
     $('.toast-box').css("margin-top","50px");
   }
+  projects = [ "Spectra"];
   ngOnInit() {
 
   }

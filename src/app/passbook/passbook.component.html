@@ -3,13 +3,17 @@
 <div class="container">
     <div>
         <span class="containerHeader">Passbooks <div class="ui green label">1</div></span><button class="ui  green button" (click)="addPassbook()" style="float:right;margin-top:15px;"><i class="plus icon"></i>Add Passbook</button>
-        <div class="boxContainer">
-          <div>
+        
+        <div class="boxContainer" *ngIf="projects.length==0">
+          <div >
               <span><i class="city blue large icon" ></i>You have no owned properties</span>
               <br><div style="margin-left:28px;">Browse to stay up to date on price and status changes.</div>
               <br>
               <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Homes</button>
           </div>
+        </div>
+
+        <div class="boxContainer" *ngFor="let project of projects">
           
           <div class="propContainer">
               <span style="font-weight: bold;"><i class="city blue large icon" ></i>Spectra Galaxy</span>
@@ -25,6 +29,7 @@
               </div>
               <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" class="ui button basic blue manageButton" routerLink="/transactions">View Transaction</button>
               <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/projectDetail" class="ui basic button blue manageButton1">View Project</button>
+          
           </div>
         </div>
     </div>
