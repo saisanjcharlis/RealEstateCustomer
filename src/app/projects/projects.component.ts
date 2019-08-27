@@ -636,6 +636,10 @@ export class ProjectsComponent implements OnInit {
       popup : $('.savedSearchPop'),
       on    : 'click'
     });
+    $('.locationButton2').popup({
+      popup : $('.savedSearchPop'),
+      on    : 'click'
+    });
     $('.moreButton').popup({
       popup : $('.moreFilterPop'),
       on    : 'click',

@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { RouterModule , Router } from '@angular/router';
 declare var $:any;
 @Component({
   selector: 'app-activity',
@@ -18,14 +19,36 @@ export class ActivityComponent implements OnInit {
      else{
      }
   } 
+  constructor(private routes: Router){}
   public innerWidth: any;
   newUserDisplay = false;
   saveSearch = false;
+  locationSelected = "";
+  locationSearchEnter(e){
+    if(e.target.value.toLowerCase().includes("hyderabad")){
+      this.routes.navigate(['/projects']);
+    } else {
+      localStorage.setItem('projectsDomain', e.target.value.toLowerCase());
+      this.routes.navigate(['/projects']);
+    }
+   
+  }
   mouseHover(e){
     $(e.target).removeClass('basic');
   }
   mouseLeave(e){
     $(e.target).addClass('basic');
+  }
+  selectLocation(e){
+    localStorage.setItem('projectsDomain',$(e.target).children('span').text());
+    this.routes.navigate(['/projects']);
+  }
+  ngAfterViewInit() {
+    $('.locationButton').popup({
+      popup : $('.savedSearchPop'),
+      on    : 'click',
+      position   : 'bottom left',
+    });
   }
   ngOnInit() {
     if(localStorage.getItem('newUser')=="true"){

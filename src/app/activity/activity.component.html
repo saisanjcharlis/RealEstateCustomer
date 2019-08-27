@@ -3,7 +3,11 @@
   <img width="10%" src="assets/house_new.png">
   <span>Oops! No Activities Yet!</span>
   <span>Search for Properties Now</span>
-  <button routerLink="/projects" class="ui button blue">Start Your Search</button>
+  <!-- <button routerLink="/projects" class="ui button blue">Start Your Search</button> -->
+    <div class="ui icon input" style="margin-top:50px;">
+        <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" (ngModelChange)="locationSearch($event)" type="text" placeholder="Location">
+        <i class="search large blue icon"></i>
+    </div>
 </div> 
 <div class="container">
   <div>
@@ -102,3 +106,14 @@
   </div>
 <footer></footer>
  </div>
+ <div class="ui savedSearchPop popup bottom right transition hidden">
+    <div class="savedSearchList" (click)="selectLocation($event)">
+            <i class="clock blue outline icon"></i><span style="font-weight: 600;">Bangalore, KA</span>
+    </div>
+    <div  class="savedSearchList" (click)="selectLocation($event)">
+            <i class="clock blue outline icon"></i><span style="font-weight: 600;">Hyderabad, TS</span>  
+    </div>
+    <div  class="currentLoc" (click)="selectLocation($event)">
+            <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Current Location</span> 
+    </div>
+  </div>

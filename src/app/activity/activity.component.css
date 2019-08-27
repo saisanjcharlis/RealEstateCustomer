@@ -18,11 +18,44 @@
     align-items: center;
     padding-top:100px;
 }
+.savedSearchPop{
+    padding: 0 0 !important;
+    border-radius: 0 !important;
+  }
+.savedSearchList{
+  padding:10px;
+  cursor: pointer;
+  text-align: left;
+  width:49.5vw;
+  border-bottom:1px solid grey;
+}
+.savedSearchList > * {
+  pointer-events: none;
+}
+.savedSearchList:hover, .currentLoc:hover{
+  color:#0066ff;
+  cursor: pointer;
+}
+.currentLoc{
+    text-align: left;
+    padding:10px;
+    width:200px;
+  }
+  .currentLoc > *{
+    pointer-events: none;
+  }
 .firstView span{
     font-size:18px;
     font-weight: bold;
     margin:10px 0;
 }
+.locationButton{
+    font-weight: bold;
+    color:#0066ff;
+    font-size:18px;
+    width: 50vw;
+    height: 70px;
+  }
 .container{
     padding-top:100px;
     /* margin:0 35% 0 2%; */

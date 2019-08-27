@@ -112,19 +112,12 @@
                         </div>
 
                 </div>
-                <footer></footer>
+               
                 <div style="display: flex; justify-content: center;flex-direction: column;align-items: center;" *ngIf="projects.length==0">
                         <div class="noResultText">Browse for projects</div>
-                        <div class="ui multiple huge search selection dropdown dropDownSearch" >
-                                <input type="hidden" name="search">
-                                <i class="search blue icon" style="height: 100%;"></i>
-                                <div class="default text searchText">City, Agent, Zip Code...</div>
-                                <div class="menu">
-                                  <div routerLink="/projects" class="item" data-value="1"><i class="location arrow blue icon"></i>Hyderabad</div>
-                                  <div class="item" data-value="2"><i class="location arrow blue icon"></i>Bangalore</div>
-                                </div>
-                        </div>
+                        <!-- <div>Cities List</div> -->
                 </div>
+                <footer></footer>
         </div>
 </div>
 <div class="ui homePop popup bottom center transition hidden">
