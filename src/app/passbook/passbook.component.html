@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="padTop">
+<!-- <div class="padTop">
         <span class="sectionHeader">
             Passbook
         </span>
@@ -8,7 +8,7 @@
 
 <div class="plotHeader">
     <div style="float: left;margin-top:5px;">Total Plots Owned <div *ngIf="plots" class="ui green label">2</div></div>
-    <!-- <button class="ui tiny green button" (click)="addPassbook()" style="float:right;margin-right:1.5%"><i class="plus icon"></i>Add Passbook</button> -->
+   
     <div style="clear:both;"></div>
 </div> 
 <div class="plotContainer">
@@ -25,10 +25,41 @@
                   <i class="search icon"></i>
                 </div>
         </div>
+</div> -->
+
+<div class="container">
+    <div>
+        <span class="containerHeader">Passbooks <div class="ui green label">1</div></span><button class="ui  green button" (click)="addPassbook()" style="float:right;margin-top:15px;"><i class="plus icon"></i>Add Passbook</button>
+        <div class="boxContainer">
+          <div *ngIf="newUserDisplay">
+              <span><i class="city blue large icon" ></i>You have no owned properties</span>
+              <br><div style="margin-left:28px;">Browse to stay up to date on price and status changes.</div>
+              <br>
+              <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Homes</button>
+          </div>
+          
+          <div *ngIf="!newUserDisplay" class="propContainer">
+              <span style="font-weight: bold;"><i class="city blue large icon" ></i>Spectra Galaxy</span>
+              <div class="propertyInfo">
+                  <span>Plot Number</span><span class="propertyInfoColor">214</span>
+                  <span>Passbook Number</span><span class="propertyInfoColor">3453453</span>
+                  <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
+                  <span>Facing</span><span class="propertyInfoColor">North Facing</span>
+                  <span>Plot Size</span><span class="propertyInfoColor">400 sqyd</span>
+                  <span>Next EMI</span><span class="propertyInfoColor">24th Aug 2019</span>
+                  <span>EMI Amount</span><span class="propertyInfoColor" >18000</span>
+                  <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
+              </div>
+              <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" class="ui button basic blue manageButton" routerLink="/transactions">View Transaction</button>
+              <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/projectDetail" class="ui basic button blue manageButton1">View Project</button>
+          </div>
+        </div>
+    </div>
+    
+  <footer></footer>
 </div>
 
-
-<div class="ui modal">
+<div class="ui modal" style="width:50%;">
         <i class="close icon"></i>
         <div class="header">
           Enter details for passbook
@@ -40,12 +71,16 @@
           <div class="description">
                 <form class="ui form">
                         <div class="field">
+                          <label>Project Name</label>
+                          <input type="text" name="project_name" placeholder="Project Name">
+                        </div>
+                        <div class="field">
                           <label>Plot Allotment Number</label>
-                          <input type="text" name="first-name" placeholder="First Name">
+                          <input type="text" name="allot_number" placeholder="Plot Allotment Number">
                         </div>
                         <div class="field">
                           <label>OTP</label>
-                          <input type="text" name="last-name" placeholder="Last Name">
+                          <input type="text" name="OTP" placeholder="OTP">
                         </div>
                 </form>
           </div>

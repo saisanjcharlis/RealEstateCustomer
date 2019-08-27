@@ -11,6 +11,12 @@ export class PassbookComponent implements OnInit {
   addPassbook(){
     $('.ui.modal').modal('show');
   }
+  mouseHover(e){
+    $(e.target).removeClass('basic');
+  }
+  mouseLeave(e){
+    $(e.target).addClass('basic');
+  }
   allotPassbook(){
     localStorage.setItem('newUser',"false");
     $('body').toast({

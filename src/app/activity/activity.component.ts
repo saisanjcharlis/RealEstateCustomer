@@ -14,51 +14,19 @@ export class ActivityComponent implements OnInit {
   onResize(event){
     if(event.target.innerWidth>1025)
      {
-      $('.feed').css('display', 'block');
-      $('.transHide').css('display', 'initial');
      }
      else{
-      $('.feed').css('display', 'none');
-      $('.transHide').css('display', 'none');
      }
   } 
   public innerWidth: any;
-  notification = false;
-  hideNotification(e){
-    var length = e.target.offsetWidth;
-    if(e.target.title == "textNotif"){
-      length = e.target.offsetWidth+25;
-    }
-    $('.notificationHeader').animate({left: "+="+ length + "px"},500);
-    setTimeout(function(){ $('.notificationHeader').css("display","none");}, 500);
-    
-}
-public dateHide(): void {
-  $('.emiDate').css('display', 'none');
-  this.showEMI = false;
-}
-public dateShow(): void {
-  this.showEMI = true;
-  $('.emiDate').css('display', 'initial');
-}
-public feedHide(): void {
-  $('.feed').css('display', 'none');
-  this.showFeed = false;
-}
-public feedShow(): void {
-  $('.feed').css('display', 'block');
-  this.showFeed = true;
-}
-public transHide(): void{
-  $('.transHide').css('display', 'none');
-  this.showtrans = false;
-}
-public transShow(): void {
-  this.showtrans = true;
-  $('.transHide').css('display', 'initial');
-}
-newUserDisplay = false;
-saveSearch = false;
+  newUserDisplay = false;
+  saveSearch = false;
+  mouseHover(e){
+    $(e.target).removeClass('basic');
+  }
+  mouseLeave(e){
+    $(e.target).addClass('basic');
+  }
   ngOnInit() {
     if(localStorage.getItem('newUser')=="true"){
       this.newUserDisplay = true;

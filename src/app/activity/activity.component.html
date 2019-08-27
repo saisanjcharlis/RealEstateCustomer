@@ -1,46 +1,13 @@
 <app-navbar></app-navbar>
-<!-- <div class="padTop">
-    <span class="heading">Profile</span>
-    <div class="notificationHeader" (click)="hideNotification($event)">
-      <span title="textNotif" class="textNotif">Pay dues on time</span>
-    </div>
-    <div class="avatar">
-      <img id="profileAvatar" width="70" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1" />
-    </div>
-    <span class="profileName">John Wick</span>
-  <br>
-  <span class="sectionHeader">
-    Plots Owned
-  </span>
-  <plot-info-container></plot-info-container>
-  <plot-info-container></plot-info-container>
-  <span class="sectionHeader">
-    Upcoming EMI's
-  </span>
-  <emi-date></emi-date>
-  <span class="sectionHeader">
-    Recent Transactions
-  </span>
-  <recent-trans></recent-trans>
-  <recent-trans></recent-trans>
-  <a class="ui blue label mlabel" routerLink="/transactions">View More</a>
-</div> -->
-
-
-<!-- 
 <div class="firstView" *ngIf="newUserDisplay && !saveSearch">
-    <img width="10%" src="assets/house_new.png">
-    <span>Oops! No Activities Yet!</span>
-    <span>Search for Properties Now</span>
-    <button routerLink="/projects" class="ui button blue">Start Your Search</button>
-    <footer></footer>
-</div> -->
-
-
-
+  <img width="10%" src="assets/house_new.png">
+  <span>Oops! No Activities Yet!</span>
+  <span>Search for Properties Now</span>
+  <button routerLink="/projects" class="ui button blue">Start Your Search</button>
+</div> 
 <div class="container">
   <div>
-      <span class="containerHeader">My Properties (1)</span>
+      <span class="containerHeader">My Properties <div *ngIf="!newUserDisplay" class="ui green label">1</div></span>
       <div class="boxContainer">
         <div *ngIf="newUserDisplay">
             <span><i class="city blue large icon" ></i>You have no owned properties</span>
@@ -52,11 +19,16 @@
         <div *ngIf="!newUserDisplay" class="propContainer">
             <span style="font-weight: bold;"><i class="city blue large icon" ></i>Spectra Galaxy</span>
             <div class="propertyInfo">
+                <span>Plot Number</span><span class="propertyInfoColor">214</span>
+                <span>Passbook Number</span><span class="propertyInfoColor">3453453</span>
                 <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
+                <span>Facing</span><span class="propertyInfoColor">North Facing</span>
+                <span>Plot Size</span><span class="propertyInfoColor">400 sqyd</span>
+                <span>Next EMI</span><span class="propertyInfoColor">24th Aug 2019</span>
                 <span>EMI Amount</span><span class="propertyInfoColor" >18000</span>
                 <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
             </div>
-            <button class="ui button blue manageButton">Manage</button>
+            <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" class="ui basic tiny button blue manageButton">Manage</button>
         </div>
       </div>
   </div>
@@ -72,51 +44,36 @@
                 <span>on 28th Aug 2019</span>
                 <span> for property <br><b>Spectra Galaxy, Plot No. 314</b></span>
                 <br>
-                <button routerLink="/transactions"  style="margin-top:10px;" class="ui button blue">All Transactions</button>
+                <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/transactions"  style="margin-top:10px;" class="ui tiny basic button blue">All Transactions</button>
             </div>
         </div>
-        
-        
+        <div class="ui divider"></div>
+        <div *ngIf="!newUserDisplay" style="margin-top:10px;margin-bottom:10px;margin-left:28px;font-weight: bold;">Upcoming EMI's</div>
+        <emi-date *ngIf="!newUserDisplay"></emi-date>
       </div>
+    
     </div>
-    <emi-date></emi-date>
-    <!-- <div>
-      <span class="containerHeader">Upcoming EMI's</span>
-      <div class="boxContainer">
-        <span style="font-weight: bold;"><i class="wallet large icon" ></i>EMI Calender</span><br>
-        <div class="lastPaymentInfo">
-            <div class="emiContainer">
-                <div class="emiHeader">Upcoming EMI's<i class="minus icon minusPosition" *ngIf="showEMI" (click)="dateHide()"></i><i class="plus icon plusPosition" *ngIf="!showEMI" (click)="dateShow()"></i></div>
-                <emi-date class="emiDate"></emi-date>
-            </div>
-            <br>
-        </div>
-        
-      </div>
-    </div> -->
     <div>
       <span class="containerHeader">Latest Favorites</span>
       <div class="boxContainer">
-        <div *ngIf="newUserDisplay">
+        <div *ngIf="newUserDisplay && !saveSearch">
             <div><i class="like blue outline large icon" ></i>You have no favorites</div>
             <br><div  style="padding-left:28px;">Favorite homes while you browse to stay up to date on price and status changes.</div> 
         </div>
         <div *ngIf="!newUserDisplay || saveSearch">
             <div style="margin-bottom:10px;">
-                <span style="font-weight: bold;"><i class="like blue outline large icon" ></i>Spectra Galaxy</span><span style="float:right;font-weight: bold;">Hyderabad</span>
+                <span style="font-weight: bold;"><i class="like blue outline large icon" ></i>Spectra Galaxy</span><span style="float:right;font-weight: bold;color:#0066ff">Hyderabad</span>
                 <div class="favInfo">
                     <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
                     <span>Year Built</span><span class="propertyInfoColor" >2017</span>
                 </div>
             </div>
-            <button routerLink="/fav" style="margin-left:28px;" class="ui button blue">My Favorites</button>
+            <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/fav" style="margin-left:28px;" class="ui basic tiny button blue">My Favorites</button>
         </div>
       </div>
-    </div>
-    <div >
       <span class="containerHeader">Saved Searches</span>
       <div class="boxContainer">
-        <div *ngIf="newUserDisplay">
+        <div *ngIf="newUserDisplay && !saveSearch">
             <div><i class="search blue large icon" ></i>You have not saved any searches.</div>
             <br><div  style="margin-left:28px;">Get notifications when new homes that match your criteria hit the market.</div> 
         </div>
@@ -138,80 +95,10 @@
                   </div>
                 </div>
               </div>
-            <button routerLink="/fav"  style="margin-top:10px;margin-left:28px;" class="ui button blue">My Saved Searches</button>
+            <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/fav"  style="margin-top:10px;margin-left:28px;" class="ui tiny basic button blue">My Saved Searches</button>
         </div>
-        
       </div>
     </div>
   </div>
- 
 <footer></footer>
- 
-
-  
-  
-
-
- 
-
-</div>
-<!-- <div class="emiContainer">
-    <div class="emiHeader">Upcoming EMI's<i class="minus icon minusPosition" *ngIf="showEMI" (click)="dateHide()"></i><i class="plus icon plusPosition" *ngIf="!showEMI" (click)="dateShow()"></i></div>
-    <emi-date class="emiDate"></emi-date>
-</div> -->
-
-
-<div class="dPadTop">
-
-    
-    
-    <!-- <div>
-
-      <div class="savedSearch">
-        <div class="headerSearch">Saved Searches</div> 
-        <savedsearch></savedsearch>
-        <savedsearch></savedsearch>
-        <savedsearch></savedsearch>
-       </div>
-      <favorites></favorites>
-      
-    
-      <div class="emiContainer1">
-        <div class="emiHeader">Upcoming EMI's<i class="minus icon minusPosition" *ngIf="showEMI" (click)="dateHide()"></i><i class="plus icon plusPosition" *ngIf="!showEMI" (click)="dateShow()"></i></div>
-        <emi-date class="emiDate"></emi-date>
-      </div>
-
-      <div class="emiContainer1">
-        <div class="emiHeader">Messages<i class="minus icon minusPosition" *ngIf="showFeed" (click)="feedHide()"></i><i *ngIf="!showFeed" class="plus icon plusPosition" (click)="feedShow()"></i></div>
-        <feed class="feed"></feed>
-      </div>
-
-      <div class="trans">
-        <div class="header">Recent Transactions<i class="minus icon minusPosition" *ngIf="showtrans" (click)="transHide()"></i><i class="plus icon plusPosition" *ngIf="!showtrans" (click)="transShow()"></i></div> 
-        <recent-trans class="transHide"></recent-trans>
-        <recent-trans class="transHide"></recent-trans>
-        <recent-trans class="transHide"></recent-trans>
-        <recent-trans class="transHide"></recent-trans>
-        <recent-trans class="transHide"></recent-trans>
-        <div class="ui blue label transHide" style="background: #0066ff;float:right;cursor: pointer;" routerLink="/transactions">View More</div>
-      </div>
-     
-  </div>
-
-  <div>
-    <div class="plotHeader">Plots Owned</div> 
-    <div class="plotContainer">
-          <plot-info-container  *ngFor="let plot of plots"></plot-info-container>
-    </div>
-  </div>
-
-  <div class="emiContainer2">
-   
-
-    <div class="emiHeader">Upcoming EMI's</div>
-    <emi-date></emi-date>
-    <div style="margin-top:20px;" class="emiHeader ">Messages</div>
-    <feed></feed>
-  </div> -->
-
-</div>
+ </div>
