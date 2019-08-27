@@ -81,10 +81,15 @@
 .marginLeft{
   /* margin:10px 50px 10px 20px; */
   display: grid;
+  grid-template-columns: 40% 50%;
+}
+.marginLeftGrid{
+  /* margin:10px 50px 10px 20px; */
+  display: grid;
   grid-template-columns: 50% 50%;
 }
 .marginBottom{
-  margin:10px 0;
+  margin:5px 0;
   display: block !important;
 }
 .projectContainer{
@@ -258,4 +263,9 @@ agm-map{
 }
 .priceListGrid .ui.list .item{
   cursor: pointer;
+}
+.moreHeader{
+  font-size:16px;
+  font-weight: bold;
+  padding:5px 0;
 }

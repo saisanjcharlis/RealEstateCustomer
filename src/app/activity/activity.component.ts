@@ -22,9 +22,6 @@ export class ActivityComponent implements OnInit {
       $('.transHide').css('display', 'none');
      }
   } 
-  updateProfileCompleteAvatar(){
-    $('#profileAvatar').css("background-image","linear-gradient(-90deg, #0066ff 50%, rgba(0, 0, 0, 0) 50%),linear-gradient(0deg, #0066ff 50%, rgba(0, 0, 0, 0) 50%)");
-  } 
   public innerWidth: any;
   notification = false;
   hideNotification(e){

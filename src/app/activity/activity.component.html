@@ -1,12 +1,11 @@
 <app-navbar></app-navbar>
-<div class="padTop">
+<!-- <div class="padTop">
     <span class="heading">Profile</span>
     <div class="notificationHeader" (click)="hideNotification($event)">
       <span title="textNotif" class="textNotif">Pay dues on time</span>
     </div>
     <div class="avatar">
       <img id="profileAvatar" width="70" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1" />
-      <!-- <button (click)="updateProfileCompleteAvatar()">sad</button> -->
     </div>
     <span class="profileName">John Wick</span>
   <br>
@@ -25,64 +24,62 @@
   <recent-trans></recent-trans>
   <recent-trans></recent-trans>
   <a class="ui blue label mlabel" routerLink="/transactions">View More</a>
-</div>
+</div> -->
 
 
-
+<!-- 
 <div class="firstView" *ngIf="newUserDisplay && !saveSearch">
     <img width="10%" src="assets/house_new.png">
     <span>Oops! No Activities Yet!</span>
     <span>Search for Properties Now</span>
     <button routerLink="/projects" class="ui button blue">Start Your Search</button>
-</div>
+    <footer></footer>
+</div> -->
 
 
 
 <div class="container">
-  <div *ngIf="!newUserDisplay">
-      <span class="containerHeader">My Properties (2)</span>
+  <div>
+      <span class="containerHeader">My Properties (1)</span>
       <div class="boxContainer">
-        <!-- <span><i class="city large icon" ></i>You have no owned properties</span>
-        <br><span style="margin-left:28px;">Browse to stay up to date on price and status changes.</span>
-        <br>
-        <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Homes</button> -->
-        <div style="position: relative;margin-bottom:10px;">
-            <span style="font-weight: bold;"><i class="city large icon" ></i>Spectra Galaxy</span>
-            <div class="propertyInfo">
-                <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
-                <span>EMI Amount</span><span class="propertyInfoColor" >18000</span>
-                <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
-            </div>
-            <button style="position: absolute;right:0;bottom:10px;" class="ui button blue">Manage</button>
-            <div class="ui divider"></div>
+        <div *ngIf="newUserDisplay">
+            <span><i class="city blue large icon" ></i>You have no owned properties</span>
+            <br><div style="margin-left:28px;">Browse to stay up to date on price and status changes.</div>
+            <br>
+            <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Homes</button>
         </div>
-        <div style="position: relative;margin-bottom:10px;">
-            <span style="font-weight: bold;"><i class="city large icon" ></i>Spectra Galaxy</span>
+        
+        <div *ngIf="!newUserDisplay" class="propContainer">
+            <span style="font-weight: bold;"><i class="city blue large icon" ></i>Spectra Galaxy</span>
             <div class="propertyInfo">
                 <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
                 <span>EMI Amount</span><span class="propertyInfoColor" >18000</span>
                 <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
             </div>
-            <button style="position: absolute;right:0;bottom:10px;" class="ui button blue">Manage</button>
+            <button class="ui button blue manageButton">Manage</button>
         </div>
       </div>
   </div>
   
   <div class="gridContainer">
-    <div *ngIf="!newUserDisplay">
+    <div>
       <span class="containerHeader">Payments</span>
       <div class="boxContainer">
-        <!-- <span><i class="wallet large icon" ></i>You have not completed any transactions</span> -->
-        <span style="font-weight: bold;"><i class="wallet large icon" ></i>Last Payment Received</span><span style="float: right;font-weight: bold;color:#0066ff;">₹ 15000</span><br>
-        <div class="lastPaymentInfo">
-            <span>on 28th Aug 2019</span>
-            <span> for property <br><b>Spectra Galaxy, Plot No. 314</b></span>
-            <br>
-            <button routerLink="/transactions"  style="margin-top:10px;" class="ui button blue">All Transactions</button>
+        <div *ngIf="newUserDisplay"><i class="wallet blue large icon" ></i>You have not completed any transactions</div>
+        <div *ngIf="!newUserDisplay">
+            <span style="font-weight: bold;"><i class="wallet blue large icon" ></i>Last Payment Received</span><span style="float: right;font-weight: bold;color:#0066ff;">₹ 15000</span><br>
+            <div class="lastPaymentInfo">
+                <span>on 28th Aug 2019</span>
+                <span> for property <br><b>Spectra Galaxy, Plot No. 314</b></span>
+                <br>
+                <button routerLink="/transactions"  style="margin-top:10px;" class="ui button blue">All Transactions</button>
+            </div>
         </div>
+        
         
       </div>
     </div>
+    <emi-date></emi-date>
     <!-- <div>
       <span class="containerHeader">Upcoming EMI's</span>
       <div class="boxContainer">
@@ -97,49 +94,58 @@
         
       </div>
     </div> -->
-    <div *ngIf="!newUserDisplay || saveSearch">
+    <div>
       <span class="containerHeader">Latest Favorites</span>
       <div class="boxContainer">
-        <!-- <span><i class="like outline large icon" ></i>You have no favorites</span>
-        <br><span  style="margin-left:28px;">Favorite homes while you browse to stay up to date on price and status changes.</span> -->
-        <div style="margin-bottom:10px;">
-            <span style="font-weight: bold;"><i class="like outline large icon" ></i>Spectra Galaxy</span><span style="float:right;font-weight: bold;">Hyderabad</span>
-            <div class="favInfo">
-                <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
-                <span>Year Built</span><span class="propertyInfoColor" >2017</span>
-                <!-- <span>Location</span><span class="propertyInfoColor">Hyderabad</span> -->
-            </div>
+        <div *ngIf="newUserDisplay">
+            <div><i class="like blue outline large icon" ></i>You have no favorites</div>
+            <br><div  style="padding-left:28px;">Favorite homes while you browse to stay up to date on price and status changes.</div> 
         </div>
-        <button routerLink="/fav" style="margin-left:28px;" class="ui button blue">My Favorites</button>
+        <div *ngIf="!newUserDisplay || saveSearch">
+            <div style="margin-bottom:10px;">
+                <span style="font-weight: bold;"><i class="like blue outline large icon" ></i>Spectra Galaxy</span><span style="float:right;font-weight: bold;">Hyderabad</span>
+                <div class="favInfo">
+                    <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
+                    <span>Year Built</span><span class="propertyInfoColor" >2017</span>
+                </div>
+            </div>
+            <button routerLink="/fav" style="margin-left:28px;" class="ui button blue">My Favorites</button>
+        </div>
       </div>
     </div>
-    <div *ngIf="!newUserDisplay || saveSearch">
+    <div >
       <span class="containerHeader">Saved Searches</span>
       <div class="boxContainer">
-        <!-- <span><i class="search large icon" ></i>You have not saved any searches.</span>
-        <br><span  style="margin-left:28px;">Get notifications when new homes that match your criteria hit the market.</span> -->
-        <div class="ui relaxed divided list">
-            <div class="item">
-              <i class="large search middle aligned icon"></i>
-              <div class="content">
-                <a class="header">Hyderabad</a>
-                <div class="description">Updated 10 mins ago</div>
+        <div *ngIf="newUserDisplay">
+            <div><i class="search blue large icon" ></i>You have not saved any searches.</div>
+            <br><div  style="margin-left:28px;">Get notifications when new homes that match your criteria hit the market.</div> 
+        </div>
+        
+        <div *ngIf="!newUserDisplay || saveSearch">
+            <div class="ui relaxed divided list">
+                <div class="item">
+                  <i class="large search blue middle aligned icon"></i>
+                  <div class="content">
+                    <a class="header">Hyderabad</a>
+                    <div class="description">Updated 10 mins ago</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <i class="large blue search middle aligned icon"></i>
+                  <div class="content">
+                    <a class="header">Bangalore</a>
+                    <div class="description">Updated 22 mins ago</div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="item">
-              <i class="large search middle aligned icon"></i>
-              <div class="content">
-                <a class="header">Bangalore</a>
-                <div class="description">Updated 22 mins ago</div>
-              </div>
-            </div>
-          </div>
-        <button routerLink="/fav"  style="margin-top:10px;margin-left:28px;" class="ui button blue">My Saved Searches</button>
+            <button routerLink="/fav"  style="margin-top:10px;margin-left:28px;" class="ui button blue">My Saved Searches</button>
+        </div>
+        
       </div>
     </div>
   </div>
  
-
+<footer></footer>
  
 
   

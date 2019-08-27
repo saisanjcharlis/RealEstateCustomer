@@ -1,17 +1,18 @@
 <app-navbar></app-navbar>
 <div class="bodyLogin">
     <div class="intro">
-            <div style="text-align: center;margin-top:100px;">
+            <div style="text-align: center;margin-top:100px;position: relative;">
               <div class="headerText" >Explore your</div><div id="headerText" class="headerText">Ideal Home</div>
               <div class="slogan" >We'll help you find a place you'll love</div>
                 <div class="ui icon input" style="margin-top:50px;">
                         <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" (ngModelChange)="locationSearch($event)" type="text" placeholder={{searchPlaceholder}}>
                         <i class="search large blue icon"></i>
                 </div>
+                <a style="position: absolute; bottom:20px;left:50%;" href="#intro">  <i  class="arrow down large icon" style="color:white;"></i></a>
               
               </div>
     </div>
-    <div class="options">
+    <div id="intro" class="options">
         <div class="textInfo">
           We have the most listings and constant updates.<br>
           So you’ll never miss out.

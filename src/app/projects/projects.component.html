@@ -112,6 +112,7 @@
                         </div>
 
                 </div>
+                <footer></footer>
                 <div style="display: flex; justify-content: center;flex-direction: column;align-items: center;" *ngIf="projects.length==0">
                         <div class="noResultText">Browse for projects</div>
                         <div class="ui multiple huge search selection dropdown dropDownSearch" >
@@ -244,7 +245,7 @@
         <br>
         <br>
         <div style="display: grid;grid-template-columns: 40% 60%;grid-gap: 10px 0;">
-                        <span>Parking Spots</span>
+                        <span class="moreHeader">Parking Spots</span>
                         <select  class="ui tiny fluid dropdown" >
                                         <option value="">1+</option>
                                         <option value="AL">2+</option>
@@ -252,7 +253,7 @@
                                         <option value="AL">4+</option>
                                         <option value="AL">5+</option>
                         </select>
-                        <span>Square Feet</span>
+                        <span class="moreHeader">Square Feet</span>
                         <div style="display: flex;">
                                         <select  class="ui tiny fluid dropdown" >
                                                         <option value="">0+</option>
@@ -279,7 +280,7 @@
                                                         <option value="AL">1300</option>
                                         </select> 
                         </div>
-                        <span>Year Built</span>
+                        <span class="moreHeader">Year Built</span>
                         <div style="display: flex;">
                                         <select  class="ui tiny fluid dropdown" >
                                                         <option value="">1980+</option>
@@ -308,7 +309,7 @@
                                                         <option value="AL">2019</option>
                                         </select> 
                         </div>
-                        <span>Number of Stories</span>
+                        <span class="moreHeader">Number of Stories</span>
                         <select  class="ui tiny fluid dropdown" >
                                         <option value="0">0+</option>
                                         <option value="1">1</option>
@@ -322,7 +323,7 @@
                         </select>
         </div>
         <div class="ui header">Other Amenities</div>
-        <div class="marginLeft">
+        <div class="marginLeftGrid">
                 <div class="ui checkbox marginBottom">
                         <input type="checkbox" checked (change)="homeTypeFilter($event)" name="Swimming Pool">
                         <label>Swimming Pool</label>
@@ -362,7 +363,7 @@
         </div>
         
         <div style="display: grid;grid-template-columns: 40% 60%;">
-                <span>Keywords</span>
+                <span class="moreHeader">Keywords</span>
                 <div class="ui input">
                         <input type="text" >
                 </div>

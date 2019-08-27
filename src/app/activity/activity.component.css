@@ -3,10 +3,10 @@
 }
 
 .dPadTop{
-    padding: 80px 2% 50px 2%;
+    /* padding: 80px 2% 50px 2%;
     display:grid;
     grid-gap: 1%;
-    grid-template-columns: 22% 51% 25% ;
+    grid-template-columns: 22% 51% 25% ; */
  
 }
 .savedSearch{
@@ -274,7 +274,8 @@
   }
 }
 .propertyInfoColor{
-    color:blue;
+    font-weight: bold;
+    color:#0066ff;
 }
 .lastPaymentInfo{
     margin-left:28px;
@@ -292,6 +293,31 @@
 .gridContainer div{
     flex: 0 50%;
 }
+
 .header{
     color: #0066ff !important;
+}
+.propContainer{
+    position: relative;
+    margin-bottom:10px;
+}
+.manageButton{
+    position: absolute ;
+    right:0 ;
+    bottom:10px;
+    
+}
+@media all and (max-width: 768px) {
+    .gridContainer div{
+        flex: 0 100%;
+    }
+    .manageButton{
+        position: initial;
+        margin-left:28px;
+        margin-top:10px;
+    }
+    .container{
+        padding-top:50px;
+        margin:0 5%;
+    }
 }
