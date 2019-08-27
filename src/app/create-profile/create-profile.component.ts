@@ -56,6 +56,12 @@ export class CreateProfileComponent implements OnInit {
       alert("Wrong password!");
     }
   }
+  mouseHover(e){
+    $(e.target).removeClass('basic');
+  }
+  mouseLeave(e){
+    $(e.target).addClass('basic');
+  }
   url = '';
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {

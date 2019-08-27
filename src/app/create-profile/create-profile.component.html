@@ -1,82 +1,12 @@
 <app-navbar></app-navbar>
 
-
-  <div style="padding-top:100px;">
-
-  </div>
-
+<div class="padTop">
   <div class="container">
-    <div class="sideControls">
-
+    <div>
+      <span class="formHeader">Basic Details</span>
     </div>
-    <div class="content">
-      <div class="header">Basic Details</div>
-
-      <div class="gridForm ui form">
-
-        <div>
-          <div class="required field input-group">
-              <input class="inputStyle" type="text" name="name" placeholder="Name">
-          </div>
-          <div class="required field input-group">
-              <input class="inputStyle" type="text" name="name" placeholder="Username">
-          </div>
-          <div class="required field input-group">
-              <input class="inputStyle" type="email" name="name" placeholder="Email">
-          </div>
-          <div class="required field input-group">
-              <div class="ui calendar" id="year_first_calendar">
-                <div class="ui input right icon">
-                  <i class="calendar icon"></i>
-                  <input type="text" placeholder="Date">
-                </div>
-              </div>
-          </div>
-          <div class="required field input-group">
-              <input class="inputStyle" type="number" name="name" placeholder="Aadhar Number">
-          </div>
-        </div>
-
-        <div>
-            <div class="required field input-group">
-                <input class="inputStyle" type="text" name="name" placeholder="Pan Number">
-            </div>
-            <div class="required field input-group">
-                <input class="inputStyle" type="text" name="name" placeholder="Address 1">
-            </div>
-            <div class="required field input-group">
-                <input class="inputStyle" type="text" name="name" placeholder="Address 2">
-            </div>
-            <div class="required field input-group">
-                <input class="inputStyle" type="text" name="name" placeholder="Reference Code">
-            </div>
-            <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/activity" class="ui basic button green submitButton">Submit</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="padTop">
-  <span class="sectionHeader">
-    Create Profile
-  </span>
-  <button class="ui button desktopButton saveProfileDesktop" (click)="saveProfile()"  type="submit">Save<i class="arrow right icon" style="color:white;"></i></button>
-  <div style="clear:both;"></div>
-  
-  <div class="container">
-    <div><span class="cancelForm" routerLink="/login">Cancel<i style="margin-left:5px;" class="close icon"></i></span></div>
-    <div style="clear: both;"></div>
-    <form style="padding:30px 15px;" class="ui form">
+    <div style="clear:both"></div>
+    <form style="padding:70px 15px 30px 15px;" class="ui form">
       <div>
             <div class="avatar" (click)="uploadPicture()">
             <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" />
@@ -86,67 +16,48 @@
             </svg>
           </div>
           <input (change)="onSelectFile($event)" id="imageUpload" type="file" name="profile_photo" placeholder="Photo"  accept="image/*" required="" capture>
-          <div class="required field">
-            <label>Name</label>
-            <input type="text" name="name" >
+          <div style="padding-top:20px;" class="required field input-group">
+              <input class="inputStyle" type="text" name="name" placeholder="Name" autocomplete="off">
           </div>
-          <div class="required field">
-            <label>Username</label>
-            <input type="text" name="username" >
+          <div class="required field input-group">
+              <input class="inputStyle" type="text" name="name" placeholder="Username" autocomplete="off">
           </div>
-          <div class="required field">
-            <label>Password</label>
-            <input type="password" readonly="" value="admin123" name="password" >
+          <div class="required field input-group">
+              <input class="inputStyle" type="email" name="name" placeholder="Email" autocomplete="off">
           </div>
-          <div (click)="updatePasswordModal()" class="update"><span>Update Password</span></div>
-          <div class="required field">
-            <label>Email</label>
-            <input type="email" name="email" >
+          <div class="required field input-group">
+              <div class="ui calendar" id="year_first_calendar">
+                <div class="ui input right icon">
+                  <i class="calendar icon"></i>
+                  <input type="text" placeholder="Date">
+                </div>
+              </div>
           </div>
-          
-          
       </div>
       <div>
-        <div class="required field">
-            <label>Phone Number</label>
-            <input type="number" readonly="" value="9435350679" name="phNo" >
-        </div>
-        <div class="required field">
-            <label>Address</label>
-            <textarea rows="2"></textarea>
-        </div>
-        <div class="required field">
-          <label>Date Of Birth</label>
-          <div class="ui calendar" id="year_first_calendar">
-            <div class="ui input left icon">
-              <i class="calendar icon"></i>
-              <input type="text" placeholder="Date">
-            </div>
+          <div class="required field input-group">
+              <input class="inputStyle" type="number" name="name" placeholder="Aadhar Number" autocomplete="off">
           </div>
-        </div>
-        <div class="required field">
-          <label>Aadhar Number</label>
-          <input type="number" name="aadhar-number" >
-        </div>
-        <div class="required field">
-          <label>Pan Number</label>
-          <input type="text" name="pan-number" >
-        </div>
-        <div class="field">
-          <label>Marketing Agent</label>
-          <select class="ui fluid dropdown">
-            <option value="">Select</option>
-            <option value="cash">Raju Rastogi</option>
-            <option value="cash">Shweta Tiwari</option>
-            <option value="cash">Anju Singh</option>
-            <option value="cash">John Wick</option>
-        </select>
-        </div>
+          <div class="required field input-group">
+              <input class="inputStyle" type="text" name="name" placeholder="Pan Number" autocomplete="off">
+          </div>
+          <div class="required field input-group">
+              <input class="inputStyle" type="text" name="name" placeholder="Address 1" autocomplete="off">
+          </div>
+          <div class="required field input-group">
+              <input class="inputStyle" type="text" name="name" placeholder="Address 2" autocomplete="off">
+          </div>
+          <div class="required field input-group">
+              <input class="inputStyle" type="text" name="name" placeholder="Reference Code" autocomplete="off">
+          </div>
       </div>
     </form> 
+    <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)"  (click)="saveProfile()"  class="ui basic button green submitButton">Submit</button>
+    <div style="clear: both;"></div>
   </div>   
-  <button class="ui button mobileButton saveProfile" (click)="saveProfile()"  type="submit">Save<i class="arrow right icon" style="color:white;"></i></button>
-</div> -->
+  <!-- <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)"  (click)="saveProfile()"  class="cancelForm ui basic button green submitButton">Submit</button> -->
+  <!-- <button class="ui button mobileButton saveProfile" (click)="saveProfile()"  type="submit">Save<i class="arrow right icon" style="color:white;"></i></button> -->
+</div>
 
 
 <div class="ui modal">
