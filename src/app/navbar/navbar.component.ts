@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     let routeActivate = this.route.snapshot.routeConfig.path;
     localStorage.setItem('logStatus','false');
-    if(routeActivate == "login"){
+    if(routeActivate == "login" || routeActivate == ""){
       this.router.routeReuseStrategy.shouldReuseRoute = function(){return false;};
       let currentUrl = this.router.url + '?';
       this.router.navigateByUrl(currentUrl)

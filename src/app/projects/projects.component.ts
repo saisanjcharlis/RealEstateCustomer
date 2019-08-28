@@ -454,25 +454,28 @@ export class ProjectsComponent implements OnInit {
     $('.editable').attr("disabled",true);
   }
   ngOnInit() {
-    if(localStorage.getItem('projectsDomain').includes('Hyderabad')){
-     this.locationSelected = "Hyderabad, TS";
-     this.location="Hyderabad Real Estate";
-     this.projects=this.hyderabadProjects;
-    } else if(localStorage.getItem('projectsDomain').includes('Bangalore')) {
-      this.locationSelected = "Bangalore, KA";
-      this.location = "Bangalore Real Estate";
-      this.projects=[];
-    } 
-     else if(localStorage.getItem('projectsDomain').includes('Current Location')) {
-      this.locationSelected = "Hyderabad, TS";
-      this.location = "Hyderabad Real Estate";
-      this.projects=this.hyderabadProjects;
-    } else {
-        this.locationSelected = "";
-        this.location="";
-        this.projects=[];
+    if(localStorage.getItem('projectsDomain')){
+      if(localStorage.getItem('projectsDomain').includes('Hyderabad')){
+        this.locationSelected = "Hyderabad, TS";
+        this.location="Hyderabad Real Estate";
+        this.projects=this.hyderabadProjects;
+       } else if(localStorage.getItem('projectsDomain').includes('Bangalore')) {
+         this.locationSelected = "Bangalore, KA";
+         this.location = "Bangalore Real Estate";
+         this.projects=[];
+       } 
+        else if(localStorage.getItem('projectsDomain').includes('Current Location')) {
+         this.locationSelected = "Hyderabad, TS";
+         this.location = "Hyderabad Real Estate";
+         this.projects=this.hyderabadProjects;
+       } else {
+           this.locationSelected = "";
+           this.location="";
+           this.projects=[];
+       }
+   
     }
-
+    
 
     this.lat = this.mapsService.lat;
     this.lng = this.mapsService.lng;
