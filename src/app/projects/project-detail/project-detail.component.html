@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
    <!-- Floating Buttons -->
 <div class="shareButton">
-        <button (click)="addFavorite()" class="ui circular blue icon button">
+        <button (click)="save($event)"  class="ui circular blue icon button">
             <i class="like icon"></i>
         </button>
-        <button style="margin-top:10px;" class="ui circular blue icon button">
+        <button (click)="share()"  style="margin-top:10px;" class="ui circular blue icon button">
             <i class="share icon"></i>
         </button>
 </div>
@@ -13,7 +13,7 @@
     <button class="ui blue icon button">
         <i class="comment icon"></i> &nbsp;Chat
     </button>
-    <div>
+    <div (click)="agentModal()">
         <span>Schedule Tour</span>
         <span>Next Available: Today at 11:00 AM</span>
     </div>
@@ -60,7 +60,7 @@
                 <a class="black item" data-tab="second">Property Details</a>
                 <a class="black item" data-tab="third">Plot Details</a>
                 <a class="black item" data-tab="fourth">Schools Nearby</a>
-                <a class="black item" (click)="resizeMap()" data-tab="fifth">3D Tour</a>
+                <a class="black item" data-tab="fifth">Video</a>
                 <a class="black item" data-tab="sixth">Neighbourhood</a>
                 <a class="black item" data-tab="seventh">Similar Properties</a>
             </div>
@@ -81,11 +81,13 @@
                                                 <div style="text-align: center;font-size:12px;">
                                                         Listing Provided By Spectra
                                                 </div>
-                                                <hr style="opacity: 0.3;">
+                                                
                                         </div>
                                     </div>
+                                    <hr style="opacity: 0.3;width: 85%;float: left;">
+                                    <div style="clear: both"></div>
                                     <div class="checkListOverview">
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Approved By:<b>GHMC</b></div>
+                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Standards:<b>ISO 9001-2008 </b></div>
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Total No. of floors:<b>G+8</b></div>
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Occupancy Certificate:<b>No</b></div>
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Total Units:<b>320</b></div>
@@ -143,11 +145,11 @@
                                         <div class="menuHeader">Schools Nearby</div>
                                 </div>
                                 <!-- 3D Tour -->
-                                <div class="ui tab segment 3DTour" style="width:100%;height: 100%;" data-tab="fifth">
-                                        <div class="menuHeader">3D Tour</div>
+                                <div class="ui tab segment"data-tab="fifth">
+                                        <div class="menuHeader">Video</div>
                                         <!-- <mgl-map id="map" [style]="'mapbox://styles/mapbox/outdoors-v9'" [antialias]="true" [pitch]="[45]" [bearing]="[-17.6]" [zoom]="[15.5]" [center]="[78.48,17.38]">
                                         </mgl-map> -->
-                                        <mgl-map [style]="'mapbox://styles/mapbox/light-v9'" [zoom]="18" [center]="[79.2710344, 17.0486026]" [pitch]="45" [bearing]="-17.6" (load)="onLoad($event)">
+                                        <!-- <mgl-map [style]="'mapbox://styles/mapbox/light-v9'" [zoom]="18" [center]="[79.2710344, 17.0486026]" [pitch]="45" [bearing]="-17.6" (load)="onLoad($event)">
                                             <mgl-layer id="3d-buildings" source="composite" sourceLayer="building" [filter]="['==', 'extrude', 'true']" type="fill-extrusion" [minzoom]="15"
                                             [paint]="{
                                                     'fill-extrusion-color': '#ccc',
@@ -169,7 +171,7 @@
                                             <mgl-marker [lngLat]="[79.2710344, 17.0486026]" >
                                                     <i class="city large black icon" ></i><span class="marker">Spectra Galaxy</span>
                                             </mgl-marker>
-                                    </mgl-map>
+                                    </mgl-map> -->
                                       
                                 </div>
                                 <!-- Neighbourhood -->
@@ -186,41 +188,41 @@
                                                 <div class="item">Located in densely populated area besides Schools, Colleges, Market Yard, Banks and Hospitals</div>
                                         </div>
                                         <button (click)="openLocationMap()" class="ui blue basic button">Location Map</button>
-                                        <button class="ui green basic button">Google Map</button>
+                                        <button (click)="openGMap()" class="ui green basic button">Google Map</button>
                                         
                                 </div>
                                 <div class="ui tab segment" data-tab="seventh">
                                         <div class="menuHeader">Similar Properties</div>
-                                        <div class="projects ui two stackable cards">
-                                                <div class="card" *ngFor="let image of images">
-                                                   <div class="image">
-                                                        <div class="tagInfo">
-                                                                <div class="ui red label">Posted: 04 Aug 2019</div>
-                                                                <div class="ui blue label">Hyderabad</div>
-                                                        </div>
-                                                        <img routerLink="/projectDetail" style="cursor: pointer;" src={{image}}>
-                                                   </div>
-                                                   <div class="content">
-                                                                <i class="right floated large black like outline icon"></i>
-                                                                <i class="right floated large black share alternate icon"></i>
-                                                                <a class="header" routerLink="/projectDetail" >Spectra Fortune</a>
-                                                                <div style="margin-top:10px;" class="meta">
-                                                                        <span>Built in 1997</span>
-                                                                        <span class="right floated ui mini star yellow rating" data-rating="3" data-max-rating="5"></span>
-                                                                </div>
-                                                                <div class="description">
-                                                                                <b>1397 Avg Sq.Ft <span style="float: right;color:#0066ff;"><i class="rupee sign icon"></i>15999</span></b>
-                                                                                <br>
-                                                                                <span>Kamineni Hospitals, Opp: Big Bazar, L.B.Nagar, Hyderabad, Telangana, India.</span>
-                                                                        
-                                                                </div>
-                                                                <div class="meta">
-                                                                        <span>Listing provided By Spectra</span>
-                                                                </div>
-                                                                
-                                                   </div>
-                                                </div>
-                                             
+                                        <div class="projects ui two stackable cards" >
+                                            <div class="card" *ngFor="let project of projects;" >
+                                                    <div class="image">
+                                                            <div class="tagInfo">
+                                                                    <div class="ui blue label">Posted: {{project.postedOn}}</div>
+                                                            </div>
+                                                            <i class="rightFloated large like  icon" [ngClass]="{'outline': !project.likedStatus, 'blue': project.likedStatus}" (click)="likedProject($event)"></i>
+                                                            <span class="ratingFloat ui mini star blue rating" data-rating="3"
+                                                                            data-max-rating="5"></span>
+                                                            <img routerLink="/projectDetail" style="cursor: pointer;" src={{project.imageUrl}}>
+                                                    </div>
+                                                    <div class="content">
+                                                            <a class="header" routerLink="/projectDetail">{{project.projectName}}</a>
+                                                            <span class="priceInfo">
+                                                                    <i class="rupee sign icon"></i>
+                                                                    <span style="font-size:18px;">{{project.minPriceParsed}} </span>
+                                                                    <span class="onwards"> onwards</span>
+                                                            </span>
+                                                            <div class="description">
+                                                                    <b>{{project.minSize}}-{{project.maxSize}}</b><span style="font-size:12px;margin-left:5px;">sqyd</span> 
+                                                            </div>
+                                                            <div style="margin-top:10px;" class="meta">
+                                                                    <b>{{project.address1}}<br> {{project.address2}}</b>
+                                                                    <span style="float: right;"> <i [ngClass]="{'red': project.saleStatus == 'Sold'}" class="circle blue icon"></i> <b>{{project.saleStatus}}</b></span>
+                                                            </div>
+                                                            
+                    
+                                                    </div>
+                                            </div>
+                    
                                         </div>
                                 </div>
                     </div> 
@@ -281,7 +283,7 @@
                             
 
                             <div class="grid2Button">
-                                <button class="ui  green  button">Schedule Tour</button>
+                                <button (click)="agentModal()" class="ui  green  button">Schedule Tour</button>
                                 <!-- <button class="ui  blue button" (click)="addCoBuy()">Add co-buyer</button> -->
                             </div>
                             
@@ -290,12 +292,11 @@
                             <div style="color:#0066ff;margin-top:10px;">
                                 <span style="cursor: pointer;">Ask A Question</span> 
                                 <span class="vl"></span>
-                                <span style="cursor: pointer;">(206) 429-8986</span>
+                                <span style="cursor: pointer;">(040) 6464-6813</span>
                             </div>
                             <hr style="opacity: 0.3; z-index: 5;">
                     </div>
             </div>
-            
     <footer></footer>
 </div>
 <div class="ui modal coBuy" style="width: 350px; height: 350px;">
@@ -315,7 +316,70 @@
         <i class="close icon"></i>
         <img src="http://www.spectraindia.in/wp-content/uploads/2016/10/fortune_locationmap.jpg" style="width: 100%;margin-top:10px;">
 </div>
-<div class="ui modal shareModal" style="width: 350px; height: 350px;">
-        <i class="close icon"></i>
-        Share Form
+<div class="ui modal googleMap">
+    <i class="close icon"></i>
+    <agm-map #map
+                        [latitude]='lat' 
+                        [longitude]='long' 
+                        [zoom]="zoom" >
+    </agm-map>
 </div>
+<div class="ui modal shareModal" >
+        <i class="close icon"></i>
+        <div class="shareModalContainer">
+            <h2>Email this home</h2>
+            <form class="ui form">
+                <div class="field">
+                  <label>Recipient's email</label>
+                  <input type="text" name="first-name" placeholder="Enter email">
+                  <div style="padding-top:5px;">Separate multiple addresses with a comma.</div>
+                </div>
+                <div class="field">
+                  <label>Your email</label>
+                  <input type="email" name="last-name" value="charlis@saisanj.com">
+                </div>
+                <div class="field">
+                  <label>Include message (optional)</label>
+                  <textarea rows="2" placeholder="Check out this home I found on Zillow."></textarea>
+                </div>
+                <button (click)="sendMail()" class="ui blue button" type="submit">Send email</button>
+            </form>
+        </div>
+</div>
+<div class="ui modal agentModal">
+    <i class="close icon"></i>
+    <div class="header">
+      Schedule a Meet Up
+    </div>
+    <div class="image content">
+      <div class="ui medium image">
+            <img src="https://s.zillowstatic.com/homepage/static/Buy_a_home.png"> 
+      </div>
+      <div class="description">
+            <form style="padding: 0;" class="ui form">
+              <div class="field">
+                <label>Name</label>
+                <input type="text" name="name" autocomplete="off">
+              </div>
+              <div class="field">
+                <label>City</label>
+                <input type="text" name="city" autocomplete="off">
+              </div>
+              <div class="field">
+                <label>Contact Number</label>
+                <input type="number" name="contact" autocomplete="off">
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="email" name="last-name" autocomplete="off">
+              </div>
+          </form>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui positive right labeled icon button" (click)="allotAgent()" >
+        Schedule
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>

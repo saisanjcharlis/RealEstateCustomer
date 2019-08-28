@@ -7,12 +7,17 @@
      }
 }
 .shareButton{
-    position: fixed;
-    left:1px;
-    display: flex;
-    flex-direction: column;
-    z-index: 5;
-    top:300px;
+    display: none;
+}
+@media all and (max-width: 768px) {
+    .shareButton{
+        position: fixed;
+        left:1px;
+        display: flex;
+        flex-direction: column;
+        z-index: 5;
+        top:300px;
+    }
 }
 .circular.button{
     opacity: 0.8;
@@ -330,7 +335,10 @@
         width:  95% !important;
     }
 }
-mgl-map {
+.googleMap{
+    width:  50% !important;
+}
+agm-map {
     height: 100%;
     width: 100%;
 }
@@ -339,9 +347,74 @@ mgl-map {
     font-weight: bold;
 }
 .actionButton{
-    font-size:18px;
+    font-size:16px;
     margin-right:10px;
     cursor: pointer;
     color:#0066ff;
     font-weight: bold;
+}
+.shareModal{
+    width: 400px !important;
+}
+@media screen and (max-width: 500px){
+    .shareModal{
+        width: 80% !important;
+    }
+}
+@media screen and (max-width: 768px){
+    .actionButton{
+       display: none;
+    }
+}
+.shareModalContainer{
+    padding:15px;
+}
+.shareModalContainer label{
+    font-size:14px;
+}
+.tagInfo{
+    opacity: 0.7;
+    position: absolute;
+    top:10px;
+    left:10px;
+  }
+  .rightFloated{
+    position: absolute;
+    right:10px;
+    top:10px;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.5s; 
+   }
+   .ratingFloat{
+    position: absolute;
+    bottom:10px;
+    right: 10px;
+  }
+  .projects .header{
+    line-height: 0 !important;
+    display: inline !important;
+  }
+  .priceInfo{
+    float: right;
+    font-weight: bold;
+  }
+  .onwards{
+    color:#414143;
+    font-size:10px;
+    font-weight: normal;
+  }
+  .red{
+    color: red !important;
+  }
+  .agentModal{
+	width: 50% !important;
+}
+@media all and (max-width: 768px) {
+	.agentModal{
+		width: 80% !important;
+	}
+	.agentModal .medium.image{
+		display: none;
+	}
 }

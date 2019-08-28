@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Map, SymbolLayout } from 'mapbox-gl';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AgmMap } from '@agm/core';
 declare var $:any;
 @Component({
   selector: 'app-project-detail',
@@ -13,6 +13,33 @@ export class ProjectDetailComponent implements OnInit {
   ];
   labelLayerId: string;
   saveText="Save";
+  lat: number=17.38;
+  long: number=78.48; 
+  zoom: number=15;
+  projects = [
+    {
+      "projectName": "Spectra Fortune",
+      "minPrice": 5600000,
+      "minPriceParsed": "56,00,000",
+      "maxPrice": 20000000,
+      "minSize": 240,
+      "maxSize": 400,
+      "address1": "Plot No.31, Balanagar",
+      "address2": "Hyderabad, TS 500032",
+      "saleStatus": "For Sale",
+      "imageUrl": "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg",
+      "likedStatus": false,
+      "rating": 2,
+      "postedOn": "04 Aug 2019",
+      "state": "hyderabad",
+      "zipcode": "500032",
+      "lat": "12323213",
+      "long": "1321331",
+      "homeType": "plots",
+      "beds": [3,4,5],
+      "agents": []
+    }
+  ];
   constructor() { }
   save(e){
    if(this.saveText=="Save"){
@@ -23,7 +50,21 @@ export class ProjectDetailComponent implements OnInit {
    $(e.target).children('i').toggleClass('outline');
   }
   share(){
-
+    $('.ui.modal.shareModal').modal('show');
+    
+  }
+  agentModal(){
+    $('.ui.modal.agentModal').modal('show');   
+  }
+  allotAgent(){
+    $('body').toast({
+      class: 'success',
+      message: `Check mail for Information.`
+    });
+    $('.toast-box').css("margin-top","50px");
+  }
+  sendMail(){
+    $('.ui.modal.shareModal').modal('hide');
   }
   rightDate(){
     $('.itemContainer').animate({left: "-=105px"},500);
@@ -35,36 +76,17 @@ export class ProjectDetailComponent implements OnInit {
     $('.ldpGrayDayOptionContainer.selectedDate').removeClass('selectedDate');
     $(e.target).addClass("selectedDate");
   }
-  onLoad(mapInstance: Map) {
-    const layers = mapInstance.getStyle().layers!;
-
-     for (let i = 0; i < layers.length; i++) {
-      if (layers[i].type === 'symbol' && (<SymbolLayout>layers[i].layout)['text-field']) {
-        this.labelLayerId = layers[i].id;
-        break;
-      }
-    }
-  }
-  addFavorite(){
-    $('body').toast({
-    message: 'Liked this project',
-    class: 'blue', 
-    showProgress: 'bottom'
-  });
-  }
-  resizeMap(){
-    setTimeout(()=>{    
-      window.dispatchEvent(new Event('resize'));
- },0);
-  }
+ 
   addCoBuy(){
     $('.ui.modal.coBuy').modal('show');
   }
   openLocationMap(){
     $('.ui.modal.locationMap').modal('show');
   }
+  openGMap(){
+    $('.ui.modal.googleMap').modal('show');
+  }
   ngOnInit() {
-    // $('.ui.rating').rating();
     $('.demo.menu .item').tab();
     if(window.innerWidth>930)
        {
