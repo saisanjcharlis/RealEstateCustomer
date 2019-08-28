@@ -22,6 +22,9 @@ export class ProjectDetailComponent implements OnInit {
    }
    $(e.target).children('i').toggleClass('outline');
   }
+  share(){
+
+  }
   rightDate(){
     $('.itemContainer').animate({left: "-=105px"},500);
   }
