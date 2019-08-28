@@ -144,7 +144,7 @@ input.search {
   justify-content: center;
   margin-bottom: 10px;
 }
-@media all and (max-height: 768px) {
+@media all and (max-width: 768px) {
   .intro {
     height: calc(100vh - 50px);
   }

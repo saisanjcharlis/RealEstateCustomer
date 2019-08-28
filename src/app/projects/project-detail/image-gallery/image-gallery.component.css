@@ -16,13 +16,17 @@ body {
 
 .container {
 	/* margin: 0 auto; */
-	max-width: 100%;
+	max-width: 85%;
 	/* max-height: 100vh; */
 	background-color: #414143;
 }
 
+@media only screen and (max-width: 768px) {
+	.container {
+		max-width: 100%;
+	}
+  }
 
-/* Useful Classes */
 .xy-center {
 	position: absolute;
 	top: 50%;

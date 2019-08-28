@@ -48,7 +48,8 @@
                         <div class="infoLabel">Sq.Ft.</div>
                     </div>
                 </div>
-               
+                <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
+                <span (click)="share($event)" class="actionButton"><i class="external alternate icon"></i>Share</span>
                 <button class="ui blue button">Buy Plots</button>
               
             </div>
@@ -59,7 +60,7 @@
                 <a class="black item" data-tab="second">Property Details</a>
                 <a class="black item" data-tab="third">Plot Details</a>
                 <a class="black item" data-tab="fourth">Schools Nearby</a>
-                <a class="black item" data-tab="fifth">3D Tour</a>
+                <a class="black item" (click)="resizeMap()" data-tab="fifth">3D Tour</a>
                 <a class="black item" data-tab="sixth">Neighbourhood</a>
                 <a class="black item" data-tab="seventh">Similar Properties</a>
             </div>
@@ -142,8 +143,34 @@
                                         <div class="menuHeader">Schools Nearby</div>
                                 </div>
                                 <!-- 3D Tour -->
-                                <div class="ui tab segment" data-tab="fifth">
+                                <div class="ui tab segment 3DTour" style="width:100%;height: 100%;" data-tab="fifth">
                                         <div class="menuHeader">3D Tour</div>
+                                        <!-- <mgl-map id="map" [style]="'mapbox://styles/mapbox/outdoors-v9'" [antialias]="true" [pitch]="[45]" [bearing]="[-17.6]" [zoom]="[15.5]" [center]="[78.48,17.38]">
+                                        </mgl-map> -->
+                                        <mgl-map [style]="'mapbox://styles/mapbox/light-v9'" [zoom]="18" [center]="[79.2710344, 17.0486026]" [pitch]="45" [bearing]="-17.6" (load)="onLoad($event)">
+                                            <mgl-layer id="3d-buildings" source="composite" sourceLayer="building" [filter]="['==', 'extrude', 'true']" type="fill-extrusion" [minzoom]="15"
+                                            [paint]="{
+                                                    'fill-extrusion-color': '#ccc',
+                                                    'fill-extrusion-height': [
+                                                    'interpolate', ['linear'], ['zoom'],
+                                                    15, 0,
+                                                    15.05, ['get', 'height']
+                                                    ],
+                                                    'fill-extrusion-base': [
+                                                    'interpolate',
+                                                    ['linear'], ['zoom'],
+                                                    15, 0,
+                                                    15.05, ['get', 'min_height']
+                                                    ],
+                                                    'fill-extrusion-opacity': .6
+                                            }"
+                                            [before]="labelLayerId">
+                                            </mgl-layer>
+                                            <mgl-marker [lngLat]="[79.2710344, 17.0486026]" >
+                                                    <i class="city large black icon" ></i><span class="marker">Spectra Galaxy</span>
+                                            </mgl-marker>
+                                    </mgl-map>
+                                      
                                 </div>
                                 <!-- Neighbourhood -->
                                 <div class="ui tab segment" data-tab="sixth">
@@ -266,11 +293,10 @@
                                 <span style="cursor: pointer;">(206) 429-8986</span>
                             </div>
                             <hr style="opacity: 0.3; z-index: 5;">
-                            
                     </div>
             </div>
             
-                        
+    <footer></footer>
 </div>
 <div class="ui modal coBuy" style="width: 350px; height: 350px;">
         <i class="close icon"></i>
@@ -288,4 +314,8 @@
 <div class="ui modal locationMap">
         <i class="close icon"></i>
         <img src="http://www.spectraindia.in/wp-content/uploads/2016/10/fortune_locationmap.jpg" style="width: 100%;margin-top:10px;">
+</div>
+<div class="ui modal shareModal" style="width: 350px; height: 350px;">
+        <i class="close icon"></i>
+        Share Form
 </div>

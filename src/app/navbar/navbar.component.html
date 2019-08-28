@@ -69,7 +69,7 @@
         <span class="button button-toggle"></span>
       </label>
       <nav class="nav">
-        <a *ngIf="createProfile" routerLink="/login" routerLinkActive="activated" id="createAccount" class="nav-item"><i style="color:#FCB332;" class="plus icon"></i>Join</a>
+        <a *ngIf="createProfile" routerLink="/" routerLinkActive="activated" id="createAccount" class="nav-item"><i style="color:#FCB332;" class="plus icon"></i>Join</a>
         <a *ngIf="navViewOnly" [ngClass]="{'disabled':!initialAvatar}" routerLink="/activity" routerLinkActive="activated" class="nav-item" ><i class="user outline icon"></i>Activity</a>
         <a routerLink="/projects" routerLinkActive="activated" class="nav-item" ><i class="home icon"></i><span>Projects</span></a>
         <a *ngIf="navViewOnly" [ngClass]="{'disabled':!initialAvatar}" routerLink="/passbook" routerLinkActive="activated" class="nav-item" ><i class="clipboard icon"></i>Passbook</a>

@@ -8,11 +8,11 @@
                         <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" (ngModelChange)="locationSearch($event)" type="text" placeholder={{searchPlaceholder}}>
                         <i class="search large blue icon"></i>
                 </div>
-                <a class="scrollButton" href="#intro">  <i  class="arrow down large icon" style="color:white;"></i></a>
+                <a  id="intro"  class="scrollButton" href="#intro">  <i  class="arrow down large icon" style="color:white;"></i></a>
               
               </div>
     </div>
-    <div id="intro" class="options">
+    <div class="options">
         <div class="textInfo">
           We have the most listings and constant updates.<br>
           So you’ll never miss out.
@@ -50,11 +50,11 @@
         <form [@itemAnim] action="" (ngSubmit)="signIn(u1.value,p2.value)" *ngIf="hideSignIn">
           <h3><span>Sign in</span> using your username and password</h3>
           <div class="inputContainer">
-            <input id="signInUsername" #u1 type="text" name="username" placeholder="Username" autocomplete="false" required />
+            <input id="signInUsername" #u1 type="text" name="username" placeholder="Username" required autocomplete="off"/>
             <label for=username></label>
           </div>
           <div class="inputContainer">
-            <input id="signInPassword" #p2 type="password" placeholder="Password" autocomplete="false" required />
+            <input id="signInPassword" #p2 type="password" placeholder="Password"  required />
           <label for=password></label>
           </div>
           <div *ngIf="errors.length>0" class="ui error message" style="width: 100%;">
@@ -71,14 +71,14 @@
         <form [@itemAnim] action="" (ngSubmit)="signUp(phNumber.value,otp.value, pwd.value)" class="sign-up-contain" *ngIf="hideSignUp">
             <h3><span>Sign up</span> to experience the most <br> efficient way of communication</h3>
             <div class="inputContainer">
-              <input id="phoneno" type="number" #phNumber placeholder="Mobile Number" autocomplete="false" required />
+              <input id="phoneno" type="number" #phNumber placeholder="Mobile Number" autocomplete="off" required />
               <label for=phoneno></label>
             </div>
             <div class="inputContainer">
               <!-- <span class="resendText">Wait30s</span> Wait for 30 second icon -->
               <i class="resendText spinner  loading icon"></i>
                <!-- <i class="resend redo icon"></i> -->
-               <input id="otp" type="text" #otp placeholder="Enter OTP" autocomplete="false" required />
+               <input id="otp" type="text" #otp placeholder="Enter OTP" autocomplete="off" required />
                <label for=otp></label>
             </div>
             <div class="inputContainer">
@@ -119,19 +119,19 @@
           <form style="padding: 0;" class="ui form">
             <div class="field">
               <label>Name</label>
-              <input type="text" name="name">
+              <input type="text" name="name" autocomplete="off">
             </div>
             <div class="field">
               <label>City</label>
-              <input type="text" name="city" >
+              <input type="text" name="city" autocomplete="off">
             </div>
             <div class="field">
               <label>Contact Number</label>
-              <input type="number" name="contact" >
+              <input type="number" name="contact" autocomplete="off">
             </div>
             <div class="field">
               <label>Email</label>
-              <input type="email" name="last-name" >
+              <input type="email" name="last-name" autocomplete="off">
             </div>
         </form>
     </div>

@@ -32,7 +32,7 @@
                 <span>EMI Amount</span><span class="propertyInfoColor" >18000</span>
                 <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
             </div>
-            <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" class="ui basic tiny button blue manageButton">Manage</button>
+            <button routerLink="/transactions" (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" class="ui basic tiny button blue manageButton">Transactions</button>
         </div>
       </div>
   </div>
@@ -68,7 +68,7 @@
             <div style="margin-bottom:10px;cursor: pointer;" routerLink="/projectDetail">
                 <span style="font-weight: bold;"><i class="like blue outline large icon" ></i>Spectra Galaxy</span><span style="float:right;font-weight: bold;color:#0066ff">Hyderabad</span>
                 <div class="favInfo">
-                    <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
+                    <span>Property Worth</span><span class="propertyInfoColor">18 Cr. <span style="font-size:10px;">onwards</span></span>
                     <span>Year Built</span><span class="propertyInfoColor" >2017</span>
                 </div>
             </div>

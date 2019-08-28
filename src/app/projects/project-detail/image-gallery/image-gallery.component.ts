@@ -11,16 +11,26 @@ export class ImageGalleryComponent implements OnInit {
     this.el = el;
   }
   images = [
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg",
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg",
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg",
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg",
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/food.jpg",
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg",
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg",
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg",
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg",
-    "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg"
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg",
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg",
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg",
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg",
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/food.jpg",
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg",
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg",
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg",
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg",
+    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg"
+    "http://www.spectraindia.in/wp-content/uploads/2016/09/Kidspark.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/09/Drainage.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/09/watertank.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/09/Streetlights.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/02/Education-Center.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/02/Vedapatashala.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/02/Yoga.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/02/Herbal-Garden.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/02/Open-Air-Theatre.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/09/Streetlights.jpg",
   ];
   gallery;
   galleryItems;

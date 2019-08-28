@@ -2,7 +2,7 @@
 
 <div class="container">
     <div>
-        <span class="containerHeader">Passbooks <div class="ui green label">1</div></span><button class="ui  green button" (click)="addPassbook()" style="float:right;margin-top:15px;"><i class="plus icon"></i>Add Passbook</button>
+        <span class="containerHeader">Passbooks <div class="ui green label">{{projects.length}}</div></span><button class="ui  green button" (click)="addPassbook()" style="float:right;margin-top:15px;"><i class="plus icon"></i>Add Passbook</button>
         
         <div class="boxContainer" *ngIf="projects.length==0">
           <div >

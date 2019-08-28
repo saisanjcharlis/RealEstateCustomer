@@ -330,4 +330,18 @@
         width:  95% !important;
     }
 }
-
+mgl-map {
+    height: 100%;
+    width: 100%;
+}
+.marker{
+    font-size:10px;
+    font-weight: bold;
+}
+.actionButton{
+    font-size:18px;
+    margin-right:10px;
+    cursor: pointer;
+    color:#0066ff;
+    font-weight: bold;
+}

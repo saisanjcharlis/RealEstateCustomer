@@ -26,6 +26,8 @@
             "styles": [
               "semantic/dist/semantic.min.css",
               "src/styles.css",
+              "node_modules/mapbox-gl/dist/mapbox-gl.css",
+              "node_modules/@mapbox/mapbox-gl-geocoder/lib/mapbox-gl-geocoder.css"
             ],
             "scripts": [
               "src/js/jquery-3.4.1.min.js",
