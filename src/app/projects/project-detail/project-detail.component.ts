@@ -49,6 +49,16 @@ export class ProjectDetailComponent implements OnInit {
    }
    $(e.target).children('i').toggleClass('outline');
   }
+  mouseHover(e){
+    $(e.target).removeClass('basic');
+  }
+  mouseLeave(e){
+    $(e.target).addClass('basic');
+  }
+  selectPlot(e){
+    $('.plotDetails .button.green').removeClass('green');
+    $(e.target).addClass('green');
+  }
   share(){
     $('.ui.modal.shareModal').modal('show');
     

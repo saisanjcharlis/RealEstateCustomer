@@ -107,7 +107,7 @@
     display: grid;
     margin:20px;
     grid-gap:10px 1rem;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 45%;
 }
 @media all and (max-width: 930px) {
     .gridContainer{
@@ -127,12 +127,42 @@
     background: white;
     box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
 }
+.subHeader{
+    font-weight: bold;margin-top:20px;font-size:18px;color:#414143;
+    margin-bottom:10px;
+}
 
+.propDetailsHeader{
+    font-weight: bold;font-size:18px;
+    margin-top:20px;
+    color:#414143;
+}
+.propDetailsInfo{
+    margin-left:20px;
+    font-size:14px;
+}
+@media all and (max-width: 768px) {
+    .subHeader, .propDetailsHeader{
+      font-size:14px;
+    }
+  }
+.plotGrid{
+    margin-top:20px;
+    display: grid;
+    grid-gap: 0 12%;
+    grid-template-columns: 48% 40%;
+}
+.plotGrid .infoValue{
+    font-size:14px;
+}
+.plotRoomDetails{
+    display:flex;
+    justify-content: space-between;
+}
 .menuHeader{
-    font-size:18px;
-    font-weight: bold;
+    font-size:20px;
+    font-weight: bolder;
     font-family: 'Quicksand', sans-serif; 
-    color:#0066ff;
     padding-bottom:20px;
 }
 @media all and (min-width: 931px) {
@@ -173,13 +203,16 @@
 .keyDetailsList .keyDetail{
     align-self: stretch;
     width: 100%;
-    font-size:16px;
+    font-size:14px;
     padding: .5rem 0;
     display: flex;
     justify-content: space-between;
 }
 .keyDetail .header{
     color:grey;
+}
+.keyDetail .content{
+    font-weight: bold;
 }
 @media all and (min-width: 600px) {
     .keyDetailsList .keyDetail {
@@ -417,4 +450,7 @@ agm-map {
 	.agentModal .medium.image{
 		display: none;
 	}
+}
+.agentModal label{
+    text-align: left;
 }

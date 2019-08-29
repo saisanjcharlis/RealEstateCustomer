@@ -21,9 +21,9 @@ export class ImageGalleryComponent implements OnInit {
     // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg",
     // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg",
     // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg"
-    "http://www.spectraindia.in/wp-content/uploads/2016/09/Kidspark.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/09/Drainage.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/09/watertank.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/03/living-room.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/03/bathroom.jpg",
+    "http://www.spectraindia.in/wp-content/uploads/2016/03/kidsroom.jpg",
     "http://www.spectraindia.in/wp-content/uploads/2016/09/Streetlights.jpg",
     "http://www.spectraindia.in/wp-content/uploads/2016/02/Education-Center.jpg",
     "http://www.spectraindia.in/wp-content/uploads/2016/02/Vedapatashala.jpg",
