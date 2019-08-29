@@ -98,7 +98,14 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('logStatus','true');
       localStorage.setItem('saveSearch','true');
       localStorage.setItem('newUser','false');
-      this.routes.navigate(['/activity']);
+      this.routes.navigate(['/']);
+      this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+      let currentUrl = this.routes.url + '?';
+      this.routes.navigateByUrl(currentUrl)
+        .then(() => {
+          this.routes.navigated = false;
+          this.routes.navigate([this.routes.url]);
+        });
     }
     else{
       if(uname.length==0){

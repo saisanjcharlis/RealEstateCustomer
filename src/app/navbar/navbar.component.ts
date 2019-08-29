@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
     // if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
     //   this.loginComp.openModal();
     // }
-    if(this.accountName=="Login/Sign Up" && routeActivate == "projects"){
+    if(this.accountName=="Login/Sign Up" && (routeActivate == "projects" || routeActivate == "projectDetail" )){
       this.router.navigate(['/']);
     }
     if(localStorage.getItem('logStatus')=='createProfile'){

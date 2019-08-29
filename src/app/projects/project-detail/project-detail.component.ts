@@ -55,10 +55,6 @@ export class ProjectDetailComponent implements OnInit {
   mouseLeave(e){
     $(e.target).addClass('basic');
   }
-  selectPlot(e){
-    $('.plotDetails .button.green').removeClass('green');
-    $(e.target).addClass('green');
-  }
   share(){
     $('.ui.modal.shareModal').modal('show');
     

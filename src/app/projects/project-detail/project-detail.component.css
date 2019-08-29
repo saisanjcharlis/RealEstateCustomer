@@ -66,7 +66,7 @@
     display: flex;flex-direction: column;align-items: center; flex:1 0 auto;padding:0 20px;
 }
 @media all and (max-width: 800px) {
-    .ui.celled.horizontal.list, .round{
+    .topInfo .ui.celled.horizontal.list, .round{
        display: none;
     }
 }
@@ -146,19 +146,7 @@
       font-size:14px;
     }
   }
-.plotGrid{
-    margin-top:20px;
-    display: grid;
-    grid-gap: 0 12%;
-    grid-template-columns: 48% 40%;
-}
-.plotGrid .infoValue{
-    font-size:14px;
-}
-.plotRoomDetails{
-    display:flex;
-    justify-content: space-between;
-}
+
 .menuHeader{
     font-size:20px;
     font-weight: bolder;
@@ -372,7 +360,7 @@
     width:  50% !important;
 }
 agm-map {
-    height: 100%;
+    height: 90vh;
     width: 100%;
 }
 .marker{

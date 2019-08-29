@@ -10,11 +10,11 @@
           <a *ngIf="projectsDisplay" class="item navFlex" routerLink="/projects" routerLinkActive="color change">
               <i class="navIcon home icon large"></i>
               <span>Projects</span>
-          </a>
-          <a  [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/passbook" routerLinkActive="color change">
+         </a>
+         <a  [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/passbook" routerLinkActive="color change">
               <i class="navIcon university icon large"></i>
               <span>Passbook</span>
-          </a>
+         </a>
          <a [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex ui dropdown" style="margin-left:80px !important;">
               <i class="navIcon bell outline icon large"></i>
               <div *ngIf="initialAvatar" class="floating ui circular label" style="background-color: #FCB332; color:white; font-size:0.75; opacity: 0.8; margin-top:14px !important; margin-right:24px!important;">2</div>

@@ -14,7 +14,7 @@
         <i class="comment icon"></i> &nbsp;Chat
     </button>
     <div (click)="agentModal()">
-        <span>Schedule Tour</span>
+        <span>Schedule Visit</span>
         <span>Next Available: Today at 11:00 AM</span>
     </div>
 </div>
@@ -38,10 +38,6 @@
                     <div class="item">
                         <div class="infoValue">Rs. 1.16 Cr</div>
                         <div class="infoLabel">Onwards Price</div>
-                    </div>
-                    <div class="item">
-                        <div class="infoValue">3 & 4 BHK</div>
-                        <div class="infoLabel">Flats</div>
                     </div>
                     <div class="item">
                         <div class="infoValue">1234-4000<span style="font-size: 14px;font-weight: 500;"></span></div>
@@ -88,17 +84,12 @@
                                     <div style="clear: both"></div>
                                     <div class="checkListOverview">
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Standards:<b>ISO 9001-2008 </b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Total No. of floors:<b>G+8</b></div>
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Total Units:<b>320</b></div>
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>120</b></div>
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Total Towers:<b>8</b></div>
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Onwards Price:<b>1.4 Cr</b></div>
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>Hyderabad</b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Floors:<b>12</b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Flats</b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Lot Size:<b>1184 <span style="font-size:10px;">sqyd</span></b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Blocks:<b>5</b></div>
+                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Plot</b></div>
                                     </div>
                                     <div class="subHeader">Approved By Banks :</div>
                                     <div class="bankList">
@@ -143,51 +134,16 @@
                                 <!-- Plot Details -->
                                 <div class="ui tab segment plotDetails" data-tab="third">
                                         <div class="menuHeader">Plot Details</div>
-                                        <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" (click)="selectPlot($event)"  class="ui tiny button green basic">400 sqft</button> 
-                                        <!-- <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" (click)="selectPlot($event)"  class="ui tiny button basic">800 sqft</button>
-                                        <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" (click)="selectPlot($event)"  class="ui tiny button basic">1200 sqft</button> -->
 
-                                        <div class="plotGrid">
-                                            <div class="ui segment">
-                                                <img style="width: 100%;" src="https://property.magicbricks.com/mb-microsite/6/yakshasquare-abhilashconstructionsy-visakhapatnam/img/floor-plan/fp2s.jpg">    
-                                            </div>
-                                            <div>
-                                                <div class="ui celled horizontal list">
-                                                    <div class="item">
-                                                        <div class="infoValue">40.4 Lac</div>
-                                                        <div class="infoLabel">Onwards</div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <div class="infoValue">3 BHK Flat</div>
-                                                        <div class="infoLabel">1320 sqft</div>
-                                                    </div>
-                                                </div>
-                                                <div class="plotRoomDetails">
-                                                    <div>
-                                                        <div>Bedrooms</div>
-                                                        <div>3</div>
-                                                    </div>
-                                                    <div>
-                                                        <div>Bathrooms</div>
-                                                        <div>3</div>
-                                                    </div>
-                                                    <div>
-                                                        <div>Balconies</div>
-                                                        <div>2</div>
-                                                    </div>
-                                                </div>
-                                                <button style="margin-top:50px;" class="ui button blue">Buy Now</button>
-                                            </div>
-                                        </div>
                                 </div>
                                 <!-- Amenities -->
                                 <div class="ui tab segment" data-tab="fourth">
                                         <div class="menuHeader">Amenities</div>
-                                        <div class="propDetailsHeader">GENERATOR</div>
+                                        <div class="propDetailsHeader">Generator</div>
                                             <div class="propDetailsInfo">Acoustic enclosed D.G. Set</div>
-                                        <div class="propDetailsHeader">PLUMBING</div>
+                                        <div class="propDetailsHeader">Plumbing</div>
                                             <div class="propDetailsInfo">All water supply lines in CPVC of ASTRAL / ASHIRVAD make. All drain lines shall be of PRICE / SUDHKAR PVC make. All the external / vertical plumbing shall be concealed</div>
-                                        <div class="propDetailsHeader">RAIN WATER HARVESTING</div>
+                                        <div class="propDetailsHeader">Rain Water Harvesting</div>
                                             <div class="propDetailsInfo">The rainwater from the terrace & open areas will be collected through rainwater pipes, which will be discharged into the rainwater harvesting pits to recharge the under ground water</div>
                                         <div class="propDetailsHeader">Water supply</div>
                                             <div class="propDetailsInfo">All Pumps of reputed make</div>
@@ -218,7 +174,6 @@
                                 <!-- Neighbourhood -->
                                 <div class="ui tab segment" data-tab="sixth">
                                         <div class="menuHeader">Neighbourhood Info for Spectra Galaxy</div>
-                                        <span style="font-weight: bold;font-size:20px;color:#414143;">Location Advantages :</span>
                                         <div class="ui bulleted list neighbourhoodList">
                                                 <div class="item">Located near to Balanagar industrial area, abutting on Hyderabad – Bengaluru NH-7</div>
                                                 <div class="item">Direct connectivity to Express Highway, Shadnagar Railway Station connecting Hyderabad to Shadnagar through MMTS</div>
@@ -229,6 +184,7 @@
                                                 <div class="item">Located in densely populated area besides Schools, Colleges, Market Yard, Banks and Hospitals</div>
                                         </div>
                                         <button (click)="openLocationMap()" class="ui blue tiny button">Location Map</button>
+                                        <button (click)="openGMap()" class="ui blue tiny button">Google Map</button>
                                         
                                 </div>
                                 <div class="ui tab segment" data-tab="seventh">
@@ -267,10 +223,10 @@
                                 </div>
                     </div> 
                     <div class="grid2">
-                            <p style="margin-top:20px;">
+                            <p style="margin-top:20px;text-align: center">
                                     Light and Bright Townhome with all the fun that Fremont offers! So many things to love; highlights include a spacious main level, lg windows, hardwood floors, skylights, gas fireplace w/ tile detail, & private patio!
                             </p>
-                            <div style="font-size:18px;font-weight: bold; letter-spacing: 1px;font-family: 'Quicksand', sans-serif; margin-bottom:10px;">Tour this Property</div>
+                            <div style="font-size:18px;font-weight: bold; letter-spacing: 1px;font-family: 'Quicksand', sans-serif; margin-bottom:10px;">Explore this Property</div>
                             <div style="width: 360px;position: relative;">
                                     <div class="leftArrowContainer" (click)="leftDate()">
                                         <div class="leftArrow disabled">
@@ -323,8 +279,7 @@
                             
 
                             <div class="grid2Button">
-                                <button (click)="agentModal()" class="ui  green  button">Schedule Tour</button>
-                                <!-- <button class="ui  blue button" (click)="addCoBuy()">Add co-buyer</button> -->
+                                <button (click)="agentModal()" class="ui  green  button">Schedule Visit</button>
                             </div>
                             
                             <div style="opacity: 0.5;font-size:12px;">It's free, with no obligation — cancel anytime</div>
@@ -360,14 +315,17 @@
     <i class="close icon"></i>
     <agm-map #map
                         [latitude]='lat' 
-                        [longitude]='long' 
+                        [longitude]='long'
+                        [usePanning]="true" 
+                        [disableDefaultUI]="false"
                         [zoom]="zoom" >
+                        <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
     </agm-map>
 </div>
 <div class="ui modal shareModal" >
         <i class="close icon"></i>
         <div class="shareModalContainer">
-            <h2>Email this home</h2>
+            <h2>Email this project</h2>
             <form class="ui form">
                 <div class="field">
                   <label>Recipient's email</label>
@@ -380,7 +338,7 @@
                 </div>
                 <div class="field">
                   <label>Include message (optional)</label>
-                  <textarea rows="2" placeholder="Check out this home I found on Zillow."></textarea>
+                  <textarea rows="2" placeholder="Check out this home I found on Spectra."></textarea>
                 </div>
                 <button (click)="sendMail()" class="ui blue button" type="submit">Send email</button>
             </form>
@@ -422,4 +380,8 @@
         <i class="checkmark icon"></i>
       </div>
     </div>
+  </div>
+  <div class="ui modal plotImageModal">
+    <i class="close icon"></i>
+    <img src={{plotImage}}>
   </div>
