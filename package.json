@@ -30,6 +30,7 @@
     "jquery": "^3.4.1",
     "jquery.nicescroll": "^3.7.6",
     "mapbox-gl": "^0.54.0",
+    "ng2-img-map": "^0.1.2",
     "ngx-mapbox-gl": "^3.3.1",
     "path": "^0.12.7",
     "rxjs": "~6.4.0",

@@ -92,7 +92,29 @@ export class ProjectDetailComponent implements OnInit {
   openGMap(){
     $('.ui.modal.googleMap').modal('show');
   }
+  openImage1(){
+    $('.ui.modal.plotMap1').modal('show');
+  }
+  openImage2(){
+    $('.ui.modal.plotMap2').modal('show');
+  }
+  openImage3(){
+    $('.ui.modal.plotMap3').modal('show');
+  }
+  hello(){
+    console.log("hell1");
+  }
+  hello1(){
+    console.log("hell2");
+  }
   ngOnInit() {
+
+    
+
+
+
+
+
     $('.demo.menu .item').tab();
     if(window.innerWidth>930)
        {
@@ -103,6 +125,76 @@ export class ProjectDetailComponent implements OnInit {
        }
   }
   ngAfterViewInit() {
+
+  //   $('#plotPlan1').mapster({
+  //     fillOpacity: 0.5,
+  //     render_highlight: {
+  //         fillColor: '2aff00',
+  //         stroke: true,
+  //     },
+  //     render_select: {
+  //         fillColor: 'ff000c',
+  //         stroke: false,
+  //     },
+  //     fadeInterval: 50,
+  //     mapKey: 'data-key',
+  //     areas: [
+  //     {
+  //         key: '990',
+  //         selected: true
+  //     },
+  //     {
+  //         key: '949',
+  //         selected: true
+  //     },
+  //     {
+  //         key: '985',
+  //         staticState: false
+  //     },
+  //     {
+  //         key: '994',
+  //         isSelectable: false
+  //     }]
+  // });
+  //   var basic_opts = {
+  //     mapKey: 'data-key'
+  // };
+  
+  // var initial_opts = $.extend({},basic_opts, 
+  //     { 
+  //         staticState: true,
+  //         fillOpacity: 1,
+  //         fill: true,
+  //         stroke: true,
+  //         strokeWidth: 5,
+  //         mapKey: 'data-key',
+  //       listKey: 'data-key',
+  //         strokeColor: '0066ff',
+  //         fillColor: '0066ff',
+  //         areas: [
+  //           {
+  //               key: "990",
+  //               fillColor: "0066ff"
+  //           }
+  //           ],
+  //           showToolTip: true,
+  //           toolTipClose: ["tooltip-click", "area-click"],
+  //     });
+  
+  // $('#plotPlan1').mapster(initial_opts)
+  //     .mapster('set',true,'990', {
+  //         fill: true,
+  //         fillColor: '0066ff'
+  //     })
+  //     .mapster('snapshot')
+  //     .mapster('rebind',basic_opts);
+
+
+
+  //   $('#plotPlan1 area').popup({
+  //     popup : $('.plotInfoToolTip'),
+  //     on    : 'click'
+  //   });
     $('.ui.rating').rating();
   }
   ngOnDestroy(){
