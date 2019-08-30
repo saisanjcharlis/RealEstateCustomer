@@ -127,7 +127,13 @@ export class ProjectDetailComponent implements OnInit {
   }
   displayPlot(e){
     this.plotSelected=e.target.title;
+    $('.ui.modal.plotInfo').modal('show').modal('refresh');
     console.log(e.target.title);
+  }
+  plotTab=false;
+  plotDetails(){
+    console.log("true");
+    this.plotTab = true;
   }
   ngOnInit() {
     $('.demo.menu .item').tab();
@@ -140,10 +146,8 @@ export class ProjectDetailComponent implements OnInit {
        }
   }
   ngAfterViewInit() {
-
-    $('#plotPlan1 area').popup({
-      popup : $('.plotInfoToolTip'),
-      on    : 'hover'
+    $('.event-modal').modal({
+      allowMultiple: true
     });
     $('.ui.rating').rating();
   }

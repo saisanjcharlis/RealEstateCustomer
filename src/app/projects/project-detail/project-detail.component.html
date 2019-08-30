@@ -54,7 +54,7 @@
             <div class="ui pointing secondary demo menu secondaryMenu" style="border-bottom: none;justify-content: center;">
                 <a class="active black item" data-tab="first">Overview</a>
                 <a class="black item" data-tab="second">Property Details</a>
-                <a class="black item" data-tab="third">Plot Details</a>
+                <a class="black item" (click)="plotDetails()" data-tab="third">Plot Details</a>
                 <a class="black item" data-tab="fourth">Amenities</a>
                 <a class="black item" data-tab="fifth">Video</a>
                 <a class="black item" data-tab="sixth">Neighbourhood</a>
@@ -134,8 +134,9 @@
                                 <!-- Plot Details -->
                                 <div class="ui tab segment plotDetails" data-tab="third">
                                         <div class="menuHeader">Plot Details</div>
-                                        <img src="assets/plotPlan.png" style="width: 100%"  usemap="#image-map">
-                                        <map name="image-map">
+                                        <div class="details">Spectra Galaxy Layout</div>
+                                        <img src="assets/plotPlan.png" style="width: 100%;"  usemap="#image-map" >
+                                        <map id="image-map" name="image-map">
                                             <area (click)="openImage1()" coords="0,0,1000,260" shape="rect"> 
                                             <area (click)="openImage2()" coords="0,261,460,600" shape="rect">
                                             <area (click)="openImage3()" coords="0,601,430,900" shape="rect">
@@ -227,7 +228,10 @@
                                         </div>
                                 </div>
                     </div> 
-                    <div class="grid2">
+                    <div *ngIf="plotTab">
+                            <div class="details">Spectra Galaxy Layout</div>
+                    </div>
+                    <div *ngIf="!plotTab" class="grid2">
                             <p style="margin-top:20px;text-align: center">
                                     Light and Bright Townhome with all the fun that Fremont offers! So many things to love; highlights include a spacious main level, lg windows, hardwood floors, skylights, gas fireplace w/ tile detail, & private patio!
                             </p>
@@ -386,21 +390,8 @@
       </div>
     </div>
   </div>
-<div style="position: relative;width:95%;height:90%;" class="ui modal plotMap1">
+<div style="position: relative;width:95%;height:90%;" class="ui modal event-modal plotMap1">
     <i class="close icon"></i>
-    <div *ngIf="plotSelected" style="position:absolute;top:10px;right:10px;z-index:99;color:#414143;width:100px;">
-        <div style="display:grid;grid-template-columns: 50% 50%">
-                <span>Plot</span>
-                <span><b>{{plotSelected}}</b></span>
-                <span>Area</span>
-                <span><b>1200 sqft</b></span>
-                <span>Facing</span>
-                <span><b>North</b></span>
-                <span>Cost</span>
-                <span><b>67 Lacs</b></span>
-        </div>
-        <button class="ui blue tiny button">Buy Plot</button>
-    </div>
     <maphilight
         id="statesMap"
         [config]="config"
@@ -434,7 +425,7 @@
             <area (click)="displayPlot($event)" data-key="1001" coords="165,385,194,397" title="1001" shape="rect">
             <area (click)="displayPlot($event)" data-key="1002" coords="165,397,192,410" title="1002" shape="rect">
             <area (click)="displayPlot($event)" data-key="1003" coords="165,409,194,421" title="1003" shape="rect">
-            <area (click)="displayPlot($event)" data-key="1004" coords="165,422,194,470" title="1004" shape="rect">
+            <area (click)="displayPlot($event)"data-key="1004" coords="165,422,194,470" title="1004" shape="rect">
         </map>
       </maphilight>
 </div>
@@ -447,6 +438,24 @@
     <img style="width: 100%" src="assets/plotPlan3.png">
 </div>
 
-<div class="ui plotInfoToolTip popup top right transition hidden">
-            sad
+<div class="ui mini modal event-modal plotInfo">
+        
+            <div *ngIf="plotSelected" style="color:#414143;">
+                <div style="display:grid;grid-template-columns: 45% 45%;grid-gap: 0 10%;padding:20px;">
+                        <span class="plotInfoLabel">Plot</span>
+                        <span style="color:#0066ff"><b>{{plotSelected}}</b></span>
+                        <span class="plotInfoLabel">Area</span>
+                        <span><b>1200 sqft</b></span>
+                        <span class="plotInfoLabel">Facing</span>
+                        <span><b>North</b></span>
+                        <span class="plotInfoLabel">Cost</span>
+                        <span><b>67 Lacs</b></span>
+                        <span class="plotInfoLabel">Attributes</span>
+                        <span><b>High Class</b></span>
+                </div>
+            </div>
+            <div class="actions" style="display:flex;justify-content: center;">
+                <div class="ui deny black button">View other plots</div>
+                <div class="ui blue  button">Buy Plot</div>
+            </div>  
 </div>

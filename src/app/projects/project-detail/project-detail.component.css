@@ -441,3 +441,9 @@ agm-map {
 .agentModal label{
     text-align: left;
 }
+.plotInfoLabel{
+    text-align: right;
+}
+#image-map area{
+    cursor: zoom-in;
+}
