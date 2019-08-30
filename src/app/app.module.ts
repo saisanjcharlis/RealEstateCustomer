@@ -36,7 +36,8 @@ import { LocationsService } from '../services/locations.service';
 import { MapsService } from '../services/maps.service';
 import { FooterComponent } from './footer/footer.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
-import { MaphilightModule } from 'ng-maphilight'
+import { MaphilightModule } from 'ng-maphilight';
+import { PlotLayoutComponent } from './projects/project-detail/plot-layout/plot-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,8 @@ import { MaphilightModule } from 'ng-maphilight'
     SettingsComponent,
     SavedsearchComponent,
     FavoritesComponent,
-    FooterComponent
+    FooterComponent,
+    PlotLayoutComponent
   ],
   imports: [
     BrowserModule,

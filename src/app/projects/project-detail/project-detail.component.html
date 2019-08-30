@@ -386,93 +386,57 @@
       </div>
     </div>
   </div>
-<div style="width: 90vw;" class="ui modal  plotMap1">
+<div style="position: relative;width:95%;height:90%;" class="ui modal plotMap1">
     <i class="close icon"></i>
+    <div *ngIf="plotSelected" style="position:absolute;top:10px;right:10px;z-index:99;color:#414143;width:100px;">
+        <div style="display:grid;grid-template-columns: 50% 50%">
+                <span>Plot</span>
+                <span><b>{{plotSelected}}</b></span>
+                <span>Area</span>
+                <span><b>1200 sqft</b></span>
+                <span>Facing</span>
+                <span><b>North</b></span>
+                <span>Cost</span>
+                <span><b>67 Lacs</b></span>
+        </div>
+        <button class="ui blue tiny button">Buy Plot</button>
+    </div>
     <maphilight
         id="statesMap"
         [config]="config"
       >
-      <img id="plotPlan1" width="1296" height="527px" src="assets/plotPlan1.png" class="map" usemap="#plotPlan1">   
+      <img id="plotPlan1" width="1200px" height="488px" src="assets/plotPlan1.png" class="map" usemap="#plotPlan1">   
       <map name="plotPlan1">
-        <area data-tooltip="Add users to your feed" data-key="949" coords="68,455,98,508" shape="rect">
-        <area data-key="977" coords="148,454,179,506" shape="rect">
-        <area data-key="976" coords="99,455,129,506" shape="rect">
-        <area data-key="1004" coords="179,454,209,508" shape="rect">
-        <area data-key="1003" coords="179,441,209,454" shape="rect">
-        <area data-key="950" coords="67,441,98,454" shape="rect">
-        <area data-key="978" coords="148,442,177,453" shape="rect">
-        <area data-key="975" coords="99,441,129,454" shape="rect">
-        <area data-key="979" coords="148,428,178,441" shape="rect">
-        <area data-key="1002" coords="180,427,209,440" shape="rect">
-        <area data-key="974" coords="99,427" shape="rect">
-        <area data-key="951" coords="67,428,97,440" shape="rect">
-        <area data-key="974" coords="67,416,97,427" shape="rect">
-        <area data-key="973" coords="99,415,129,426" shape="rect">
-        <area data-key="980" coords="148,414,178,427" shape="rect">
-        <area data-key="1001" coords="179,414,208,426" shape="rect">
-        <area data-key="1000" coords="179,402,209,412" shape="rect">
-        <area data-key="981" coords="148,402,177,412" shape="rect">
-        <area data-key="982" coords="148,388,178,401" shape="rect">
-        <area data-key="999" coords="179,390,208,401" shape="rect">
-        <area data-key="983" coords="148,377,177,387" shape="rect">
-        <area data-key="998" coords="179,376,209,388" shape="rect">
-        <area data-key="984" coords="148,363,178,376" shape="rect">
-        <area data-key="997" coords="180,363,209,375" shape="rect">
-        <area data-key="985" coords="148,351,179,363" shape="rect">
-        <area data-key="996" coords="180,349,209,362" shape="rect">
-        <area data-key="986" coords="148,338,178,349" shape="rect">
-        <area data-key="995" coords="179,338,208,348" shape="rect">
-        <area data-key="987" coords="148,325,178,337" shape="rect">
-        <area data-key="994" coords="179,324,209,337" shape="rect">
-        <area data-key="993" coords="179,310,208,323" shape="rect">
-        <area data-key="988" coords="148,312,179,324" shape="rect">
-        <area data-key="989" coords="148,298,177,310" shape="rect">
-        <area data-key="992" coords="180,299,208,309" shape="rect">
-        <area data-hilight="{'fillColor':'0066ff'}" data-key="990" coords="148,245,179,297" shape="rect">          
-        <area data-key="991" coords="209,245,179,298" shape="rect">
-</map>
+            <area (click)="displayPlot($event)" data-maphilight='{"fillColor":"ff0000"}' data-key="990" title="990" coords="139,228,164,277" shape="rect">
+            <area (click)="displayPlot($event)" data-key="989" coords="139,278,165,289" title="989" shape="rect">
+            <area (click)="displayPlot($event)" data-key="988" coords="166,301,139,290" title="988" shape="rect">
+            <area (click)="displayPlot($event)" data-key="987" coords="137,302,166,313" title="987" shape="rect">
+            <area (click)="displayPlot($event)" data-key="986" coords="137,314,167,325" title="986" shape="rect">
+            <area (click)="displayPlot($event)" data-key="985" coords="138,326,165,337" title="985" shape="rect">
+            <area (click)="displayPlot($event)" data-key="984" coords="138,338,165,349" title="984" shape="rect">
+            <area (click)="displayPlot($event)" data-key="983" coords="138,348,165,362" title="983" shape="rect">
+            <area (click)="displayPlot($event)" data-key="982" coords="137,363,164,374" title="982" shape="rect">
+            <area (click)="displayPlot($event)" data-key="981" coords="138,374,165,386" title="981" shape="rect">
+            <area (click)="displayPlot($event)" data-maphilight='{"fillColor":"ff0000"}' data-key="980" title="980" coords="138,387,166,397" shape="rect">
+            <area (click)="displayPlot($event)" data-key="979" coords="138,398,164,409" title="979" shape="rect">
+            <area (click)="displayPlot($event)" data-key="978" coords="137,409,166,422" title="978" shape="rect">
+            <area (click)="displayPlot($event)" data-key="977" coords="137,422,166,470" title="977" shape="rect">
+            <area (click)="displayPlot($event)" data-maphilight='{"fillColor":"0000ff"}' data-key="991" title="991" coords="166,229,194,277" shape="rect">
+            <area (click)="displayPlot($event)" data-key="992" coords="165,278,192,290" title="992" shape="rect">
+            <area (click)="displayPlot($event)" data-key="993" coords="165,290,192,300" title="993" shape="rect">
+            <area (click)="displayPlot($event)" data-key="994" coords="165,301,194,313" title="994" shape="rect">
+            <area (click)="displayPlot($event)" data-key="995" coords="164,313,192,325" title="995" shape="rect">
+            <area (click)="displayPlot($event)" data-maphilight='{"fillColor":"ff0000"}' data-key="996" title="996" coords="165,325,192,335" shape="rect">
+            <area (click)="displayPlot($event)" data-maphilight='{"fillColor":"0000ff"}' data-key="997" title="997" coords="164,336,192,348" shape="rect">
+            <area (click)="displayPlot($event)" data-key="998" coords="165,349,194,362" title="998" shape="rect">
+            <area (click)="displayPlot($event)" data-key="999" coords="165,362,192,374" title="999" shape="rect">
+            <area (click)="displayPlot($event)" data-key="1000" coords="165,374,192,384" title="1000" shape="rect">
+            <area (click)="displayPlot($event)" data-key="1001" coords="165,385,194,397" title="1001" shape="rect">
+            <area (click)="displayPlot($event)" data-key="1002" coords="165,397,192,410" title="1002" shape="rect">
+            <area (click)="displayPlot($event)" data-key="1003" coords="165,409,194,421" title="1003" shape="rect">
+            <area (click)="displayPlot($event)" data-key="1004" coords="165,422,194,470" title="1004" shape="rect">
+        </map>
       </maphilight>
-
-
-    <!-- <img id="plotPlan1" width="1296" height="527px" src="assets/plotPlan1.png" class="map" usemap="#plotPlan1">
-    <map name="plotPlan1">
-            <area data-tooltip="Add users to your feed" data-key="949" coords="68,455,98,508" shape="rect">
-            <area data-key="977" coords="148,454,179,506" shape="rect">
-            <area data-key="976" coords="99,455,129,506" shape="rect">
-            <area data-key="1004" coords="179,454,209,508" shape="rect">
-            <area data-key="1003" coords="179,441,209,454" shape="rect">
-            <area data-key="950" coords="67,441,98,454" shape="rect">
-            <area data-key="978" coords="148,442,177,453" shape="rect">
-            <area data-key="975" coords="99,441,129,454" shape="rect">
-            <area data-key="979" coords="148,428,178,441" shape="rect">
-            <area data-key="1002" coords="180,427,209,440" shape="rect">
-            <area data-key="974" coords="99,427" shape="rect">
-            <area data-key="951" coords="67,428,97,440" shape="rect">
-            <area data-key="974" coords="67,416,97,427" shape="rect">
-            <area data-key="973" coords="99,415,129,426" shape="rect">
-            <area data-key="980" coords="148,414,178,427" shape="rect">
-            <area data-key="1001" coords="179,414,208,426" shape="rect">
-            <area data-key="1000" coords="179,402,209,412" shape="rect">
-            <area data-key="981" coords="148,402,177,412" shape="rect">
-            <area data-key="982" coords="148,388,178,401" shape="rect">
-            <area data-key="999" coords="179,390,208,401" shape="rect">
-            <area data-key="983" coords="148,377,177,387" shape="rect">
-            <area data-key="998" coords="179,376,209,388" shape="rect">
-            <area data-key="984" coords="148,363,178,376" shape="rect">
-            <area data-key="997" coords="180,363,209,375" shape="rect">
-            <area data-key="985" coords="148,351,179,363" shape="rect">
-            <area data-key="996" coords="180,349,209,362" shape="rect">
-            <area data-key="986" coords="148,338,178,349" shape="rect">
-            <area data-key="995" coords="179,338,208,348" shape="rect">
-            <area data-key="987" coords="148,325,178,337" shape="rect">
-            <area data-key="994" coords="179,324,209,337" shape="rect">
-            <area data-key="993" coords="179,310,208,323" shape="rect">
-            <area data-key="988" coords="148,312,179,324" shape="rect">
-            <area data-key="989" coords="148,298,177,310" shape="rect">
-            <area data-key="992" coords="180,299,208,309" shape="rect">
-            <area data-key="990" coords="148,245,179,297" shape="rect">          
-            <area data-key="991" coords="209,245,179,298" shape="rect">
-    </map> -->
 </div>
 <div style="width: 85vw;" class="ui modal plotMap2">
     <i class="close icon"></i>

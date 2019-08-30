@@ -17,6 +17,7 @@ export class ProjectDetailComponent implements OnInit {
   lat: number=17.38;
   long: number=78.48; 
   zoom: number=15;
+  plotSelected;
   config = {
     fade: true,
     alwaysOn: true,
@@ -24,13 +25,13 @@ export class ProjectDetailComponent implements OnInit {
 
     // fill
     fill: true,
-    fillColor: '#0066ff',
-    fillOpacity: 0.4,
+    fillColor: '#00ff00',
+    fillOpacity: 0.6,
 
     // stroke
     stroke: true,
-    strokeColor: '#4d0ec0',
-    strokeOpacity: 1,
+    strokeColor: '#414143',
+    strokeOpacity: 0.8,
     strokeWidth: 1,
 
     // shadow:
@@ -124,12 +125,11 @@ export class ProjectDetailComponent implements OnInit {
   openImage3(){
     $('.ui.modal.plotMap3').modal('show');
   }
+  displayPlot(e){
+    this.plotSelected=e.target.title;
+    console.log(e.target.title);
+  }
   ngOnInit() {
-    // $('.map').maphilight(
-    //   {
-    //     alwaysOn: true
-    //   }
-    // );
     $('.demo.menu .item').tab();
     if(window.innerWidth>930)
        {
@@ -140,75 +140,11 @@ export class ProjectDetailComponent implements OnInit {
        }
   }
   ngAfterViewInit() {
-  //   $('#plotPlan1').mapster({
-  //     fillOpacity: 0.5,
-  //     render_highlight: {
-  //         fillColor: '2aff00',
-  //         stroke: true,
-  //     },
-  //     render_select: {
-  //         fillColor: 'ff000c',
-  //         stroke: false,
-  //     },
-  //     fadeInterval: 50,
-  //     mapKey: 'data-key',
-  //     areas: [
-  //     {
-  //         key: '990',
-  //         selected: true
-  //     },
-  //     {
-  //         key: '949',
-  //         selected: true
-  //     },
-  //     {
-  //         key: '985',
-  //         staticState: false
-  //     },
-  //     {
-  //         key: '994',
-  //         isSelectable: false
-  //     }]
-  // });
-  //   var basic_opts = {
-  //     mapKey: 'data-key'
-  // };
-  
-  // var initial_opts = $.extend({},basic_opts, 
-  //     { 
-  //         staticState: true,
-  //         fillOpacity: 1,
-  //         fill: true,
-  //         stroke: true,
-  //         strokeWidth: 5,
-  //         mapKey: 'data-key',
-  //       listKey: 'data-key',
-  //         strokeColor: '0066ff',
-  //         fillColor: '0066ff',
-  //         areas: [
-  //           {
-  //               key: "990",
-  //               fillColor: "0066ff"
-  //           }
-  //           ],
-  //           showToolTip: true,
-  //           toolTipClose: ["tooltip-click", "area-click"],
-  //     });
-  
-  // $('#plotPlan1').mapster(initial_opts)
-  //     .mapster('set',true,'990', {
-  //         fill: true,
-  //         fillColor: '0066ff'
-  //     })
-  //     .mapster('snapshot')
-  //     .mapster('rebind',basic_opts);
 
-
-
-  //   $('#plotPlan1 area').popup({
-  //     popup : $('.plotInfoToolTip'),
-  //     on    : 'click'
-  //   });
+    $('#plotPlan1 area').popup({
+      popup : $('.plotInfoToolTip'),
+      on    : 'hover'
+    });
     $('.ui.rating').rating();
   }
   ngOnDestroy(){
