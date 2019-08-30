@@ -32,6 +32,7 @@
             "scripts": [
               "src/js/jquery-3.4.1.min.js",
               "src/js/jquery.imagemapster.min.js",
+              "src/js/jquery.maphilight.min.js",
               "src/js/dataTables.min.js",
               "src/js/dataTables.semanticui.min.js",
               "node_modules/jquery.nicescroll/jquery.nicescroll.js",

@@ -388,13 +388,55 @@
   </div>
 <div style="width: 90vw;" class="ui modal  plotMap1">
     <i class="close icon"></i>
-    <!-- <img-map
-  src="http://placekitten.com/g/500/300"
-  [markers]="[[25, 25], [50, 50], [75, 75]]"
-></img-map> -->
-    <img id="plotPlan1" width="1296" height="527px" src="assets/plotPlan1.png" usemap="#plotPlan1">
+    <maphilight
+        id="statesMap"
+        [config]="config"
+      >
+      <img id="plotPlan1" width="1296" height="527px" src="assets/plotPlan1.png" class="map" usemap="#plotPlan1">   
+      <map name="plotPlan1">
+        <area data-tooltip="Add users to your feed" data-key="949" coords="68,455,98,508" shape="rect">
+        <area data-key="977" coords="148,454,179,506" shape="rect">
+        <area data-key="976" coords="99,455,129,506" shape="rect">
+        <area data-key="1004" coords="179,454,209,508" shape="rect">
+        <area data-key="1003" coords="179,441,209,454" shape="rect">
+        <area data-key="950" coords="67,441,98,454" shape="rect">
+        <area data-key="978" coords="148,442,177,453" shape="rect">
+        <area data-key="975" coords="99,441,129,454" shape="rect">
+        <area data-key="979" coords="148,428,178,441" shape="rect">
+        <area data-key="1002" coords="180,427,209,440" shape="rect">
+        <area data-key="974" coords="99,427" shape="rect">
+        <area data-key="951" coords="67,428,97,440" shape="rect">
+        <area data-key="974" coords="67,416,97,427" shape="rect">
+        <area data-key="973" coords="99,415,129,426" shape="rect">
+        <area data-key="980" coords="148,414,178,427" shape="rect">
+        <area data-key="1001" coords="179,414,208,426" shape="rect">
+        <area data-key="1000" coords="179,402,209,412" shape="rect">
+        <area data-key="981" coords="148,402,177,412" shape="rect">
+        <area data-key="982" coords="148,388,178,401" shape="rect">
+        <area data-key="999" coords="179,390,208,401" shape="rect">
+        <area data-key="983" coords="148,377,177,387" shape="rect">
+        <area data-key="998" coords="179,376,209,388" shape="rect">
+        <area data-key="984" coords="148,363,178,376" shape="rect">
+        <area data-key="997" coords="180,363,209,375" shape="rect">
+        <area data-key="985" coords="148,351,179,363" shape="rect">
+        <area data-key="996" coords="180,349,209,362" shape="rect">
+        <area data-key="986" coords="148,338,178,349" shape="rect">
+        <area data-key="995" coords="179,338,208,348" shape="rect">
+        <area data-key="987" coords="148,325,178,337" shape="rect">
+        <area data-key="994" coords="179,324,209,337" shape="rect">
+        <area data-key="993" coords="179,310,208,323" shape="rect">
+        <area data-key="988" coords="148,312,179,324" shape="rect">
+        <area data-key="989" coords="148,298,177,310" shape="rect">
+        <area data-key="992" coords="180,299,208,309" shape="rect">
+        <area data-hilight="{'fillColor':'0066ff'}" data-key="990" coords="148,245,179,297" shape="rect">          
+        <area data-key="991" coords="209,245,179,298" shape="rect">
+</map>
+      </maphilight>
+
+
+    <!-- <img id="plotPlan1" width="1296" height="527px" src="assets/plotPlan1.png" class="map" usemap="#plotPlan1">
     <map name="plotPlan1">
-            <area (click)="hello()" data-tooltip="Add users to your feed" data-key="949" coords="68,455,98,508" shape="rect">
+            <area data-tooltip="Add users to your feed" data-key="949" coords="68,455,98,508" shape="rect">
             <area data-key="977" coords="148,454,179,506" shape="rect">
             <area data-key="976" coords="99,455,129,506" shape="rect">
             <area data-key="1004" coords="179,454,209,508" shape="rect">
@@ -428,9 +470,9 @@
             <area data-key="988" coords="148,312,179,324" shape="rect">
             <area data-key="989" coords="148,298,177,310" shape="rect">
             <area data-key="992" coords="180,299,208,309" shape="rect">
-            <area data-key="990" coords="148,245,179,297" shape="rect">
+            <area data-key="990" coords="148,245,179,297" shape="rect">          
             <area data-key="991" coords="209,245,179,298" shape="rect">
-    </map>
+    </map> -->
 </div>
 <div style="width: 85vw;" class="ui modal plotMap2">
     <i class="close icon"></i>

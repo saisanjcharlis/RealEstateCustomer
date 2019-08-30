@@ -36,6 +36,7 @@ import { LocationsService } from '../services/locations.service';
 import { MapsService } from '../services/maps.service';
 import { FooterComponent } from './footer/footer.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { MaphilightModule } from 'ng-maphilight'
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +73,7 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     Angular2AirDatepickerModule,
     BrowserAnimationsModule,
     DeferLoadModule,
+    MaphilightModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCmZRbVe0NCyJB91vrGLrcb8pKAWFEsTwQ'
     }),

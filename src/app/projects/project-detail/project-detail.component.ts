@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AgmMap } from '@agm/core';
+
 declare var $:any;
 @Component({
   selector: 'app-project-detail',
@@ -16,6 +17,28 @@ export class ProjectDetailComponent implements OnInit {
   lat: number=17.38;
   long: number=78.48; 
   zoom: number=15;
+  config = {
+    fade: true,
+    alwaysOn: true,
+    neverOn: false,
+
+    // fill
+    fill: true,
+    fillColor: '#0066ff',
+    fillOpacity: 0.4,
+
+    // stroke
+    stroke: true,
+    strokeColor: '#4d0ec0',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+
+    // shadow:
+    shadow: true,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 10
+  };
   projects = [
     {
       "projectName": "Spectra Fortune",
@@ -101,20 +124,12 @@ export class ProjectDetailComponent implements OnInit {
   openImage3(){
     $('.ui.modal.plotMap3').modal('show');
   }
-  hello(){
-    console.log("hell1");
-  }
-  hello1(){
-    console.log("hell2");
-  }
   ngOnInit() {
-
-    
-
-
-
-
-
+    // $('.map').maphilight(
+    //   {
+    //     alwaysOn: true
+    //   }
+    // );
     $('.demo.menu .item').tab();
     if(window.innerWidth>930)
        {
@@ -125,7 +140,6 @@ export class ProjectDetailComponent implements OnInit {
        }
   }
   ngAfterViewInit() {
-
   //   $('#plotPlan1').mapster({
   //     fillOpacity: 0.5,
   //     render_highlight: {
