@@ -115,6 +115,16 @@
         margin:0 20px 80px 20px;
     }
   }
+  .details{
+      font-size:18px;
+      font-weight: bold;
+  }
+  .plotStatus{
+    margin-top:50px;
+    display: grid;
+    grid-template-columns: 40px 50%;
+    grid-gap:2% 5%;
+  }
 .bottomMenu{
     position: fixed;
     bottom:0;
@@ -146,6 +156,7 @@
       font-size:14px;
     }
   }
+
 .menuHeader{
     font-size:20px;
     font-weight: bolder;
@@ -425,7 +436,7 @@ agm-map {
     font-weight: normal;
   }
   .red{
-    color: red !important;
+    /* color: red !important; */
   }
   .agentModal{
 	width: 50% !important;
@@ -440,10 +451,4 @@ agm-map {
 }
 .agentModal label{
     text-align: left;
-}
-.plotInfoLabel{
-    text-align: right;
-}
-#image-map area{
-    cursor: zoom-in;
 }

@@ -1,6 +1,6 @@
 <div class="desktop navbar">
     <div class="toprow">
-        <img (click)="home()" style="cursor:pointer;" alt="spectra-logo" class="ui image spectra-logo" src="assets/spectra.png"/>
+        <img (click)="home()" style="cursor:pointer;width:147px;" alt="spectra-logo" class="ui image spectra-logo" src="assets/spectra.png"/>
         <div class="navItems">
           <a [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/activity" routerLinkActive="color change">
             <i class="navIcon universal access
@@ -49,9 +49,9 @@
                       <div *ngIf="initialAvatar" class="floating ui red circular label" style=" font-size:0.7em; opacity: 0.6; margin-top:14px !important; margin-right:24px!important;">NEW</div>
                       Messages
                     </a>
-                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/fav" style="font-size:14px;"><i class="exchange icon"></i>My Favourites</a>
-                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/savedSearches" style="font-size:14px;"><i class="exchange icon"></i>Saved Searches</a>
-                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/fav" style="font-size:14px;"><i class="exchange icon"></i>History/Completed Transaction</a>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/fav" style="font-size:14px;"><i class="like icon"></i>My Favorites</a>
+                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/savedSearches" style="font-size:14px;"><i class="save icon"></i>Saved Searches</a>
+                    <!-- <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/fav" style="font-size:14px;"><i class="exchange icon"></i>History/Completed Transaction</a> -->
                     <div *ngIf="initialAvatar" class="divider"></div>
                     <div *ngIf="initialAvatar" class="header dropHeader">Account</div>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/help"><i class="question circle icon"></i>Help</a>

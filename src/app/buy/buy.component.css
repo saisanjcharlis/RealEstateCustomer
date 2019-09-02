@@ -1,0 +1,57 @@
+.mainContainer{
+    margin:0 25px;
+ }
+ @media all and (max-width: 930px) {
+     .mainContainer{
+         margin:0 10px;
+      }
+ }
+ .topInfo{
+    display: flex;
+    position: relative;
+    color:#414143;
+    align-items: center;
+    padding-top:80px;
+    justify-content: space-between;
+}
+@media all and (max-width: 800px) {
+    .topInfo {
+       display: none;
+    }
+}
+.propertyTypeIcon{
+    padding: 10px 8px;;
+    border-radius: 5px;
+    background: #0066ff;
+    margin-right:5px;
+    border: 2px solid #414143;
+}
+.propertyTypeIcon .icon{
+    margin:0 !important;
+}
+.infoValue{
+    text-align: center;font-weight: bold;font-size:18px;
+}
+.infoLabel{
+    text-align: center;font-size:12px;margin-top:10px;
+}
+.actionButton{
+    font-size:16px;
+    margin-right:10px;
+    cursor: pointer;
+    color:#0066ff;
+    font-weight: bold;
+}
+@media screen and (max-width: 768px){
+    .actionButton{
+       display: none;
+    }
+}
+.ui.celled.horizontal.list{
+    flex:1 0 auto;
+}
+.gridContainer{
+    display: grid;
+    grid-template-columns: 5% 80% 5%;
+    grid-gap:0 5%;
+}

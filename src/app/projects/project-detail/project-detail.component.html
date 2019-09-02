@@ -15,7 +15,7 @@
     </button>
     <div (click)="agentModal()">
         <span>Schedule Visit</span>
-        <span>Next Available: Today at 11:00 AM</span>
+        <span>Next Available: Tommorow</span>
     </div>
 </div>
 <button class="ui basic blue large round button icon button">
@@ -46,23 +46,48 @@
                 </div>
                 <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
                 <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
-                <button class="ui blue button">Buy Plots</button>
+                <button routerLink="/buy" class="ui blue button">View Plots</button>
               
             </div>
             <hr style="opacity: 0.3;">
             <!-- Detail View Menu -->
             <div class="ui pointing secondary demo menu secondaryMenu" style="border-bottom: none;justify-content: center;">
-                <a class="active black item" data-tab="first">Overview</a>
-                <a class="black item" data-tab="second">Property Details</a>
+                <a class="active black item" (click)="plotDetailsReset()" data-tab="first">Overview</a>
+                <a class="black item" (click)="plotDetailsReset()" data-tab="second">Property Details</a>
                 <a class="black item" (click)="plotDetails()" data-tab="third">Plot Details</a>
-                <a class="black item" data-tab="fourth">Amenities</a>
-                <a class="black item" data-tab="fifth">Video</a>
-                <a class="black item" data-tab="sixth">Neighbourhood</a>
-                <a class="black item" data-tab="seventh">Similar Properties</a>
+                <a class="black item" (click)="plotDetailsReset()" data-tab="fourth">Amenities</a>
+                <a class="black item" (click)="plotDetailsReset()" data-tab="fifth">Video</a>
+                <a class="black item" (click)="plotDetailsReset()" data-tab="sixth">Neighbourhood</a>
+                <a class="black item" (click)="plotDetailsReset()" data-tab="seventh">Similar Properties</a>
             </div>
             
              
             <div class="gridContainer">
+                    <div *ngIf="plotTab">
+                            <div class="details">Spectra Galaxy Layout</div>
+                            <div style="font-size:10px;color:#0066ff;margin-bottom:50px;">Click on the image to view plot details</div>
+                            <div class="ui celled horizontal list">
+                                    <div class="item">
+                                        <div class="infoValue">800 sqyds</div>
+                                        <div class="infoLabel">Total Area</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="infoValue">200-1200<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                        <div class="infoLabel">Sq.Ft.</div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="infoValue">1200<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                        <div class="infoLabel">Total Plots</div>
+                                    </div>
+                            </div>
+                            
+                            <div class="plotStatus">
+                                    <div><div class="ui green label" style="width:40px;text-align: center">24</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Available</div>
+                                    <div><div class="ui blue label" style="width:40px;text-align: center">780</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Partially Available</div>
+                                    <div><div class="ui red label" style="width:40px;text-align: center">36</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Sold</div>
+                            </div>
+                           
+                    </div>
                     <div>
                          <!-- Overview -->  
                             <div class="ui active tab segment" data-tab="first">
@@ -132,15 +157,30 @@
                                     
                                 </div>
                                 <!-- Plot Details -->
-                                <div class="ui tab segment plotDetails" data-tab="third">
+                                <div  class="ui tab segment plotDetails" data-tab="third">
                                         <div class="menuHeader">Plot Details</div>
-                                        <div class="details">Spectra Galaxy Layout</div>
-                                        <img src="assets/plotPlan.png" style="width: 100%;"  usemap="#image-map" >
-                                        <map id="image-map" name="image-map">
-                                            <area (click)="openImage1()" coords="0,0,1000,260" shape="rect"> 
-                                            <area (click)="openImage2()" coords="0,261,460,600" shape="rect">
-                                            <area (click)="openImage3()" coords="0,601,430,900" shape="rect">
-                                        </map>
+
+                                        <!-- Solution One Use Resized Image size..but then wont be responsive -->
+                                        <!-- <maphilight  id="statesMap" [config]="config">
+                                            <img src="assets/plotPlan.png"   class="map"  usemap="#image-map" >
+                                            <map name="image-map">
+                                                    <area (click)="displayPlot($event)" data-maphilight='{"fillColor":"ff0000"}' data-key="990" title="990" coords="139,228,164,277" shape="rect">
+                                                    <area (click)="displayPlot($event)" data-key="989" coords="139,278,165,289" title="989" shape="rect">
+                                                    <area (click)="displayPlot($event)" data-key="988" coords="166,301,139,290" title="988" shape="rect">
+                                                    <area (click)="displayPlot($event)" data-key="987" coords="137,302,166,313" title="987" shape="rect">
+                                                   
+                                                </map>
+                                        </maphilight> -->
+                                   
+                                        
+
+
+
+                                        <!-- rwdImageMaps ..enable this for responsive -->
+
+
+                                        <img routerLink="/buy" id="image-map" src="assets/plotPlan.png" style="width: 5985px; max-width: 100%; height: auto;cursor:pointer;" usemap="#image-map" >
+                                      
                                 </div>
                                 <!-- Amenities -->
                                 <div class="ui tab segment" data-tab="fourth">
@@ -228,9 +268,7 @@
                                         </div>
                                 </div>
                     </div> 
-                    <div *ngIf="plotTab">
-                            <div class="details">Spectra Galaxy Layout</div>
-                    </div>
+                    
                     <div *ngIf="!plotTab" class="grid2">
                             <p style="margin-top:20px;text-align: center">
                                     Light and Bright Townhome with all the fun that Fremont offers! So many things to love; highlights include a spacious main level, lg windows, hardwood floors, skylights, gas fireplace w/ tile detail, & private patio!
@@ -390,13 +428,13 @@
       </div>
     </div>
   </div>
-<div style="position: relative;width:95%;height:90%;" class="ui modal event-modal plotMap1">
+<div style="position: relative;width:95%;height:95%;" class="ui modal event-modal plotMap1">
     <i class="close icon"></i>
     <maphilight
         id="statesMap"
         [config]="config"
       >
-      <img id="plotPlan1" width="1200px" height="488px" src="assets/plotPlan1.png" class="map" usemap="#plotPlan1">   
+      <img id="plotPlan1" style="left: 50%; margin-left: -50px;top: 50%; margin-top: -50px;" width="1200px" height="488px" src="assets/plotPlan1.png" class="map" usemap="#plotPlan1">   
       <map name="plotPlan1">
             <area (click)="displayPlot($event)" data-maphilight='{"fillColor":"ff0000"}' data-key="990" title="990" coords="139,228,164,277" shape="rect">
             <area (click)="displayPlot($event)" data-key="989" coords="139,278,165,289" title="989" shape="rect">
@@ -428,14 +466,6 @@
             <area (click)="displayPlot($event)"data-key="1004" coords="165,422,194,470" title="1004" shape="rect">
         </map>
       </maphilight>
-</div>
-<div style="width: 85vw;" class="ui modal plotMap2">
-    <i class="close icon"></i>
-    <img width="100%" src="assets/plotPlan2.png">
-</div>
-<div style="width: 80vw;" class="ui modal plotMap3">
-    <i class="close icon"></i>
-    <img style="width: 100%" src="assets/plotPlan3.png">
 </div>
 
 <div class="ui mini modal event-modal plotInfo">

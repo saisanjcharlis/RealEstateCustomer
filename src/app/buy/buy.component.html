@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+<div class="mainContainer">
+    <!-- Top Info -->
+    <div class="topInfo">
+            <div class="propertyTypeIcon">
+                    <i class="large city icon" style="color:white;"></i>
+            </div>
+            <div style="flex:1 0 auto;">
+                <div style="font-weight: bold;font-size:18px;">Spectra Galaxy</div>
+                <div style="font-size:12px;">Vijaywada, AP 500032</div>
+                <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
+                    <div class="ui blue rating" data-rating="2" data-max-rating="5"></div>
+                </div>
+            </div>
+            <div class="ui celled horizontal list">
+                <div class="item">
+                    <div class="infoValue">Rs. 1.16 Cr</div>
+                    <div class="infoLabel">Onwards Price</div>
+                </div>
+                <div class="item">
+                    <div class="infoValue">1234-4000<span style="font-size: 14px;font-weight: 500;"></span></div>
+                    <div class="infoLabel">Sq.Ft.</div>
+                </div>
+            </div>
+            <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
+            <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
+            <button routerLink="/buy" class="ui blue button"><i class="shopping cart icon"></i>1</button>
+          
+        </div>
+        <hr style="opacity: 0.3;">
+        <div class="gridContainer">
+            <div><button (click)="prevPlan()" class="ui black button">Prev</button></div>
+            <div>
+                    <div style="margin-bottom:20px;" class="ui fluid action input">
+                            <input type="text" placeholder="Plot Number">
+                            <div class="ui blue button">Select by Plot Number</div>
+                    </div>
+                    <maphilight *ngIf="planDefault == 1" id="statesMap" [config]="config">
+                        <img id="plotPlan1"  src="assets/plotPlan12.png" class="map" usemap="#plotPlan1">   
+                        <map name="plotPlan1">
+                                <area (click)="displayPlot($event)" title="1048" shape="rect" coords="224, 319, 248, 360" />
+                                <area (click)="displayPlot($event)" title="1021" shape="rect" coords="198, 318, 223, 361" />
+                                <area (click)="displayPlot($event)" title="1047" shape="rect" coords="223, 308, 249, 317" />
+                                <area (click)="displayPlot($event)" title="1022" shape="rect" coords="197, 307, 222, 316" />
+                                <area (click)="displayPlot($event)" data-maphilight='{"fillColor":"ff0000"}' title="1046" shape="rect" coords="224, 296, 248, 306" />
+                                <area (click)="displayPlot($event)" title="1023" shape="rect" coords="197, 294, 223, 306" />
+                                <area (click)="displayPlot($event)" title="1045" shape="rect" coords="224, 285, 248, 294" />
+                                <area (click)="displayPlot($event)" title="1024" shape="rect" coords="197, 284, 222, 295" />
+                                <area (click)="displayPlot($event)" title="1044" shape="rect" coords="225, 276, 248, 283" />
+                                <area (click)="displayPlot($event)" title="1025" shape="rect" coords="197, 274, 223, 284" />
+                                <area (click)="displayPlot($event)" title="1043" shape="rect" coords="225, 263, 249, 273" />
+                                <area (click)="displayPlot($event)" title="1026" data-maphilight='{"fillColor":"0000ff"}' shape="rect" coords="196, 263, 222, 274" />
+                                <area (click)="displayPlot($event)" title="1042" shape="rect" coords="225, 251, 249, 261" />
+                                <area (click)="displayPlot($event)" title="1027" shape="rect" coords="197, 249, 223, 261" />
+                                <area (click)="displayPlot($event)" title="1041" shape="rect" coords="224, 240, 248, 250" />
+                                <area (click)="displayPlot($event)" title="1028" shape="rect" coords="197, 238, 223, 249" />
+                                <area (click)="displayPlot($event)" title="1040" shape="rect" coords="224, 228, 249, 238" />
+                                <area (click)="displayPlot($event)" title="1029" shape="rect" coords="197, 228, 222, 238" />
+                                <area (click)="displayPlot($event)" title="1039" shape="rect" coords="223, 217, 249, 227" />
+                                <area (click)="displayPlot($event)" title="1030" shape="rect" coords="198, 217, 222, 227" />
+                                <area (click)="displayPlot($event)" title="1038" data-maphilight='{"fillColor":"ff0000"}' shape="rect" coords="223, 205, 247, 217" />
+                                <area (click)="displayPlot($event)" title="1031" shape="rect" coords="197, 204, 223, 217" />
+                                <area (click)="displayPlot($event)" title="1037" shape="rect" coords="225, 196, 248, 205" />
+                                <area (click)="displayPlot($event)" title="1032" shape="rect" coords="196, 194, 222, 205" />
+                                <area (click)="displayPlot($event)" title="1036" shape="rect" coords="224, 185, 248, 194" />
+                                <area (click)="displayPlot($event)" title="1033" shape="rect" coords="197, 184, 223, 195" />
+                                <area (click)="displayPlot($event)" title="1035" shape="rect" coords="223, 139, 249, 184" />
+                                <area (click)="displayPlot($event)" title="1034" data-maphilight='{"fillColor":"ff0000"}' shape="rect" coords="198, 141, 222, 183" />
+                            </map>
+                    </maphilight>
+                    <maphilight *ngIf="planDefault == 2" id="statesMap" [config]="config">
+                            <img src="assets/plotPlan2.png" class="map" usemap="#plotPlan2">   
+                    </maphilight>
+                    <maphilight *ngIf="planDefault == 3" id="statesMap" [config]="config">
+                            <img src="assets/plotPlan3.png" class="map" usemap="#plotPlan3">   
+                    </maphilight>
+            </div>
+            <div><button (click)="nextPlan()" class="ui black button">Next</button></div>
+        </div>
+<footer></footer>
+</div>
+<div class="ui mini modal event-modal plotInfo">
+        <div class="header">Selected Plot <span style="float:right;color:#0066ff"><b>{{plotSelected}}</b></span></div>
+        <div class="content" *ngIf="plotSelected" style="color:#414143;">
+            <div style="display:grid;grid-template-columns: 45% 45%;grid-gap: 0 10%;padding:20px;">
+                    <span class="plotInfoLabel">Area</span>
+                    <span><b>1200 sqft</b></span>
+                    <span class="plotInfoLabel">Facing</span>
+                    <span><b>North</b></span>
+                    <span class="plotInfoLabel">Cost</span>
+                    <span><b>67 Lacs</b></span>
+                    <span class="plotInfoLabel">Extra Charges</span>
+                    <span><b>15212</b></span>
+                    <span class="plotInfoLabel">Token Charges</span>
+                    <span><b>152</b></span>
+            </div>
+        </div>
+        <div class="actions" style="display:flex;justify-content: center;">
+            <div class="ui deny black button">View other plots</div>
+            <div class="ui blue  button">Add Plot to Cart</div>
+        </div>  
+</div>

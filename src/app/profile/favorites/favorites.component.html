@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+<div class="menu">
+        <span>My Favorites</span>
+        <span routerLink="/projects" ><i class="left angle icon" ></i>Back to Search</span>
+        <div style="clear: both"></div>
+</div>
+
+<div class="compContainer">
+        <div class="mapContainer">
+                <agm-map 
+                        #gm
+                        [styles]="styles"
+                        [latitude]='lat' 
+                        [longitude]='lng' 
+                        [disableDefaultUI]="false"
+                        [zoom]="zoom" 
+                        (mapClick)="mapClicked($event)"
+                        [disableDoubleClickZoom]="true">
+                        <agm-marker 
+                                (mouseOver)="onMouseOver(gm,window)"
+                                (markerClick)="markerClick($event)"
+                                *ngFor="let marker of markers" 
+                                [iconUrl]="marker.icon"
+                                [latitude]="marker.lat"
+                                [longitude]="marker.lng"
+                                >
+                                <agm-info-window #window>
+                                        <div>
+                                                        <i class="city fitted large icon" ></i><span style="font-size:12px;font-weight: bold;"> {{marker.projectName}}</span>
+                                                        <div>
+                                                                        <span style="font-weight: bold;text-align: right">340-700 </span>
+                                                                        <span style="font-size:10px;font-weight: normal;color:#414143;">sqyd</span>
+                                                        </div>
+                                                        <div>
+                                                                        <span style="color:#0066ff;font-weight: bold;text-align: right">₹5,60,000 </span> 
+                                                                        <span style="font-size:8px;font-weight: normal;color:#414143;">onwards</span>  
+                                                               
+                                                        </div>
+                                        </div>
+                                </agm-info-window>
+                        </agm-marker> 
+                </agm-map>
+        </div>
+        <div class="projectContainer ui form">
+                <div class="info">
+                        <h2 *ngIf="projects.length!=0">Saved Homes</h2>
+                        <div style="font-weight: 600;margin-bottom: 15px;">
+                                <span style="padding:5px 0;display:inline-block;">{{projects.length}} home</span>
+                                <div style="float: right;">
+                                                <span >Sort By: </span>
+                                                <select  class="ui tiny dropdown">
+                                                                <option value="">None</option>
+                                                                <option value="AL">Price (High to Low)</option>
+                                                                <option value="AL">Price (Low to High)</option>
+                                                                <option value="AL">Newest</option>
+                                                                <option value="AL">Square Yards</option>
+                                                </select>
+                                </div>
+                               <div style="clear:both;"></div>
+                                
+                        </div>
+                        <div *ngIf="projects.length == 0" class="errorContent">
+                                We could not find any projects with that criteria. Clear filters and search again.
+                                <i class="cancel icon" style="float: right;"></i>
+                        </div>
+                </div>
+                <div class="projects ui two stackable cards" >
+                        <div class="card" *ngFor="let project of projects;" >
+                                <div class="image">
+                                        <div class="tagInfo">
+                                                <div class="ui blue label">Posted: {{project.postedOn}}</div>
+                                        </div>
+                                        <i class="rightFloated large like  icon" [ngClass]="{'outline': !project.likedStatus, 'blue': project.likedStatus}" (click)="likedProject($event)"></i>
+                                        <span class="ratingFloat ui mini star blue rating" data-rating="3"
+                                                        data-max-rating="5"></span>
+                                        <img routerLink="/projectDetail" style="cursor: pointer;" src={{project.imageUrl}}>
+                                </div>
+                                <div class="content">
+                                        <a class="header" routerLink="/projectDetail">{{project.projectName}}</a>
+                                        <span class="priceInfo">
+                                                <i class="rupee sign icon"></i>
+                                                <span style="font-size:18px;">{{project.minPriceParsed}} </span>
+                                                <span class="onwards"> onwards</span>
+                                        </span>
+                                        <div class="description">
+                                                <b>{{project.minSize}}-{{project.maxSize}}</b><span style="font-size:12px;margin-left:5px;">sqyd</span> 
+                                        </div>
+                                        <div style="margin-top:10px;" class="meta">
+                                                <b>{{project.address1}}<br> {{project.address2}}</b>
+                                                <span style="float: right;"> <i [ngClass]="{'red': project.saleStatus == 'Sold'}" class="circle blue icon"></i> <b>{{project.saleStatus}}</b></span>
+                                        </div>
+                                        
+
+                                </div>
+                        </div>
+
+                </div>
+               
+                <div style="display: flex; justify-content: center;flex-direction: column;align-items: center;" *ngIf="projects.length==0">
+                        <div class="noResultText">No projects saved</div>
+                </div>
+                <footer></footer>
+        </div>
+</div>

@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+<div class="menu">
+        <span routerLink="/projects" ><i class="left angle icon" ></i>Back to Search</span>
+        <div style="clear: both"></div>
+</div>
+<div class="container">
+    <div class="header">Saved Searches</div>
+    <div class="ui divided list">
+            <div class="item">
+              <img class="ui image" width="100" src="assets/bangIcon.png">
+              <div class="content">
+                <a class="header">Bangalore Area</a>
+                <div class="description">For Sale</div>
+                <div class="description">
+                    <div class="ui selection dropdown">
+                                <input type="hidden" name="gender">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Instant</div>
+                                <div class="menu">
+                                  <div class="item" data-value="1">Instant</div>
+                                  <div class="item" data-value="1">Daily</div>
+                                  <div class="item" data-value="0">Never</div>
+                                </div>
+                    </div>
+                    <div class="ui icon buttons buttonMobile">
+                            <button (click)="rename()" class="ui button">
+                              <i class="edit icon"></i>
+                            </button>
+                            <button (click)="delete()" class="ui red button">
+                              <i class="delete icon"></i>
+                            </button>
+                    </div>
+                    <button (click)="rename()" style="margin-left:10px;" class="ui button">Rename</button><button (click)="delete()" class="ui red button">Delete</button>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img width="100" class="ui image" src="assets/hydIcon.png">
+              <div class="content">
+                <a class="header">Hyderabad Area</a>
+                <div class="description">For Sale</div>
+                <div class="description">
+                    <div class="ui selection dropdown">
+                                <input type="hidden" name="gender">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Instant</div>
+                                <div class="menu">
+                                  <div class="item" data-value="1">Instant</div>
+                                  <div class="item" data-value="1">Daily</div>
+                                  <div class="item" data-value="0">Never</div>
+                                </div>
+                    </div>
+                    <div class="ui icon buttons buttonMobile">
+                            <button (click)="rename()" class="ui button">
+                              <i class="edit icon"></i>
+                            </button>
+                            <button (click)="delete()" class="ui red button">
+                              <i class="delete icon"></i>
+                            </button>
+                    </div>
+                    <button (click)="rename()" style="margin-left:10px;" class="ui button">Rename</button><button  (click)="delete()" class="ui red button">Delete</button>
+                </div>
+              </div>
+            </div>
+    </div>
+</div>
+<div class="ui mini modal rename" >
+        <i class="close icon"></i>
+        <div class="header">
+          Rename Search
+        </div>
+        <div class="content">
+            <span>Search Name</span>
+            <div style="margin-left:10px; " class="ui input">
+                    <input type="text" placeholder="Hyderabad Area">
+            </div>
+            
+        </div>
+        <div class="actions">
+                <div class="ui black deny button">
+                  Nope
+                </div>
+                <div class="ui positive right labeled icon button">
+                        Save
+                  <i class="checkmark icon"></i>
+                </div>
+        </div>
+</div>
+<div class="ui modal delete">
+        <i class="close icon"></i>
+        <div class="header">
+          Delete This Search
+        </div>
+        <div class="content">
+                If you delete this Saved Search, you will no longer receive notifications with new results.
+        </div>
+        <div class="actions">
+                <div class="ui black deny button">
+                  Nope
+                </div>
+                <div (click)="deleteSearch()" class="ui red right labeled icon button">
+                  Delete
+                </div>
+        </div>
+</div>
+<footer></footer>

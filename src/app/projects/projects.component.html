@@ -11,7 +11,7 @@
         <button class="ui tiny button basic basicButton moreButton">More</button>
         <button class="ui tiny button blue" (click)="saveSearch()">Save Search</button>
         <button class="ui basic right floated tiny button blue clearButton" (click)="clearFilters($event)">Clear</button>
-        <button class="ui filterMobile tiny blue icon button">
+        <button (click)="mobileFilterOn()" class="ui filterMobile tiny blue icon button">
                 <i class="filter icon"></i>
         </button>
 </div>
@@ -58,7 +58,10 @@
                                 </agm-marker> 
                          </agm-map>
         </div>
-        <div class="projectContainer ui form">
+        <div *ngIf="mobFilterOn" class="mobileFilter ui form">
+                Filters Mobile
+        </div>
+        <div *ngIf="!mobFilterOn" class="projectContainer ui form">
                 <div class="info">
                         <h2 *ngIf="projects.length!=0">Hyderabad Real Estate</h2>
                         <div style="font-weight: 600;margin-bottom: 15px;">
@@ -128,7 +131,7 @@
                         <label>Plots</label>
                 </div>
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" checked (change)="homeTypeFilter($event)" name="apartments">
+                        <input type="checkbox" (change)="homeTypeFilter($event)" name="apartments">
                         <label>Apartments</label>
                 </div>
                 <div class="ui checkbox marginBottom">
@@ -318,11 +321,11 @@
         <div class="ui header">Other Amenities</div>
         <div class="marginLeftGrid">
                 <div class="ui checkbox marginBottom">
-                        <input type="checkbox" checked (change)="homeTypeFilter($event)" name="Swimming Pool">
+                        <input type="checkbox" (change)="homeTypeFilter($event)" name="Swimming Pool">
                         <label>Swimming Pool</label>
                 </div>
                 <div class="ui checkbox marginBottom" >
-                        <input type="checkbox" checked (change)="homeTypeFilter($event)" name="Pavement">
+                        <input type="checkbox" (change)="homeTypeFilter($event)" name="Pavement">
                         <label>Pavement</label>
                 </div>
                 <div class="ui checkbox marginBottom">

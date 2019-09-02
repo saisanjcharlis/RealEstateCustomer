@@ -4,7 +4,6 @@
   <img class="footerImage" src="assets/activityFooter.png">
   <span style="font-size:32px;text-transform: uppercase">Welcome To SPECTRA</span>
   <span>Search for Properties Now</span>
-  <!-- <button routerLink="/projects" class="ui button blue">Start Your Search</button> -->
     <div class="ui icon input" style="margin-top:50px;">
         <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" (ngModelChange)="locationSearch($event)" type="text" placeholder="Location">
         <i class="search large blue icon"></i>
@@ -100,7 +99,7 @@
                   </div>
                 </div>
               </div>
-            <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/fav"  style="margin-top:10px;margin-left:28px;" class="ui tiny basic button blue">My Saved Searches</button>
+            <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/savedSearches"  style="margin-top:10px;margin-left:28px;" class="ui tiny basic button blue">My Saved Searches</button>
         </div>
       </div>
     </div>

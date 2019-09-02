@@ -332,11 +332,15 @@ export class ProjectsComponent implements OnInit {
       "zipcode": "500032",
       "lat": "12323213",
       "long": "1321331",
-      "homeType": "apartments",
+      "homeType": "plots",
       "beds": [3,4,5],
       "agents": []
     }
   ];
+  mobFilterOn = false;
+  mobileFilterOn(){
+    this.mobFilterOn=!this.mobFilterOn;
+  }
   saveSearch(){
     if(localStorage.getItem("logStatus")=="false"){
       alert("Login First");

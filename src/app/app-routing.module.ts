@@ -13,6 +13,9 @@ import { ProfileInfoComponent } from './profile/profile-info/profile-info.compon
 import { MessagesComponent } from './profile/messages/messages.component';
 import { TransactionsComponent } from './profile/transactions/transactions.component';
 import { SettingsComponent } from './profile/settings/settings.component';
+import { FavoritesComponent } from './profile/favorites/favorites.component';
+import { SaveSearchComponent } from './profile/save-search/save-search.component';
+import { BuyComponent } from './buy/buy.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: 'forgotPassword', component: ForgotpasswordComponent },
   { path: 'projectDetail', component: ProjectDetailComponent },
   { path: 'messages', component: MessagesComponent },
+  { path: 'fav', component: FavoritesComponent },
+  { path: 'buy', component: BuyComponent },
+  { path: 'savedSearches', component: SaveSearchComponent },
   { path: 'transactions', component: TransactionsComponent },
   { path: 'profile', component: ProfileInfoComponent },
   { path: 'settings', component: SettingsComponent },

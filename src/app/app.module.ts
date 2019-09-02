@@ -7,9 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { PlotInfoContainerComponent } from './activity/plot-info-container/plot-info-container.component';
 import { EmiDetailComponent } from './activity/emi-detail/emi-detail.component';
-import { RecentTransComponent } from './activity/recent-trans/recent-trans.component';
 import { EmiDateComponent } from './activity/emi-date/emi-date.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -17,7 +15,6 @@ import { PassbookComponent } from './passbook/passbook.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { AuthGuard } from '../services/auth.guard';
-import { FeedComponent } from './activity/feed/feed.component';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
@@ -29,29 +26,27 @@ import { TransactionsComponent } from './profile/transactions/transactions.compo
 import { ProfileInfoComponent } from './profile/profile-info/profile-info.component';
 import { MessagesComponent } from './profile/messages/messages.component';
 import { SettingsComponent } from './profile/settings/settings.component';
-import { SavedsearchComponent } from './activity/savedsearch/savedsearch.component';
-import { FavoritesComponent } from './activity/favorites/favorites.component';
 import { AgmCoreModule } from '@agm/core';
 import { LocationsService } from '../services/locations.service';
 import { MapsService } from '../services/maps.service';
 import { FooterComponent } from './footer/footer.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { MaphilightModule } from 'ng-maphilight';
-import { PlotLayoutComponent } from './projects/project-detail/plot-layout/plot-layout.component';
+import { ImgMapComponent } from 'ng2-img-map';
+import { FavoritesComponent } from './profile/favorites/favorites.component';
+import { SaveSearchComponent } from './profile/save-search/save-search.component';
+import { BuyComponent } from './buy/buy.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    PlotInfoContainerComponent,
     EmiDetailComponent,
-    RecentTransComponent,
     EmiDateComponent,
     PageNotFoundComponent,
     ProjectsComponent,
     PassbookComponent,
     CreateProfileComponent,
-    FeedComponent,
     ForgotpasswordComponent,
     ProjectDetailComponent,
     ImageGalleryComponent,
@@ -62,10 +57,11 @@ import { PlotLayoutComponent } from './projects/project-detail/plot-layout/plot-
     ProfileInfoComponent,
     MessagesComponent,
     SettingsComponent,
-    SavedsearchComponent,
-    FavoritesComponent,
     FooterComponent,
-    PlotLayoutComponent
+    ImgMapComponent,
+    FavoritesComponent,
+    SaveSearchComponent,
+    BuyComponent
   ],
   imports: [
     BrowserModule,

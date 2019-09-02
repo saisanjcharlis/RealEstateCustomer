@@ -1,0 +1,52 @@
+.container{
+    margin:0 12%;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 0 5%;
+    }
+}
+
+.container > .header{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+}
+.description{
+    margin-top:10px;
+}
+.menu{
+    padding-top: 56px;
+    padding:66px 10px 10px 10px;
+    border-bottom: 1px solid rgba(39, 39, 39, 0.2);; 
+    background: #fff;
+}
+.menu > *{
+    margin:0 5px;
+}
+.menu span{
+    font-size:18px;font-weight: bold;
+}
+.menu span:last-of-type{
+    color:#0066ff;
+    cursor: pointer;
+    float:right;
+}
+
+.buttonMobile{
+  display: none;
+}
+@media screen and (max-width: 768px) {
+    .buttonMobile{
+        display: initial;
+        margin-left:10px;
+    }
+    .description > button{
+        display: none;
+    }
+}
+.divided .item{
+    margin-top:20px;
+}

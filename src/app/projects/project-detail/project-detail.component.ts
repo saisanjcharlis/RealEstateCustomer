@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AgmMap } from '@agm/core';
-
 declare var $:any;
 @Component({
   selector: 'app-project-detail',
@@ -107,23 +106,12 @@ export class ProjectDetailComponent implements OnInit {
     $(e.target).addClass("selectedDate");
   }
  
-  addCoBuy(){
-    $('.ui.modal.coBuy').modal('show');
-  }
+  
   openLocationMap(){
     $('.ui.modal.locationMap').modal('show');
   }
   openGMap(){
     $('.ui.modal.googleMap').modal('show');
-  }
-  openImage1(){
-    $('.ui.modal.plotMap1').modal('show');
-  }
-  openImage2(){
-    $('.ui.modal.plotMap2').modal('show');
-  }
-  openImage3(){
-    $('.ui.modal.plotMap3').modal('show');
   }
   displayPlot(e){
     this.plotSelected=e.target.title;
@@ -132,8 +120,14 @@ export class ProjectDetailComponent implements OnInit {
   }
   plotTab=false;
   plotDetails(){
-    console.log("true");
+    $('.gridContainer').css('grid-template-columns','23% 75%');
+    $('.gridContainer').css('grid-gap','10px 2%');
     this.plotTab = true;
+  }
+  plotDetailsReset(){
+    $('.gridContainer').css('grid-template-columns','50% 45%');
+    $('.gridContainer').css('grid-gap','10px 1rem');
+    this.plotTab = false;
   }
   ngOnInit() {
     $('.demo.menu .item').tab();
