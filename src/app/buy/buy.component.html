@@ -14,7 +14,7 @@
             </div>
             <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
             <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
-            <button routerLink="/buy" class="ui blue button"><i class="shopping cart icon"></i>1</button>
+            <button routerLink="/buy" class="ui blue button cartButton"><i class="shopping cart icon"></i><span *ngIf="plotCart.length>0">{{plotCart.length}}</span></button>
           
         </div>
         <hr style="opacity: 0.3;">
@@ -102,7 +102,7 @@
         </div>
         <div class="actions" style="display:flex;justify-content: center;">
             <div class="ui deny black button">View other plots</div>
-            <div class="ui blue  button">Add Plot to Cart</div>
+            <div (click)="addPlot()" class="ui blue  button">Add Plot to Cart</div>
         </div>  
 </div>
 <div class="ui modal shareModal" >
@@ -126,4 +126,28 @@
                 <button (click)="sendMail()" class="ui blue button" type="submit">Send email</button>
             </form>
         </div>
+</div>
+<div class="ui cartList popup bottom transition hidden">
+        <table class="ui celled  very basic collapsing table">
+                <thead>
+                  <tr>
+                    <th class="collapsing">Plot Number</th>
+                    <th class="collapsing">Price</th>
+                    <th class="collapsing">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="collapsing" data-label="Name">314</td>
+                    <td class="collapsing" data-label="Age">45 Lac</td>
+                    <td class="collapsing" data-label="Job"><button (click)=searchPlotPop($event) class="ui button blue mini">Allotment Form</button><button class="ui button red mini">Delete</button></td>
+                  </tr>
+                 <tr>
+                    <td class="collapsing" data-label="Name">314</td>
+                    <td class="collapsing" data-label="Age">45 Lac</td>
+                    <td class="collapsing" data-label="Job"><button (click)=searchPlotPop($event) class="ui button blue mini">Allotment Form</button><button class="ui button red mini">Delete</button></td>
+                  </tr>
+                </tbody>
+        </table>
+        <button class="ui right floated button green ">Proceed to Buy</button>
 </div>

@@ -8,6 +8,7 @@ declare var $:any;
 export class BuyComponent implements OnInit {
   saveText="Save";
   plotSelected;
+  plotSelectedPop;
   constructor() { }
   config = {
     fade: true,
@@ -66,6 +67,9 @@ export class BuyComponent implements OnInit {
     $('.ui.modal.shareModal').modal('show');
     
   }
+  searchPlotPop(e){
+
+  }
   sendMail(){
     $('.ui.modal.shareModal').modal('hide');
   }
@@ -73,9 +77,18 @@ export class BuyComponent implements OnInit {
     this.plotSelected=e.target.value;
     $('.ui.modal.plotInfo').modal('show').modal('refresh');
   }
+  plotCart = [];
+  addPlot(){
+    $('.ui.modal.plotInfo').modal('hide');
+    this.plotCart.push(this.plotSelected);
+  }
   ngOnInit() {
   }
   ngAfterViewInit() {
     $('.ui.rating').rating();
+    $('.cartButton').popup({
+      popup : $('.cartList'),
+      on    : 'click'
+    });
   }
 }
