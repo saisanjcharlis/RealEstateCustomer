@@ -1,13 +1,12 @@
 <app-navbar></app-navbar>
 <div class="menu">
         <div class="ui mini icon input locationButton">
-                <input [ngModel]="locationSelected" style="font-weight: bold;color:#0066ff;" (ngModelChange)="locationSearch($event)" type="text" placeholder="Location, Zipcode">
+                <input (keyup.enter)="locationSearchEnter($event)" [ngModel]="locationSelected" style="font-weight: bold;color:#0066ff;" type="text" placeholder="Location, Zipcode">
                 <i class="search blue icon"></i>
         </div>
         <button class="ui tiny button basic basicButton statusButton">Status</button>
         <button class="ui tiny button basic basicButton priceButton">Price</button>
-        <button class="ui tiny button basic basicButton bedsButton">Beds</button>
-        <button class="ui tiny button basic basicButton homeButton">Home Type</button>
+        <button class="ui tiny button basic basicButton homeButton">Property Type</button>
         <button class="ui tiny button basic basicButton moreButton">More</button>
         <button class="ui tiny button blue" (click)="saveSearch()">Save Search</button>
         <button class="ui basic right floated tiny button blue clearButton" (click)="clearFilters($event)">Clear</button>
@@ -26,13 +25,6 @@
                         [disableDefaultUI]="false"
                         [zoom]="zoom" 
                         [disableDoubleClickZoom]="true">
-                                <agm-polyline 
-                                [strokeColor]="strokeColorMap"
-                                [strokeOpacity]="0.5"
-                                >
-                                        <agm-polyline-point *ngFor="let point of paths" [latitude]="point.lat" [longitude]="point.lng">
-                                        </agm-polyline-point>
-                                </agm-polyline>
                                 <agm-marker 
                                 (mouseOver)="onMouseOver(gm,window)"
                                 (markerClick)="markerClick($event)"
@@ -124,7 +116,7 @@
         </div>
 </div>
 <div class="ui homePop popup bottom center transition hidden">
-        <div class="ui header">Home Type</div>
+        <div class="ui header">Property Type</div>
         <div class="marginLeft">
                 <div class="ui checkbox marginBottom">
                         <input type="checkbox" checked (change)="homeTypeFilter($event)" name="plots">
@@ -142,23 +134,6 @@
                         <input type="checkbox" (change)="homeTypeFilter($event)" name="builder">
                         <label>Builder</label>
                 </div>
-        </div>
-      
-</div>
-<div class="ui bedPop popup top right transition hidden">
-        <div class="ui header">Bedrooms</div>
-        <br>
-        <div class="ui buttons" style="margin-top:10px;">
-                <div class="ui blue button" (click)="addBed($event)">Any</div>
-                <div class="ui basic button" (click)="addBed($event)">1<span *ngIf="plusYes" class="plusBed">+</span></div>
-                <div class="ui basic button" (click)="addBed($event)">2<span *ngIf="plusYes" class="plusBed">+</span></div>
-                <div class="ui basic button" (click)="addBed($event)">3<span *ngIf="plusYes" class="plusBed">+</span></div>
-                <div class="ui basic button" (click)="addBed($event)">4<span *ngIf="plusYes" class="plusBed">+</span></div>
-                <div class="ui basic button" (click)="addBed($event)">5<span *ngIf="plusYes" class="plusBed">+</span></div>
-        </div>
-        <div class="ui checkbox marginBottom">
-                        <input (change)="addPlus()" type="checkbox" name="exact">
-                        <label>Use exact match</label>
         </div>
       
 </div>
@@ -208,23 +183,24 @@
                         <label style="font-size:14px;font-weight: 600;"><i class="circle blue icon"></i>For Sale</label>
                 </div>
                 <div class="ui checkbox marginBottom">
-                        <input (change)="statusTypeFilter($event)"  checked type="checkbox" name="plots">
-                        <label style="font-size:14px;font-weight: 600;"><i class="circle red icon"></i>Sold</label>
+                        <input (change)="statusTypeFilter($event)" checked type="checkbox" name="plots">
+                        <label style="font-size:14px;font-weight: 600;"><i class="circle green  icon"></i>Upcomings</label>
                 </div>
                 <div class="ui checkbox marginBottom">
                         <input (change)="statusTypeFilter($event)" type="checkbox" name="plots">
-                        <label style="font-size:14px;font-weight: 600;"><i class="circle green  icon"></i>Upcomings</label>
+                        <label style="font-size:14px;font-weight: 600;"><i class="circle red icon"></i>Sold</label>
                 </div>
+              
 </div>
 <div class="ui savedSearchPop popup bottom right transition hidden">
         <div class="savedSearchList" (click)="selectLocation($event)">
-                <i class="clock blue outline icon"></i><span style="font-weight: 600;">Bangalore, KA</span>
+                <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Yadagirigutta, TS</span>
         </div>
         <div  class="savedSearchList" (click)="selectLocation($event)">
-                <i class="clock blue outline icon"></i><span style="font-weight: 600;">Hyderabad, TS</span>  
+                <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Shadnagar, TS</span>  
         </div>
         <div  class="currentLoc" (click)="selectLocation($event)">
-                <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Current Location</span> 
+                <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Telangana</span> 
         </div>
 </div>
 <div class="ui moreFilterPop popup bottom right transition hidden" >

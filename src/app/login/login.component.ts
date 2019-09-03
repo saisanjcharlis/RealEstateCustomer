@@ -37,25 +37,20 @@ export class LoginComponent implements OnInit {
   userName="";
   errors=[];
   errors1=[];
-  searchPlaceholder="Enter a location, zipcode, agent";
+  searchPlaceholder="Enter a location or zipcode";
   public openModal(){
     $('.ui.modal.modalSign').modal('show');   
   }
   constructor(private loginService: LoginService, private routes: Router) { }
-  locationSearch(e){
-    if(e.toLowerCase().includes("hyderabad")){
-      this.routes.navigate(['/projects']);
-    } else {
-    }
-  }
   locationSearchEnter(e){
-    if(e.target.value.toLowerCase().includes("hyderabad")){
-      this.routes.navigate(['/projects']);
-    } else {
-      console.log(e.target.value.toLowerCase());
-      localStorage.setItem('projectsDomain', e.target.value.toLowerCase());
-      this.routes.navigate(['/projects']);
-    }
+    localStorage.setItem('projectsDomain', e.target.value.toLowerCase());
+    this.routes.navigate(['/projects']);
+    // if(e.target.value.toLowerCase().includes("hyderabad")){
+    //   this.routes.navigate(['/projects']);
+    // } else {
+    //   localStorage.setItem('projectsDomain', e.target.value.toLowerCase());
+    //   this.routes.navigate(['/projects']);
+    // }
    
   }
   selectLocation(e){
