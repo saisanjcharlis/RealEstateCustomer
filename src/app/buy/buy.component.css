@@ -14,11 +14,11 @@
     padding-top:80px;
     justify-content: space-between;
 }
-@media all and (max-width: 800px) {
+/* @media all and (max-width: 800px) {
     .topInfo {
        display: none;
     }
-}
+} */
 .propertyTypeIcon{
     padding: 10px 8px;;
     border-radius: 5px;
@@ -42,16 +42,48 @@
     color:#0066ff;
     font-weight: bold;
 }
+.searchPlot{
+    display: none;
+}
+.plotStatus{
+    display: flex;
+    align-items: center;
+}
 @media screen and (max-width: 768px){
-    .actionButton{
+    .actionButton, .searchPlotDesktop{
        display: none;
+    }
+    .searchPlot{
+        display: inline-flex;
+        width: 100%;
+        margin-top:10px;
+    }
+    .plotStatus{
+        margin-top:20px;
     }
 }
 .ui.celled.horizontal.list{
     flex:1 0 auto;
 }
-.gridContainer{
-    display: grid;
-    grid-template-columns: 5% 80% 5%;
-    grid-gap:0 5%;
+.flexActions{
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+/* .flexActions div:first-of-type{
+    flex: 1 0 auto;
+} */
+.shareModal{
+    width: 400px !important;
+}
+.shareModalContainer{
+    padding:15px;
+}
+.shareModalContainer label{
+    font-size:14px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

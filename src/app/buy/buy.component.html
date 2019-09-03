@@ -12,16 +12,6 @@
                     <div class="ui blue rating" data-rating="2" data-max-rating="5"></div>
                 </div>
             </div>
-            <div class="ui celled horizontal list">
-                <div class="item">
-                    <div class="infoValue">Rs. 1.16 Cr</div>
-                    <div class="infoLabel">Onwards Price</div>
-                </div>
-                <div class="item">
-                    <div class="infoValue">1234-4000<span style="font-size: 14px;font-weight: 500;"></span></div>
-                    <div class="infoLabel">Sq.Ft.</div>
-                </div>
-            </div>
             <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
             <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
             <button routerLink="/buy" class="ui blue button"><i class="shopping cart icon"></i>1</button>
@@ -29,12 +19,28 @@
         </div>
         <hr style="opacity: 0.3;">
         <div class="gridContainer">
-            <div><button (click)="prevPlan()" class="ui black button">Prev</button></div>
-            <div>
-                    <div style="margin-bottom:20px;" class="ui fluid action input">
-                            <input type="text" placeholder="Plot Number">
-                            <div class="ui blue button">Select by Plot Number</div>
-                    </div>
+            <div class="flexActions">
+                <div>
+                        <button (click)="selectPlan1($event)" class="ui yellow button selectedPlan">Plan 1</button>
+                        <button (click)="selectPlan2($event)" class="ui basic yellow button">Plan 2</button>
+                        <button (click)="selectPlan3($event)" class="ui basic yellow button">Plan 3</button>
+                </div>
+                <div class="plotStatus">
+                        <div class="ui green label" style="width:40px;text-align: center">24</div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Available</div>
+                        <div class="ui blue label" style="width:40px;text-align: center">780</div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Partially Available</div>
+                        <div class="ui red label" style="width:40px;text-align: center">36</div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Sold</div>
+                </div>
+                <div class="ui icon input searchPlot">
+                        <i class="search icon"></i>
+                        <input type="number" (keyup.enter)="searchPlot($event)" placeholder="Search By Plot Number">
+                </div>
+                <div  class="ui  action input searchPlotDesktop">
+                        <input type="number" (keyup.enter)="searchPlot($event)" placeholder="Plot Number">
+                        <div class="ui blue extraText button">Select by Plot Number</div>
+                </div>
+            </div>
+            <div style="margin-top:50px;overflow: auto">
+                    
                     <maphilight *ngIf="planDefault == 1" id="statesMap" [config]="config">
                         <img id="plotPlan1"  src="assets/plotPlan12.png" class="map" usemap="#plotPlan1">   
                         <map name="plotPlan1">
@@ -75,7 +81,6 @@
                             <img src="assets/plotPlan3.png" class="map" usemap="#plotPlan3">   
                     </maphilight>
             </div>
-            <div><button (click)="nextPlan()" class="ui black button">Next</button></div>
         </div>
 <footer></footer>
 </div>
@@ -99,4 +104,26 @@
             <div class="ui deny black button">View other plots</div>
             <div class="ui blue  button">Add Plot to Cart</div>
         </div>  
+</div>
+<div class="ui modal shareModal" >
+        <i class="close icon"></i>
+        <div class="shareModalContainer">
+            <h2>Email this project</h2>
+            <form class="ui form">
+                <div class="field">
+                  <label>Recipient's email</label>
+                  <input type="text" name="first-name" placeholder="Enter email">
+                  <div style="padding-top:5px;">Separate multiple addresses with a comma.</div>
+                </div>
+                <div class="field">
+                  <label>Your email</label>
+                  <input type="email" name="last-name" value="charlis@saisanj.com">
+                </div>
+                <div class="field">
+                  <label>Include message (optional)</label>
+                  <textarea rows="2" placeholder="Check out this home I found on Spectra."></textarea>
+                </div>
+                <button (click)="sendMail()" class="ui blue button" type="submit">Send email</button>
+            </form>
+        </div>
 </div>

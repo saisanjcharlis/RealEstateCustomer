@@ -32,22 +32,27 @@ export class BuyComponent implements OnInit {
     shadowRadius: 10
   };
   planDefault = 1;
-  nextPlan(){
-    if(this.planDefault<3){
-      this.planDefault++;
-    }
-  
+  selectPlan1(e){
+    $('.selectedPlan').addClass('basic');
+    $(e.target).addClass('selectedPlan');
+    $(e.target).removeClass('basic');
+    this.planDefault =1;
   }
-  prevPlan(){
-    if(this.planDefault>1){
-      this.planDefault--;
-    }
-    
+  selectPlan2(e){
+    $('.selectedPlan').addClass('basic');
+    $(e.target).addClass('selectedPlan');
+    $(e.target).removeClass('basic');
+    this.planDefault =2;
+  }
+  selectPlan3(e){
+    $('.selectedPlan').addClass('basic');
+    $(e.target).addClass('selectedPlan');
+    $(e.target).removeClass('basic');
+    this.planDefault =3;
   }
   displayPlot(e){
     this.plotSelected=e.target.title;
     $('.ui.modal.plotInfo').modal('show').modal('refresh');
-    console.log(e.target.title);
   }
   save(e){
     if(this.saveText=="Save"){
@@ -61,7 +66,13 @@ export class BuyComponent implements OnInit {
     $('.ui.modal.shareModal').modal('show');
     
   }
+  searchPlot(e){
+    this.plotSelected=e.target.value;
+    $('.ui.modal.plotInfo').modal('show').modal('refresh');
+  }
   ngOnInit() {
   }
-
+  ngAfterViewInit() {
+    $('.ui.rating').rating();
+  }
 }
