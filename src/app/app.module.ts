@@ -32,7 +32,6 @@ import { MapsService } from '../services/maps.service';
 import { FooterComponent } from './footer/footer.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { MaphilightModule } from 'ng-maphilight';
-import { ImgMapComponent } from 'ng2-img-map';
 import { FavoritesComponent } from './profile/favorites/favorites.component';
 import { SaveSearchComponent } from './profile/save-search/save-search.component';
 import { BuyComponent } from './buy/buy.component';
@@ -58,7 +57,6 @@ import { BuyComponent } from './buy/buy.component';
     MessagesComponent,
     SettingsComponent,
     FooterComponent,
-    ImgMapComponent,
     FavoritesComponent,
     SaveSearchComponent,
     BuyComponent
