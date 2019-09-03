@@ -66,6 +66,9 @@ export class BuyComponent implements OnInit {
     $('.ui.modal.shareModal').modal('show');
     
   }
+  sendMail(){
+    $('.ui.modal.shareModal').modal('hide');
+  }
   searchPlot(e){
     this.plotSelected=e.target.value;
     $('.ui.modal.plotInfo').modal('show').modal('refresh');
