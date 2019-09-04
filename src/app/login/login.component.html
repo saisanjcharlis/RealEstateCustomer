@@ -20,7 +20,7 @@
         <hr class="hr">
 
         <div class="cards">
-          <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" class="card" routerLink="/projects">
+          <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" (click)="routeProjects()" class="card" >
             <img class="cardImage" src="https://s.zillowstatic.com/homepage/static/Buy_a_home.png">
             <span class="cardHeader">Buy a Home</span>
             <span class="cardInfo">Find your place with an immersive photo experience and the most listings,<br> including things you won’t find anywhere else.</span>

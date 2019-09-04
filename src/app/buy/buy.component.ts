@@ -76,6 +76,9 @@ export class BuyComponent implements OnInit {
   searchPlot(e){
     this.plotSelected=e.target.value;
     $('.ui.modal.plotInfo').modal('show').modal('refresh');
+    $("area[title='1035']").remove();
+    $("area[title='1035']").attr("data-maphilight",{"fillColor":"D3D3D3"});
+    
   }
   plotCart = [];
   addPlot(){

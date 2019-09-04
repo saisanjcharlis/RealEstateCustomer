@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $:any;
 @Component({
   selector: 'emi-date',
   templateUrl: './emi-date.component.html',
@@ -49,6 +49,15 @@ export class EmiDateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
+  ngAfterViewInit(){
+    // $('.datepicker--cell[style*="background: #FCB332 "]')
+    console.log( $('.datepicker--cell[style*="background: #FCB332 "]'));
+  //     if( $('.datepicker--cell').css('background') == 'FCB332' ) {
+  //     console.log('It equal block');
+  //  } else {
+  //     console.log('It did not equal block');
+  //  }
+  }
 }

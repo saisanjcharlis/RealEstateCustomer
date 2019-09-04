@@ -53,6 +53,10 @@ export class LoginComponent implements OnInit {
     // }
    
   }
+  routeProjects(){
+    localStorage.setItem('projectsDomain','Telangana');
+    this.routes.navigate(['/projects']);
+  }
   selectLocation(e){
     localStorage.setItem('projectsDomain',$(e.target).children('span').text());
     this.routes.navigate(['/projects']);

@@ -99,7 +99,7 @@
                                         </div>
                                         <div style="margin-top:10px;" class="meta">
                                                 <b>{{project.address1}}<br> {{project.address2}}</b>
-                                                <span style="float: right;"> <i [ngClass]="{'red': project.saleStatus == 'Sold'}" class="circle blue icon"></i> <b>{{project.saleStatus}}</b></span>
+                                                <span style="float: right;"> <i [ngClass]="{'green': project.saleStatus == 'Upcoming', 'blue': project.saleStatus == 'For Sale'}" class="circle icon"></i> <b>{{project.saleStatus}}</b></span>
                                         </div>
                                         
 
