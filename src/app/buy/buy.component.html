@@ -6,15 +6,15 @@
                     <i class="large city icon" style="color:white;"></i>
             </div>
             <div style="flex:1 0 auto;">
-                <div style="font-weight: bold;font-size:18px;">Spectra Galaxy</div>
-                <div style="font-size:12px;">Vijaywada, AP 500032</div>
+                <div style="font-weight: bold;font-size:18px;">Viceroyce Residency</div>
+                <div style="font-size:12px;">Allisabguda, Telangana 509228</div>
                 <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
-                    <div class="ui blue rating" data-rating="2" data-max-rating="5"></div>
+                    <div class="ui blue rating" data-rating="4" data-max-rating="5"></div>
                 </div>
             </div>
             <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
             <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
-            <button routerLink="/buy" class="ui blue button cartButton"><i class="shopping cart icon"></i><span *ngIf="plotCart.length>0">{{plotCart.length}}</span></button>
+            <!-- <button routerLink="/buy" class="ui blue button cartButton"><i class="shopping cart icon"></i><span *ngIf="plotCart.length>0">{{plotCart.length}}</span></button> -->
           
         </div>
         <hr style="opacity: 0.3;">
@@ -64,7 +64,7 @@
                                 <area (click)="displayPlot($event)" title="1029" shape="rect" coords="197, 228, 222, 238" />
                                 <area (click)="displayPlot($event)" title="1039" shape="rect" coords="223, 217, 249, 227" />
                                 <area (click)="displayPlot($event)" title="1030" shape="rect" coords="198, 217, 222, 227" />
-                                <area (click)="displayPlot($event)" title="1038" data-maphilight='{"fillColor":"ff0000"}' shape="rect" coords="223, 205, 247, 217" />
+                                <area (click)="displayPlot($event)" title="1038" data-maphilight="{'fillColor':'ff0000'}" shape="rect" coords="223, 205, 247, 217" />
                                 <area (click)="displayPlot($event)" title="1031" shape="rect" coords="197, 204, 223, 217" />
                                 <area (click)="displayPlot($event)" title="1037" shape="rect" coords="225, 196, 248, 205" />
                                 <area (click)="displayPlot($event)" title="1032" shape="rect" coords="196, 194, 222, 205" />
@@ -73,6 +73,13 @@
                                 <area (click)="displayPlot($event)" title="1035" shape="rect" coords="223, 139, 249, 184" />
                                 <area (click)="displayPlot($event)" title="1034" data-maphilight='{"fillColor":"ff0000"}' shape="rect" coords="198, 141, 222, 183" />
                             </map>
+                    </maphilight>
+                     <maphilight *ngIf="planDefault == 1" [config]="config">
+                        <img id="plotPlan1"  src="assets/plotPlan12.png" class="map" usemap="#plotPlan12">   
+                        <map name="plotPlan12">
+                                <!-- <area (click)="displayPlot($event)" title="1048" shape="rect" coords="224, 319, 248, 360" />
+                                <area (click)="displayPlot($event)" title="1021" shape="rect" coords="198, 318, 223, 361" /> -->
+                         </map>
                     </maphilight>
                     <maphilight *ngIf="planDefault == 2" id="statesMap" [config]="config">
                             <img src="assets/plotPlan2.png" class="map" usemap="#plotPlan2">   
@@ -102,7 +109,7 @@
         </div>
         <div class="actions" style="display:flex;justify-content: center;">
             <div class="ui deny black button">View other plots</div>
-            <div (click)="addPlot()" class="ui blue  button">Add Plot to Cart</div>
+            <div (click)="addPlot()" class="ui blue  button">Buy Plot</div>
         </div>  
 </div>
 <div class="ui modal shareModal" >

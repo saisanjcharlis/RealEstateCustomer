@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
 declare var $:any;
 @Component({
   selector: 'buy',
@@ -9,7 +9,7 @@ export class BuyComponent implements OnInit {
   saveText="Save";
   plotSelected;
   plotSelectedPop;
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
   config = {
     fade: true,
     alwaysOn: true,
@@ -76,18 +76,25 @@ export class BuyComponent implements OnInit {
   searchPlot(e){
     this.plotSelected=e.target.value;
     $('.ui.modal.plotInfo').modal('show').modal('refresh');
-    $("area[title='1035']").remove();
-    $("area[title='1035']").attr("data-maphilight",{"fillColor":"D3D3D3"});
+   var hell= $('area[title=1035]');
+    $("area[title='1035']").attr("data-maphilight","{'fillColor':'D3D3D3'}");
+    // console.log(hell);
+    // $('.map').maphilight();
+    this.cdr.detectChanges();
     
   }
-  plotCart = [];
   addPlot(){
     $('.ui.modal.plotInfo').modal('hide');
-    this.plotCart.push(this.plotSelected);
   }
   ngOnInit() {
   }
   ngAfterViewInit() {
+    var element = document.createElement( "area" );
+  element.shape = "rect";
+  element.title = "1035";
+	element.coords = "223, 139, 249, 184";
+    $('#mapPlanDemo').append(element);
+    console.log(element);
     $('.ui.rating').rating();
     $('.cartButton').popup({
       popup : $('.cartList'),

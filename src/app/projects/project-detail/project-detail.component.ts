@@ -13,8 +13,8 @@ export class ProjectDetailComponent implements OnInit {
   ];
   labelLayerId: string;
   saveText="Save";
-  lat: number=17.38;
-  long: number=78.48; 
+  lat: number=17.0719424;
+  long: number=78.2358877; 
   zoom: number=15;
   plotSelected;
   config = {
