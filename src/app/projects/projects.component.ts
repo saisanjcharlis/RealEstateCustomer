@@ -311,11 +311,7 @@ export class ProjectsComponent implements OnInit {
     this.mobFilterOn=!this.mobFilterOn;
   }
   saveSearch(){
-    if(localStorage.getItem("logStatus")=="false"){
-      alert("Login First");
-    } else {
-      localStorage.setItem("saveSearch","true");
-    }
+   
    
   }
   projects = this.hyderabadProjects;
@@ -560,22 +556,8 @@ export class ProjectsComponent implements OnInit {
     }
 
   }
-  homeTypeFilter(e){
-    let propLabel=$(e.target).parent().text().trim().toLowerCase();
-    if(e.target.checked == false){
-        this.projects = this.projects.filter( (project)=>{
-          return project.homeType.indexOf(propLabel) === -1;
-        });
+  facingFilter(e){
 
-    }
-    else{
-      this.hyderabadProjects.map((project)=>{
-        if(project.homeType.includes(propLabel)){
-          this.projects.push(project);
-        }
-      });
-
-    }
     
 
   }

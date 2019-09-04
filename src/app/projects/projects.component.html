@@ -83,7 +83,7 @@
                                                 <div class="ui blue label">Posted: {{project.postedOn}}</div>
                                         </div>
                                         <i class="rightFloated large like  icon" [ngClass]="{'outline': !project.likedStatus, 'blue': project.likedStatus}" (click)="likedProject($event)"></i>
-                                        <span class="ratingFloat ui mini star blue rating" data-rating="3"
+                                        <span class="ratingFloat ui mini star blue rating" data-rating="4"
                                                         data-max-rating="5"></span>
                                         <img routerLink="/projectDetail" style="cursor: pointer;" src={{project.imageUrl}}>
                                 </div>
@@ -204,7 +204,69 @@
         </div>
 </div>
 <div class="ui moreFilterPop popup bottom right transition hidden" >
-       <div class="ui header">Bathrooms</div>
+                <div class="ui header">Facing</div>
+                <div class="marginLeftGrid">
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="facingFilter($event)">
+                                <label>East</label>
+                        </div>
+                        <div class="ui checkbox marginBottom" >
+                                <input type="checkbox" (change)="facingFilter($event)">
+                                <label>RRR Facing Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="facingFilter($event)">
+                                <label>ZP Road Facing Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="facingFilter($event)">
+                                <label>ZP Road Back Side Facing Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="facingFilter($event)">
+                                <label>West Facing Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="facingFilter($event)">
+                                <label>North Facing Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="facingFilter($event)">
+                                <label>East Facing Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="facingFilter($event)">
+                                <label>South Facing Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="facingFilter($event)">
+                                <label>60 Feet Road Facing Plot</label>
+                        </div>
+                </div>
+                <div class="ui header">Corner</div>
+                <div class="marginLeftGrid">
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="cornerFilter($event)">
+                                <label>South East Corner Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom" >
+                                <input type="checkbox" (change)="cornerFilter($event)">
+                                <label>South West Corner Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="cornerFilter($event)">
+                                <label>North West Corner Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="cornerFilter($event)">
+                                <label>North East Corner Plot</label>
+                        </div>
+                        <div class="ui checkbox marginBottom">
+                                <input type="checkbox" (change)="cornerFilter($event)">
+                                <label>40 Feet Road Facing Plot</label>
+                        </div>
+                </div>
+       <!-- <div class="ui header">Bathrooms</div>
         <br>
         <div class="ui buttons" style="margin-top:10px;">
                 <div class="ui blue button" (click)="addBed($event)">Any</div>
@@ -340,7 +402,7 @@
                         <input type="text" >
                 </div>
 
-        </div>
+        </div> -->
 </div>
 
 
