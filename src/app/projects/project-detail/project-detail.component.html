@@ -28,10 +28,10 @@
                         <i class="large city icon" style="color:white;"></i>
                 </div>
                 <div style="flex:1 0 auto;">
-                    <div style="font-weight: bold;font-size:18px;">Spectra Galaxy</div>
-                    <div style="font-size:12px;">Vijaywada, AP 500032</div>
+                    <div style="font-weight: bold;font-size:18px;">Viceroyce Residency</div>
+                    <div style="font-size:12px;">Rangareddy District, TS 509216</div>
                     <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
-                        <div class="ui blue rating" data-rating="2" data-max-rating="5"></div>
+                        <div class="ui blue rating" data-rating="4" data-max-rating="5"></div>
                     </div>
                 </div>
                 <div class="ui celled horizontal list">
@@ -40,8 +40,8 @@
                         <div class="infoLabel">Onwards Price</div>
                     </div>
                     <div class="item">
-                        <div class="infoValue">1234-4000<span style="font-size: 14px;font-weight: 500;"></span></div>
-                        <div class="infoLabel">Sq.Ft.</div>
+                        <div class="infoValue">120-1145<span style="font-size: 14px;font-weight: 500;"></span></div>
+                        <div class="infoLabel">Sq.Yd.</div>
                     </div>
                 </div>
                 <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
@@ -55,7 +55,7 @@
                 <a class="active black item" (click)="plotDetailsReset()" data-tab="first">Overview</a>
                 <a class="black item" (click)="plotDetailsReset()" data-tab="second">Property Details</a>
                 <a class="black item" (click)="plotDetails()" data-tab="third">Plot Details</a>
-                <a class="black item" (click)="plotDetailsReset()" data-tab="fourth">Amenities</a>
+                <!-- <a class="black item" (click)="plotDetailsReset()" data-tab="fourth">Amenities</a> -->
                 <a class="black item" (click)="plotDetailsReset()" data-tab="fifth">Video</a>
                 <a class="black item" (click)="plotDetailsReset()" data-tab="sixth">Neighbourhood</a>
                 <a class="black item" (click)="plotDetailsReset()" data-tab="seventh">Similar Properties</a>
@@ -130,31 +130,24 @@
                                 <!-- Property Details -->
                                 <div class="ui tab segment" data-tab="second">
                                     <div class="menuHeader">Property Details</div>
-                                    <div class="propDetailsHeader">Foundation & Structures</div>
+                                    <!-- <div class="propDetailsHeader">Foundation & Structures</div>
                                         <div class="propDetailsInfo">R.C.C. Framed structure to with-stand & Seismic loads for zone II</div>
-                                    <div class="propDetailsHeader">Plastering</div>
-                                        <div class="propDetailsInfo">Double Coat Cement of 20 mm thick, plastered with luppam finish</div>
-                                    <div class="propDetailsHeader">Doors</div>
-                                        <div class="propDetailsInfo">Teak wood door frame with teak wood paneled door shutter with godrej night lock and brass hardware</div>
-                                    <div class="propDetailsHeader">Internal Doors</div>
-                                        <div class="propDetailsInfo">Teak wood door frames with laminated pressed profile door shutters with mortise door locks and aluminum tower bolts</div>
-                                    <div class="propDetailsHeader">Windows</div>
-                                        <div class="propDetailsInfo">NCL Seccolore profiled GI powder coated windows with MS Safety grills</div>
-                                    <div class="propDetailsHeader">Painting and Polishing</div>
-                                        <div class="propDetailsInfo">Exteriors-exterior Emulsion paint and elevation Texture Paint. Melamine Polish for main door enamel paint for interior doors where required</div>
-                                    <div class="propDetailsHeader">In Living and Dining areas</div>
-                                        <div class="propDetailsInfo">2’x2′ vitrified tiles</div>
-                                    <div class="propDetailsHeader">Kitchen Utility</div>
-                                        <div class="propDetailsInfo">Sit-outs, Anti skid vitrified Tiles</div>
-                                    <div class="propDetailsHeader">Toilets</div>
-                                        <div class="propDetailsInfo">Glazed ceramic tile dodo upto lintel level-Asian/R.A.K. make 12″x18″, EWC and wash basin in master bed room toilet</div>
-                                    <div class="propDetailsHeader">Packing Area</div>
-                                        <div class="propDetailsInfo">Combination flooring as per architects choice</div>
-                                    <div class="propDetailsHeader">Tile Cladding & Dadoing/Utility/Wash</div>
-                                        <div class="propDetailsInfo">Galzed Ceramic Tiles Dado up to lintel level</div>
-                                    <div class="propDetailsHeader">Kitchen Platform</div>
-                                        <div class="propDetailsInfo">Granite platform with stainless steel sink with both municipal and bore water connection & provision for Aqua guard</div>
-                                    
+                                   -->
+                                   <div class="ui bulleted list neighbourhoodList">
+                                           <div class="item">Layout as per HMDA norms</div>
+                                           <div class="item">Developed as per ISO-9001 Standards with Quality at its BEST</div>
+                                           <div class="item">Designed as per Vastu</div>
+                                           <div class="item">Gated Community</div>
+                                           <div class="item">Children Parks</div>
+                                           <div class="item">Avenue Plantation</div>
+                                           <div class="item">All 33 feet, 40 feet, 60 feet Black Top roads</div>
+                                           <div class="item">Rain Harvesting Pits</div>
+                                           <div class="item">Foot paths with curbing stones</div>
+                                           <div class="item">Underground drainage system</div>
+                                           <div class="item">Beautifully designed lands scape gardens</div>
+                                           <div class="item">Electricity with street lights</div>
+                                           <div class="item">Overhead Water Tank with running water supply through pipelines for all the plots.</div>
+                                   </div>
                                 </div>
                                 <!-- Plot Details -->
                                 <div  class="ui tab segment plotDetails" data-tab="third">
@@ -184,7 +177,7 @@
                                 </div>
                                 <!-- Amenities -->
                                 <div class="ui tab segment" data-tab="fourth">
-                                        <div class="menuHeader">Amenities</div>
+                                        <!-- <div class="menuHeader">Amenities</div>
                                         <div class="propDetailsHeader">Generator</div>
                                             <div class="propDetailsInfo">Acoustic enclosed D.G. Set</div>
                                         <div class="propDetailsHeader">Plumbing</div>
@@ -210,7 +203,7 @@
                                         <div class="propDetailsHeader">Security</div>
                                             <div class="propDetailsInfo">24 hours</div>
                                         <div class="propDetailsHeader">Utilities/Wash</div>
-                                            <div class="propDetailsInfo">Provision for washing machine</div>
+                                            <div class="propDetailsInfo">Provision for washing machine</div> -->
                                 </div>
                                 <!-- Video -->
                                 <div class="ui tab segment"data-tab="fifth">
@@ -219,9 +212,9 @@
                                 </div>
                                 <!-- Neighbourhood -->
                                 <div class="ui tab segment" data-tab="sixth">
-                                        <div class="menuHeader">Neighbourhood Info for Spectra Galaxy</div>
+                                        <div class="menuHeader">Neighbourhood Info for Viceroyce Residency</div>
                                         <div class="ui bulleted list neighbourhoodList">
-                                                <div class="item">Located near to Balanagar industrial area, abutting on Hyderabad – Bengaluru NH-7</div>
+                                                <div class="item">Located near to Shadnagar Industrial Area, abutting on Hyderabad-Bengaluru NH-7.</div>
                                                 <div class="item">Direct connectivity to Express Highway, Shadnagar Railway Station connecting Hyderabad to Shadnagar through MMTS</div>
                                                 <div class="item">Connectivity to International Airport reachable in 30 minutes</div>
                                                 <div class="item">Very close to the proposed Regional Ring Road (RRR)</div>
@@ -270,9 +263,6 @@
                     </div> 
                     
                     <div *ngIf="!plotTab" class="grid2">
-                            <p style="margin-top:20px;text-align: center">
-                                    Light and Bright Townhome with all the fun that Fremont offers! So many things to love; highlights include a spacious main level, lg windows, hardwood floors, skylights, gas fireplace w/ tile detail, & private patio!
-                            </p>
                             <div style="font-size:18px;font-weight: bold; letter-spacing: 1px;font-family: 'Quicksand', sans-serif; margin-bottom:10px;">Explore this Property</div>
                             <div style="width: 360px;position: relative;">
                                     <div class="leftArrowContainer" (click)="leftDate()">

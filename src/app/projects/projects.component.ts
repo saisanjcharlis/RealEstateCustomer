@@ -264,7 +264,7 @@ export class ProjectsComponent implements OnInit {
   ];
   hyderabadProjects = [
     {
-      "projectName": "Spectra Viceroyce Residency",
+      "projectName": "Viceroyce Residency",
       "minPrice": 5600000,
       "minPriceParsed": "5.6 Lac",
       "maxPrice": 20000000,
