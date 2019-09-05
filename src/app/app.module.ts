@@ -35,6 +35,8 @@ import { MaphilightModule } from 'ng-maphilight';
 import { FavoritesComponent } from './profile/favorites/favorites.component';
 import { SaveSearchComponent } from './profile/save-search/save-search.component';
 import { BuyComponent } from './buy/buy.component';
+import { AllotmentComponent } from './allotment/allotment.component';
+import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +61,9 @@ import { BuyComponent } from './buy/buy.component';
     FooterComponent,
     FavoritesComponent,
     SaveSearchComponent,
-    BuyComponent
+    BuyComponent,
+    AllotmentComponent,
+    PaymentPlanComponent
   ],
   imports: [
     BrowserModule,

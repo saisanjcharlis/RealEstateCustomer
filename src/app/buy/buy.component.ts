@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
+import { RouterModule , Router } from '@angular/router';
 declare var $:any;
 @Component({
   selector: 'buy',
@@ -9,7 +10,7 @@ export class BuyComponent implements OnInit {
   saveText="Save";
   plotSelected;
   plotSelectedPop;
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef,  private routes: Router) { }
   config = {
     fade: true,
     alwaysOn: true,
@@ -73,7 +74,7 @@ export class BuyComponent implements OnInit {
     this.plotSelected=e.target.value;   
     if($("#"+this.plotSelected).length){
       $('.available').css('fill','none');
-      $("#"+this.plotSelected).css('fill','#0066ff');
+      $("#"+this.plotSelected).css('fill','#2fce72');
     } else {
       $('.available').css('fill','#2fce72');
       $('body').toast({
@@ -87,10 +88,13 @@ export class BuyComponent implements OnInit {
   }
   openAttr(e){
     this.plotSelected = e.target.id;
+    localStorage.setItem('plotSelected',this.plotSelected);
     $('.ui.modal.plotInfo').modal('show');
   }
   addPlot(){
     $('.ui.modal.plotInfo').modal('hide');
+    this.routes.navigate(['/payPlans']);
+
   }
   ngOnInit() {
   }

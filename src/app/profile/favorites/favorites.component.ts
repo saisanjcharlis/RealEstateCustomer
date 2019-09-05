@@ -253,28 +253,27 @@ export class FavoritesComponent implements OnInit {
      }
    ];
    hyderabadProjects = [
-     {
-       "projectName": "Spectra Galaxy",
-       "minPrice": 7800000,
-       "minPriceParsed": "78,00,000",
-       "maxPrice": 50000000,
-       "minSize": 340,
-       "maxSize": 800,
-       "address1": " 3343 C, Yadagirigutta",
-       "address2": "Hyderabad, TS 502012",
-       "saleStatus": "For Sale",
-       "imageUrl": "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
-       "likedStatus": true,
-       "rating": 5,
-       "postedOn": "23 Jul 2018",
-       "state": "hyderabad",
-       "zipcode": "500032",
-       "lat": "12323213",
-       "long": "1321331",
-       "homeType": "plots",
-       "beds": [1,2,3,4,5],
-       "agents": []
-     }
+    {
+      "projectName": "Viceroyce Residency",
+      "minPrice": 5600000,
+      "minPriceParsed": "5.6 Lac",
+      "maxPrice": 20000000,
+      "minSize": 120,
+      "maxSize": 1145,
+      "address1": "Allisabguda, Shadnagar ",
+      "address2": "TS 509228",
+      "saleStatus": "Upcoming",
+      "imageUrl": "assets/viceroyceIcon.png",
+      "likedStatus": false,
+      "rating": 2,
+      "postedOn": "04 Aug 2019",
+      "state": "hyderabad",
+      "zipcode": "509228",
+      "lat": "12323213",
+      "long": "1321331",
+      "homeType": "plots",
+      "agents": []
+    }
    ];
    likedProject(e){
     $(e.target).transition('pulse');
@@ -318,8 +317,8 @@ export class FavoritesComponent implements OnInit {
   }
   locationSelected = "Hyderabad, TS";
   ngOnInit() {
-    this.lat = this.mapsService.lat;
-    this.lng = this.mapsService.lng;
+    this.lat = 17.0754526;
+    this.lng = 78.2352672;
     this.zoom = 15;
     console.log(this.lat,this.lng,this.zoom)
   }

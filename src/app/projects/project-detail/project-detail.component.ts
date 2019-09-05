@@ -41,25 +41,24 @@ export class ProjectDetailComponent implements OnInit {
   };
   projects = [
     {
-      "projectName": "Spectra Fortune",
-      "minPrice": 5600000,
-      "minPriceParsed": "56,00,000",
-      "maxPrice": 20000000,
-      "minSize": 240,
-      "maxSize": 400,
-      "address1": "Plot No.31, Balanagar",
-      "address2": "Hyderabad, TS 500032",
+      "projectName": "Spectra Galaxy",
+      "minPrice": 7800000,
+      "minPriceParsed": "7.8 Lac",
+      "maxPrice": 50000000,
+      "minSize": 340,
+      "maxSize": 800,
+      "address1": " 3343 C, Yadagirigutta",
+      "address2": "Hyderabad, TS 502012",
       "saleStatus": "For Sale",
-      "imageUrl": "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg",
-      "likedStatus": false,
-      "rating": 2,
-      "postedOn": "04 Aug 2019",
+      "imageUrl": "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
+      "likedStatus": true,
+      "rating": 5,
+      "postedOn": "23 Jul 2018",
       "state": "hyderabad",
       "zipcode": "500032",
       "lat": "12323213",
       "long": "1321331",
       "homeType": "plots",
-      "beds": [3,4,5],
       "agents": []
     }
   ];

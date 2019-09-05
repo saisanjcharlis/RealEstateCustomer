@@ -5,7 +5,7 @@
   <span style="font-size:32px;text-transform: uppercase">Welcome To SPECTRA</span>
   <span>Search for Properties Now</span>
     <div class="ui icon input" style="margin-top:50px;">
-        <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" (ngModelChange)="locationSearch($event)" type="text" placeholder="Location">
+        <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" type="text" placeholder="Location">
         <i class="search large blue icon"></i>
     </div>
 </div> 
@@ -108,12 +108,12 @@
  </div>
  <div class="ui savedSearchPop popup bottom right transition hidden">
     <div class="savedSearchList" (click)="selectLocation($event)">
-            <i class="clock blue outline icon"></i><span style="font-weight: 600;">Bangalore, KA</span>
+        <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Yadagirigutta, TS</span>
     </div>
     <div  class="savedSearchList" (click)="selectLocation($event)">
-            <i class="clock blue outline icon"></i><span style="font-weight: 600;">Hyderabad, TS</span>  
+        <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Shadnagar, TS</span>   
     </div>
     <div  class="currentLoc" (click)="selectLocation($event)">
-            <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Current Location</span> 
+        <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Telangana</span> 
     </div>
   </div>

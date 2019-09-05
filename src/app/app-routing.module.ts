@@ -16,6 +16,8 @@ import { SettingsComponent } from './profile/settings/settings.component';
 import { FavoritesComponent } from './profile/favorites/favorites.component';
 import { SaveSearchComponent } from './profile/save-search/save-search.component';
 import { BuyComponent } from './buy/buy.component';
+import { AllotmentComponent } from './allotment/allotment.component';
+import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'messages', component: MessagesComponent },
   { path: 'fav', component: FavoritesComponent },
   { path: 'buy', component: BuyComponent },
+  { path: 'payPlans', component: PaymentPlanComponent },
+  { path: 'allotment', component: AllotmentComponent },
   { path: 'savedSearches', component: SaveSearchComponent },
   { path: 'transactions', component: TransactionsComponent },
   { path: 'profile', component: ProfileInfoComponent },

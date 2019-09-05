@@ -19,24 +19,25 @@ export class ProfileInfoComponent implements OnInit {
     $('.editButton').css("display","none");
   }
   editEnabled(){
-    if(this.options == "Save Profile"){
-      $('body').toast({
-        message: 'Profile Update Successfully',
-        class: 'green', 
-        showProgress: 'bottom'
-      });
-      this.cancelEdit();
-    } else {
-      this.cancel = true;
-      $('.editDisabled').removeAttr("disabled");
-      $('.editDisabled').addClass('editEnabled');
-      this.options="Save Profile";
-      $('.edit').removeClass("blue");
-      $('.edit').addClass("green");
-      $('.editButton').css("display","initial");
-    }
+    // if(this.options == "Save Profile"){
+    //   $('body').toast({
+    //     message: 'Profile Update Successfully',
+    //     class: 'green', 
+    //     showProgress: 'bottom'
+    //   });
+    //   this.cancelEdit();
+    // } else {
+    //   this.cancel = true;
+    //   $('.editDisabled').removeAttr("disabled");
+    //   $('.editDisabled').addClass('editEnabled');
+    //   this.options="Save Profile";
+    //   $('.edit').removeClass("blue");
+    //   $('.edit').addClass("green");
+    //   $('.editButton').css("display","initial");
+    // }
 
-
+    $('input').addClass('inputDisabled');
+    $('input').attr('disabled',true);
 
   }
  

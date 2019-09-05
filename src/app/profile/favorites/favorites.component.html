@@ -43,9 +43,9 @@
         </div>
         <div class="projectContainer ui form">
                 <div class="info">
-                        <h2 *ngIf="projects.length!=0">Saved Homes</h2>
+                        <h2 *ngIf="projects.length!=0">Saved Properties</h2>
                         <div style="font-weight: 600;margin-bottom: 15px;">
-                                <span style="padding:5px 0;display:inline-block;">{{projects.length}} home</span>
+                                <span style="padding:5px 0;display:inline-block;">{{projects.length}} result</span>
                                 <div style="float: right;">
                                                 <span >Sort By: </span>
                                                 <select  class="ui tiny dropdown">
@@ -71,7 +71,7 @@
                                                 <div class="ui blue label">Posted: {{project.postedOn}}</div>
                                         </div>
                                         <i class="rightFloated large like  icon" [ngClass]="{'outline': !project.likedStatus, 'blue': project.likedStatus}" (click)="likedProject($event)"></i>
-                                        <span class="ratingFloat ui mini star blue rating" data-rating="3"
+                                        <span class="ratingFloat ui mini star blue rating" data-rating="4"
                                                         data-max-rating="5"></span>
                                         <img routerLink="/projectDetail" style="cursor: pointer;" src={{project.imageUrl}}>
                                 </div>
@@ -79,7 +79,7 @@
                                         <a class="header" routerLink="/projectDetail">{{project.projectName}}</a>
                                         <span class="priceInfo">
                                                 <i class="rupee sign icon"></i>
-                                                <span style="font-size:18px;">{{project.minPriceParsed}} </span>
+                                                <span style="font-size:18px;">7.8 Lacs </span>
                                                 <span class="onwards"> onwards</span>
                                         </span>
                                         <div class="description">
@@ -87,7 +87,7 @@
                                         </div>
                                         <div style="margin-top:10px;" class="meta">
                                                 <b>{{project.address1}}<br> {{project.address2}}</b>
-                                                <span style="float: right;"> <i [ngClass]="{'red': project.saleStatus == 'Sold'}" class="circle blue icon"></i> <b>{{project.saleStatus}}</b></span>
+                                                <span style="float: right;"> <i [ngClass]="{'green': project.saleStatus == 'Upcoming'}" class="circle icon"></i> <b>{{project.saleStatus}}</b></span>
                                         </div>
                                         
 

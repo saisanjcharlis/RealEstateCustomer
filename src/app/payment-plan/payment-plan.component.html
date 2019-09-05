@@ -1,0 +1,317 @@
+<app-navbar></app-navbar>
+<div class="mainContainer">
+    <!-- Top Info -->
+    <div class="topInfo">
+            <div class="propertyTypeIcon">
+                    <i class="large city icon" style="color:white;"></i>
+            </div>
+            <div style="flex:1 0 auto;">
+                <div style="font-weight: bold;font-size:18px;">Viceroyce Residency</div>
+                <div style="font-size:12px;">Allisabguda, Telangana 509228</div>
+                <div style="font-size:12px;">Plot Number: <span style="border-bottom: 1px dotted ;color:#0066ff;font-weight: bold;font-size:14px;">{{plotSelected}}</span>
+                </div>
+            </div>
+        </div>
+        <hr style="opacity: 0.3;">
+        <h1 *ngIf="!bookPlot" style="text-align: center">Payment Plans</h1>
+</div>
+<div class="paymentReview" *ngIf="bookPlot">
+    <h1>Payment Structure for Plot {{plotSelected}}</h1>   
+    <table class="ui very basic collapsing celled table">
+            <tbody>
+              <tr>
+                <td>
+                  <h4 class="ui header">
+                    <div class="content">
+                      Admission Fee
+                  </div>
+                </h4>
+                </td>
+                <td>
+                    ₹1,000
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4 class="ui header">
+                    <div class="content">
+                      Enrollment
+                  </div>
+                </h4>
+                </td>
+                <td>
+                    ₹10,000
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4 class="ui header">
+                    <div class="content">
+                      Plot Allotment
+                  </div>
+                </h4>
+                </td>
+                <td>
+                    ₹1,00,000
+                </td>
+              </tr>
+              <tr>
+                    <td>
+                      <h4 class="ui header">
+                        <div class="content">
+                          Extra Charges for North Facing
+                      </div>
+                    </h4>
+                    </td>
+                    <td>
+                        ₹300
+                    </td>
+              </tr>
+              <tr>
+                    <td>
+                      <h4 class="ui header">
+                        <div class="content">
+                          Total Cost
+                      </div>
+                    </h4>
+                    </td>
+                    <td style="font-weight: bold">
+                        ₹1,11,300
+                    </td>
+              </tr>
+            </tbody>
+          </table>
+          <button (click)="schemeSelect()" style="margin-top:40px;" class="ui basic button blue">Go Back</button>
+          <button routerLink="/allotment" style="margin-top:40px;" class="ui button blue">Pay now for Booking Plot</button>
+    
+</div>
+<div *ngIf="!bookPlot" class="cards">
+    <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" (click)="outrightSelected()" class="card" >
+      <span class="cardHeader">OUTRIGHT</span>
+      <span class="cardInfo">
+        <table class="ui very basic collapsing celled table">
+            <tbody>
+              <tr>
+                <td>
+                  <h4 class="ui header">
+                    <div class="content">
+                      Admission Fee
+                  </div>
+                </h4>
+                </td>
+                <td>
+                    ₹1,000
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4 class="ui header">
+                    <div class="content">
+                      Enrollment
+                  </div>
+                </h4>
+                </td>
+                <td>
+                    ₹10,000
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4 class="ui header">
+                    <div class="content">
+                      Plot Allotment
+                  </div>
+                </h4>
+                </td>
+                <td>
+                    ₹1,00,000
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4 class="ui header">
+                    <div class="content">
+                      Balance Payable in
+                      <div class="sub header">30 days</div>
+                  </div>
+                </h4>
+                </td>
+                <td>
+                    ₹11,00,000
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4 class="ui header">
+                    <div style="font-weight: bold;" class="content">
+                      Total Plot Cost
+                  </div>
+                </h4>
+                </td>
+                <td style="font-weight: bold;">
+                    ₹12,00,000
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </span>
+      <button class="ui basic button cardButton">
+          Choose Plan
+      </button>
+    </div>
+    <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" (click)="emiSelected()" class="card">
+        <span class="cardHeader">EMI</span>
+        <span class="cardInfo">
+            <table class="ui very basic collapsing celled table">
+                <tbody>
+                  <tr>
+                    <td>
+                      <h4 class="ui header">
+                        <div class="content">
+                          Admission Fee
+                      </div>
+                    </h4>
+                    </td>
+                    <td>
+                        ₹1,000
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h4 class="ui header">
+                        <div class="content">
+                          Enrollment
+                      </div>
+                    </h4>
+                    </td>
+                    <td>
+                        ₹10,000
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h4 class="ui header">
+                        <div class="content">
+                          Plot Allotment
+                      </div>
+                    </h4>
+                    </td>
+                    <td>
+                        ₹1,20,000
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h4 class="ui header">
+                        <div class="content">
+                          Balance Payable in
+                          <div class="sub header">12 months</div>
+                      </div>
+                    </h4>
+                    </td>
+                    <td>
+                        ₹13,20,000
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h4 class="ui header">
+                        <div style="font-weight: bold;" class="content">
+                          Total Plot Cost
+                      </div>
+                    </h4>
+                    </td>
+                    <td style="font-weight: bold;">
+                        ₹14,40,000
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </span>
+        <button class="ui basic button cardButton">
+            Choose Plan
+        </button>
+      </div>
+</div>
+<footer></footer>
+<div class="ui modal tiny terms">
+    <!-- <i class="close icon"></i> -->
+    <div style="color:#0066ff" class="header">
+     Terms and Conditions
+    </div>
+    <div class="scrolling content">
+      <div style="color:#414143" class="description">
+            <ol class="ui list">
+                    <li value="•">
+                            Plots will be allotted under Chattanpally Village, Farooqnagar Mandal in<br>
+                            survey nos. 379, 392 and 394.
+                    </li>
+                    <li value="•">
+                            To join the scheme, a member should pay an admission fee of ₹1,000/-<br>
+                            (for a unit of 120 Square yards)along with enrollment Amount ₹10,000/-<br>
+                            respectively.
+                    </li>
+                    <li value="•">
+                            All ZP road facing plots will be charged ₹300/- extra per Sq.Yard,<br>
+                            All ZP road Back side plots will be charged ₹900/- extra per Sq.Yard,<br>
+                            All North East comer plots will be charged  ₹400/- extra per Sq.Yard,<br>
+                            All Corner facing plots will be charged ₹200/- extra per Sq.Yard, <br>
+                            All East facing plots will be charged ₹200/- extra per Sq.Yard, <br>
+                            All 60' road facing plots will be charged ₹200/- extra per Sq.Yard, <br>
+                            All 40' road facing plots will be charged ₹100/- extra per Sq.Yard. <br>
+                            These charges will be paid in advance along with allotment amount.<br>
+                    </li>
+                    <li value="•">
+                            If a member reserves a plot and becomes default in payments, the<br>
+                            company has the right to cancel his/her plot allotment without any prior<br>
+                            notice. If he /she regularizes the payment later, he /she has to select<br>
+                            another plot from the available vacant plots.
+                    </li>
+                    <li value="•">
+                            The management reserves the right to alter the layout partly or fully<br>
+                            according the final plot will be allotted.
+                    </li>
+                    <li value="•">
+                            If any member seeks to cancel his passbook, he will not be allowed to do<br>
+                            so during the scheme period. It will be done as per the company rules &<br>
+                            regulations only after the completion of scheme period.
+                    </li>
+                    <li value="•">
+                            Registration and agreement charges are to be borne by the members as<br>
+                            fixed by company. Interest at the rate of ₹5/- per month will have to be<br>
+                            paid for overdue instalments as penal charges. If instalments are not paid<br>
+                            for 3 months in succession, management reserves its right to cancel the<br>
+                            membership without prior notice.
+                    </li>
+                    <li value="•">
+                            All legal matters are subject to the jurisdiction of Ranga Reddy Dist. Courts<br>
+                            only.
+                    </li>
+                    <li value="•">
+                            The company is not responsible for the payment made to unauthorized<br>
+                            persons.
+                    </li>
+                    <li value="•">
+                            Name change or transfer will attract ₹10,000/- per unit.
+                    </li>
+                    <li value="•">
+                            Statutory taxes on prices shall be borne by the members, The prize<br>
+                            winners (PB Nos) will not be considered for further draws.
+                    </li>
+                    <li value="•">
+                            Those who make the payments through cheques shall bear bank charges<br>
+                            on realisation.
+                    </li>
+            </ol>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui cancel right labeled icon button" >
+        Deny    
+      </div>
+      <div class="ui positive right labeled icon button" (click)="viewPaymentStructure()" >
+        Accept
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
