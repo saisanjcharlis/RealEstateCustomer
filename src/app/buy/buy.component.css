@@ -87,3 +87,9 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+.available{
+    fill:#2fce72;
+}
+.available:hover{
+    fill:#414143;
+}

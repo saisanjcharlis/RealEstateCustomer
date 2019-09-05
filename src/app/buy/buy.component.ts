@@ -51,10 +51,6 @@ export class BuyComponent implements OnInit {
     $(e.target).removeClass('basic');
     this.planDefault =3;
   }
-  displayPlot(e){
-    this.plotSelected=e.target.title;
-    $('.ui.modal.plotInfo').modal('show').modal('refresh');
-  }
   save(e){
     if(this.saveText=="Save"){
      this.saveText="Saved";
@@ -74,14 +70,24 @@ export class BuyComponent implements OnInit {
     $('.ui.modal.shareModal').modal('hide');
   }
   searchPlot(e){
-    this.plotSelected=e.target.value;
-    $('.ui.modal.plotInfo').modal('show').modal('refresh');
-   var hell= $('area[title=1035]');
-    $("area[title='1035']").attr("data-maphilight","{'fillColor':'D3D3D3'}");
-    // console.log(hell);
-    // $('.map').maphilight();
-    this.cdr.detectChanges();
+    this.plotSelected=e.target.value;   
+    if($("#"+this.plotSelected).length){
+      $('.available').css('fill','none');
+      $("#"+this.plotSelected).css('fill','#0066ff');
+    } else {
+      $('.available').css('fill','#2fce72');
+      $('body').toast({
+        class: 'error',
+        message: `Plot Does not Exist`
+      });
+      $('.toast-box').css("margin-top","50px");
+    }
+  
     
+  }
+  openAttr(e){
+    this.plotSelected = e.target.id;
+    $('.ui.modal.plotInfo').modal('show');
   }
   addPlot(){
     $('.ui.modal.plotInfo').modal('hide');
@@ -89,16 +95,8 @@ export class BuyComponent implements OnInit {
   ngOnInit() {
   }
   ngAfterViewInit() {
-    var element = document.createElement( "area" );
-  element.shape = "rect";
-  element.title = "1035";
-	element.coords = "223, 139, 249, 184";
-    $('#mapPlanDemo').append(element);
-    console.log(element);
+
     $('.ui.rating').rating();
-    $('.cartButton').popup({
-      popup : $('.cartList'),
-      on    : 'click'
-    });
+
   }
 }
