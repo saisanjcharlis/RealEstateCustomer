@@ -55,28 +55,35 @@
 
 <div class="profileInfo">
     <div class="label">Name</div>
-    <input class="inputDisabled"  value="John Keane" type="text">
+    <input class="inputDisabled" disabled value="John Keane" type="text">
     <div class="label">Username</div>
-    <input value="jonh_keane" type="text">
+    <input class="inputDisabled" disabled value="jonh_keane" type="text">
+    <div class="label">Password</div>
+    <input class="inputDisabled" disabled value="admin123" type="password">
     <div class="label">Date of Birth</div>
-    <input type="text">
+    <div class="ui calendar" id="year_first_calendar">
+        <div class="ui input right icon">
+          <!-- <i class="calendar icon"></i> -->
+          <input  class="inputDisabled" value="May 11, 2013" disabled type="text">
+        </div>
+      </div>
     <div class="label">Father's / Spouse Name</div>
-    <input value="Ranjith Singh" type="text">
+    <input class="inputDisabled" disabled value="Ranjith Singh" type="text">
     <div class="label">Mobile Number</div>
-    <input value="8220284011" type="number">
+    <input class="inputDisabled" disabled value="8220284011" type="number">
     <div class="label">Permanent Address</div>
-    <textarea rows="5"></textarea>
+    <textarea class="inputDisabled" disabled rows="5">Shadnagar, Telangana</textarea>
     <div class="label">Email</div>
-    <input value="charlis@saisanj.com" type="email">
+    <input class="inputDisabled" disabled value="charlis@saisanj.com" type="email">
     <div class="label">PAN Card Number</div>
-    <input value="BJIPD2651A" type="text">
+    <input class="inputDisabled" disabled value="BJIPD2651A" type="text">
     <div class="label">AADHAAR Number</div>
-    <input value="856576227852" type="number">
+    <input class="inputDisabled" disabled value="856576227852" type="number">
     <div class="label">Reference Code</div>
-    <input type="number">
+    <input class="inputDisabled" disabled type="number">
     <div></div>
-    <div>
-            <button routerLink="/activity" class="right submitButton floated ui button basic green">Save</button>
+    <div *ngIf="edit">
+            <button (click)="saveProfile()" class="right submitButton floated ui button basic green">Save</button>
     </div>
     
 </div>

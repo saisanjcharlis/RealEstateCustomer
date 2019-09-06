@@ -347,6 +347,9 @@ export class ProjectsComponent implements OnInit {
     this.lng = this.mapsService.lng;
    }
   }
+  homeTypeFilter(e){
+    
+  }
   clearFilters(e){
     this.locationSelected="";
     $(e.target).removeClass('basic');

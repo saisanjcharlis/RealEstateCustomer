@@ -193,18 +193,18 @@
               
 </div>
 <div class="ui savedSearchPop popup bottom right transition hidden">
-        <div class="savedSearchList" (click)="selectLocation($event)">
-                <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Yadagirigutta, TS</span>
-        </div>
         <div  class="savedSearchList" (click)="selectLocation($event)">
                 <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Shadnagar, TS</span>  
+        </div>
+        <div class="savedSearchList" (click)="selectLocation($event)">
+                <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Yadagirigutta, TS</span>
         </div>
         <div  class="currentLoc" (click)="selectLocation($event)">
                 <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Telangana</span> 
         </div>
 </div>
 <div class="ui moreFilterPop popup bottom right transition hidden" >
-                <div class="ui header">Facing</div>
+                <!-- <div class="ui header">Facing</div>
                 <div class="marginLeftGrid">
                         <div class="ui checkbox marginBottom">
                                 <input type="checkbox" (change)="facingFilter($event)">
@@ -265,7 +265,7 @@
                                 <input type="checkbox" (change)="cornerFilter($event)">
                                 <label>40 Feet Road Facing Plot</label>
                         </div>
-                </div>
+                </div> -->
        <!-- <div class="ui header">Bathrooms</div>
         <br>
         <div class="ui buttons" style="margin-top:10px;">

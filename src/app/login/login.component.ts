@@ -158,8 +158,15 @@ export class LoginComponent implements OnInit {
     }
     if(mobileNumber.length == 10 && otp.length>0 && password.length >0 && minSpecChar.test(password) && minAlphabet.test(password) && minNumber.test(password) && minCount.test(password)){
       $('.ui.modal').modal('hide');  
-      localStorage.setItem('logStatus','createProfile');
-      this.routes.navigate(['/createProfile']);
+      localStorage.setItem('logStatus','true');
+      this.routes.navigate(['/']);
+      this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+      let currentUrl = this.routes.url + '?';
+      this.routes.navigateByUrl(currentUrl)
+        .then(() => {
+          this.routes.navigated = false;
+          this.routes.navigate([this.routes.url]);
+        });
     }
     
   }

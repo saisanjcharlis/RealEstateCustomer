@@ -127,12 +127,15 @@
 }
 .topHeader{
     padding-top:100px;
-    margin:0 10%;
+    margin:0 12%;
     font-weight: bold;
     font-size:2em;
 }
 .profileInfo{
-    margin:50px 10%;
+    margin:50px 12%;
+    border: 1px solid rgba(0,102,255,0.1);
+    border-radius: 5px;
+    padding: 20px;
     display: grid ;
     grid-template-columns: 20% 75%;
     grid-gap: 20px 5%;
@@ -140,6 +143,8 @@
 @media all and (max-width: 768px) {
     .profileInfo{
         margin:0 2%;
+        border:none;
+        padding: 0;
      }
      .topHeader{
         margin:0 2%;
@@ -157,12 +162,12 @@
     font-weight: bold;
    padding:15px 0;
 }
-input{
+input, .ui.calender{
     
     height: 50px;
     background: #fff;
     font-size: 10pt;
-    padding-left: 20px;
+    padding-left: 20px !important;
     -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
     -ms-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
@@ -177,12 +182,20 @@ input{
 
 
 }
-.inputDisabled{
-    background: #F7F9FC;
-    box-shadow: none;
-    color:#0066ff;  
-    font-weight: bold;
 
+.input{
+    border:none !important;
+}
+.inputDisabled{
+    background: #F7F9FC !important;
+    border: none !important;
+    box-shadow: none;
+    color:#0066ff !important;  
+    font-weight: bold;
+    opacity: 1 !important;
+}
+.ui.input{
+    width: 100%;
 }
 textarea{
     background: #fff;
@@ -199,7 +212,7 @@ textarea{
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     border-radius: 4px;
-
+    resize: none;
 
 }
 input[type=number]::-webkit-inner-spin-button, 

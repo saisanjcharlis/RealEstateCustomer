@@ -7,17 +7,16 @@ declare var $:any;
 })
 export class ProfileInfoComponent implements OnInit {
   constructor() { }
-  cancel=false;
-  options="Edit Profile";
-  cancelEdit(){
-    this.cancel = false;
-    $('.editDisabled').attr("disabled");
-    $('.editDisabled').removeClass('editEnabled');
-    this.options="Edit";
-    $('.edit').removeClass("green");
-    $('.edit').addClass("blue");
-    $('.editButton').css("display","none");
-  }
+  // cancelEdit(){
+  //   this.cancel = false;
+  //   $('.editDisabled').attr("disabled");
+  //   $('.editDisabled').removeClass('editEnabled');
+  //   this.options="Edit";
+  //   $('.edit').removeClass("green");
+  //   $('.edit').addClass("blue");
+  //   $('.editButton').css("display","none");
+  // }
+  edit=false;
   editEnabled(){
     // if(this.options == "Save Profile"){
     //   $('body').toast({
@@ -35,12 +34,20 @@ export class ProfileInfoComponent implements OnInit {
     //   $('.edit').addClass("green");
     //   $('.editButton').css("display","initial");
     // }
-
-    $('input').addClass('inputDisabled');
-    $('input').attr('disabled',true);
+    this.edit=true;
+    $('input').removeClass('inputDisabled');
+    $('input').attr('disabled',false);
+    $('textarea').removeClass('inputDisabled');
+    $('textarea').attr('disabled',false);
 
   }
- 
+  saveProfile(){
+    $('input').addClass('inputDisabled');
+    $('input').attr('disabled',true);
+    $('textarea').addClass('inputDisabled');
+    $('textarea').attr('disabled',true);
+    this.edit=false;
+  }
   uploadPicture(){
     $("#imageUpload").click();
   }
@@ -55,16 +62,19 @@ export class ProfileInfoComponent implements OnInit {
       }
     }
   }
-  onHide(hide: boolean){
-    if(hide){
-      $('.gridContainer').css( "grid-template-columns", "15% 80%" );
-    } else {
-      $('.gridContainer').css( "grid-template-columns", "4% 90%" );
-    }
+  // onHide(hide: boolean){
+  //   if(hide){
+  //     $('.gridContainer').css( "grid-template-columns", "15% 80%" );
+  //   } else {
+  //     $('.gridContainer').css( "grid-template-columns", "4% 90%" );
+  //   }
 
-  }
+  // }
   ngOnInit() {
-
+    $('#year_first_calendar').calendar({
+      type: 'date',
+      startMode: 'year'
+    });
     
   }
 }
