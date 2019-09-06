@@ -37,6 +37,7 @@ import { SaveSearchComponent } from './profile/save-search/save-search.component
 import { BuyComponent } from './buy/buy.component';
 import { AllotmentComponent } from './allotment/allotment.component';
 import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
+import { SuccessAllotComponent } from './success-allot/success-allot.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,8 @@ import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
     SaveSearchComponent,
     BuyComponent,
     AllotmentComponent,
-    PaymentPlanComponent
+    PaymentPlanComponent,
+    SuccessAllotComponent
   ],
   imports: [
     BrowserModule,

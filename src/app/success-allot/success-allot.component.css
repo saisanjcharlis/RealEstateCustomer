@@ -1,0 +1,9 @@
+.mainContainer{
+    padding-top:100px;
+    margin:0 25px;
+ }
+ @media all and (max-width: 930px) {
+     .mainContainer{
+         margin:0 10px;
+      }
+ }

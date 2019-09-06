@@ -90,6 +90,10 @@ input[type=number]::-webkit-outer-spin-button {
 .available{
     fill:#2fce72;
 }
+.available1{
+    fill:#0066ff;
+}
 .available:hover{
-    fill:#414143;
+    /* fill:#414143; */
+    fill: rgba(65,65,67,0.7);
 }

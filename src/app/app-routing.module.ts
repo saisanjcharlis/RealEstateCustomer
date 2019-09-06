@@ -18,6 +18,7 @@ import { SaveSearchComponent } from './profile/save-search/save-search.component
 import { BuyComponent } from './buy/buy.component';
 import { AllotmentComponent } from './allotment/allotment.component';
 import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
+import { SuccessAllotComponent } from './success-allot/success-allot.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'fav', component: FavoritesComponent },
   { path: 'buy', component: BuyComponent },
   { path: 'payPlans', component: PaymentPlanComponent },
+  { path: 'successAllot', component: SuccessAllotComponent },
   { path: 'allotment', component: AllotmentComponent },
   { path: 'savedSearches', component: SaveSearchComponent },
   { path: 'transactions', component: TransactionsComponent },
