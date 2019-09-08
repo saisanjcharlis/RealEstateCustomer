@@ -18,19 +18,6 @@ declare var $:any;
   providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
-  @HostListener('window:resize', ['$event'])
-  onResize(event){
-    if(event.target.innerWidth>768)
-     {
-       $('.dropDownSearch').removeClass('large');
-       $('.dropDownSearch').addClass('huge');
-     }
-     else{
-      this.searchPlaceholder = "Location";
-      $('.dropDownSearch').removeClass('huge');
-      $('.dropDownSearch').addClass('large');
-     }
-  }
   locationSelected = "";
   hideSignUp=false;
   hideSignIn=true;
@@ -75,10 +62,6 @@ export class LoginComponent implements OnInit {
     this.hideSignUp = true;
     this.hideSignIn = false;
   }
-  browseLimited(){
-    localStorage.setItem('logStatus','false');
-    this.routes.navigate(['/projects']);
-  }
   hoverCard(e){
     $(e.target.querySelector('button')).removeClass('basic');
     $(e.target.querySelector('button')).addClass('blue');
@@ -114,7 +97,7 @@ export class LoginComponent implements OnInit {
         this.errors.push("Enter Password");
       }
       if(uname.length > 0 && p.length >0){
-        this.errors.push("Wrong Credentials");
+        this.errors.push("User Not Found");
       }
     }
   }

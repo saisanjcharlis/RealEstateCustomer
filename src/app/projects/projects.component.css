@@ -8,6 +8,7 @@
 .mapContainer{
   width: 40%;
 }
+
 .menu{
   padding-top: 56px;
   padding:66px 10px 10px 10px;
@@ -109,11 +110,18 @@
   margin-bottom:110px;
   background: #fff;
 }
-@media all and (max-width: 1026px) {
-  .mapContainer{
-    display: none;
+@media all and (max-width: 1000px) {
+  .compContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
   }
-  .projectContainer,.mobileFilter{
+  .mapContainer{
+    width: 100%;
+    height: 70vh;
+  }
+  .projectContainer{
     width: 100%;
   }
 }
@@ -130,6 +138,11 @@
 @media all and (max-width: 460px) {
   .projects{
     margin:58px 0 58px 0 !important;
+  }
+}
+@media all and (max-width: 768px) {
+  .projects{
+    margin:24px 0 24px 0 !important;
   }
 }
 

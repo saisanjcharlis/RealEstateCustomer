@@ -306,9 +306,8 @@ export class ProjectsComponent implements OnInit {
       "agents": []
     }
   ];
-  mobFilterOn = false;
   mobileFilterOn(){
-    this.mobFilterOn=!this.mobFilterOn;
+ 
   }
   saveSearch(){
    
@@ -605,8 +604,8 @@ export class ProjectsComponent implements OnInit {
       popup : $('.savedSearchPop'),
       on    : 'click'
     });
-    $('.moreButton').popup({
-      popup : $('.moreFilterPop'),
+    $('.filterMobile').popup({
+      popup : $('.mobileFilterPop'),
       on    : 'click',
       lastResort: true
     });

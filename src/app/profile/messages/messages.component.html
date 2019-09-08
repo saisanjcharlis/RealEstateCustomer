@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="gridContainer">
+<!-- <div class="gridContainer">
     <sidebar class="mobileHide" (sideStatus)="onHide($event)"></sidebar>
     <div class="mainContainer">
         <div class="header">Messages</div>
@@ -23,4 +23,25 @@
      
         </div>
     </div>
-</div>
+</div> -->
+<div class="topHeader">Messages</div>
+<div class="content">
+        <div class="messageContainer" *ngFor="let message of messages">
+             <div class="ui checkbox">
+                     <input type="checkbox" name="example">
+                     <label>
+                         <i class="navIcon user circle icon large"></i>
+                         <span style="font-weight: 600;">Joseph Kennedy</span>
+                     </label>
+             </div>
+             
+             <div class="ui grey label" style="margin-left:10px;">Collection</div>
+             <span class="messageInfo">Hi Joseph, Your payment for Plot No. 314 for project is pending..</span>
+             <i style="float:right;" class="ellipsis vertical icon"></i>
+            
+             
+        </div>
+        <!-- <div class="ui blue label" class="" style="margin-top:20px;float:right;cursor: pointer;">View More</div> -->
+  
+     </div>
+<footer></footer>

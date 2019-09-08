@@ -50,6 +50,10 @@ export class NavbarComponent implements OnInit {
     if(localStorage.getItem('logStatus') !=='createProfile' || routeActivate == "projects"){
       this.router.navigate(['/']);
     }
+    if(routeActivate == ""){
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+    }
+    //
    
   }
   logout(){

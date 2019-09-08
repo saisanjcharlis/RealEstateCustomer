@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <div class="bodyLogin">
     <div class="intro">
+      <img src="assets/images/ViceroyceeFamilyphoto.jpg">
             <div style="text-align: center;margin-top:100px;position: relative;">
               <div class="headerText" >Explore your</div><div id="headerText" class="headerText">Ideal Home</div>
               <div class="slogan" >We'll help you find a place you'll love</div>
@@ -89,7 +90,7 @@
               <input id="password" #pwd type="password" placeholder="Enter Password" autocomplete="false" required />
              <label for=password></label>
             </div>
-            <div *ngIf="errors1.length>0" class="ui error message" style="width: 100%;overflow-y:auto;max-height: 100px;">
+            <div *ngIf="errors1.length>0" class="ui error message" style="width: 100%;">
               <ul class="list">
                 <li *ngFor="let error of errors1">{{error}}</li>
               </ul>
@@ -106,7 +107,7 @@
 
 
 
-<div class="ui modal agentModal">
+<div class="ui small modal agentModal">
   <i class="close icon"></i>
   <div class="header">
     Schedule a Meet Up
