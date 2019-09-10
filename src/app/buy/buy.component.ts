@@ -99,7 +99,10 @@ export class BuyComponent implements OnInit {
   ngOnInit() {
   }
   ngAfterViewInit() {
-
+    // $('.available').popup({
+    //   popup : $('.plotPopup'),
+    //   on    : 'hover'
+    // });
     $('.ui.rating').rating();
 
   }

@@ -97,3 +97,6 @@ input[type=number]::-webkit-outer-spin-button {
     /* fill:#414143; */
     fill: rgba(65,65,67,0.7);
 }
+.cls-14,.cls-15,.cls-3{
+    pointer-events: none !important;
+}
