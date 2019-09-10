@@ -68,6 +68,7 @@ export class NavbarComponent implements OnInit {
           this.router.navigate([this.router.url]);
         });     
     }
+    localStorage.setItem('logStatus','logout');
     this.router.navigate(['/']);
   }
   ngOnInit() {

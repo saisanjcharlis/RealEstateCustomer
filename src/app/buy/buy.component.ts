@@ -70,6 +70,12 @@ export class BuyComponent implements OnInit {
   sendMail(){
     $('.ui.modal.shareModal').modal('hide');
   }
+  plotNumber=0;
+  modelChange(newObj){
+    if(newObj==null){
+      $('.available').css('fill','#2fce72');
+    }
+  }
   searchPlot(e){
     this.plotSelected=e.target.value;   
     if($("#"+this.plotSelected).length){
@@ -83,7 +89,6 @@ export class BuyComponent implements OnInit {
       });
       $('.toast-box').css("margin-top","50px");
     }
-  
     
   }
   openAttr(e){

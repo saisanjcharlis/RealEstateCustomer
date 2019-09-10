@@ -26,22 +26,23 @@
     padding-top: 50px;
   }
 }
-h3 {
-  font-weight: 300;
-  margin-bottom: 25px;
-  text-align: center;
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  /* width: 850px; */
+  max-width: 100%;
+  height: 570px;
 }
-h3 span {
-  font-weight: bold;
+@media all and (max-width: 768px) {
+  .container {
+    height: 95vh;
+    min-height: 400px;
+  }
 }
-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
-  height: 100%;
-}
+
 .dropDownSearch {
   font-weight: bold !important;
   margin-top: 50px;
@@ -71,21 +72,7 @@ input.search {
   font-weight: bold !important;
   font-size: 24px !important;
 }
-.container {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position: relative;
-  overflow: hidden;
-  width: 850px;
-  max-width: 100%;
-  height: 570px;
-}
-@media all and (max-width: 768px) {
-  .container {
-    height: 95vh;
-  }
-}
+
 .headerText {
   /* font-family: "Adobe_Garamound-Bold", sans-serif; */
   /* font-family: 'Quicksand', sans-serif;  */
@@ -101,11 +88,6 @@ input.search {
   color: white;
   font-size: 24px;
   margin-top: 20px;
-}
-@media all and (min-width: 769px) {
-  .modalSign {
-    width: 40% !important;
-  }
 }
 @media all and (max-width: 768px) {
   .dropDownSearch {
@@ -167,42 +149,8 @@ input.search {
   }
 }
 
-@media all and (max-width: 768px) {
-  .container {
-    min-height: 400px;
-  }
-}
-.form-container {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  transition: all 0.6s ease-in-out;
-}
 
-.side-info {
-  left: 0;
-  display: none;
-  width: 50%;
-  /* background-color: #fff; */
-  background: rgba(0, 0, 0, 0.8);
-  /* background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(67,67,67,0.6) 100%); */
-  /* background: linear-gradient(0deg,  rgba(83,105,118,1) 50%, rgba(187,210,197,1) 100%); */
-  /* background: linear-gradient(0deg, rgba(83,105,118,1) 0%, rgba(187,210,197,1) 100%); */
-  /* background-image: url("../../assets/house11.jpg"); */
-}
-.sign-up-container {
-  right: 0;
-  width: 100%;
-  opacity: 1;
-}
-@media all and (max-width: 768px) {
-  .sign-up-container {
-    width: 100%;
-  }
-  .displayNone {
-    display: none;
-  }
-}
+
 
 input::placeholder {
   text-transform: uppercase;
@@ -278,87 +226,18 @@ h1 {
     padding-top: 20px;
   }
 }
-.buttonCont {
-  width: 100%;
-  display: flex;
-}
-.yellowBtn {
-  background: #fcb332;
-  color: black;
-  flex: 1 0 auto;
-  cursor: pointer;
-}
-.whiteBtn {
-  /* background:#414143; */
-  background: white;
-  color: black;
-  width: 100%;
-}
-.passwordHelp:after {
-  width: 180px;
-  letter-spacing: 0.5px;
-  white-space: normal;
-}
-.searchProject::placeholder {
-  text-transform: capitalize;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  color: #414143 !important;
-}
+
 .searchProject {
   border-radius: 5px !important;
   width: 100% !important;
   color: #414143 !important;
   font-weight: 500;
 }
-.blueBtn {
-  margin-left: 10px;
-  background: #0066ff;
-  color: white;
-  cursor: pointer;
-  flex: 1 0 auto;
-}
-button {
-  align-items: center;
-
-  border: 0;
-  border-radius: 3px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
-  display: flex;
+.searchProject::placeholder {
+  text-transform: capitalize;
   font-family: "Lato", sans-serif;
-  font-size: 13px;
   font-weight: 500;
-  justify-content: center;
-  margin-top: 20px;
-  outline: none;
-  padding: 10px 9px 10px 11px;
-}
-button .fa {
-  font-size: 12px;
-  margin-left: auto;
-  float: right;
-  position: relative;
-  top: 1px;
-}
-button:hover {
-  -webkit-transform: scale(1.02);
-  transform: scale(1.02);
-}
-button:active {
-  -webkit-transform: scale(0.99);
-  transform: scale(0.99);
-}
-.resend {
-  transform: translateY(8px);
-}
-.resendText {
-  /* transform: translateY(8px); */
-  opacity: 0.5;
-  color: #414143;
-}
-.resendText:after,
-.resendText:before {
-  box-sizing: initial !important;
+  color: #414143 !important;
 }
 .cards {
   display: flex;
@@ -387,9 +266,6 @@ button:active {
   .card {
     width: 80%;
   }
-}
-.animate {
-  transform: scale(1.05);
 }
 
 .cardImage {
@@ -423,14 +299,8 @@ button:active {
 .card .blue {
   color: white !important;
 }
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.agentModal{
-	/* width: 60% !important; */
-}
+
+
 @media all and (max-width: 768px) {
 	.agentModal{
 		width: 80% !important;

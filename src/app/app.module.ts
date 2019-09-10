@@ -40,6 +40,7 @@ import { AllotmentComponent } from './allotment/allotment.component';
 import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
 import { SuccessAllotComponent } from './success-allot/success-allot.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PopUpComponent } from './login/pop-up/pop-up.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,8 @@ import { HttpClientModule } from '@angular/common/http';
     BuyComponent,
     AllotmentComponent,
     PaymentPlanComponent,
-    SuccessAllotComponent
+    SuccessAllotComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,

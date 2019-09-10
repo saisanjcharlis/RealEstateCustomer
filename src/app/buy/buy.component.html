@@ -32,11 +32,11 @@
                 </div>
                 <div class="ui icon input searchPlot">
                         <i class="search icon"></i>
-                        <input type="number" (keyup.enter)="searchPlot($event)" placeholder="Search By Plot Number">
+                        <input (ngModelChange)="modelChange($event)" [(ngModel)]="plotNumber" type="number" (keyup.enter)="searchPlot($event)" placeholder="Search By Plot Number">
                 </div>
                 <div  class="ui  action input searchPlotDesktop">
-                        <input type="number" (keyup.enter)="searchPlot($event)" placeholder="Plot Number">
-                        <div class="ui blue extraText button">Select by Plot Number</div>
+                        <input (ngModelChange)="modelChange($event)" [(ngModel)]="plotNumber" type="number" (keyup.enter)="searchPlot($event)" placeholder="Plot Number">
+                        <div  class="ui blue extraText button">Select by Plot Number</div>
                 </div>
             </div>
             <div style="margin-top:50px;overflow: auto">

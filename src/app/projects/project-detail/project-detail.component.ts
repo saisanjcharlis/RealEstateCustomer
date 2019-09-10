@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AgmMap } from '@agm/core';
+import { RouterModule , Router } from '@angular/router';
 declare var $:any;
 @Component({
   selector: 'app-project-detail',
@@ -62,7 +63,14 @@ export class ProjectDetailComponent implements OnInit {
       "agents": []
     }
   ];
-  constructor() { }
+  constructor(private router:Router) { }
+  buyLink(){
+    if(localStorage.getItem('logStatus')=='true'){
+      this.router.navigate(['/buy']);
+    } else {
+      $('.ui.modal.modalSign').modal('show');  
+    };
+  }
   save(e){
    if(this.saveText=="Save"){
     this.saveText="Saved";
