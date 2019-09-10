@@ -1,7 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { trigger, style, transition, animate, group } from '@angular/animations';
 import { LoginService } from '../../services/login-service.service';
+import { ConfigService } from '../../services/config.service';
 import { RouterModule , Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 declare var $:any;
 @Component({
   selector: 'app-login',
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
   public openModal(){
     $('.ui.modal.modalSign').modal('show');   
   }
-  constructor(private loginService: LoginService, private routes: Router) { }
+  constructor(private loginService: LoginService, private routes: Router, private http: HttpClient, private config: ConfigService) { }
   locationSearchEnter(e){
     localStorage.setItem('projectsDomain', e.target.value.toLowerCase());
     this.routes.navigate(['/projects']);
@@ -73,31 +75,34 @@ export class LoginComponent implements OnInit {
     $(e.target).removeClass("animate"); 
   }
   signIn(uname: string, p: string){
+  
     this.errors=[];
-    let output = this.loginService.checkusername(uname,p);
-    if(output==true){
-      $('.ui.modal').modal('hide');  
-      localStorage.setItem('logStatus','true');
-      localStorage.setItem('saveSearch','true');
-      localStorage.setItem('newUser','false');
-      this.routes.navigate(['/']);
-      this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
-      let currentUrl = this.routes.url + '?';
-      this.routes.navigateByUrl(currentUrl)
-        .then(() => {
-          this.routes.navigated = false;
-          this.routes.navigate([this.routes.url]);
-        });
-    }
-    else{
+    if(uname.length>0 && p.length>0){
+     let url = `${this.config.url}customerlogin/cutomerauth`;
+      this.http.post(url,{username:uname,password:p}).subscribe((data:any) => {
+        if(data.success==true){
+          $('.ui.modal').modal('hide');  
+          localStorage.setItem('loginData',JSON.stringify(data.results));
+          localStorage.setItem('logStatus','true');
+          localStorage.setItem('newUser','false');
+          this.routes.navigate(['/']);
+          this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+          let currentUrl = this.routes.url + '?';
+          this.routes.navigateByUrl(currentUrl)
+            .then(() => {
+              this.routes.navigated = false;
+              this.routes.navigate([this.routes.url]);
+            });
+        } else {
+          this.errors.push("User Not Found");
+        };
+      });
+    } else{
       if(uname.length==0){
         this.errors.push("Enter Username");
       }
       if(p.length==0){
         this.errors.push("Enter Password");
-      }
-      if(uname.length > 0 && p.length >0){
-        this.errors.push("User Not Found");
       }
     }
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 import { LoginComponent } from '../login/login.component';
 import { RouterModule , Router, ActivatedRoute, NavigationStart } from '@angular/router';
@@ -58,7 +58,7 @@ export class NavbarComponent implements OnInit {
   }
   logout(){
     let routeActivate = this.route.snapshot.routeConfig.path;
-    localStorage.setItem('logStatus','false');
+    localStorage.clear();
     if(routeActivate == "login" || routeActivate == ""){
       this.router.routeReuseStrategy.shouldReuseRoute = function(){return false;};
       let currentUrl = this.router.url + '?';
@@ -68,18 +68,10 @@ export class NavbarComponent implements OnInit {
           this.router.navigate([this.router.url]);
         });     
     }
-    localStorage.setItem('saveSearch','false');
     this.router.navigate(['/']);
   }
   ngOnInit() {
-
-    if(localStorage.getItem('logStatus')=='createProfile'){
-     
-      this.navViewOnly = true;
-      this.accountName = "Complete Profile";
-      this.createProfile = false;
-      this.initialAvatar=false;
-    } else if(localStorage.getItem('logStatus')=='false'){
+     if(localStorage.getItem('logStatus')=='false'){
       this.navViewOnly = false;
       this.accountName = "Login/Sign Up";
       this.disableProfileAction = false;
@@ -90,8 +82,8 @@ export class NavbarComponent implements OnInit {
       this.createProfile = false;
     }
     let avatar = this.initialAvatar;
-    if(avatar == true){
-      this.accountName = "Hello, John";
+    if(avatar == true){ 
+      this.accountName = JSON.parse(localStorage.getItem('loginData')).userinfo.userName;
     }
     let routeActivate = this.route.snapshot.routeConfig.path;
     if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){

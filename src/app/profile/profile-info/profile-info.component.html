@@ -17,32 +17,30 @@
     </div>
     <div></div>
     <div class="label">Name</div>
-    <input class="inputDisabled" disabled value="John Keane" type="text">
+    <input class="inputDisabled editable" disabled [(ngModel)]="profileData.name" type="text">
     <div class="label">Username</div>
     <input class="inputDisabled" disabled value="jonh_keane" type="text">
-    <div class="label">Password</div>
-    <input class="inputDisabled" disabled value="admin123" type="password">
     <div class="label">Date of Birth</div>
     <div class="ui calendar" id="year_first_calendar">
         <div class="ui input right icon">
           <!-- <i class="calendar icon"></i> -->
-          <input  class="inputDisabled" value="May 11, 2013" disabled type="text">
+          <input  class="inputDisabled editable" type="text" [(ngModel)]="profileData.dob" disabled>
         </div>
       </div>
     <div class="label">Father's / Spouse Name</div>
-    <input class="inputDisabled" disabled value="Ranjith Singh" type="text">
+    <input class="inputDisabled editable" disabled [(ngModel)]="profileData.fatherOrSpouseName" type="text">
     <div class="label">Mobile Number</div>
-    <input class="inputDisabled" disabled value="8220284011" type="number">
+    <input class="inputDisabled" disabled [(ngModel)]="profileData.phoneNumber" type="text">
     <div class="label">Permanent Address</div>
-    <textarea class="inputDisabled" disabled rows="5">Shadnagar, Telangana</textarea>
+    <textarea class="inputDisabled editable" [(ngModel)]="profileData.address" disabled rows="5">Shadnagar, Telangana</textarea>
     <div class="label">Email</div>
-    <input class="inputDisabled" disabled value="charlis@saisanj.com" type="email">
+    <input class="inputDisabled editable" disabled [(ngModel)]="profileData.email" type="email">
     <div class="label">PAN Card Number</div>
-    <input class="inputDisabled" disabled value="BJIPD2651A" type="text">
+    <input class="inputDisabled editable" disabled [(ngModel)]="profileData.pan" type="text">
     <div class="label">AADHAAR Number</div>
-    <input class="inputDisabled" disabled value="856576227852" type="number">
+    <input class="inputDisabled editable" disabled [(ngModel)]="profileData.aadhar" type="number">
     <div class="label">Reference Code</div>
-    <input class="inputDisabled" disabled type="number">
+    <input class="inputDisabled editable" disabled type="number">
     <div></div>
     <div *ngIf="edit">
             <button (click)="saveProfile()" class="right submitButton floated ui button basic green">Save</button>

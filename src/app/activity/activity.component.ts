@@ -22,7 +22,7 @@ export class ActivityComponent implements OnInit {
   constructor(private routes: Router){}
   public innerWidth: any;
   newUserDisplay = false;
-  saveSearch = false;
+  saveSearch=true;
   locationSelected = "";
   locationSearchEnter(e){
     if(e.target.value.toLowerCase().includes("hyderabad")){
@@ -54,9 +54,7 @@ export class ActivityComponent implements OnInit {
     if(localStorage.getItem('newUser')=="true"){
       this.newUserDisplay = true;
     }
-    if(localStorage.getItem('saveSearch')=="true"){
-      this.saveSearch = true;
-    }
+
     this.innerWidth = window.innerWidth;
     if(this.innerWidth > 768){
       $(".plotContainers").niceScroll({

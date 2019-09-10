@@ -149,7 +149,7 @@ input.search {
 }
 .intro img{
   object-fit: cover;
-  filter: contrast(80%);
+  filter: brightness(70%);
   object-position: -10% 0;
   z-index:-9999;
   width:100%;

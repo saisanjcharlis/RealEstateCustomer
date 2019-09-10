@@ -28,6 +28,7 @@ import { MessagesComponent } from './profile/messages/messages.component';
 import { SettingsComponent } from './profile/settings/settings.component';
 import { AgmCoreModule } from '@agm/core';
 import { LocationsService } from '../services/locations.service';
+import { ConfigService } from '../services/config.service';
 import { MapsService } from '../services/maps.service';
 import { FooterComponent } from './footer/footer.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
@@ -38,6 +39,7 @@ import { BuyComponent } from './buy/buy.component';
 import { AllotmentComponent } from './allotment/allotment.component';
 import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
 import { SuccessAllotComponent } from './success-allot/success-allot.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +78,7 @@ import { SuccessAllotComponent } from './success-allot/success-allot.component';
     BrowserAnimationsModule,
     DeferLoadModule,
     MaphilightModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCmZRbVe0NCyJB91vrGLrcb8pKAWFEsTwQ'
     }),
@@ -83,7 +86,7 @@ import { SuccessAllotComponent } from './success-allot/success-allot.component';
       accessToken: 'pk.eyJ1IjoiY2hhcmxpc3NhaXNhbmoiLCJhIjoiY2p6aHl6bmE1MTBudTNjbGJqMDl5a2Y0aiJ9.kdPD9Bn9QRGL8PcJTkUKew'
     })
   ],
-  providers: [AuthGuard, LocationsService, MapsService, LoginComponent],
+  providers: [AuthGuard, LocationsService, MapsService, LoginComponent, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
