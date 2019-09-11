@@ -156,12 +156,31 @@
       font-size:14px;
     }
   }
-
+  @font-face {
+    font-family: Poppins-Regular;
+    src: url('../../../assets/Poppins-Regular.ttf'); 
+  }
+  .rightContent{
+      margin-left:50px;
+      margin-top:20px;
+  }
+  @media all and (max-width: 768px) {
+    .rightContent{
+        display: none;
+    }
+  }
 .menuHeader{
     font-size:20px;
     font-weight: bolder;
-    font-family: 'Quicksand', sans-serif; 
-    padding-bottom:20px;
+    font-family: Poppins-Regular; 
+    /* padding-bottom:20px; */
+    padding:5px;
+    margin-bottom:10px;
+    background: #0066ff;
+    color:white;
+    border-radius: 5px;
+    /* border-left: 4px solid #0066ff; */
+    background-image: linear-gradient(to right, rgba(0,102,255,0.6), rgba(255,255,255,0.2) 40%);
 }
 @media all and (min-width: 931px) {
     .bottomMenu, .menuHeader{
@@ -310,6 +329,13 @@
     top:10px;
     left:10px;
 }
+.checkListOverview1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-end;
+}
 .checkListOverview{
     display: flex;
     flex-wrap: wrap;
@@ -319,6 +345,12 @@
 }
 .checkListOverview div{
     width: 40%;
+    align-self: stretch;
+    padding: .5rem 0;
+    display: flex;
+}
+.checkListOverview1 div{
+    width: 60%;
     align-self: stretch;
     padding: .5rem 0;
     display: flex;
@@ -392,9 +424,15 @@ agm-map {
         width: 80% !important;
     }
 }
+.mobileTab{
+    display: none;
+}
 @media screen and (max-width: 768px){
     .actionButton{
        display: none;
+    }
+    .mobileTab{
+        display: initial;
     }
 }
 .shareModalContainer{
@@ -425,6 +463,9 @@ agm-map {
   .projects .header{
     line-height: 0 !important;
     display: inline !important;
+  }
+  .projects{
+      margin-top:10px;
   }
   .priceInfo{
     float: right;

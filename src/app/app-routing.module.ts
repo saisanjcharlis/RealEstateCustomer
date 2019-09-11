@@ -19,6 +19,7 @@ import { BuyComponent } from './buy/buy.component';
 import { AllotmentComponent } from './allotment/allotment.component';
 import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
 import { SuccessAllotComponent } from './success-allot/success-allot.component';
+import { HelpComponent } from './help/help.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'projectDetail', component: ProjectDetailComponent },
   { path: 'messages', component: MessagesComponent },
   { path: 'fav', component: FavoritesComponent },
+  { path: 'help', component: HelpComponent },
   { path: 'buy', component: BuyComponent },
   { path: 'payPlans', component: PaymentPlanComponent },
   { path: 'successAllot', component: SuccessAllotComponent },

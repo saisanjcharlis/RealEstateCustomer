@@ -1,5 +1,38 @@
 <app-navbar></app-navbar>
-<div class="firstView" *ngIf="newUserDisplay && !saveSearch">
+<div class="compContainer">
+    <div class="mapContainer">
+
+        <span class="containerHeader">Payments</span>
+        <div class="boxContainer">
+          <div *ngIf="newUserDisplay"><i class="wallet blue large icon" ></i>You have not completed any transactions</div>
+          <div>
+              <span style="font-weight: bold;"><i class="wallet blue large icon" ></i>Last Payment Received</span><span style="float: right;font-weight: bold;color:#0066ff;">₹ 15000</span><br>
+              <div class="lastPaymentInfo">
+                  <span>on 28th Aug 2019</span>
+                  <span> for property <br><b>Spectra Galaxy, Plot No. 314</b></span>
+                  <br>
+                  <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/transactions"  style="margin-top:10px;" class="ui tiny basic button blue">All Transactions</button>
+              </div>
+          </div>
+          <div class="ui divider"></div>
+          <div style="margin-top:10px;margin-bottom:10px;margin-left:28px;font-weight: bold;">Upcoming EMI's</div>
+          <emi-date></emi-date>
+        </div>  
+
+
+
+    </div>
+    <div class="projectContainer">
+asd
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="firstView" *ngIf="newUserDisplay && !saveSearch">
   <img class="welcomeImage" src="assets/house_new.png">
   <img class="footerImage" src="assets/activityFooter.png">
   <span style="font-size:32px;text-transform: uppercase">Welcome To SPECTRA</span>
@@ -75,26 +108,6 @@
             <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/fav" style="margin-left:28px;" class="ui basic tiny button blue">My Favorites</button>
         </div>
       </div>
-      <span class="containerHeader">Saved Searches</span>
-      <div class="boxContainer">
-        <div *ngIf="newUserDisplay && !saveSearch">
-            <div><i class="search blue large icon" ></i>You have not saved any searches.</div>
-            <br><div  style="margin-left:28px;">Get notifications when new homes that match your criteria hit the market.</div> 
-        </div>
-        
-        <div *ngIf="!newUserDisplay || saveSearch">
-            <div class="ui relaxed divided list">
-                <div class="item" routerLink="/projects">
-                  <i class="large search blue middle aligned icon"></i>
-                  <div class="content">
-                    <a class="header">Hyderabad</a>
-                    <div class="description">Updated 10 mins ago</div>
-                  </div>
-                </div>
-              </div>
-            <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/savedSearches"  style="margin-top:10px;margin-left:28px;" class="ui tiny basic button blue">My Saved Searches</button>
-        </div>
-      </div>
     </div>
   </div>
 <footer></footer>
@@ -109,4 +122,4 @@
     <div  class="currentLoc" (click)="selectLocation($event)">
         <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Telangana</span> 
     </div>
-  </div>
+  </div> -->

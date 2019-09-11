@@ -1,0 +1,203 @@
+.container {
+    height: 100vh;
+    padding-top: 56px;
+    position: relative;
+    display: flex;
+    background: #333333;
+    justify-content: center;
+    align-items: center;
+  }
+  @media all and (max-width: 768px) {
+    .container {
+      padding-top: 50px;
+      height: calc(100vh - 50px);
+    }
+  }
+  .container img{
+    object-fit: cover;
+    filter: brightness(30%);
+    object-position: -10% 0;
+    z-index:1;
+    width:100%;
+    height: calc(100vh - 56px);
+    position: absolute;
+  
+  }
+  @media all and (max-width: 768px) {
+    .container img{
+      object-position: 0% 0;
+      height: calc(100vh - 50px);
+    }
+  }
+
+.ui.segment{
+    z-index: 2;
+    width:50% !important; 
+    margin: auto;
+    padding: 0 5% 30px 5%;
+}
+@media all and (max-width: 1000px) {
+    .ui.segment{
+        width:80% !important; 
+    }
+  }
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../../assets/Poppins-Regular.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-Bold;
+    src: url('../../assets/Poppins-Bold.ttf'); 
+  }
+  
+  
+  .contact2-form-title {
+    display: block;
+    font-family: Poppins-Bold;
+    font-size: 39px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .wrap-input2 {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 37px;
+  }
+  .input2 {
+    display: block;
+    width: 100%;
+  
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.2;
+  }
+  input.input2 {
+    height: 45px;
+  }
+  
+  
+  
+  .focus-input2 {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  .focus-input2::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  
+    background: #0066ff;
+    background: -webkit-linear-gradient(45deg, #0066ff, #0066ff);
+    background: -o-linear-gradient(45deg, #0066ff, #0066ff);
+    background: -moz-linear-gradient(45deg, #0066ff, #0066ff);
+    background: linear-gradient(45deg, #0066ff, #0066ff);
+  }
+  
+  .focus-input2::after {
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+  
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    color: #999999;
+    line-height: 1.2;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  
+  
+  
+  
+  input.input2 + .focus-input2::after {
+    top: 16px;
+    left: 0;
+  }
+  
+  textarea.input2 {
+    min-height: 115px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+  textarea.input2 + .focus-input2::after {
+    top: 16px;
+    left: 0;
+  }
+  
+  .input2:focus + .focus-input2::after {
+    top: -13px;
+  }
+  
+  .input2:focus + .focus-input2::before {
+    width: 100%;
+  }
+  
+  .has-val.input2 + .focus-input2::after {
+    top: -13px;
+  }
+  
+  .has-val.input2 + .focus-input2::before {
+    width: 100%;
+  }
+  input {
+      outline: none;
+      border: none;
+  }
+  textarea {
+    outline: none;
+    border: none;
+  }
+  
+  textarea:focus, input:focus {
+    border-color: transparent !important;
+  }
+  
+  input:focus::-webkit-input-placeholder { color:transparent; }
+  input:focus:-moz-placeholder { color:transparent; }
+  input:focus::-moz-placeholder { color:transparent; }
+  input:focus:-ms-input-placeholder { color:transparent; }
+  
+  textarea:focus::-webkit-input-placeholder { color:transparent; }
+  textarea:focus:-moz-placeholder { color:transparent; }
+  textarea:focus::-moz-placeholder { color:transparent; }
+  textarea:focus:-ms-input-placeholder { color:transparent; }
+  
+  input::-webkit-input-placeholder { color: #999999; }
+  input:-moz-placeholder { color: #999999; }
+  input::-moz-placeholder { color: #999999; }
+  input:-ms-input-placeholder { color: #999999; }
+  
+  textarea::-webkit-input-placeholder { color: #999999; }
+  textarea:-moz-placeholder { color: #999999; }
+  textarea::-moz-placeholder { color: #999999; }
+  textarea:-ms-input-placeholder { color: #999999; }
+  

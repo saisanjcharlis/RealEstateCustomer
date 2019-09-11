@@ -41,6 +41,7 @@ import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
 import { SuccessAllotComponent } from './success-allot/success-allot.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PopUpComponent } from './login/pop-up/pop-up.component';
+import { HelpComponent } from './help/help.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,8 @@ import { PopUpComponent } from './login/pop-up/pop-up.component';
     AllotmentComponent,
     PaymentPlanComponent,
     SuccessAllotComponent,
-    PopUpComponent
+    PopUpComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

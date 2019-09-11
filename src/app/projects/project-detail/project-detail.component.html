@@ -9,7 +9,7 @@
         </button>
 </div>
    <!-- Bottom Menu -->
-<div class="bottomMenu">
+<!-- <div class="bottomMenu">
     <button class="ui blue icon button">
         <i class="comment icon"></i> &nbsp;Chat
     </button>
@@ -17,7 +17,7 @@
         <span>Schedule Visit</span>
         <span>Next Available: Tommorow</span>
     </div>
-</div>
+</div> -->
 <!-- <button class="ui basic blue large round button icon button">
     <i class="comment icon"></i> &nbsp;Chat
 </button> -->
@@ -40,6 +40,10 @@
                         <div class="infoLabel">Onwards Price</div>
                     </div>
                     <div class="item">
+                        <div class="infoValue">9 Acres<span style="font-size: 14px;font-weight: 500;"></span></div>
+                        <div class="infoLabel">Total Area</div>
+                    </div>
+                    <div class="item">
                         <div class="infoValue">120-1145<span style="font-size: 14px;font-weight: 500;"></span></div>
                         <div class="infoLabel">Sq.Yd.</div>
                     </div>
@@ -56,7 +60,7 @@
                 <a class="black item" (click)="plotDetailsReset()" data-tab="second">Property Details</a>
                 <a class="black item" (click)="plotDetails()" data-tab="third">Plot Details</a>
                 <!-- <a class="black item" (click)="plotDetailsReset()" data-tab="fourth">Amenities</a> -->
-                <a class="black item" (click)="plotDetailsReset()" data-tab="fifth">Video</a>
+                <!-- <a class="black item" (click)="plotDetailsReset()" data-tab="fifth">Video</a> -->
                 <a class="black item" (click)="plotDetailsReset()" data-tab="sixth">Neighbourhood</a>
                 <a class="black item" (click)="plotDetailsReset()" data-tab="seventh">Similar Properties</a>
             </div>
@@ -99,23 +103,21 @@
                                                <image-gallery></image-gallery>
                                             
                                             
-                                                <div style="text-align: center;font-size:12px;">
-                                                        Listing Provided By Spectra
-                                                </div>
+                                                
                                                 
                                         </div>
                                     </div>
-                                    <hr style="opacity: 0.3;">
-                                    <div style="clear: both"></div>
-                                    <div class="checkListOverview">
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Standards:<b>ISO 9001-2008 </b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Total Units:<b>351</b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>351</b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Onwards Price:<b>1.4 Cr</b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>Shadnagar</b></div>
-                                        <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Plot</b></div>
+                                    <div class="checkListOverview mobileTab">
+                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Standards:<b>ISO 9001-2008 </b></div>
+                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Total Units:<b>351</b></div>
+                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>351</b></div>
+                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
+                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Onwards Price:<b>1.4 Cr</b></div>
+                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>Shadnagar</b></div>
+                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Plot</b></div>
                                     </div>
+                                    <div style="clear: both"></div>
+                                  
                                     <div class="subHeader">Approved By Banks :</div>
                                     <div class="bankList">
                                        <img src="https://property.magicbricks.com/mb-microsite/2/omsreesignet-omsreebuildersanddevelopers-secunderabad/images/bank/axis.jpg">
@@ -123,7 +125,7 @@
                                     </div>
                                     <div  class="subHeader">Downloads :</div>
                                     <div class="downloads">
-                                            <a style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Brochure</span></a>
+                                            <a download href="../../../assets/viceroyceBrochure.pdf" style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Brochure</span></a>
                                             <a style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Rera Certificate</span></a>
                                     </div>
                                 </div>
@@ -206,10 +208,10 @@
                                             <div class="propDetailsInfo">Provision for washing machine</div> -->
                                 </div>
                                 <!-- Video -->
-                                <div class="ui tab segment"data-tab="fifth">
+                                <!-- <div class="ui tab segment"data-tab="fifth">
                                         <div class="menuHeader">Video</div>
                                         
-                                </div>
+                                </div> -->
                                 <!-- Neighbourhood -->
                                 <div class="ui tab segment" data-tab="sixth">
                                         <div class="menuHeader">Neighbourhood Info for Viceroyce Residency</div>
@@ -261,7 +263,7 @@
                                 </div>
                     </div> 
                     
-                    <div *ngIf="!plotTab" class="grid2">
+                    <!-- <div *ngIf="!plotTab" class="grid2">
                             <div style="font-size:18px;font-weight: bold; letter-spacing: 1px;font-family: 'Quicksand', sans-serif; margin-bottom:10px;">Explore this Property</div>
                             <div style="width: 360px;position: relative;">
                                     <div class="leftArrowContainer" (click)="leftDate()">
@@ -326,7 +328,25 @@
                                 <span style="cursor: pointer;">(040) 6464-6813</span>
                             </div>
                             <hr style="opacity: 0.3; z-index: 5;">
-                    </div>
+                    </div> -->
+                    <div class="rightContent" *ngIf="!plotTab">
+                        <div class="checkListOverview1">
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Standards:<b>ISO 9001-2008 </b></div>
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Total Units:<b>351</b></div>
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>351</b></div>
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Onwards Price:<b>1.4 Cr</b></div>
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>Shadnagar</b></div>
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Plot</b></div>
+                        </div>
+                        <div class="plotStatus">
+                                <div style="margin-bottom:10px;"><div class="ui green label" style="width:40px;text-align: center">351</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Available</div>
+                                <div style="margin-bottom:10px;"><div class="ui blue label" style="width:40px;text-align: center">0</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Partially Available</div>
+                                <div><div class="ui red label" style="width:40px;text-align: center">0</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Sold</div>
+                        </div>
+                       <button *ngIf="buttonEnable" style="margin-top:40px;" (click)="buyLink()" class="ui button yellow">Sign in to View Plots</button>
+                       <button style="margin-top:40px;" routerLink="/help" class="ui button blue">Contact Us</button>
+                </div>
             </div>
     <footer></footer>
 </div>

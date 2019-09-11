@@ -136,7 +136,11 @@ export class ProjectDetailComponent implements OnInit {
     $('.gridContainer').css('grid-gap','10px 1rem');
     this.plotTab = false;
   }
+  buttonEnable=true;
   ngOnInit() {
+    if(localStorage.getItem('logStatus')=='true'){
+      this.buttonEnable=false;
+    }
     $('.demo.menu .item').tab();
     if(window.innerWidth>930)
        {

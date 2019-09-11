@@ -7,10 +7,55 @@
 .basicTable{
     margin:50px 12%;
 }
+.projectContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin:20px 12% 0 12%;
+}
 @media all and (max-width: 768px) {
      .topHeader{
         margin:0 2%;
         margin-bottom:40px;
         font-size:1.4em;
     }
+    .projectContainer{
+        margin:0 2%;
+    }
+}
+
+.boxContainer{
+    background: white;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    max-width: 500px;
+    cursor: pointer;
+    margin-left:10px;
+    margin-bottom:20px;
+    width: 400px;
+    padding:10px;
+}
+.boxContainerSelected{
+    border: 1px solid #0066ff;
+}
+.propContainer{
+    position: relative;
+    margin-bottom:10px;
+}
+.propertyInfo{
+    margin-left:28px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+/* @media all and (max-width: 950px) {
+    .propertyInfo{
+        grid-template-columns: 30% 30%;
+  }
+}
+@media all and (max-width: 600px) {
+    .propertyInfo{
+        grid-template-columns: 50% 50%;
+  }
+} */
+.propertyInfoColor{
+    font-weight: bold;
 }
