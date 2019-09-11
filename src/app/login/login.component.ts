@@ -7,8 +7,14 @@ declare var $:any;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  locationSelected = "";
-
+  locationSelected;
+  location=["Shadnagar, TS", "Yadagirigutta, TS"];
+  updateResults(val){
+    this.location=["Shadnagar, TS", "Yadagirigutta, TS"];
+    this.location=this.location.filter( (value)=>{
+     return  value.toLowerCase().trim().includes(val.toLowerCase().trim());
+    });
+  }
   searchPlaceholder="Enter a location or zipcode";
   public openModal(){
     $('.ui.modal.modalSign').modal('show');   
@@ -23,7 +29,8 @@ export class LoginComponent implements OnInit {
     this.routes.navigate(['/projects']);
   }
   selectLocation(e){
-    localStorage.setItem('projectsDomain',$(e.target).children('span').text());
+    console.log($(e.target).children('span').text())
+    localStorage.setItem('projectsDomain',$(e.target).children('span').text().toLowerCase());
     this.routes.navigate(['/projects']);
   }
  

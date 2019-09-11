@@ -16,6 +16,13 @@ declare var $:any;
 export class ProjectsComponent implements OnInit {
   homeTypes=[];
   plusYes = true;
+  locationList=["Shadnagar, TS", "Yadagirigutta, TS"];
+  updateResults(val){
+    this.locationList=["Shadnagar, TS", "Yadagirigutta, TS"];
+    this.locationList=this.locationList.filter( (value)=>{
+     return  value.toLowerCase().trim().includes(val.toLowerCase().trim());
+    });
+  }
   minPriceFilterValue="0+";
   maxPriceFilterValue="Any Price";
   constructor(
@@ -419,18 +426,18 @@ export class ProjectsComponent implements OnInit {
   }
   ngOnInit() {
     if(localStorage.getItem('projectsDomain')){
-      if(localStorage.getItem('projectsDomain').includes('Telangana')){
+      if('telangana'.includes(localStorage.getItem('projectsDomain'))){ 
         this.locationSelected = "Telangana";
         this.location="Telangana Real Estate";
         this.projects=this.hyderabadProjects;
-       } else if(localStorage.getItem('projectsDomain').includes('Yadagirigutta')) {
+       } else if('yadagirigutta, ts'.includes(localStorage.getItem('projectsDomain'))) {
          this.locationSelected = "Yadagirigutta, TS";
          this.location = "Telangana Real Estate";
          this.projects=this.hyderabadProjects.filter( (project) => {
            return project.address1.includes('Yadagirigutta');
          });
        } 
-        else if(localStorage.getItem('projectsDomain').includes('Shadnagar')) {
+        else if('shadnagar, ts'.includes(localStorage.getItem('projectsDomain'))) { 
          this.locationSelected = "Shadnagar, TS";
          this.location = "Telangana Real Estate";
          this.projects=this.hyderabadProjects.filter( (project) => {
@@ -512,16 +519,27 @@ export class ProjectsComponent implements OnInit {
   locationSelected = "Hyderabad, TS";
   
   locationSearchEnter(e){
-    if(e.target.value.toLowerCase().includes("telangana") || e.target.value.toLowerCase().includes("hyderabad")){
-      this.projects = this.hyderabadProjects;
-    } else if(e.target.value.toLowerCase().includes("yadagirigutta")){
-      // this.projects = yadagirigutta
-    } else if(e.target.value.toLowerCase().includes("shadnagar")){
-      // this.projects = shadnagar
+    if('telangana'.includes(e.target.value.toLowerCase()) || 'hyderabad'.includes(e.target.value.toLowerCase())){
+      this.locationSelected = "Telangana";
+      this.location="Telangana Real Estate";
+      this.projects = this.hyderabadProjects; 
+    } else if("yadagirigutta".includes(e.target.value.toLowerCase())){
+      this.locationSelected = "Yadagirigutta, TS";
+      this.location = "Telangana Real Estate";
+      this.projects=this.hyderabadProjects.filter( (project) => {
+           return project.address1.includes('Yadagirigutta');
+      });
+    } else if("shadnagar".includes(e.target.value.toLowerCase())){
+      this.locationSelected = "Shadnagar, TS";
+      this.location = "Telangana Real Estate";
+      this.projects=this.hyderabadProjects.filter( (project) => {
+           return project.address1.includes('Shadnagar');
+      });
     }
     else {
       this.projects = [];
     }
+    $('.locationButton').popup('hide');
   }
   minPriceFilter(e){
     this.projects = this.hyderabadProjects;

@@ -6,7 +6,7 @@
               <div class="headerText" >Explore your</div><div id="headerText" class="headerText">Ideal Home</div>
               <div class="slogan" >We'll help you find a place you'll love</div>
                 <div class="ui icon input" style="margin-top:50px;">
-                        <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" type="text" placeholder={{searchPlaceholder}}>
+                        <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" (ngModelChange)="updateResults($event)" [(ngModel)]="locationSelected" type="text" placeholder={{searchPlaceholder}}>
                         <i class="search large blue icon"></i>
                 </div>
                 <a  id="intro"  class="scrollButton" href="#intro">  <i  class="arrow down large icon" style="color:white;"></i></a>
@@ -92,11 +92,8 @@
   </div>
 </div>
 <div class="ui savedSearchPop popup bottom right transition hidden">
-  <div  class="savedSearchList" (click)="selectLocation($event)">
-          <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Shadnagar, TS</span>  
-  </div>
-  <div class="savedSearchList" (click)="selectLocation($event)">
-          <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Yadagirigutta, TS</span>
+  <div  class="savedSearchList" (click)="selectLocation($event)" *ngFor="let loc of location">
+          <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">{{loc}}</span>  
   </div>
   <div  class="currentLoc" (click)="selectLocation($event)">
           <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Telangana</span> 
