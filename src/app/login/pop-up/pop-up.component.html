@@ -28,12 +28,12 @@
     <form [@itemAnim] action=""  class="sign-up-contain" *ngIf="hideSignUp">
         <h3><span>Sign up</span> to experience the most <br> efficient way of communication</h3>
         <div class="inputContainer">
-          <input id="phoneno" type="number" #phNumber placeholder="Mobile Number" autocomplete="off" required />
+          <input (keyup.enter)="nextInput($event)" id="phoneno" type="number" #phNumber placeholder="Mobile Number" autocomplete="off" required />
           <label for=phoneno></label>
         </div>
         <div class="inputContainer">
-          <!-- <span class="resendText">Wait30s</span> Wait for 30 second icon -->
-          <i *ngIf="otpIcon" class="resendText spinner  loading icon"></i>
+           <i *ngIf="otpIcon == 'true'" class="resendText spinner  loading icon"></i>
+           <span *ngIf="otpIcon == 'true'" class="resendText">Wait 30s </span>
            <!-- <i class="resend redo icon"></i> -->
            <input disabled id="otp" type="text" #otp placeholder="Enter OTP" autocomplete="off" required />
            <label for=otp></label>

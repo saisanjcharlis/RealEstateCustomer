@@ -88,9 +88,6 @@ export class NavbarComponent implements OnInit {
       if(localStorage.getItem('loginData')){
         this.accountName = JSON.parse(localStorage.getItem('loginData')).userinfo.userName;
       }
-      else {
-        this.accountName="default Name";
-      }
     }
     let routeActivate = this.route.snapshot.routeConfig.path;
     if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
