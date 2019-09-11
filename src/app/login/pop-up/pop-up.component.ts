@@ -131,53 +131,17 @@ signUp(mobileNumber, otp, password){
         let urlVerify = `${this.config.url}customerlogin/verifyotp`;
         let signUpObject =  {"params":{"mobile_number":mobileNumber,"mobile_otp":otp,"url":"spectra","password":password}};
         this.http.post(urlVerify,signUpObject).subscribe((data:any) => {
-          console.log(data);
           if(data.success==true){
-            $('.ui.modal').modal('hide');  
-            localStorage.setItem('logStatus','true');
-            localStorage.setItem('newUser','true');
-            this.routes.navigate(['/']);
-            this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
-            let currentUrl = this.routes.url + '?';
-            this.routes.navigateByUrl(currentUrl)
-              .then(() => {
-                this.routes.navigated = false;
-                this.routes.navigate([this.routes.url]);
-              });
+            this.signIn(mobileNumber,password);
           } else {
             this.errors1.push("OTP Incorrect");
           }
-          
-
-
         });
     }
 
   }
   
-  
- 
- 
-  
-  
-  
-  // if(mobileNumber.length == 10 && otp.length>0 && password.length >0 && minSpecChar.test(password) && minAlphabet.test(password) && minNumber.test(password) && minCount.test(password)){
-  //   $('.ui.modal').modal('hide');  
-  //   localStorage.setItem('logStatus','true');
-  //   this.routes.navigate(['/']);
-  //   this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
-  //   let currentUrl = this.routes.url + '?';
-  //   this.routes.navigateByUrl(currentUrl)
-  //     .then(() => {
-  //       this.routes.navigated = false;
-  //       this.routes.navigate([this.routes.url]);
-  //     });
-  // }
-  
 }
-
-
-
 
   ngOnInit() {
     if(localStorage.getItem('logStatus')=='true'){
