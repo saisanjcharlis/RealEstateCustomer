@@ -3,6 +3,7 @@ import { trigger, style, transition, animate, group } from '@angular/animations'
 import { Router } from '@angular/router';
 import { ConfigService } from '../../../services/config.service';
 import { HttpClient} from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 declare var $:any;
 @Component({
   selector: 'pop-up',
@@ -70,49 +71,114 @@ signIn(uname: string, p: string){
     }
   }
 }
-
+otpIcon = false;
+mobilePassed = false;
+otpPassed = false;
+passwordPassed1 = false;
+passwordPassed2 = false;
+passwordPassed3 = false;
+passwordPassed4 = false;
 signUp(mobileNumber, otp, password){  
+  var phoneno = /^\d{10}$/;
+  this.errors1=[];
+  
+ 
   let minAlphabet = new RegExp("^(?=.*[A-Z])");
   let minNumber = new RegExp("^(?=.*[0-9])");
   let minSpecChar = new RegExp("(?=.[!@#\$%\^&])");
   let minCount = new RegExp("(?=.{8,})");
-  this.errors1=[];
-  if(!minAlphabet.test(password)){
-    this.errors1.push("Password must contain at least 1 uppercase alphabetical character");
+  if(!mobileNumber.match(phoneno)){
+    this.errors1.push("Enter Valid Mobile Number");
+    $('#otp').attr('disabled', true);
+    $('#password').attr('disabled', true);
+  } else {
+ 
+    let url = `${this.config.url}customerlogin/mobileotp`;
+    let mobileObject =  {"params":{"mobile_number":mobileNumber}};
+    this.http.post(url,mobileObject).subscribe((data:any) => {
+      if(data.success==true){
+        $('#otp').attr('disabled', false);
+        $('#password').attr('disabled', false);
+        this.mobilePassed=true;
+      } else {
+        this.errors1.push("Mobile Number Already Exists");
+      }
+      console.log(data.result.mobile_otp);
+    });
   }
-  if(!minNumber.test(password)){
-    this.errors1.push("Password must contain at least 1 numeric character");
+ 
+  if(otp.length>0 && otp.length !== 6 && mobileNumber.length == 10){
+      this.errors1.push("Enter six digit valid OTP");
+  } else {  this.otpPassed=true; }
+  if(this.mobilePassed && !this.otpPassed){
+    this.otpIcon = true;
   }
-  if(!minSpecChar.test(password)){
-    this.errors1.push("Password must contain at least one special character");
-  }
-  if(!minCount.test(password)){
-    this.errors1.push("Password must be eight characters or longer");
+  if(password.length>0){
+    if(!minCount.test(password)){
+      this.errors1.push("Password must be eight characters or longer");
+    } else { this.passwordPassed1=true; }
+    if(!minSpecChar.test(password)){
+      this.errors1.push("Password must contain at least one special character");
+    } else { this.passwordPassed2=true; }
+    if(!minNumber.test(password)){
+      this.errors1.push("Password must contain at least 1 numeric character");
+    } else { this.passwordPassed3=true; }
+    if(!minAlphabet.test(password)){
+      this.errors1.push("Password must contain at least 1 uppercase alphabetical character");
+    } else { this.passwordPassed4=true; }
+    if(this.mobilePassed && this.otpPassed && this.passwordPassed1 && this.passwordPassed2 && this.passwordPassed3 && this.passwordPassed4){
+      console.log(this.mobilePassed);
+        let urlVerify = `${this.config.url}customerlogin/verifyotp`;
+        let signUpObject =  {"params":{"mobile_number":mobileNumber,"mobile_otp":otp,"url":"spectra","password":password}};
+        this.http.post(urlVerify,signUpObject).subscribe((data:any) => {
+          console.log(data);
+          if(data.success==true){
+            $('.ui.modal').modal('hide');  
+            localStorage.setItem('logStatus','true');
+            localStorage.setItem('newUser','true');
+            this.routes.navigate(['/']);
+            this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+            let currentUrl = this.routes.url + '?';
+            this.routes.navigateByUrl(currentUrl)
+              .then(() => {
+                this.routes.navigated = false;
+                this.routes.navigate([this.routes.url]);
+              });
+          } else {
+            this.errors1.push("OTP Incorrect");
+          }
+          
+
+
+        });
+    }
+
   }
   
-  if(mobileNumber.length !== 10){
-    this.errors1.push("Enter Valid Mobile Number");
-  }
-  if(otp.length==0){
-    this.errors1.push("Enter OTP");
-  }
-  if(password.length==0){
-    this.errors1.push("Enter Password");
-  }
-  if(mobileNumber.length == 10 && otp.length>0 && password.length >0 && minSpecChar.test(password) && minAlphabet.test(password) && minNumber.test(password) && minCount.test(password)){
-    $('.ui.modal').modal('hide');  
-    localStorage.setItem('logStatus','true');
-    this.routes.navigate(['/']);
-    this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
-    let currentUrl = this.routes.url + '?';
-    this.routes.navigateByUrl(currentUrl)
-      .then(() => {
-        this.routes.navigated = false;
-        this.routes.navigate([this.routes.url]);
-      });
-  }
+  
+ 
+ 
+  
+  
+  
+  // if(mobileNumber.length == 10 && otp.length>0 && password.length >0 && minSpecChar.test(password) && minAlphabet.test(password) && minNumber.test(password) && minCount.test(password)){
+  //   $('.ui.modal').modal('hide');  
+  //   localStorage.setItem('logStatus','true');
+  //   this.routes.navigate(['/']);
+  //   this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+  //   let currentUrl = this.routes.url + '?';
+  //   this.routes.navigateByUrl(currentUrl)
+  //     .then(() => {
+  //       this.routes.navigated = false;
+  //       this.routes.navigate([this.routes.url]);
+  //     });
+  // }
   
 }
+
+
+
+
   ngOnInit() {
     if(localStorage.getItem('logStatus')=='true'){
 

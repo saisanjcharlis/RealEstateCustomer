@@ -375,3 +375,6 @@ h1 {
     width:20vw;
   }
 }
+.animate {
+  transform: scale(1.05);
+}

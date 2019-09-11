@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.routes.navigate(['/projects']);
   }
   routeProjects(){
-    localStorage.setItem('projectsDomain','Telangana');
+    localStorage.setItem('projectsDomain','telangana');
     this.routes.navigate(['/projects']);
   }
   selectLocation(e){

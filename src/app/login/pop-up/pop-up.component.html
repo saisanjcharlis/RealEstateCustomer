@@ -20,7 +20,12 @@
         <button class="blueBtn" (click)="createAccount()">Create account<i class="fa fa-fw fa-chevron-right"></i></button>
       </div>
     </form>
-    <form [@itemAnim] action="" (ngSubmit)="signUp(phNumber.value,otp.value, pwd.value)" class="sign-up-contain" *ngIf="hideSignUp">
+    
+    <!-- <form [@itemAnim] action="" (ngSubmit)="signUp(phNumber.value,otp.value, pwd.value)" class="sign-up-contain" *ngIf="hideSignUp">
+      -->
+
+
+    <form [@itemAnim] action=""  class="sign-up-contain" *ngIf="hideSignUp">
         <h3><span>Sign up</span> to experience the most <br> efficient way of communication</h3>
         <div class="inputContainer">
           <input id="phoneno" type="number" #phNumber placeholder="Mobile Number" autocomplete="off" required />
@@ -28,17 +33,17 @@
         </div>
         <div class="inputContainer">
           <!-- <span class="resendText">Wait30s</span> Wait for 30 second icon -->
-          <i class="resendText spinner  loading icon"></i>
+          <i *ngIf="otpIcon" class="resendText spinner  loading icon"></i>
            <!-- <i class="resend redo icon"></i> -->
-           <input id="otp" type="text" #otp placeholder="Enter OTP" autocomplete="off" required />
+           <input disabled id="otp" type="text" #otp placeholder="Enter OTP" autocomplete="off" required />
            <label for=otp></label>
         </div>
         <div class="inputContainer">
-            <div data-inverted="" class="passwordHelp" data-tooltip="Password should be minimum 8 characters and contain min 1 alpha-numeric character" data-variation="" data-position="left center">
+            <div data-inverted="" class="passwordHelp" data-tooltip="Password should be minimum 8 characters and contain min 1 uppercase alphabet, 1 digit, 1 special character and 1 alpha-numeric character" data-variation="" data-position="left center">
                 <i class="resendText question circle icon" style="cursor:pointer;"></i> 
             </div>
           <!-- <i class="resendText question circle icon" style="cursor:pointer;"></i> -->
-          <input id="password" #pwd type="password" placeholder="Enter Password" autocomplete="false" required />
+          <input disabled id="password" #pwd type="password" placeholder="Enter Password" autocomplete="false" required />
          <label for=password></label>
         </div>
         <div *ngIf="errors1.length>0" class="ui error message" style="width: 100%;">
@@ -47,7 +52,7 @@
           </ul>
         </div>
         <div class="buttonCont">
-          <button class="yellowBtn" type="submit">Sign Up<i class="fa fa-fw fa-chevron-right"></i></button>
+          <button class="yellowBtn" (click)="signUp(phNumber.value,otp.value, pwd.value)">Sign Up<i class="fa fa-fw fa-chevron-right"></i></button>
           <button class="blueBtn" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
         </div>
       </form>

@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 import { LoginComponent } from '../login/login.component';
 import { RouterModule , Router, ActivatedRoute, NavigationStart } from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
 declare var $:any;
 
 @Component({
@@ -84,7 +85,12 @@ export class NavbarComponent implements OnInit {
     }
     let avatar = this.initialAvatar;
     if(avatar == true){ 
-      this.accountName = JSON.parse(localStorage.getItem('loginData')).userinfo.userName;
+      if(localStorage.getItem('loginData')){
+        this.accountName = JSON.parse(localStorage.getItem('loginData')).userinfo.userName;
+      }
+      else {
+        this.accountName="default Name";
+      }
     }
     let routeActivate = this.route.snapshot.routeConfig.path;
     if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
