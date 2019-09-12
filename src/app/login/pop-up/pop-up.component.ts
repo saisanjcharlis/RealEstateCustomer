@@ -43,38 +43,38 @@ nextInput(e){
   // $('#otp').focus();
 }
 signIn(uname: string, p: string){
-  localStorage.setItem('logStatus','true');
-        localStorage.setItem('newUser','false');
-        this.routes.navigate(['/']);
-  // this.errors=[];
-  // if(uname.length>0 && p.length>0){
-  //  let url = `${this.config.url}customerlogin/cutomerauth`;
-  //   this.http.post(url,{username:uname,password:p}).subscribe((data:any) => {
-  //     if(data.success==true){
-  //       $('.ui.modal').modal('hide');  
-  //       localStorage.setItem('loginData',JSON.stringify(data.results));
-  //       localStorage.setItem('logStatus','true');
+  // localStorage.setItem('logStatus','true');
   //       localStorage.setItem('newUser','false');
   //       this.routes.navigate(['/']);
-  //       this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
-  //       let currentUrl = this.routes.url + '?';
-  //       this.routes.navigateByUrl(currentUrl)
-  //         .then(() => {
-  //           this.routes.navigated = false;
-  //           this.routes.navigate([this.routes.url]);
-  //         });
-  //     } else {
-  //       this.errors.push("User Not Found");
-  //     };
-  //   });
-  // } else{
-  //   if(uname.length==0){
-  //     this.errors.push("Enter Username");
-  //   }
-  //   if(p.length==0){
-  //     this.errors.push("Enter Password");
-  //   }
-  // }
+  this.errors=[];
+  if(uname.length>0 && p.length>0){
+   let url = `${this.config.url}customerlogin/cutomerauth`;
+    this.http.post(url,{username:uname,password:p}).subscribe((data:any) => {
+      if(data.success==true){
+        $('.ui.modal').modal('hide');  
+        localStorage.setItem('loginData',JSON.stringify(data.results));
+        localStorage.setItem('logStatus','true');
+        localStorage.setItem('newUser','false');
+        this.routes.navigate(['/']);
+        this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+        let currentUrl = this.routes.url + '?';
+        this.routes.navigateByUrl(currentUrl)
+          .then(() => {
+            this.routes.navigated = false;
+            this.routes.navigate([this.routes.url]);
+          });
+      } else {
+        this.errors.push("User Not Found");
+      };
+    });
+  } else{
+    if(uname.length==0){
+      this.errors.push("Enter Username");
+    }
+    if(p.length==0){
+      this.errors.push("Enter Password");
+    }
+  }
 }
 otpIcon;
 mobilePassed=false;

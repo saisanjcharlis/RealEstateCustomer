@@ -190,6 +190,7 @@
     box-shadow: 0px 4px 4px rgba(39, 39, 39, 0.7);
     width: 70%;
     overflow: auto;
+    padding:20px;
     min-height: 100vh;
     scroll-snap-type: proximity;
     display: flex;
@@ -215,4 +216,9 @@
     .projectContainer{
       width: 100%;
     }
+  }
+  .topInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
