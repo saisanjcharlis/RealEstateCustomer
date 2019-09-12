@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
 <div class="topInfo">
-        <div class="ui items">
+        <div class="ui unstackable items">
                 <div class="item">
                   <div class="ui tiny image">
-                    <img src="assets/man.svg" style="cursor: pointer;" routerLink="/profile">
+                    <img src="assets/man.png" class="profileImage" routerLink="/profile">
                   </div>
                   <div class="middle aligned content">
                     <div class="header" style="font-size:24px;">Welcome, Srisai</div>
@@ -20,66 +20,101 @@
             <div  style="margin:20px 0;">
                     <button class="ui button blue">View Projects</button>
             </div>  -->
-        <div class="ui label green">2 Properties</div><div class="ui label green">Next EMI: 24th Aug 2019</div>
-        <div class="ui label green">Total EMI's Due: ₹ 50000</div>
+          <div class="ui label green">2 Properties</div>
+          <div class="ui label green">Next EMI: 24th Aug 2019</div>
+          <div class="ui label green greenTop">Total EMI's Due: ₹ 50000</div>
+       
 </div>  
     <div class="projectContainer">
        
             <div class="gridContent">
                     <div class="projectsList" style="margin:20px 0;">
                             <span class="containerHeader">My Properties</span> 
-                            <div class="ui items">
+                            <div class="ui items projectItems">
                                     <div class="item">
-                                            <div class="ui corner right blue label">
-                                                    <i class="home icon"></i>
-                                            </div>
                                             <div class="ui small image">
                                               <img src="assets/viceroyceIcon.png">
                                             </div>
                                             <div class="middle aligned content">
-                                              <div class="header">
-                                                Viceroyce Residency
+                                              <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
+                                                <span style="flex:1 0 auto;">Viceroyce Residency</span>
+                                                <button class="ui button blue tertiary">View Project</button>
+                                                <button class="ui button green tertiary">Transactions</button>
                                               </div>
-                                              <div class="description"  style="width:100%;display: grid;grid-template-columns: 50% 50%;">
-                                                <span>Plot Number</span><span class="plotInfo">314</span>
-                                                <span>Plot Worth </span><span class="plotInfo">2300 ₹</span>
-                                                <span>Plot Size </span><span class="plotInfo">200 sq.yd</span>
-                                                <span>Next EMI </span><span class="plotInfo">24th Aug 2019</span>
-                                                <span>EMI Amount </span><span class="plotInfo">18000 ₹</span>
-                                              </div>
-                                              
-                                              <div class="extra">
-                                                      <button class="ui button mini basic blue">View Project</button><button class="ui basic mini button green">Transactions</button>
+                                              <div style="margin-top:20px;" class="description"  >
+                                                  <div class="ui celled horizontal list">
+                                                      <div class="item">
+                                                          <div class="infoValue">314</div>
+                                                          <div class="infoLabel">Plot Number</div>
+                                                      </div>
+                                                      <div class="item">
+                                                          <div class="infoValue">2300 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoLabel">Plot Worth</div>
+                                                      </div>
+                                                      <div class="item">
+                                                          <div class="infoValue">200 sq.yd<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoLabel">Plot Size</div>
+                                                      </div>
+                                                      <div class="item">
+                                                          <div class="infoValue">24th Aug 2019<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoLabel">Next EMI</div>
+                                                      </div>
+                                                      <div class="item">
+                                                          <div class="infoValue">18000 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoLabel">EMI Amount</div>
+                                                      </div>
+                                                  </div>
                                               </div>
                                             </div>
                                     </div>
                                     <div class="item">
-                                            <div class="ui corner right blue label">
-                                                    <i class="home icon"></i>
-                                            </div>
-                                            <div class="ui small image">
-                                              <img src=" http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg">
-                                             
-                                            </div>
-                                            <div class="middle aligned content">
-                                              <div class="header">
-                                                Viceroyce Residency
+                                        <div class="ui small image">
+                                          <img src="http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg">
+                                        </div>
+                                        <div class="middle aligned content">
+                                          <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
+                                            <span style="flex:1 0 auto;">Viceroyce Residency</span>
+                                            <button class="ui button blue tertiary">View Project</button>
+                                            <button class="ui button green tertiary">Transactions</button>
+                                          </div>
+                                          <div style="margin-top:20px;" class="description"  >
+                                              <div class="ui celled horizontal list">
+                                                  <div class="item">
+                                                      <div class="infoValue">314</div>
+                                                      <div class="infoLabel">Plot Number</div>
+                                                  </div>
+                                                  <div class="item">
+                                                      <div class="infoValue">2300 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                      <div class="infoLabel">Plot Worth</div>
+                                                  </div>
+                                                  <div class="item">
+                                                      <div class="infoValue">200 sq.yd<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                      <div class="infoLabel">Plot Size</div>
+                                                  </div>
+                                                  <div class="item">
+                                                      <div class="infoValue">24th Aug 2019<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                      <div class="infoLabel">Next EMI</div>
+                                                  </div>
+                                                  <div class="item">
+                                                      <div class="infoValue">18000 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                      <div class="infoLabel">EMI Amount</div>
+                                                  </div>
                                               </div>
-                                              <div class="description"  style="width:100%;display: grid;grid-template-columns: 50% 50%;">
-                                                <span>Plot Number</span><span class="plotInfo">314</span>
-                                                <span>Plot Worth </span><span class="plotInfo">2300 ₹</span>
-                                                <span>Plot Size </span><span class="plotInfo">200 sq.yd</span>
-                                                <span>Next EMI </span><span class="plotInfo">24th Aug 2019</span>
-                                                <span>EMI Amount </span><span class="plotInfo">18000 ₹</span>
-                                              </div>
-                                              
-                                              <div class="extra">
-                                                    <button class="ui button mini basic blue">View Project</button><button class="ui basic mini button green">Transactions</button>
-                                              </div>
-                                            </div>
-                                    </div>
+                                          </div>
+                                        </div>
+                                </div>
                             </div>
                             <span class="containerHeader">My Favourites</span> 
+                            <div class="ui items unstackable favItems">
+                                <div class="item">
+                                        <div class="ui corner left blue label">
+                                                <i class="home icon"></i>
+                                        </div>
+                                        <div class="ui small image">
+                                          <img src="assets/viceroyceIcon.png">
+                                        </div>
+                                </div>
+                        </div>
                     </div> 
                     <div style="margin:20px 0;">
                             <span class="containerHeader">Upcoming EMI's</span>
@@ -96,7 +131,7 @@
                 
     </div>
 
-
+<footer></footer>
 
 <div class="ui emiProjectContent popup bottom right transition hidden">
         <div  class="emiProjectList" >

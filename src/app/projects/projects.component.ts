@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Marker } from '../../models/marker';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
 import { LocationsService } from '../../services/locations.service';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { MapsService } from '../../services/maps.service';
 import { Router} from '@angular/router';
 import { LoginComponent } from '../login/login.component';
@@ -429,43 +429,7 @@ export class ProjectsComponent implements OnInit {
     $('.editable').css('color','#000');
     $('.editable').attr("disabled",true);
   }
-  projectsListApi;
-  getProjects(){
-    let url = `${this.config.url}services/v1/frontendcustomer/getprojectslist`;
-    var token = JSON.parse(localStorage.getItem('loginData')).token;
-    // this.projectsListApi = (await this.http.get<ProjectDataModel[]>(this.febData).toPromise());
-    //   this.http.post(url,{"token":token}).toPromise().then(data => {
-    //   this.projectsListApi = data;
-    // });;
-    // this.http.post(url,{"token":token})
-    //   .map(res => res.json())
-    //   .subscribe(data => {
-    //     this.projectsListApi = data;
-    //   });
-      this.http.post(url,{"token":token}).pipe(map(data => {  this.projectsListApi = data;})).subscribe(result => {
-      
-        console.log(result)
-      });
-      console.log(token)
-    // console.log(this.projectsListApi)
-  }
-  ngDoCheck(){
-
-  }
   ngOnInit() {
-
-    this.getProjects(); 
-    console.log(this.projectsListApi);
-
-    // let url = `${this.config.url}services/v1/frontendcustomer/getprojectslist`;
-    // if(localStorage.getItem('loginData')){
-    //   var token = JSON.parse(localStorage.getItem('loginData')).token;
-    //   this.http.post(url,{"token":token}).subscribe((data:any) => {
-    //     if(data.success==true){
-    //       this.projectsListApi = data.result;
-    //     }
-    //   });
-    // }
     
 
     if(localStorage.getItem('projectsDomain')){
@@ -619,11 +583,6 @@ export class ProjectsComponent implements OnInit {
     }
 
   }
-  facingFilter(e){
-
-    
-
-  }
   statusTypeFilter(e){
     // let propLabel=$(e.target).parent().text().trim().toLowerCase();
     // if(e.target.checked == false){
@@ -662,20 +621,12 @@ export class ProjectsComponent implements OnInit {
       popup : $('.savedSearchPop'),
       on    : 'click'
     });
-    $('.locationButton2').popup({
-      popup : $('.savedSearchPop'),
-      on    : 'click'
-    });
     $('.filterMobile').popup({
       popup : $('.mobileFilterPop'),
       on    : 'click',
       lastResort: true
     });
 
-
-    if(window.innerWidth>768){
-      // this.addCoBuy();
-    }
     $('.ui.rating').rating();
   }
   ngOnDestroy(){

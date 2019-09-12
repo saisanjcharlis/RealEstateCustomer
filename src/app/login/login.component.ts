@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfigService } from '../../services/config.service';
+import { HttpClient} from '@angular/common/http';
 declare var $:any;
 @Component({
   selector: 'app-login',
@@ -19,7 +21,7 @@ export class LoginComponent implements OnInit {
   public openModal(){
     $('.ui.modal.modalSign').modal('show');   
   }
-  constructor(private routes: Router) { }
+  constructor(private routes: Router, private config: ConfigService,private http: HttpClient) { }
   locationSearchEnter(e){
     localStorage.setItem('projectsDomain', e.target.value.toLowerCase());
     this.routes.navigate(['/projects']);
@@ -58,6 +60,19 @@ export class LoginComponent implements OnInit {
     $('.toast-box').css("margin-top","50px");
   }
   ngOnInit() {
+
+    let url = `${this.config.url}services/v1/frontendcustomer/getprojectslist`;
+  
+    if(localStorage.getItem('loginData')){
+      var token = JSON.parse(localStorage.getItem('loginData')).token;
+      this.http.post(url,{"token":token}).subscribe((data:any) => {
+        if(data.success==true){
+          // localStorage.setItem('loginData',JSON.stringify(data.results));
+          // localStorage.setItem('projectsList',data);
+        } 
+      });
+    }
+   
     if(window.innerWidth>768)
     {
       $('.dropDownSearch').removeClass('large');

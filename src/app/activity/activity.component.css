@@ -189,7 +189,7 @@
     
     width: 100%;
     overflow: auto;
-    padding:20px 15%;
+    padding:20px 15% 20px 2%;
 
     min-height: 100vh;
     scroll-snap-type: proximity;
@@ -211,9 +211,6 @@
     .mapContainer{
       display: none;
     }
-    .projectContainer{
-      width: 100%;
-    }
   }
   .topInfo{
     background: rgba(0,102,255,0.8);
@@ -230,11 +227,21 @@
     background: #2fce72;
     color:white;
   }
-  .projectsList .ui.items .item{
+  .projectsList .ui.items.projectItems >.item{
     border: 1px solid #e2e2e2;
     padding:15px;
     border-radius: 4px;
     width:100% !important;
+    position: relative;
+    overflow:hidden;
+  }
+
+  .ui.items.favItems .item{
+    border: 1px solid #e2e2e2;
+    padding:15px;
+    border-radius: 4px;
+    width:auto !important;
+    display: inline-block !important;
     position: relative;
     overflow:hidden;
   }
@@ -262,9 +269,19 @@
   }
   .gridContent{
     display:grid;
-    grid-template-columns: 50% 40%;
+    grid-template-columns: 65% 40%;
     grid-gap:10px 10%;
   }
+
+  @media all and (max-width: 1000px) {
+    .gridContent{
+      display:block;
+    }
+    .projectContainer{
+      padding:20px 5%;
+    }
+  }
+
   .topInfo .middle.aligned.content .header, .middle.aligned.content .meta, .middle.aligned.content .extra{
     color: white !important;
 }
@@ -276,4 +293,43 @@
 }
 .ui.small.image{
   margin: auto !important;
+}
+
+.profileImage{
+  cursor: pointer;  
+  -webkit-border-radius: 99em !important;
+  -moz-border-radius: 99em !important;
+  border-radius: 99em !important;
+  border: 5px solid #eee !important;                  
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3) !important;
+}
+@media all and (max-width: 442px) {
+  .greenTop{
+    margin-top:5px;
+  }
+}
+@media all and (max-width: 768px) {
+  .cornerMobile{
+    display: none !important;
+  }
+  .projectItems .middle.aligned.content{
+    border-top:1px solid rgba(0,102,255,0.2) !important;
+  }
+  .projectItems .image{
+    margin-bottom:10px !important; 
+  }
+}
+.bottomCorner{
+  top:auto !important;
+  bottom:0 !important;
+  transform: rotateZ(-90deg);
+}
+.infoValue{
+  text-align: center;font-weight: bold;font-size:16px;
+  color:#0066ff;
+}
+
+.infoLabel{
+  text-align: center;font-size:12px;margin-top:10px;
+  font-weight: bold;
 }
