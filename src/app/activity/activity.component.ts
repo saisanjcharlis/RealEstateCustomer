@@ -49,12 +49,17 @@ export class ActivityComponent implements OnInit {
       on    : 'click',
       position   : 'bottom left',
     });
+
+    $('#projectEMI').popup({
+      popup : $('.emiProjectContent'),
+      on    : 'click',
+      position   : 'bottom right',
+    });
   }
   ngOnInit() {
     if(localStorage.getItem('newUser')=="true"){
       this.newUserDisplay = true;
     }
-
     this.innerWidth = window.innerWidth;
     if(this.innerWidth > 768){
       $(".plotContainers").niceScroll({

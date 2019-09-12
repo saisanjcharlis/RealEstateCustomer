@@ -6,6 +6,9 @@ import {Location} from '@angular/common';
 import { MapsService } from '../../services/maps.service';
 import { Router} from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { ConfigService } from '../../services/config.service';
+import { HttpClient} from '@angular/common/http';
+import { map } from 'rxjs/operators';
 declare var $:any;
 @Component({
   selector: 'app-projects',
@@ -30,7 +33,9 @@ export class ProjectsComponent implements OnInit {
     private mapApiLoader: MapsAPILoader,
     private mapsService: MapsService,
     private login: LoginComponent,
-    private router: Router) {
+    private router: Router,
+    private config: ConfigService,
+    private http: HttpClient) {
    }
   public lat: number;
   public lng: number;
@@ -424,7 +429,45 @@ export class ProjectsComponent implements OnInit {
     $('.editable').css('color','#000');
     $('.editable').attr("disabled",true);
   }
+  projectsListApi;
+  getProjects(){
+    let url = `${this.config.url}services/v1/frontendcustomer/getprojectslist`;
+    var token = JSON.parse(localStorage.getItem('loginData')).token;
+    // this.projectsListApi = (await this.http.get<ProjectDataModel[]>(this.febData).toPromise());
+    //   this.http.post(url,{"token":token}).toPromise().then(data => {
+    //   this.projectsListApi = data;
+    // });;
+    // this.http.post(url,{"token":token})
+    //   .map(res => res.json())
+    //   .subscribe(data => {
+    //     this.projectsListApi = data;
+    //   });
+      this.http.post(url,{"token":token}).pipe(map(data => {  this.projectsListApi = data;})).subscribe(result => {
+      
+        console.log(result)
+      });
+      console.log(token)
+    // console.log(this.projectsListApi)
+  }
+  ngDoCheck(){
+
+  }
   ngOnInit() {
+
+    this.getProjects(); 
+    console.log(this.projectsListApi);
+
+    // let url = `${this.config.url}services/v1/frontendcustomer/getprojectslist`;
+    // if(localStorage.getItem('loginData')){
+    //   var token = JSON.parse(localStorage.getItem('loginData')).token;
+    //   this.http.post(url,{"token":token}).subscribe((data:any) => {
+    //     if(data.success==true){
+    //       this.projectsListApi = data.result;
+    //     }
+    //   });
+    // }
+    
+
     if(localStorage.getItem('projectsDomain')){
       if('telangana'.includes(localStorage.getItem('projectsDomain'))){ 
         this.locationSelected = "Telangana";
@@ -601,6 +644,7 @@ export class ProjectsComponent implements OnInit {
 
   }
   ngAfterViewInit() {
+  
     $('.ui.dropdown').dropdown();
     $('.homeButton').popup({
       popup : $('.homePop'),

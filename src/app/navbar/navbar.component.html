@@ -3,12 +3,11 @@
         <img (click)="home()" style="cursor:pointer;width:147px;" alt="spectra-logo" class="ui image spectra-logo" src="assets/spectra.png"/>
         <div class="navItems">
           <a [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/activity" routerLinkActive="color change">
-            <i class="navIcon universal access
-            icon large"></i>
-            <span>Activity</span>
+            <i class="navIcon home icon large"></i>
+            <span>Home</span>
           </a>
           <a *ngIf="projectsDisplay" class="item navFlex" routerLink="/projects" routerLinkActive="color change">
-              <i class="navIcon home icon large"></i>
+              <i class="navIcon map outline icon large"></i>
               <span>Projects</span>
          </a>
          <a  [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex" routerLink="/passbook" routerLinkActive="color change">

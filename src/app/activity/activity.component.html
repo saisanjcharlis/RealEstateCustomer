@@ -1,58 +1,108 @@
 <app-navbar></app-navbar>
-<div class="compContainer">
-    <div class="mapContainer">
-
-        <span class="containerHeader">Payments</span>
-        <div class="boxContainer">
-          <div *ngIf="newUserDisplay"><i class="wallet blue large icon" ></i>You have not completed any transactions</div>
-          <div>
-              <span style="font-weight: bold;"><i class="wallet blue large icon" ></i>Last Payment Received</span><span style="float: right;font-weight: bold;color:#0066ff;">₹ 15000</span><br>
-              <div class="lastPaymentInfo">
-                  <span>on 28th Aug 2019</span>
-                  <span> for property <br><b>Spectra Galaxy, Plot No. 314</b></span>
-                  <br>
-                  <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/transactions"  style="margin-top:10px;" class="ui tiny basic button blue">All Transactions</button>
-              </div>
-          </div>
-          <div class="ui divider"></div>
-          <div style="margin-top:10px;margin-bottom:10px;margin-left:28px;font-weight: bold;">Upcoming EMI's</div>
-          <emi-date></emi-date>
-        </div>  
-
-
-
-    </div>
-    <div class="projectContainer">
-        <div class="topInfo">
-                <div class="ui items">
-                        <div class="item">
-                          <div class="ui tiny image">
-                            <img src="assets/man.svg" style="cursor: pointer;" routerLink="/profile">
-                          </div>
-                          <div class="middle aligned content">
-                            <div class="header">Welcome back, Srisai</div>
-                            <div class="meta">
-                              <span>Track your properties and your payments here</span>
-                            </div>
-                            <div class="extra">
-                                    Joined: 20th May 2019
-                            </div>
-                          </div>
-                        </div>
-                </div>
-                <div>
-                        <!-- <span>Pay for your passbook 1235 by latest <b>21st July 2018</b></span> -->
-                        <button class="ui tiny tertiary button">SEE ALL NOTIFICATIONS</button>
-                   
+<div class="topInfo">
+        <div class="ui items">
+                <div class="item">
+                  <div class="ui tiny image">
+                    <img src="assets/man.svg" style="cursor: pointer;" routerLink="/profile">
+                  </div>
+                  <div class="middle aligned content">
+                    <div class="header" style="font-size:24px;">Welcome, Srisai</div>
+                    <div class="meta">
+                      <span>Joined: 20th May 2019</span>
+                    </div>
+                    <div class="extra">
+                            Track your properties and your payments here
+                    </div>
+                  </div>
                 </div>
         </div>
+         <!-- <div class="ui label green">0 Properties</div>
+            <div  style="margin:20px 0;">
+                    <button class="ui button blue">View Projects</button>
+            </div>  -->
+        <div class="ui label green">2 Properties</div><div class="ui label green">Next EMI: 24th Aug 2019</div>
+        <div class="ui label green">Total EMI's Due: ₹ 50000</div>
+</div>  
+    <div class="projectContainer">
+       
+            <div class="gridContent">
+                    <div class="projectsList" style="margin:20px 0;">
+                            <span class="containerHeader">My Properties</span> 
+                            <div class="ui items">
+                                    <div class="item">
+                                            <div class="ui corner right blue label">
+                                                    <i class="home icon"></i>
+                                            </div>
+                                            <div class="ui small image">
+                                              <img src="assets/viceroyceIcon.png">
+                                            </div>
+                                            <div class="middle aligned content">
+                                              <div class="header">
+                                                Viceroyce Residency
+                                              </div>
+                                              <div class="description"  style="width:100%;display: grid;grid-template-columns: 50% 50%;">
+                                                <span>Plot Number</span><span class="plotInfo">314</span>
+                                                <span>Plot Worth </span><span class="plotInfo">2300 ₹</span>
+                                                <span>Plot Size </span><span class="plotInfo">200 sq.yd</span>
+                                                <span>Next EMI </span><span class="plotInfo">24th Aug 2019</span>
+                                                <span>EMI Amount </span><span class="plotInfo">18000 ₹</span>
+                                              </div>
+                                              
+                                              <div class="extra">
+                                                      <button class="ui button mini basic blue">View Project</button><button class="ui basic mini button green">Transactions</button>
+                                              </div>
+                                            </div>
+                                    </div>
+                                    <div class="item">
+                                            <div class="ui corner right blue label">
+                                                    <i class="home icon"></i>
+                                            </div>
+                                            <div class="ui small image">
+                                              <img src=" http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg">
+                                             
+                                            </div>
+                                            <div class="middle aligned content">
+                                              <div class="header">
+                                                Viceroyce Residency
+                                              </div>
+                                              <div class="description"  style="width:100%;display: grid;grid-template-columns: 50% 50%;">
+                                                <span>Plot Number</span><span class="plotInfo">314</span>
+                                                <span>Plot Worth </span><span class="plotInfo">2300 ₹</span>
+                                                <span>Plot Size </span><span class="plotInfo">200 sq.yd</span>
+                                                <span>Next EMI </span><span class="plotInfo">24th Aug 2019</span>
+                                                <span>EMI Amount </span><span class="plotInfo">18000 ₹</span>
+                                              </div>
+                                              
+                                              <div class="extra">
+                                                    <button class="ui button mini basic blue">View Project</button><button class="ui basic mini button green">Transactions</button>
+                                              </div>
+                                            </div>
+                                    </div>
+                            </div>
+                            <span class="containerHeader">My Favourites</span> 
+                    </div> 
+                    <div style="margin:20px 0;">
+                            <span class="containerHeader">Upcoming EMI's</span>
+                            <div style="margin: 1.5em 0;border-radius: 4px;">
+                                    <emi-date></emi-date>
+                            </div>
+                            
+                    </div>
+                   
+            </div>
+            
+
+      
                 
     </div>
+
+
+
+<div class="ui emiProjectContent popup bottom right transition hidden">
+        <div  class="emiProjectList" >
+            <span style="font-weight: 600;">Viceroyce</span>  
+        </div>
 </div>
-
-
-
-
 
 
 
