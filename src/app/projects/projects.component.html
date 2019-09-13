@@ -37,11 +37,11 @@
                                         <div>
                                                         <i class="city fitted large icon" ></i><span style="font-size:12px;font-weight: bold;"> {{marker.projectName}}</span>
                                                         <div>
-                                                                        <span style="font-weight: bold;text-align: right">120-1145 </span>
+                                                                        <span style="font-weight: bold;text-align: right">{{marker.minArea}}-{{marker.maxArea}} </span>
                                                                         <span style="font-size:10px;font-weight: normal;color:#414143;">sqyd</span>
                                                         </div>
                                                         <div>
-                                                                        <span style="color:#0066ff;font-weight: bold;text-align: right">₹ 5.6 Lac </span> 
+                                                                        <span style="color:#0066ff;font-weight: bold;text-align: right">₹ {{marker.minPrice}} </span> 
                                                                         <span style="font-size:8px;font-weight: normal;color:#414143;">onwards</span>  
                                                                
                                                         </div>
@@ -77,26 +77,27 @@
                         <div class="card" *ngFor="let project of projects;" >
                                 <div class="image">
                                         <div class="tagInfo">
-                                                <div class="ui blue label">Posted: {{project.postedOn}}</div>
+                                                <div class="ui blue label">Posted: {{project.created_at.substr(0, 10)}}</div>
                                         </div>
-                                        <i class="rightFloated large like  icon" [ngClass]="{'outline': !project.likedStatus, 'blue': project.likedStatus}" (click)="likedProject($event)"></i>
-                                        <span class="ratingFloat ui mini star blue rating" data-rating="4"
-                                                        data-max-rating="5"></span>
-                                        <img routerLink="/projectDetail" style="cursor: pointer;" src={{project.imageUrl}}>
+                                        <i class="rightFloated large like outline icon" (click)="likedProject($event)"></i>
+                                        <span class="ratingFloat ui mini star blue rating" data-rating="4" data-max-rating="5"></span>
+                                        <img routerLink="/projectDetail" style="cursor: pointer;" src="assets/viceroyceIcon.png">
                                 </div>
                                 <div class="content">
-                                        <a class="header" routerLink="/projectDetail">{{project.projectName}}</a>
-                                        <span class="priceInfo">
-                                                <i class="rupee sign icon"></i>
-                                                <span style="font-size:18px;">{{project.minPriceParsed}} </span>
+                                        <div id="projectName" class="header" routerLink="/projectDetail">{{project.project_name}}</div>
+                                        <div class="priceInfo">
+                                                <span style="font-size:18px;">₹ {{project.min_amount*project.min_sqyards}} </span>
                                                 <span class="onwards"> onwards</span>
-                                        </span>
+                                        </div>
                                         <div class="description">
-                                                <b>{{project.minSize}}-{{project.maxSize}}</b><span style="font-size:12px;margin-left:5px;">sqyd</span> 
+                                                <b>{{project.min_sqyards}}-{{project.max_sqyards}}</b><span style="font-size:12px;margin-left:5px;">sqyd</span> 
                                         </div>
                                         <div style="margin-top:10px;" class="meta">
-                                                <b>{{project.address1}}<br> {{project.address2}}</b>
-                                                <span style="float: right;"> <i [ngClass]="{'green': project.saleStatus == 'Upcoming', 'blue': project.saleStatus == 'For Sale'}" class="circle icon"></i> <b>{{project.saleStatus}}</b></span>
+                                                <b>{{project.project_address}}<br>{{project.city}}, {{project.state}} {{project.zipcode}} </b>
+                                                <span style="float: right;"> 
+                                                <i class="circle icon green"></i>
+                                                <!-- <i [ngClass]="{'green': project.ModuleStatus.status_name !== 'Approved', 'blue': project.ModuleStatus.status_name == 'Approved'}" class="circle icon"></i>  -->
+                                                <b>For Sale</b></span>
                                         </div>
                                         
 

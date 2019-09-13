@@ -39,7 +39,7 @@
   background: #0066ff !important;
 }
 .priceInfo{
-  float: right;
+  /* float: right; */
   font-weight: bold;
 }
 .onwards{
@@ -119,7 +119,7 @@
   }
   .mapContainer{
     width: 100%;
-    height: 70vh;
+    height: 25vh;
   }
   .projectContainer{
     width: 100%;

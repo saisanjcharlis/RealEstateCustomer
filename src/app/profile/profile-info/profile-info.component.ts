@@ -78,6 +78,7 @@ export class ProfileInfoComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]); 
       reader.onload = (imgsrc: any) => { 
         this.url = imgsrc.target.result;
+        // console.log(this.url);
       }
     }
   }

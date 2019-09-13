@@ -67,10 +67,10 @@ export class LoginComponent implements OnInit {
       var token = JSON.parse(localStorage.getItem('loginData')).token;
       this.http.post(url,{"token":token}).subscribe((data:any) => {
         if(data.success==true){
-          // localStorage.setItem('loginData',JSON.stringify(data.results));
-          // localStorage.setItem('projectsList',data);
+          localStorage.setItem('projectsList',JSON.stringify(data.result));
         } 
       });
+   
     }
    
     if(window.innerWidth>768)
