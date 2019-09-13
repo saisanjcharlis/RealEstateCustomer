@@ -232,10 +232,19 @@
     padding:15px;
     border-radius: 4px;
     width:100% !important;
+    background: aliceblue;
     position: relative;
     overflow:hidden;
   }
-
+ 
+  @media all and (max-width: 434px) {
+    .projectsList .ui.celled.horizontal.list{
+      text-align: center;
+    }
+    .projectItems .header{
+      text-align: center;
+    }
+  }
   .ui.items.favItems .item{
     border: 1px solid #e2e2e2;
     padding:15px;
@@ -331,5 +340,4 @@
 
 .infoLabel{
   text-align: center;font-size:12px;margin-top:10px;
-  font-weight: bold;
 }

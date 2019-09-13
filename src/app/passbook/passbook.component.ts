@@ -7,7 +7,8 @@ declare var $:any;
 })
 export class PassbookComponent implements OnInit {
   plots;
-  projects = [];
+  props = [];
+  projects=["asd"];
   constructor() { }
   addPassbook(){
     $('.ui.modal').modal('show');
@@ -25,11 +26,11 @@ export class PassbookComponent implements OnInit {
       message: `Your passbook has been alloted`
     });
     $('.toast-box').css("margin-top","50px");
-    this.projects.push("Spectra");
   }
 
   ngOnInit() {
-    console.log(JSON.parse(localStorage.getItem('passbookList')));
+    this.props=JSON.parse(localStorage.getItem('passbookList'));
+    console.log(this.props[0])
   }
 
 }

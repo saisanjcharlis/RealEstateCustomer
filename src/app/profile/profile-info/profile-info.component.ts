@@ -71,6 +71,7 @@ export class ProfileInfoComponent implements OnInit {
     $("#imageUpload").click();
   }
   url = '';
+  imageURL;
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
@@ -78,7 +79,18 @@ export class ProfileInfoComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]); 
       reader.onload = (imgsrc: any) => { 
         this.url = imgsrc.target.result;
-        // console.log(this.url);
+        // console.log();
+        const byteCharacters = atob(this.url.split(',')[1]);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], {type: 'image/jpeg'});
+       
+       //retrieving
+        var objectURL = URL.createObjectURL(blob);
+        this.imageURL=blob;
       }
     }
   }

@@ -72,3 +72,35 @@
 .ui.green.label{
     vertical-align: middle;
 }
+.ui.items.projectItems >.item{
+    border: 1px solid #e2e2e2;
+    padding:15px;
+    border-radius: 4px;
+    width:100% !important;
+    position: relative;
+    overflow:hidden;
+  }
+   
+  @media all and (max-width: 434px) {
+   .ui.celled.horizontal.list{
+      text-align: center;
+    }
+  }
+  @media all and (max-width: 768px) {
+     .header{
+         text-align: center;
+       }
+   }
+  .infoValue{
+    text-align: center;font-weight: bold;font-size:16px;
+    color:#0066ff;
+  }
+  
+  .infoLabel{
+    text-align: center;font-size:12px;margin-top:10px;
+  }
+  @media all and (max-width: 768px) {
+    .middle.aligned.content{
+        border-top:1px solid rgba(0,102,255,0.2) !important;
+      }
+  }

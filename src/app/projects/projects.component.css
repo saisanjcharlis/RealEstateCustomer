@@ -210,8 +210,8 @@
     right: 10px;
   }
   .header{
-    line-height: 0 !important;
-    display: inline !important;
+    /* line-height: 0 !important; */
+    /* display: inline !important; */
   }
   .noResultText{
     padding-top: 20px;
@@ -288,4 +288,12 @@ agm-map{
   font-size:16px;
   font-weight: bold;
   padding:5px 0;
+}
+.infoValue{
+  text-align: center;font-weight: bold;font-size:16px;
+  /* color:#0066ff; */
+}
+
+.infoLabel{
+  text-align: center;font-size:12px;margin-top:10px;
 }

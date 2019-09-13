@@ -58,20 +58,27 @@ signIn(uname: string, p: string){
 
         let urlPassbook = `${this.config.url}services/v1/frontendcustomer/getpassbooklist`;
         var token = JSON.parse(localStorage.getItem('loginData')).token;
+        console.log(token)
+        //Passbooks Grab
         this.http.post(urlPassbook,{"token":token}).subscribe((data:any) => {
           if(data.success==true){
             localStorage.setItem('passbookList',JSON.stringify(data.result));
           }
         });
-
-        this.routes.navigate(['/']);
-        this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
-        let currentUrl = this.routes.url + '?';
-        this.routes.navigateByUrl(currentUrl)
+        if(sessionStorage.getItem('signedUp')=='true'){
+          this.routes.navigate(['/']);
+          this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+          let currentUrl = this.routes.url + '?';
+          this.routes.navigateByUrl(currentUrl)
           .then(() => {
             this.routes.navigated = false;
             this.routes.navigate([this.routes.url]);
           });
+        } else {
+          this.routes.navigate(['/activity']);
+        }
+       
+        
       } else {
         this.errors.push("User Not Found");
       };
@@ -107,19 +114,21 @@ signUp(mobileNumber, otp, password){
     $('#otp').attr('disabled', true);
     $('#password').attr('disabled', true);
   } else {
- 
-    let url = `${this.config.url}customerlogin/mobileotp`;
-    let mobileObject =  {"params":{"mobile_number":mobileNumber}};
-    this.http.post(url,mobileObject).subscribe((data:any) => {
-      if(data.success==true){
-        $('#otp').attr('disabled', false);
-        $('#password').attr('disabled', false);
-        sessionStorage.setItem('otpIcon','true');
-      } else {
-        this.errors1.push("Mobile Number Already Exists");
-      }
-      console.log(data.result.mobile_otp);
-    });
+        if(this.mobilePassed==false){
+          let url = `${this.config.url}customerlogin/mobileotp`;
+          let mobileObject =  {"params":{"mobile_number":mobileNumber}};
+          this.http.post(url,mobileObject).subscribe((data:any) => {
+            if(data.success==true){
+              this.mobilePassed=true;
+              $('#otp').attr('disabled', false);
+              $('#password').attr('disabled', false);
+            } else {
+              this.errors1.push("Mobile Number Already Exists");
+            }
+            console.log(data.result.mobile_otp);
+          });
+        } 
+       
   }
  
   if(otp.length>0 && otp.length !== 6 && mobileNumber.length == 10){
@@ -147,6 +156,7 @@ signUp(mobileNumber, otp, password){
         let signUpObject =  {"params":{"mobile_number":mobileNumber,"mobile_otp":otp,"url":"spectra","password":password}};
         this.http.post(urlVerify,signUpObject).subscribe((data:any) => {
           if(data.success==true){
+            sessionStorage.setItem('signedUp','true');
             this.signIn(mobileNumber,password);
           } else {
             this.errors1.push("OTP Incorrect");

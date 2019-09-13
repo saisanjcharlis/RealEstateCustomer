@@ -3,8 +3,6 @@ import { Marker } from '../models/marker';
 
 @Injectable()
 export class LocationsService {
-  // localStorage.getItem('projectsDomain');
-  // @Todo: replace markers by an API
   markers = [];
   projectsApiList;
   constructor() {
@@ -21,8 +19,7 @@ export class LocationsService {
         projectName: data.project_name,
         city: data.city,
         state: data.state,
-        postalcode: data.zipcode,
-        projectLink: 'http://example.com',
+        postalcode: data.zipcode
       };
       this.markers.push(obj);
     });

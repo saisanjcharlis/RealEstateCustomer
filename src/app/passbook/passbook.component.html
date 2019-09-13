@@ -13,7 +13,48 @@
           </div>
         </div>
 
-        <div class="boxContainer" *ngFor="let project of projects">
+
+        <div class="ui items projectItems">
+          <div class="item">
+                  <div class="ui small image">
+                    <img src="assets/viceroyceIcon.png">
+                  </div>
+                  <div class="middle aligned content">
+                    <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
+                      <span style="flex:1 0 auto;">Viceroyce Residency</span>
+                      <!-- <button class="ui button blue tertiary">View Project</button> -->
+                      <!-- <button class="ui mini button green tertiary">Transactions</button> -->
+                    </div>
+                    <div style="margin-top:20px;" class="description"  >
+                        <div class="ui celled horizontal list">
+                            <div class="item">
+                                <div class="infoValue">314</div>
+                                <div class="infoLabel">Plot Number</div>
+                            </div>
+                            <div class="item">
+                                <div class="infoValue">2300 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                <div class="infoLabel">Plot Worth</div>
+                            </div>
+                            <div class="item">
+                                <div class="infoValue">200 sq.yd<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                <div class="infoLabel">Plot Size</div>
+                            </div>
+                            <div class="item">
+                                <div class="infoValue">24th Aug 2019<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                <div class="infoLabel">Next EMI</div>
+                            </div>
+                            <div class="item">
+                                <div class="infoValue">18000 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                <div class="infoLabel">EMI Amount</div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+
+
+        <!-- <div class="boxContainer" *ngFor="let project of projects">
           
           <div class="propContainer">
               <span style="font-weight: bold;"><i class="city blue large icon" ></i>Spectra Galaxy</span>
@@ -31,7 +72,7 @@
               <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/projectDetail" class="ui basic button blue manageButton1">View Project</button>
           
           </div>
-        </div>
+        </div> -->
     </div>
     
   <footer></footer>

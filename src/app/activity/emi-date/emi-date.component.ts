@@ -53,7 +53,6 @@ export class EmiDateComponent implements OnInit {
   }
   ngAfterViewInit(){
     // $('.datepicker--cell[style*="background: #FCB332 "]')
-    console.log( $('.datepicker--cell[style*="background: #FCB332 "]'));
   //     if( $('.datepicker--cell').css('background') == 'FCB332' ) {
   //     console.log('It equal block');
   //  } else {

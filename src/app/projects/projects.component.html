@@ -84,14 +84,24 @@
                                         <img routerLink="/projectDetail" style="cursor: pointer;" src="assets/viceroyceIcon.png">
                                 </div>
                                 <div class="content">
-                                        <div id="projectName" class="header" routerLink="/projectDetail">{{project.project_name}}</div>
-                                        <div class="priceInfo">
+                                        <div id="projectName" style="width: 100%;" class="header" routerLink="/projectDetail">{{project.project_name}}</div>
+                                        <div style="margin-top:5px;" class="ui celled horizontal list">
+                                                <div class="item">
+                                                    <div class="infoValue">₹ {{project.min_amount*project.min_sqyards}}</div>
+                                                    <div class="infoLabel">onwards</div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="infoValue">{{project.min_sqyards}}-{{project.max_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                    <div class="infoLabel">sqyd</div>
+                                                </div>
+                                        </div>
+                                        <!-- <div class="priceInfo">
                                                 <span style="font-size:18px;">₹ {{project.min_amount*project.min_sqyards}} </span>
                                                 <span class="onwards"> onwards</span>
                                         </div>
                                         <div class="description">
                                                 <b>{{project.min_sqyards}}-{{project.max_sqyards}}</b><span style="font-size:12px;margin-left:5px;">sqyd</span> 
-                                        </div>
+                                        </div> -->
                                         <div style="margin-top:10px;" class="meta">
                                                 <b>{{project.project_address}}<br>{{project.city}}, {{project.state}} {{project.zipcode}} </b>
                                                 <span style="float: right;"> 

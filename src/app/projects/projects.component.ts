@@ -18,44 +18,17 @@ declare var $:any;
 })
 export class ProjectsComponent implements OnInit {
   homeTypes=[];
-  plusYes = true;
-  locationList=["Shadnagar, TS", "Yadagirigutta, TS"];
-  updateResults(val){
-    this.locationList=["Shadnagar, TS", "Yadagirigutta, TS"];
-    this.locationList=this.locationList.filter( (value)=>{
-     return  value.toLowerCase().trim().includes(val.toLowerCase().trim());
-    });
-  }
+  locationList=[];
   minPriceFilterValue="0+";
   maxPriceFilterValue="Any Price";
-  constructor(
-    private locationService: LocationsService,
-    private mapApiLoader: MapsAPILoader,
-    private mapsService: MapsService,
-    private login: LoginComponent,
-    private router: Router,
-    private config: ConfigService,
-    private http: HttpClient) {
-   }
   public lat: number;
   public lng: number;
   public zoom: number;
   icon;
+  projectsApiList;
   public openedWindow: number;
   public markers: Marker[] = this.locationService.getMarkers();
 
-
-  
-  @HostListener('window:resize', ['$event'])
-  onResize(event){
-    if(event.target.innerWidth>480)
-     {
-      this.triggerPropertyViewNormal();
-     }
-     else{
-      this.triggerPropertyView();
-     }
-  } 
   iconSearch = true;
   imagesList = [];
   location="Telangana Real Estate";
@@ -316,37 +289,26 @@ export class ProjectsComponent implements OnInit {
       "long": "1321331",
       "homeType": "plots",
       "agents": []
-    },
-    {
-      "project_name": "Spectra Galaxy",
-      "minPrice": 7800000,
-      "minPriceParsed": "7.8 Lac",
-      "maxPrice": 50000000,
-      "minSize": 340,
-      "maxSize": 800,
-      "project_address": " 3343 C, Yadagirigutta",
-      "address2": "Hyderabad, TS 502012", //city, State zipcode
-      "saleStatus": "For Sale",
-      "imageUrl": "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
-      // "likedStatus": true,
-      "rating": 5,
-      "postedOn": "23 Jul 2018",
-      "state": "hyderabad",
-      "zipcode": "500032",
-      "lat": "12323213",
-      "long": "1321331",
-      "homeType": "plots",
-      "agents": []
     }
   ];
-  mobileFilterOn(){
- 
+  projects=[];
+  constructor(
+    private locationService: LocationsService,
+    private mapApiLoader: MapsAPILoader,
+    private mapsService: MapsService,
+    private login: LoginComponent,
+    private router: Router,
+    private config: ConfigService,
+    private http: HttpClient) {
+   }
+   updateResults(val){
+    this.projectsApiList.map( (data) => {
+      this.locationList.push(data.city);
+    });
+    this.locationList=this.locationList.filter( (value)=>{
+     return  value.toLowerCase().trim().includes(val.toLowerCase().trim());
+    });
   }
-  saveSearch(){
-   
-   
-  }
-  projects = this.hyderabadProjects;
   selectLocation(e){
    let locName = $(e.target).children('span').text().toLowerCase();
    localStorage.setItem('projectsDomain',$(e.target).children('span').text().toLowerCase());
@@ -398,72 +360,19 @@ export class ProjectsComponent implements OnInit {
     
     this.projects=this.hyderabadProjects;
   }
-  addPlus(){
-    this.plusYes = !this.plusYes;
-  }
 
-  addCoBuy(){
-    $('.ui.modal.coBuy').modal('setting', 'transition', 'horizontal flip').modal('show');
-  }
-  triggerPropertyView(){
-    $('.hiddenContent').removeClass('hidden');
-    $('.visibleContent').removeClass('visible');
-    $('.hiddenContent').addClass('visible');
-    $('.visibleContent').addClass('hidden');
-  }
-  triggerPropertyViewNormal(){
-    $('.hiddenContent').removeClass('visible');
-    $('.visibleContent').removeClass('hidden');
-    $('.hiddenContent').addClass('hidden');
-    $('.visibleContent').addClass('visible');
-  }
-  toggleActive(e){
-    e.target.classList.toggle("activeProperty");
-  }
-  addBed(e){
-    
-    if($(e.target).hasClass('blue'))
-    {
-      $(e.target).removeClass('blue');
-      $(e.target).addClass('basic');
-    } else {
-      $(e.target).removeClass('basic');
-      $(e.target).addClass('blue');
-    }
-    
 
-  }
-  moreFilter(){
-    $('.ui.dropdown')
-    .dropdown();
-
-  
-  }
-  expandSearch(){
-    $('.editable').removeAttr("disabled");
-    $('.editable').focus();
-    $('.editable').css('color','#0066ff');
-    this.iconSearch = false;
-  }
-  cancel(){
-    this.iconSearch = true;
-    $('.editable').css('color','#000');
-    $('.editable').attr("disabled",true);
-  }
-  projectsApiList;
   ngOnInit() {
    
     this.projectsApiList=JSON.parse(localStorage.getItem('projectsList'));
-
+    this.projectsApiList.map( (data) => {
+      this.locationList.push(data.city);
+    });
     if(localStorage.getItem('projectsDomain')){
       if('telangana'.includes(localStorage.getItem('projectsDomain'))){ 
         this.locationSelected = "Telangana";
         this.location="Telangana Real Estate";
         this.projects = this.projectsApiList;
-
-
-        // this.projects=this.hyderabadProjects;
-        console.log(this.projects);
        } 
       //  else if('yadagirigutta, ts'.includes(localStorage.getItem('projectsDomain'))) {
       //    this.locationSelected = "Yadagirigutta, TS";
@@ -484,6 +393,10 @@ export class ProjectsComponent implements OnInit {
       //      this.projects=[];
       //  }
    
+    } else {
+      //In case did not routed from search location
+      this.projects = this.projectsApiList;
+     
     }
     
 
@@ -502,13 +415,7 @@ export class ProjectsComponent implements OnInit {
     }
     $(document).scrollTop(0);
     $('.ui.checkbox').checkbox();
-      if(window.innerWidth>480)
-       {
-        this.triggerPropertyViewNormal();
-       }
-       else{
-        this.triggerPropertyView();
-       }
+
        
   }
   likedProject(e){
