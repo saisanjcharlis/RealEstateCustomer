@@ -43,9 +43,9 @@ nextInput(e){
   // $('#otp').focus();
 }
 signIn(uname: string, p: string){
-  // localStorage.setItem('logStatus','true');
-  // localStorage.setItem('newUser','false');
-  // this.routes.navigate(['/']);
+  localStorage.setItem('logStatus','true');
+  localStorage.setItem('newUser','false');
+  this.routes.navigate(['/']);
   this.errors=[];
   if(uname.length>0 && p.length>0){
    let url = `${this.config.url}customerlogin/cutomerauth`;
@@ -57,14 +57,20 @@ signIn(uname: string, p: string){
         localStorage.setItem('newUser','false');
 
         let urlPassbook = `${this.config.url}services/v1/frontendcustomer/getpassbooklist`;
+        let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
         var token = JSON.parse(localStorage.getItem('loginData')).token;
         console.log(token)
         //Passbooks Grab
         this.http.post(urlPassbook,{"token":token}).subscribe((data:any) => {
           if(data.success==true){
             localStorage.setItem('passbookList',JSON.stringify(data.result));
+            // data.result.map( (passbook)=>{
+            //   this.http.post(urlTransactions,{"token":token,"params":{"project_id":passbook.project_id,"passbook_no":passbook.passbook_no}}).subscribe((data:any) => {})
+
+            // });
           }
         });
+
         if(sessionStorage.getItem('signedUp')=='true'){
           this.routes.navigate(['/']);
           this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};

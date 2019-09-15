@@ -17,6 +17,7 @@ export class LocationsService {
         minPrice: data.min_sqyards* data.min_amount,
         icon: { url: 'assets/mapIconUpcoming.svg', scaledSize: { width: 40, height: 40 } },
         projectName: data.project_name,
+        id:data.id,
         city: data.city,
         state: data.state,
         postalcode: data.zipcode

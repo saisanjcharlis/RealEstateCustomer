@@ -28,15 +28,15 @@
                         <i class="large city icon" style="color:white;"></i>
                 </div>
                 <div style="flex:1 0 auto;">
-                    <div style="font-weight: bold;font-size:18px;">Viceroyce Residency</div>
-                    <div style="font-size:12px;">Allisabguda, Telangana 509228</div>
+                    <div style="font-weight: bold;font-size:18px;">{{projectSelected.project_name}}</div>
+                    <div style="font-size:12px;">{{projectSelected.project_name}}, {{projectSelected.state}} {{projectSelected.zipcode}}</div>
                     <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
                         <div class="ui blue rating" data-rating="4" data-max-rating="5"></div>
                     </div>
                 </div>
                 <div class="ui celled horizontal list">
                     <div class="item">
-                        <div class="infoValue">Rs. 1.16 Cr</div>
+                        <div class="infoValue">₹ {{project.min_amount*project.min_sqyards}}</div>
                         <div class="infoLabel">Onwards Price</div>
                     </div>
                     <div class="item">
@@ -44,7 +44,7 @@
                         <div class="infoLabel">Total Area</div>
                     </div>
                     <div class="item">
-                        <div class="infoValue">120-1145<span style="font-size: 14px;font-weight: 500;"></span></div>
+                        <div class="infoValue">{{project.min_sqyards}}-{{project.min_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                         <div class="infoLabel">Sq.Yd.</div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
              
             <div class="gridContainer">
                     <div *ngIf="plotTab">
-                            <div class="details">Viceroyce Residency Layout</div>
+                            <div class="details">{{projectSelected.project_name}} Layout</div>
                             <div style="font-size:10px;color:#0066ff;margin-bottom:50px;">Click on the image to view plot details</div>
                             <div class="ui celled horizontal list">
                                     <div class="item">
@@ -76,7 +76,7 @@
                                         <div class="infoLabel">Total Area</div>
                                     </div>
                                     <div class="item">
-                                        <div class="infoValue">120-1145<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                        <div class="infoValue">{{projectSelected.min_sqyards}}-{{projectSelected.max_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                         <div class="infoLabel">Sq.Yd.</div>
                                     </div>
                                     <div class="item">
@@ -113,7 +113,7 @@
                                             <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>351</b></div>
                                             <!-- <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
                                             <div><i class="large blue check circle outline icon"></i>&nbsp;Onwards Price:<b>1.4 Cr</b></div> -->
-                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>Shadnagar</b></div>
+                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>{{projectSelected.city}}</b></div>
                                             <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Plot</b></div>
                                     </div>
                                     <div style="clear: both"></div>
@@ -132,48 +132,13 @@
                                 <!-- Property Details -->
                                 <div class="ui tab segment" data-tab="second">
                                     <div class="menuHeader">Property Details</div>
-                                    <!-- <div class="propDetailsHeader">Foundation & Structures</div>
-                                        <div class="propDetailsInfo">R.C.C. Framed structure to with-stand & Seismic loads for zone II</div>
-                                   -->
                                    <div class="ui bulleted list neighbourhoodList">
-                                           <div class="item">Layout as per HMDA norms</div>
-                                           <div class="item">Developed as per ISO-9001 Standards with Quality at its BEST</div>
-                                           <div class="item">Designed as per Vastu</div>
-                                           <div class="item">Gated Community</div>
-                                           <div class="item">Children Parks</div>
-                                           <div class="item">Avenue Plantation</div>
-                                           <div class="item">All 33 feet, 40 feet, 60 feet Black Top roads</div>
-                                           <div class="item">Rain Harvesting Pits</div>
-                                           <div class="item">Foot paths with curbing stones</div>
-                                           <div class="item">Underground drainage system</div>
-                                           <div class="item">Beautifully designed lands scape gardens</div>
-                                           <div class="item">Electricity with street lights</div>
-                                           <div class="item">Overhead Water Tank with running water supply through pipelines for all the plots.</div>
+                                           <div class="item" *ngFor="let list of neighbourhoodList">{{list}}</div>
                                    </div>
                                 </div>
                                 <!-- Plot Details -->
                                 <div  class="ui tab segment plotDetails" data-tab="third">
                                         <div class="menuHeader">Plot Details</div>
-
-                                        <!-- Solution One Use Resized Image size..but then wont be responsive -->
-                                        <!-- <maphilight  id="statesMap" [config]="config">
-                                            <img src="assets/plotPlan.png"   class="map"  usemap="#image-map" >
-                                            <map name="image-map">
-                                                    <area (click)="displayPlot($event)" data-maphilight='{"fillColor":"ff0000"}' data-key="990" title="990" coords="139,228,164,277" shape="rect">
-                                                    <area (click)="displayPlot($event)" data-key="989" coords="139,278,165,289" title="989" shape="rect">
-                                                    <area (click)="displayPlot($event)" data-key="988" coords="166,301,139,290" title="988" shape="rect">
-                                                    <area (click)="displayPlot($event)" data-key="987" coords="137,302,166,313" title="987" shape="rect">
-                                                   
-                                                </map>
-                                        </maphilight> -->
-                                   
-                                        
-
-
-
-                                        <!-- rwdImageMaps ..enable this for responsive -->
-
-
                                         <img (click)="buyLink()" id="image-map" src="assets/Asset 1.svg" style="cursor:pointer;" usemap="#image-map" >
                                       
                                 </div>
@@ -216,13 +181,7 @@
                                 <div class="ui tab segment" data-tab="sixth">
                                         <div class="menuHeader">Neighbourhood Info for Viceroyce Residency</div>
                                         <div class="ui bulleted list neighbourhoodList">
-                                                <div class="item">Located near to Shadnagar Industrial Area, abutting on Hyderabad-Bengaluru NH-7.</div>
-                                                <div class="item">Direct connectivity to Express Highway, Shadnagar Railway Station connecting Hyderabad to Shadnagar through MMTS</div>
-                                                <div class="item">Connectivity to International Airport reachable in 30 minutes</div>
-                                                <div class="item">Very close to the proposed Regional Ring Road (RRR)</div>
-                                                <div class="item">Very close to Chinna Jeeyar Vedi University and many Engineering Colleges</div>
-                                                <div class="item">Very close to all Multi National Companies like P & G, Johnson & Johnson, GVK Industries</div>
-                                                <div class="item">Located in densely populated area besides Schools, Colleges, Market Yard, Banks and Hospitals</div>
+                                                <div class="item" *ngFor="let list of neighbourhoodList">{{list}}</div>
                                         </div>
                                         <button (click)="openLocationMap()" class="ui blue tiny button">Location Map</button>
                                         <button (click)="openGMap()" class="ui blue tiny button">Google Map</button>
@@ -234,28 +193,32 @@
                                             <div class="card" *ngFor="let project of projects;" >
                                                     <div class="image">
                                                             <div class="tagInfo">
-                                                                    <div class="ui blue label">Posted: {{project.postedOn}}</div>
-                                                            </div>
-                                                            <i class="rightFloated large like  icon" [ngClass]="{'outline': !project.likedStatus, 'blue': project.likedStatus}" (click)="likedProject($event)"></i>
-                                                            <span class="ratingFloat ui mini star blue rating" data-rating="3"
-                                                                            data-max-rating="5"></span>
-                                                            <img routerLink="/projectDetail" style="cursor: pointer;" src={{project.imageUrl}}>
-                                                    </div>
-                                                    <div class="content">
-                                                            <a class="header" routerLink="/projectDetail">{{project.projectName}}</a>
-                                                            <span class="priceInfo">
-                                                                    <span style="font-size:18px;">₹7.8 Lac</span>
-                                                                    <span class="onwards"> onwards</span>
-                                                            </span>
-                                                            <div class="description">
-                                                                    <b>{{project.minSize}}-{{project.maxSize}}</b><span style="font-size:12px;margin-left:5px;">sqyd</span> 
-                                                            </div>
-                                                            <div style="margin-top:10px;" class="meta">
-                                                                    <b>{{project.address1}}<br> {{project.address2}}</b>
-                                                                    <span style="float: right;"> <i [ngClass]="{'red': project.saleStatus == 'Sold'}" class="circle blue icon"></i> <b>{{project.saleStatus}}</b></span>
+                                                                    <div class="ui blue label">Posted: {{project.created_at.substr(0, 10)}}</div>
                                                             </div>
                                                             
-                    
+                                                            <span class="ratingFloat ui mini star blue rating" data-rating="3" data-max-rating="5"></span>
+                                                            <img style="cursor: pointer;" src="assets/viceroyceIcon.png">
+                                                    </div>
+                                                    <div class="content">
+                                                        <div id="projectName" style="width: 100%;" class="header">{{project.project_name}}</div>
+                                                        <div style="margin-top:5px;" class="ui celled horizontal list">
+                                                                <div class="item">
+                                                                    <div class="infoValue">₹ {{project.min_amount*project.min_sqyards}}</div>
+                                                                    <div class="infoLabel">onwards</div>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <div class="infoValue">{{project.min_sqyards}}-{{project.max_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                                    <div class="infoLabel">sqyd</div>
+                                                                </div>
+                                                        </div>
+                                                        <div style="margin-top:10px;" class="meta">
+                                                                <b>{{project.project_address}}<br>{{project.city}}, {{project.state}} {{project.zipcode}} </b>
+                                                                <span style="float: right;"> 
+                                                                <i class="circle icon green"></i>
+                                                                <b>For Sale</b></span>
+                                                        </div>
+                                                        
+                
                                                     </div>
                                             </div>
                     
@@ -336,7 +299,7 @@
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>351</b></div>
                             <!-- <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Onwards Price:<b>1.4 Cr</b></div> -->
-                            <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>Shadnagar</b></div>
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>{{projectSelected.city}}</b></div>
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Plot</b></div>
                         </div>
                         <div class="plotStatus">
@@ -437,27 +400,6 @@
       </div>
     </div>
   </div>
-<div class="ui mini modal event-modal plotInfo">
-        
-            <div *ngIf="plotSelected" style="color:#414143;">
-                <div style="display:grid;grid-template-columns: 45% 45%;grid-gap: 0 10%;padding:20px;">
-                        <span class="plotInfoLabel">Plot</span>
-                        <span style="color:#0066ff"><b>{{plotSelected}}</b></span>
-                        <span class="plotInfoLabel">Area</span>
-                        <span><b>1200 sqft</b></span>
-                        <span class="plotInfoLabel">Facing</span>
-                        <span><b>North</b></span>
-                        <span class="plotInfoLabel">Cost</span>
-                        <span><b>67 Lacs</b></span>
-                        <span class="plotInfoLabel">Attributes</span>
-                        <span><b>High Class</b></span>
-                </div>
-            </div>
-            <div class="actions" style="display:flex;justify-content: center;">
-                <div class="ui deny black button">View other plots</div>
-                <div class="ui blue  button">Buy Plot</div>
-            </div>  
-</div>
 <div class="ui modal small modalSign">
   <i class="close icon"></i>
   <div class="container">

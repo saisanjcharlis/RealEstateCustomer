@@ -174,8 +174,12 @@
     display: none;
   }
 }
-
-
+.mapProjectHeader{
+  font-size:12px;font-weight: bold;cursor: pointer;
+}
+.mapProjectHeader:hover{
+  color:#0066ff;
+}
   
 
   

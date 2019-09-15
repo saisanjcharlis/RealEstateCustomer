@@ -11,28 +11,6 @@ export class BuyComponent implements OnInit {
   plotSelected;
   plotSelectedPop;
   constructor(private cdr: ChangeDetectorRef,  private routes: Router) { }
-  config = {
-    fade: true,
-    alwaysOn: true,
-    neverOn: false,
-
-    // fill
-    fill: true,
-    fillColor: '#00ff00',
-    fillOpacity: 0.6,
-
-    // stroke
-    stroke: true,
-    strokeColor: '#414143',
-    strokeOpacity: 0.8,
-    strokeWidth: 1,
-
-    // shadow:
-    shadow: true,
-    shadowColor: '#000000',
-    shadowOpacity: 0.8,
-    shadowRadius: 10
-  };
   planDefault = 1;
   selectPlan1(e){
     $('.selectedPlan').addClass('basic');
@@ -64,36 +42,64 @@ export class BuyComponent implements OnInit {
     $('.ui.modal.shareModal').modal('show');
     
   }
-  searchPlotPop(e){
 
-  }
   sendMail(){
     $('.ui.modal.shareModal').modal('hide');
   }
-  plotNumber=0;
+  plotNumber:number;
   modelChange(newObj){
     if(newObj==null){
       $('.available').css('fill','#2fce72');
     }
-  }
-  searchPlot(e){
-    this.plotSelected=e.target.value;   
-    if($("#"+this.plotSelected).length){
+    if($("#"+newObj).length){
       $('.available').css('fill','none');
-      $("#"+this.plotSelected).css('fill','#2fce72');
+      $("#"+newObj).css('fill','#2fce72');
+      var elHeight = $("#"+newObj).offset().top;
+      var windowHeight = $(window).height();
+      var offset;
+      if (elHeight+200 < windowHeight) {
+        offset = elHeight - ((windowHeight / 2) - (elHeight / 2));
+      }
+      else {
+        offset = elHeight-200;
+      }
+
+      $('html, body').animate(
+        {
+          scrollTop: offset,
+        },
+        100,
+        'linear'
+      );
+
+
     } else {
       $('.available').css('fill','#2fce72');
-      $('body').toast({
-        class: 'error',
-        message: `Plot Does not Exist`
-      });
-      $('.toast-box').css("margin-top","50px");
     }
-    
+ 
+  }
+  searchPlot(e){
+    this.plotSelected = e.target.value;
+    // localStorage.setItem('plotSelected',this.plotSelected);
+    // this.plotSelectedAttr=this.plotsList.filter((plot)=>{
+    //   return plot.plot_no==this.plotSelected;
+    // });
+    // sessionStorage.setItem('plotSelectedAttr',JSON.stringify(this.plotSelectedAttr));
+
+
+    //check for plot exists
+    $('.ui.modal.plotInfo').modal('show');
   }
   openAttr(e){
     this.plotSelected = e.target.id;
-    localStorage.setItem('plotSelected',this.plotSelected);
+    // localStorage.setItem('plotSelected',this.plotSelected);
+    // this.plotSelectedAttr=this.plotsList.filter((plot)=>{
+    //   return plot.plot_no==this.plotSelected;
+    // });
+    // sessionStorage.setItem('plotSelectedAttr',JSON.stringify(this.plotSelectedAttr));
+
+
+    //check for plot exists
     $('.ui.modal.plotInfo').modal('show');
   }
   addPlot(){
@@ -101,13 +107,26 @@ export class BuyComponent implements OnInit {
     this.routes.navigate(['/payPlans']);
 
   }
+  plotsList;
+  projectSelected;
+  plotSelectedAttr;
   ngOnInit() {
+    this.projectSelected=JSON.parse(localStorage.getItem('projectSelected'));
+
+    this.plotsList=JSON.parse(localStorage.getItem('plotsData'));
+    // this.plotsList.map((plot)=>{
+    //   if(plot.available_status==0){
+    //     $('#'+plot.plot_no).css('fill','rgba(255,0,0,0.5)');
+    //     $('#'+plot.plot_no).css('pointer-events','none');
+    //   }
+    //   if(plot.available_status==2){
+    //     $('#'+plot.plot_no).css('fill','rgba(0,0,255,0.5)');
+    //     $('#'+plot.plot_no).css('pointer-events','none');
+    //   }
+    // });
+    
   }
   ngAfterViewInit() {
-    // $('.available').popup({
-    //   popup : $('.plotPopup'),
-    //   on    : 'hover'
-    // });
     $('.ui.rating').rating();
 
   }

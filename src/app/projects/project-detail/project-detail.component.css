@@ -510,3 +510,11 @@ agm-map {
     }
   }
   
+  .infoValue{
+    text-align: center;font-weight: bold;font-size:16px;
+    /* color:#0066ff; */
+  }
+  
+  .infoLabel{
+    text-align: center;font-size:12px;margin-top:10px;
+  }

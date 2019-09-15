@@ -49,8 +49,20 @@
     display: flex;
     align-items: center;
 }
+@media screen and (max-width: 840px){
+  .searchPlotDesktop{
+       display: none;
+    }
+}
+@media screen and (max-width: 840px){
+    .searchPlot{
+        display: inline-flex;
+        width: 100%;
+        margin-top:10px;
+    }
+}
 @media screen and (max-width: 768px){
-    .actionButton, .searchPlotDesktop{
+    .actionButton{
        display: none;
     }
     .searchPlot{
@@ -58,21 +70,30 @@
         width: 100%;
         margin-top:10px;
     }
-    .plotStatus{
+    /* .plotStatus{
         margin-top:20px;
-    }
+    } */
 }
 .ui.celled.horizontal.list{
     flex:1 0 auto;
 }
 .flexActions{
-    display: flex;
+   display: flex;
+   position:sticky;
+   top:56px;
+   padding:10px;
+   background: #F7F9FC;
    flex-wrap: wrap;
    justify-content: space-between;
 }
 /* .flexActions div:first-of-type{
     flex: 1 0 auto;
 } */
+@media screen and (max-width: 768px){
+    .flexActions{
+        top:50px;
+    }
+}
 .shareModal{
     width: 400px !important;
 }

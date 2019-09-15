@@ -27,7 +27,7 @@
                         [disableDoubleClickZoom]="true">
                                 <agm-marker 
                                 (mouseOver)="onMouseOver(gm,window)"
-                                (markerClick)="markerClick($event)"
+                                (markerClick)="markerClick(marker)"
                                 *ngFor="let marker of markers" 
                                 [iconUrl]="marker.icon"
                                 [latitude]="marker.lat"
@@ -35,7 +35,7 @@
                                 >
                                 <agm-info-window #window>
                                         <div>
-                                                        <i class="city fitted large icon" ></i><span style="font-size:12px;font-weight: bold;"> {{marker.projectName}}</span>
+                                                        <i class="city fitted large icon" ></i><span (click)="viewProject(marker)" class="mapProjectHeader" >{{marker.projectName}}</span>
                                                         <div>
                                                                         <span style="font-weight: bold;text-align: right">{{marker.minArea}}-{{marker.maxArea}} </span>
                                                                         <span style="font-size:10px;font-weight: normal;color:#414143;">sqyd</span>
@@ -79,12 +79,12 @@
                                         <div class="tagInfo">
                                                 <div class="ui blue label">Posted: {{project.created_at.substr(0, 10)}}</div>
                                         </div>
-                                        <i class="rightFloated large like outline icon" (click)="likedProject($event)"></i>
+                                       
                                         <span class="ratingFloat ui mini star blue rating" data-rating="4" data-max-rating="5"></span>
-                                        <img routerLink="/projectDetail" style="cursor: pointer;" src="assets/viceroyceIcon.png">
+                                        <img (click)="viewProject(project)" routerLink="/projectDetail" style="cursor: pointer;" src="assets/viceroyceIcon.png">
                                 </div>
                                 <div class="content">
-                                        <div id="projectName" style="width: 100%;" class="header" routerLink="/projectDetail">{{project.project_name}}</div>
+                                        <div id="projectName" style="width: 100%;" class="header" (click)="viewProject(project)">{{project.project_name}}</div>
                                         <div style="margin-top:5px;" class="ui celled horizontal list">
                                                 <div class="item">
                                                     <div class="infoValue">₹ {{project.min_amount*project.min_sqyards}}</div>

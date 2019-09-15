@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { AgmMap } from '@agm/core';
 import { RouterModule , Router } from '@angular/router';
+import { HttpClient} from '@angular/common/http';
+import { ConfigService } from '../../../services/config.service';
 declare var $:any;
 @Component({
   selector: 'app-project-detail',
@@ -8,64 +10,30 @@ declare var $:any;
   styleUrls: ['./project-detail.component.css']
 })
 export class ProjectDetailComponent implements OnInit {
-  images = [
-    "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
-    "http://www.spectraindia.in/wp-content/uploads/2016/10/fortune.jpg"
-  ];
-  labelLayerId: string;
+  
   saveText="Save";
-  lat: number=17.0719424;
-  long: number=78.2358877; 
+  projectSelected;
+  projects;
+  buttonEnable=true;
+  plotTab=false;
+
+  lat;
+  long;; 
   zoom: number=15;
-  plotSelected;
-  config = {
-    fade: true,
-    alwaysOn: true,
-    neverOn: false,
-
-    // fill
-    fill: true,
-    fillColor: '#00ff00',
-    fillOpacity: 0.6,
-
-    // stroke
-    stroke: true,
-    strokeColor: '#414143',
-    strokeOpacity: 0.8,
-    strokeWidth: 1,
-
-    // shadow:
-    shadow: true,
-    shadowColor: '#000000',
-    shadowOpacity: 0.8,
-    shadowRadius: 10
-  };
-  projects = [
-    {
-      "projectName": "Spectra Galaxy",
-      "minPrice": 7800000,
-      "minPriceParsed": "7.8 Lac",
-      "maxPrice": 50000000,
-      "minSize": 340,
-      "maxSize": 800,
-      "address1": " 3343 C, Yadagirigutta",
-      "address2": "Hyderabad, TS 502012",
-      "saleStatus": "For Sale",
-      "imageUrl": "http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg",
-      "likedStatus": true,
-      "rating": 5,
-      "postedOn": "23 Jul 2018",
-      "state": "hyderabad",
-      "zipcode": "500032",
-      "lat": "12323213",
-      "long": "1321331",
-      "homeType": "plots",
-      "agents": []
-    }
-  ];
-  constructor(private router:Router) { }
+  
+  constructor(private router:Router, private config: ConfigService, private http: HttpClient) { }
   buyLink(){
     if(localStorage.getItem('logStatus')=='true'){
+      let urlProjectDetails = `${this.config.url}services/v1/frontendcustomer/getplotsinfo`;
+      var token = JSON.parse(localStorage.getItem('loginData')).token;
+      this.http.post(urlProjectDetails,{"token": token}).subscribe((data:any) => {
+        if(data.success==true){
+          console.log(data);
+           // localStorage.setItem('plotsData',JSON.stringify(data));
+        }
+      });
+   
+
       this.router.navigate(['/buy']);
     } else {
       $('.ui.modal.modalSign').modal('show');  
@@ -120,12 +88,6 @@ export class ProjectDetailComponent implements OnInit {
   openGMap(){
     $('.ui.modal.googleMap').modal('show');
   }
-  displayPlot(e){
-    this.plotSelected=e.target.title;
-    $('.ui.modal.plotInfo').modal('show').modal('refresh');
-    console.log(e.target.title);
-  }
-  plotTab=false;
   plotDetails(){
     $('.gridContainer').css('grid-template-columns','23% 75%');
     $('.gridContainer').css('grid-gap','10px 2%');
@@ -136,17 +98,20 @@ export class ProjectDetailComponent implements OnInit {
     $('.gridContainer').css('grid-gap','10px 1rem');
     this.plotTab = false;
   }
-  buttonEnable=true;
+  neighbourhoodList;
+  propertyDetailList;
   ngOnInit() {
+    this.neighbourhoodList=JSON.parse(localStorage.getItem('neighbourhoodData'));
+    this.propertyDetailList=JSON.parse(localStorage.getItem('propertiesDetails'))
+    this.projectSelected= JSON.parse(localStorage.getItem('projectSelected'));
+    this.projects=JSON.parse(localStorage.getItem('projectsList'));
+    this.lat=this.projectSelected.latitude;
+    this.long=this.projectSelected.longitudes;
     if(localStorage.getItem('logStatus')=='true'){
       this.buttonEnable=false;
     }
     $('.demo.menu .item').tab();
-    if(window.innerWidth>930)
-       {
-        
-       }
-       else{
+    if(!(window.innerWidth>930)){
         $(".ui.tab.segment").addClass("active");
        }
   }

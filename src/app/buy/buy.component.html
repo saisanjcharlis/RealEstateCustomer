@@ -6,11 +6,11 @@
                     <i class="large city icon" style="color:white;"></i>
             </div>
             <div style="flex:1 0 auto;">
-                <div style="font-weight: bold;font-size:18px;">Viceroyce Residency</div>
-                <div style="font-size:12px;">Allisabguda, Telangana 509228</div>
+                <!-- <div style="font-weight: bold;font-size:18px;">{{projectSelected.project_name}}</div>
+                <div style="font-size:12px;">{{projectSelected.project_name}}, {{projectSelected.state}} {{projectSelected.zipcode}}</div>
                 <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
                     <div class="ui blue rating" data-rating="4" data-max-rating="5"></div>
-                </div>
+                </div> -->
             </div>
             <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
             <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
@@ -21,7 +21,7 @@
         <div class="gridContainer">
             <div class="flexActions">
                 <div>
-                        <button (click)="selectPlan1($event)" class="ui yellow button basic selectedPlan">Plan 1</button>
+                        <button (click)="selectPlan1($event)" class="ui yellow tiny button basic selectedPlan">Plan 1</button>
                         <!-- <button (click)="selectPlan2($event)" class="ui basic yellow button">Plan 2</button>
                         <button (click)="selectPlan3($event)" class="ui basic yellow button">Plan 3</button> -->
                 </div>
@@ -32,10 +32,10 @@
                 </div>
                 <div class="ui icon input searchPlot">
                         <i class="search icon"></i>
-                        <input (ngModelChange)="modelChange($event)" [(ngModel)]="plotNumber" type="number" (keyup.enter)="searchPlot($event)" placeholder="Search By Plot Number">
+                        <input (ngModelChange)="modelChange($event)" (keyup.enter)="searchPlot($event)" [(ngModel)]="plotNumber" type="number" placeholder="Search By Plot Number">
                 </div>
                 <div  class="ui  action input searchPlotDesktop">
-                        <input (ngModelChange)="modelChange($event)" [(ngModel)]="plotNumber" type="number" (keyup.enter)="searchPlot($event)" placeholder="Plot Number">
+                        <input (ngModelChange)="modelChange($event)" (keyup.enter)="searchPlot($event)" [(ngModel)]="plotNumber" type="number" placeholder="Plot Number">
                         <div  class="ui blue extraText button">Select by Plot Number</div>
                 </div>
             </div>
