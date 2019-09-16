@@ -22,7 +22,7 @@
             </div>  -->
           <div class="ui label green">{{props.length}} Properties</div>
           <div class="ui label green">Next EMI: 10th Aug 2019</div>
-          <div class="ui label green greenTop">Total EMI's Due: ₹ 50000</div>
+          <!-- <div class="ui label green greenTop">Total EMI's Due: ₹ 50000</div> -->
        
 </div>  
     <div class="projectContainer">
@@ -57,15 +57,11 @@
                                                           <div class="infoLabel">Plot Number</div>
                                                       </div>
                                                       <div class="item">
-                                                          <div class="infoValue">{{prop.actual_cost}} ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoValue">₹ {{prop.actual_cost}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                                           <div class="infoLabel">Plot Worth</div>
                                                       </div>
                                                       <div class="item">
-                                                          <div class="infoValue">{{prop.facing}}<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                                          <div class="infoLabel">Facing</div>
-                                                      </div>
-                                                      <div class="item">
-                                                          <div class="infoValue">{{prop.installment_amount}} ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoValue">₹{{prop.installment_amount}} <span style="font-size: 14px;font-weight: 500;"></span></div>
                                                           <div class="infoLabel">EMI Amount</div>
                                                       </div>
                                                       <div class="item">
@@ -73,9 +69,13 @@
                                                         <div class="infoLabel">Tenure</div>
                                                     </div>
                                                     <div class="item">
-                                                      <div class="infoValue">{{prop.total_payable}} ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                        <div class="infoValue">{{prop.emi_num}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                        <div class="infoLabel">Total EMI's paid</div>
+                                                    </div>
+                                                    <div class="item">
+                                                      <div class="infoValue">₹ {{prop.total_payable}} <span style="font-size: 14px;font-weight: 500;"></span></div>
                                                       <div class="infoLabel">Total Payable</div>
-                                                  </div>
+                                                    </div>
                                                   </div>
                                               </div>
                                             </div>

@@ -23,18 +23,24 @@ export class PassbookComponent implements OnInit {
   mouseLeave(e){
     $(e.target).addClass('basic');
   }
+  otp;
+  passbookNo;
   allotPassbook(){
 
     let urlPassbookOTP = `${this.config.url}services/v1/frontendcustomer/passbookoptverification`;
     var loginData = JSON.parse(localStorage.getItem('loginData'));
+    console.log(this.passbookNo)
+
     let reqObj = {
       "token": loginData.token,
       "params": {
-        "project_id":this.selectedValue,"passbook_no":"GLX_101_2","user_id":loginData.userinfo.user_id,"type":"passbook_authentication","otp":779462
+        "project_id":23,"passbook_no":this.passbookNo,"user_id":loginData.userinfo.user_id,"type":"passbook_authentication","otp":this.otp
       }
     }
     this.http.post(urlPassbookOTP,reqObj).subscribe((data:any) => {
+      console.log(data)
       if(data.success){
+     
         localStorage.setItem('newUser',"false");
         $('body').toast({
           class: 'success',
@@ -71,7 +77,7 @@ export class PassbookComponent implements OnInit {
     let reqObj = {
       "token": loginData.token,
       "params": {
-        "project_id":this.selectedValue,"passbook_no":"GLX_101_2","user_id":loginData.userinfo.user_id
+        "project_id":23,"passbook_no":this.passbookNo,"user_id":loginData.userinfo.user_id
       }
     }
     this.http.post(urlPassbookOTP,reqObj).subscribe((data:any) => {

@@ -40,15 +40,11 @@
                                 <div class="infoLabel">Plot Number</div>
                             </div>
                             <div class="item">
-                                <div class="infoValue">{{prop.actual_cost}} ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                <div class="infoValue">₹ {{prop.actual_cost}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                 <div class="infoLabel">Plot Worth</div>
                             </div>
                             <div class="item">
-                                <div class="infoValue">{{prop.facing}}<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                <div class="infoLabel">Facing</div>
-                            </div>
-                            <div class="item">
-                                <div class="infoValue">{{prop.installment_amount}} ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                <div class="infoValue">₹ {{prop.installment_amount}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                 <div class="infoLabel">EMI Amount</div>
                             </div>
                             <div class="item">
@@ -56,7 +52,11 @@
                               <div class="infoLabel">Tenure</div>
                           </div>
                           <div class="item">
-                            <div class="infoValue">{{prop.total_payable}} ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                              <div class="infoValue">{{prop.emi_num}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                              <div class="infoLabel">Total EMI's paid</div>
+                          </div>
+                          <div class="item">
+                            <div class="infoValue">₹ {{prop.total_payable}} <span style="font-size: 14px;font-weight: 500;"></span></div>
                             <div class="infoLabel">Total Payable</div>
                         </div>
                         </div>
@@ -113,12 +113,12 @@
                         
                         <div class="field">
                           <label>Plot Allotment Number</label>
-                          <input type="text" name="allot_number" placeholder="Plot Allotment Number"> <button (click)="otpGenerate()" style="margin-top:10px;" class="right floated ui button blue">Generate OTP</button>
+                          <input type="text" [(ngModel)]="passbookNo" name="allot_number" placeholder="Plot Allotment Number"> <button (click)="otpGenerate()" style="margin-top:10px;" class="right floated ui button blue">Generate OTP</button>
                         </div>
                        
                         <div class="field">
                           <label>OTP</label>
-                          <input type="text" name="OTP" placeholder="OTP">
+                          <input  [(ngModel)]="otp" type="text" name="OTP" placeholder="OTP">
                         </div>
                 </form>
           </div>

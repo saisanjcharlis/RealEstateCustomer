@@ -9,15 +9,18 @@ export class EmiDateComponent implements OnInit {
   now = Date.now();  
   days = 24 * 60 * 60 * 1000; 
 
-  emiDates = [new Date(this.now + 10 * this.days),new Date(this.now +11 * this.days)];
+  date = new Date();
+  firstDay = new Date(this.date.getFullYear(), this.date.getMonth(), 10);
+  secondDay= new Date(this.date.getFullYear(), this.date.getMonth(), 10);
 
+  emiDates = [this.firstDay, this.secondDay];
   options: any = {  
     format12h: true,
     enabledDateRanges: [  
       { start: this.emiDates[0], end: this.emiDates[1] }
      ] 
   };  
-  date: Date = new Date;  
+  // date: Date = new Date;  
   showVar: boolean = false;
   dateString: string = "Select a date";
   dateChanged () {  
@@ -49,7 +52,9 @@ export class EmiDateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    // var date = new Date();
+    // var firstDay = new Date(date.getFullYear(), date.getMonth(), 10);
+    // console.log(firstDay)
   }
   ngAfterViewInit(){
     // $('.datepicker--cell[style*="background: #FCB332 "]')
