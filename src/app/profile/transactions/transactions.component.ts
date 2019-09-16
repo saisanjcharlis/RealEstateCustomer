@@ -6,9 +6,14 @@ declare var $:any;
   styleUrls: ['./transactions.component.css']
 })
 export class TransactionsComponent implements OnInit {
-
+  selectedValue;
   constructor() { }
+  transactionsList;
+  projectList;
   ngOnInit() {
+    this.transactionsList = JSON.parse(localStorage.getItem('transactionSelected'));
+    this.projectList = JSON.parse(localStorage.getItem('projectsList'));
+    console.log(this.transactionsList)
   }
 
 }

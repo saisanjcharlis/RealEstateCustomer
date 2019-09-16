@@ -15,15 +15,23 @@
 
 
         <div class="ui items projectItems">
-          <div class="item" *ngFor="let prop of props">
+          <div class="item" *ngFor="let prop of props" style="overflow: visible;">
                   <div class="ui small image">
-                    <img src="assets/viceroyceIcon.png">
+                    <img [src]="prop.project_id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'" >
                   </div>
                   <div class="middle aligned content">
                     <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
-                      <span style="flex:1 0 auto;">{{prop.project_name}}</span>
-                      <!-- <button class="ui button blue tertiary">View Project</button> -->
-                      <!-- <button class="ui mini button green tertiary">Transactions</button> -->
+                      <span style="flex:1 0 auto;">{{prop.project_name}}
+                        
+                        <div style="float:right;" class="ui menued dropdown">
+                          <i style="cursor:pointer" class="ui blue icon ellipsis vertical"></i> 
+                          <div class="menu">
+                            <div class="item" (click)="viewProject(prop.project_id)">View Project</div>
+                            <div class="item" (click)="viewTrans(prop)">Transactions</div>
+                            
+                          </div>
+                        </div>
+                        </span>
                     </div>
                     <div style="margin-top:20px;" class="description"  >
                         <div class="ui celled horizontal list">
@@ -89,18 +97,25 @@
         </div>
         <div class="image content">
           <div class="ui medium image">
-                <i class="black building icon" style="margin-left:100px;"></i>
+                <!-- <i class="black building icon" style="margin-left:100px;"></i> -->
+                <img src="https://s.zillowstatic.com/homepage/static/Sell_a_home.png">
           </div>
           <div class="description">
                 <form class="ui form">
                         <div class="field">
                           <label>Project Name</label>
-                          <input type="text" name="project_name" placeholder="Project Name">
+                          <select name="projectName" [(ngModel)]="selectedValue" class="ui fluid dropdown">
+                            <option value="">Project</option>
+                            <option [ngValue]="project.id" *ngFor="let project of projectList">{{project.project_name}}</option>
+                          </select>
                         </div>
+
+                        
                         <div class="field">
                           <label>Plot Allotment Number</label>
-                          <input type="text" name="allot_number" placeholder="Plot Allotment Number">
+                          <input type="text" name="allot_number" placeholder="Plot Allotment Number"> <button (click)="otpGenerate()" style="margin-top:10px;" class="right floated ui button blue">Generate OTP</button>
                         </div>
+                       
                         <div class="field">
                           <label>OTP</label>
                           <input type="text" name="OTP" placeholder="OTP">

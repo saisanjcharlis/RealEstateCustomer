@@ -76,7 +76,7 @@ export class BuyComponent implements OnInit {
 
     } else {
       // $('.available').css('fill','#2fce72');
-      this.plotsList.result.results.map((plot)=>{
+      this.plotsList.map((plot)=>{
         if(plot.available_status==0){
           $('#'+plot.plot_no).css('fill','rgba(255,0,0,0.5)');
           $('#'+plot.plot_no).css('pointer-events','none');
@@ -92,14 +92,14 @@ export class BuyComponent implements OnInit {
   searchPlot(e){
     this.plotSelected = e.target.value;
     localStorage.setItem('plotSelected',this.plotSelected);
-    this.plotSelectedAttr=this.plotsList.result.results.filter((plot)=>{
+    this.plotSelectedAttr=this.plotsList.filter((plot)=>{
       return plot.plot_no==this.plotSelected;
     });
   }
   openAttr(e){
     this.plotSelected = e.target.id;
     localStorage.setItem('plotSelected',this.plotSelected);
-    this.plotSelectedAttr=this.plotsList.result.results.filter((plot)=>{
+    this.plotSelectedAttr=this.plotsList.filter((plot)=>{
       return plot.plot_no==this.plotSelected;
     });
     if(this.plotSelectedAttr[0]){
@@ -136,7 +136,11 @@ export class BuyComponent implements OnInit {
     this.projectSelected=JSON.parse(localStorage.getItem('projectSelected'));
 
     this.plotsList=JSON.parse(localStorage.getItem('plotsData'));
-    this.plotsList.result.results.map((plot)=>{
+    // console.log(JSON.parse(localStorage.getItem('plotsData')));
+    // this.plotsList.result.results.map( (plot)=>{
+    //   console.log(plot);
+    // })
+    this.plotsList.map((plot)=>{
       if(plot.available_status==0){
         $('#'+plot.plot_no).css('fill','rgba(255,0,0,0.5)');
         $('#'+plot.plot_no).css('pointer-events','none');

@@ -60,12 +60,13 @@ export class ProfileInfoComponent implements OnInit {
         }
     };
 
-
+    console.log("hell")
     let url = `${this.config.url}services/v1/frontendcustomer/updateprofileinformation`;
     this.http.post(url,uploadData).subscribe((data:any) => {
       console.log(data);
+      localStorage.setItem('customerName',JSON.stringify(this.profileData.name));
     });
-    localStorage.setItem('customerName',JSON.stringify(this.profileData.name));
+   
   }
   uploadPicture(){
     $("#imageUpload").click();
@@ -115,14 +116,17 @@ export class ProfileInfoComponent implements OnInit {
       "user_id": currentID
     }
     this.http.post(url,reqObj).subscribe((data:any) => {
-      this.profileData.name=data.result.results[0].customer_name;
-      this.profileData.dob=data.result.results[0].customer_dob;
-      this.profileData.fatherOrSpouseName=data.result.results[0].customer_spouse;
-      this.profileData.email=data.result.results[0].customer_email;
-      this.profileData.address=data.result.results[0].customer_pr_address_line1;
-      this.profileData.phoneNumber=data.result.results[0].customer_pr_phone;
-      this.profileData.aadhar=data.result.results[0].customer_aadharno;
-      this.profileData.pan=data.result.results[0].customer_pan;
+      if(data.result.results.length>0){
+        this.profileData.name=data.result.results[0].customer_name;
+        this.profileData.dob=data.result.results[0].customer_dob;
+        this.profileData.fatherOrSpouseName=data.result.results[0].customer_spouse;
+        this.profileData.email=data.result.results[0].customer_email;
+        this.profileData.address=data.result.results[0].customer_pr_address_line1;
+        this.profileData.phoneNumber=data.result.results[0].customer_pr_phone;
+        this.profileData.aadhar=data.result.results[0].customer_aadharno;
+        this.profileData.pan=data.result.results[0].customer_pan;
+      }
+      
     });
    
     $('#year_first_calendar').calendar({

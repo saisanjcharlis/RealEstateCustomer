@@ -20,8 +20,8 @@
             <div  style="margin:20px 0;">
                     <button class="ui button blue">View Projects</button>
             </div>  -->
-          <div class="ui label green">2 Properties</div>
-          <div class="ui label green">Next EMI: 24th Aug 2019</div>
+          <div class="ui label green">{{props.length}} Properties</div>
+          <div class="ui label green">Next EMI: 10th Aug 2019</div>
           <div class="ui label green greenTop">Total EMI's Due: ₹ 50000</div>
        
 </div>  
@@ -31,78 +31,55 @@
                     <div class="projectsList" style="margin:20px 0;">
                             <span class="containerHeader">My Properties</span> 
                             <div class="ui items projectItems">
-                                    <div class="item">
+                                    <div class="item" *ngFor="let prop of props" style="overflow: visible;">
                                             <div class="ui small image">
-                                              <img src="assets/viceroyceIcon.png">
+                                              <img [src]="prop.project_id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'">
                                             </div>
                                             <div class="middle aligned content">
                                               <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
-                                                <span style="flex:1 0 auto;">Viceroyce Residency<i style="float:right;cursor:pointer" class="ui blue small icon ellipsis vertical"></i></span>
+                                                <span style="flex:1 0 auto;">Viceroyce Residency
+                                                    <div style="float:right;" class="ui menued dropdown">
+                                                        <i style="cursor:pointer" class="ui blue icon ellipsis vertical"></i> 
+                                                        <div class="menu">
+                                                          <div class="item" (click)="viewProject(prop.project_id)">View Project</div>
+                                                          <div class="item" (click)="viewTrans()">Transactions</div>
+                                                          
+                                                        </div>
+                                                      </div>
+                                                </span>
                                                 <!-- <button class="ui button blue tertiary">View Project</button> -->
                                                 <!-- <button class="ui mini button green tertiary">Transactions</button> -->
                                               </div>
                                               <div style="margin-top:20px;" class="description"  >
                                                   <div class="ui celled horizontal list">
                                                       <div class="item">
-                                                          <div class="infoValue">314</div>
+                                                          <div class="infoValue">{{prop.plot_no}}</div>
                                                           <div class="infoLabel">Plot Number</div>
                                                       </div>
                                                       <div class="item">
-                                                          <div class="infoValue">2300 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoValue">{{prop.actual_cost}} ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
                                                           <div class="infoLabel">Plot Worth</div>
                                                       </div>
                                                       <div class="item">
-                                                          <div class="infoValue">200 sq.yd<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                                          <div class="infoLabel">Plot Size</div>
+                                                          <div class="infoValue">{{prop.facing}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoLabel">Facing</div>
                                                       </div>
                                                       <div class="item">
-                                                          <div class="infoValue">24th Aug 2019<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                                          <div class="infoLabel">Next EMI</div>
-                                                      </div>
-                                                      <div class="item">
-                                                          <div class="infoValue">18000 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoValue">{{prop.installment_amount}} ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
                                                           <div class="infoLabel">EMI Amount</div>
                                                       </div>
+                                                      <div class="item">
+                                                        <div class="infoValue">{{prop.installment_tenure}} months<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                        <div class="infoLabel">Tenure</div>
+                                                    </div>
+                                                    <div class="item">
+                                                      <div class="infoValue">{{prop.total_payable}} ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                      <div class="infoLabel">Total Payable</div>
+                                                  </div>
                                                   </div>
                                               </div>
                                             </div>
                                     </div>
-                                    <div class="item">
-                                        <div class="ui small image">
-                                          <img src="http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg">
-                                        </div>
-                                        <div class="middle aligned content">
-                                          <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
-                                            <span style="flex:1 0 auto;">Viceroyce Residency<i style="float:right;cursor:pointer" class="ui blue small icon ellipsis vertical"></i></span>
-                                            <!-- <button class="ui button blue tertiary">View Project</button> -->
-                                            <!-- <button class="ui mini button green tertiary">Transactions</button> -->
-                                          </div>
-                                          <div style="margin-top:20px;" class="description"  >
-                                              <div class="ui celled horizontal list">
-                                                  <div class="item">
-                                                      <div class="infoValue">314</div>
-                                                      <div class="infoLabel">Plot Number</div>
-                                                  </div>
-                                                  <div class="item">
-                                                      <div class="infoValue">2300 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                                      <div class="infoLabel">Plot Worth</div>
-                                                  </div>
-                                                  <div class="item">
-                                                      <div class="infoValue">200 sq.yd<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                                      <div class="infoLabel">Plot Size</div>
-                                                  </div>
-                                                  <div class="item">
-                                                      <div class="infoValue">24th Aug 2019<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                                      <div class="infoLabel">Next EMI</div>
-                                                  </div>
-                                                  <div class="item">
-                                                      <div class="infoValue">18000 ₹<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                                      <div class="infoLabel">EMI Amount</div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                        </div>
-                                </div>
                             </div>
                             <span class="containerHeader">My Favourites</span> 
                             <div class="ui items unstackable favItems">

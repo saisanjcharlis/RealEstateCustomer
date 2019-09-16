@@ -45,7 +45,40 @@ export class ActivityComponent implements OnInit {
     localStorage.setItem('projectsDomain',$(e.target).children('span').text());
     this.routes.navigate(['/projects']);
   }
+  viewTrans(prop){
+    let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
+    var loginData = JSON.parse(localStorage.getItem('loginData'));
+    this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":19,"passbook_no": "GLX_104_1"}}).subscribe((data:any) => {
+      if(data.success){
+        localStorage.setItem('transactionSelected',JSON.stringify(data.result.results));
+        this.routes.navigate(['/transactions']);
+      }
+    });
+  }
+  viewProject(id){
+    if(id==23){
+      this.projectList.map( (data) => {
+        if(data.id==id){
+          localStorage.setItem('projectSelected',JSON.stringify(data));
+        }
+      });
+      let urlProjectDetails = `${this.config.url}customerlogin/getprojectsdetails`;
+      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":id}}).subscribe((data:any) => {
+        if(data.success==true){
+          localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
+        }
+      });
+      this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
+        if(data.success==true){
+           localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
+        }
+      });
+      
+      this.routes.navigate(['/projectDetail']);
+    } 
+  }
   ngAfterViewInit() {
+    $('.ui.menued.dropdown').dropdown() ;
     $('.locationButton').popup({
       popup : $('.savedSearchPop'),
       on    : 'click',
@@ -59,13 +92,15 @@ export class ActivityComponent implements OnInit {
     });
   }
   customerName;
+  projectList;
+  props;
   ngOnInit() {
     if(localStorage.getItem('newUser')=="true"){
       this.newUserDisplay = true;
     }
     this.customerName = JSON.parse(localStorage.getItem('customerName'));
-
+    this.props=JSON.parse(localStorage.getItem('passbookList'));
+    this.projectList = JSON.parse(localStorage.getItem('projectsList'));
   
   }
-
 }

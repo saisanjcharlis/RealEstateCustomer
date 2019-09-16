@@ -28,7 +28,7 @@ export class ProjectDetailComponent implements OnInit {
       var token = JSON.parse(localStorage.getItem('loginData')).token;
       this.http.post(urlProjectDetails,{"token":token,"params":{"project_id":this.projectSelected.id}}).subscribe((data:any) => {
         if(data.success==true){
-           localStorage.setItem('plotsData',JSON.stringify(data));
+           localStorage.setItem('plotsData',JSON.stringify(data.result.results));
         }
       });
    

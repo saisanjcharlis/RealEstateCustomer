@@ -2,13 +2,13 @@
 <div class="topHeader">Transactions</div>
 <div class="projectContainer" >
   <!-- <span class="containerHeader">My Properties <div *ngIf="!newUserDisplay" class="ui green label">1</div></span> -->
-      <div class="boxContainer boxContainerSelected">
-        <!-- <div>
+      <!-- <div class="boxContainer boxContainerSelected">
+        <div>
             <span><i class="city blue large icon" ></i>You have no owned properties</span>
             <br><div style="margin-left:28px;">Browse to stay up to date on price and status changes.</div>
             <br>
             <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Homes</button>
-        </div> -->
+        </div>
         
         <div class="propContainer">
             <span style="font-weight: bold;"><i class="city blue large icon" ></i>Spectra Galaxy</span>
@@ -38,6 +38,27 @@
                 <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
             </div>
            </div>
+      </div> -->
+      <div>
+          <form class="ui form">
+              <div class="two fields">
+                  <div class="field">
+                      <label>Project Name</label>
+                      <select name="projectName" [(ngModel)]="selectedValue" class="ui fluid dropdown">
+                        <option value="">Project</option>
+                        <option [ngValue]="project.id" *ngFor="let project of projectList">{{project.project_name}}</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                        <label>Plot Allotment Number</label>
+                        <input type="text" name="allot_number" >
+                    </div>
+              </div>
+              
+
+              
+              
+        </form>
       </div>
 </div>
 <div class="basicTable">
@@ -45,23 +66,23 @@
         <thead>
           <tr>
             <th>Date</th>
-            <th>Description</th>
+            <th>Passbook Number</th>
             <th>Amount</th>
-            <th>Scheme</th>
+            <th>Cheque Number</th>
             <th>Payment Method</th>
             <th>Transaction ID</th>
-            <th>Collecting Agent</th>
+            <th>Transaction Status</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>2016-11-12</td>
-            <td>Spectra Fortune, Plot No. 314</td>
-            <td>11000</td>
-            <td>EMI</td>
-            <td>Cash</td>
-            <td>586458456</td>
-            <td>Raju Singh</td>
+          <tr *ngFor="let trans of transactionsList">
+            <td>{{trans.bill_date}}</td>
+            <td>{{trans.passbook_no}}</td>
+            <td>{{trans.amount_credited}}</td>
+            <td>{{trans.cheque_no}}</td>
+            <td>{{trans.payment_mode}}</td>
+            <td>{{trans.bill_no}}</td>
+            <td>{{trans.transaction_status}}</td>
           </tr>
         </tbody>
       </table>

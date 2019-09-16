@@ -57,7 +57,7 @@ signIn(uname: string, p: string){
         localStorage.setItem('newUser','false');
 
         let urlPassbook = `${this.config.url}services/v1/frontendcustomer/getpassbooklist`;
-        let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
+       
         var loginData = JSON.parse(localStorage.getItem('loginData'));
        
 
@@ -66,6 +66,7 @@ signIn(uname: string, p: string){
           "token": loginData.token,
           "user_id": loginData.userinfo.user_id
         }
+        console.log(loginData.token)
         this.http.post(urlProfile,reqObj).subscribe((data:any) => {
           if(data.result.results.length>0){
             localStorage.setItem('customerName',JSON.stringify(data.result.results[0].customer_name));
@@ -78,15 +79,11 @@ signIn(uname: string, p: string){
 
 
         //Passbooks Grab
-        this.http.post(urlPassbook,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe((data:any) => {
-          if(data.success==true){
-            localStorage.setItem('passbookList',JSON.stringify(data.result));
-            // data.result.map( (passbook)=>{
-            //   this.http.post(urlTransactions,{"token":token,"params":{"project_id":passbook.project_id,"passbook_no":passbook.passbook_no}}).subscribe((data:any) => {})
-
-            // });
-          }
-        });
+        // this.http.post(urlPassbook,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe((data:any) => {
+        //   if(data.success==true){
+        //     localStorage.setItem('passbookList',JSON.stringify(data.result));
+        //   }
+        // });
 
         if(sessionStorage.getItem('signedUp')=='true'){
           this.routes.navigate(['/']);
@@ -98,7 +95,13 @@ signIn(uname: string, p: string){
             this.routes.navigate([this.routes.url]);
           });
         } else {
-          this.routes.navigate(['/activity']);
+          this.http.post(urlPassbook,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe((data:any) => {
+            if(data.success==true){
+              localStorage.setItem('passbookList',JSON.stringify(data.result));
+              this.routes.navigate(['/activity']);
+            }
+          });
+         
         }
        
         

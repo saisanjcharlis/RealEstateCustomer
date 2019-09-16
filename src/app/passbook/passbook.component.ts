@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../../services/config.service';
+import { HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
 declare var $:any;
 @Component({
   selector: 'app-passbook',
@@ -9,7 +12,8 @@ export class PassbookComponent implements OnInit {
   plots;
   props = [];
   projects=["asd"];
-  constructor() { }
+  selectedValue;
+  constructor(private config: ConfigService, private http: HttpClient, private router:Router) { }
   addPassbook(){
     $('.ui.modal').modal('show');
   }
@@ -20,17 +24,100 @@ export class PassbookComponent implements OnInit {
     $(e.target).addClass('basic');
   }
   allotPassbook(){
-    localStorage.setItem('newUser',"false");
-    $('body').toast({
-      class: 'success',
-      message: `Your passbook has been alloted`
-    });
+
+    let urlPassbookOTP = `${this.config.url}services/v1/frontendcustomer/passbookoptverification`;
+    var loginData = JSON.parse(localStorage.getItem('loginData'));
+    let reqObj = {
+      "token": loginData.token,
+      "params": {
+        "project_id":this.selectedValue,"passbook_no":"GLX_101_2","user_id":loginData.userinfo.user_id,"type":"passbook_authentication","otp":779462
+      }
+    }
+    this.http.post(urlPassbookOTP,reqObj).subscribe((data:any) => {
+      if(data.success){
+        localStorage.setItem('newUser',"false");
+        $('body').toast({
+          class: 'success',
+          message: `Your passbook has been alloted`
+        });
+
+        let urlPassbook = `${this.config.url}services/v1/frontendcustomer/getpassbooklist`;
+        var loginData = JSON.parse(localStorage.getItem('loginData'));
+        let reqObj = {
+          "token": loginData.token,
+          "user_id": loginData.userinfo.user_id
+        }
+        this.http.post(urlPassbook,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe((data:any) => {
+          if(data.success==true){
+            localStorage.setItem('passbookList',JSON.stringify(data.result));
+            this.router.navigate(['/passbook']);
+            this.router.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+            let currentUrl = this.router.url + '?';
+            this.router.navigateByUrl(currentUrl)
+            .then(() => {
+              this.router.navigated = false;
+              this.router.navigate([this.router.url]);
+            });
+
+          }
+        });
+      }
+    });   
     $('.toast-box').css("margin-top","50px");
   }
-
+  otpGenerate(){
+    let urlPassbookOTP = `${this.config.url}services/v1/frontendcustomer/passbookauthetication`;
+    var loginData = JSON.parse(localStorage.getItem('loginData'));
+    let reqObj = {
+      "token": loginData.token,
+      "params": {
+        "project_id":this.selectedValue,"passbook_no":"GLX_101_2","user_id":loginData.userinfo.user_id
+      }
+    }
+    this.http.post(urlPassbookOTP,reqObj).subscribe((data:any) => {
+      console.log(data)
+    });
+  }
+  viewTrans(prop){
+    let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
+    var loginData = JSON.parse(localStorage.getItem('loginData'));
+    this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":19,"passbook_no": "GLX_104_1"}}).subscribe((data:any) => {
+      if(data.success){
+        localStorage.setItem('transactionSelected',JSON.stringify(data.result.results));
+        this.router.navigate(['/transactions']);
+      }
+    });
+  }
+  viewProject(id){
+    if(id==23){
+      this.projectList.map( (data) => {
+        if(data.id==id){
+          localStorage.setItem('projectSelected',JSON.stringify(data));
+        }
+      });
+      let urlProjectDetails = `${this.config.url}customerlogin/getprojectsdetails`;
+      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":id}}).subscribe((data:any) => {
+        if(data.success==true){
+          localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
+        }
+      });
+      this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
+        if(data.success==true){
+           localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
+        }
+      });
+      
+      this.router.navigate(['/projectDetail']);
+    } 
+  }
+  projectList;
   ngOnInit() {
     this.props=JSON.parse(localStorage.getItem('passbookList'));
     console.log(this.props)
+    this.projectList = JSON.parse(localStorage.getItem('projectsList'));
+  }
+  ngAfterViewInit(){
+    $('.ui.menued.dropdown').dropdown() ;
   }
 
 }
