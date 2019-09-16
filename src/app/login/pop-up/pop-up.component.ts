@@ -43,80 +43,71 @@ nextInput(e){
   // $('#otp').focus();
 }
 signIn(uname: string, p: string){
-  // localStorage.setItem('logStatus','true');
-  // localStorage.setItem('newUser','false');
-  // this.routes.navigate(['/']);
-  this.errors=[];
-  if(uname.length>0 && p.length>0){
-   let url = `${this.config.url}customerlogin/cutomerauth`;
-    this.http.post(url,{username:uname,password:p}).subscribe((data:any) => {
-      if(data.success==true){
-        $('.ui.modal').modal('hide');  
-        localStorage.setItem('loginData',JSON.stringify(data.results));
-        localStorage.setItem('logStatus','true');
-        localStorage.setItem('newUser','false');
+  localStorage.setItem('logStatus','true');
+  localStorage.setItem('newUser','false');
+  this.routes.navigate(['/']);
+  // this.errors=[];
+  // if(uname.length>0 && p.length>0){
+  //  let url = `${this.config.url}customerlogin/cutomerauth`;
+  //   this.http.post(url,{username:uname,password:p}).subscribe((data:any) => {
+  //     if(data.success==true){
+  //       $('.ui.modal').modal('hide');  
+  //       localStorage.setItem('loginData',JSON.stringify(data.results));
+  //       localStorage.setItem('logStatus','true');
+  //       localStorage.setItem('newUser','false');
 
-        let urlPassbook = `${this.config.url}services/v1/frontendcustomer/getpassbooklist`;
+  //       let urlPassbook = `${this.config.url}services/v1/frontendcustomer/getpassbooklist`;
        
-        var loginData = JSON.parse(localStorage.getItem('loginData'));
+  //       var loginData = JSON.parse(localStorage.getItem('loginData'));
        
 
-        let urlProfile = `${this.config.url}services/v1/frontendcustomer/getprofileinformation`;
-        let reqObj = {
-          "token": loginData.token,
-          "user_id": loginData.userinfo.user_id
-        }
-        console.log(loginData.token)
-        this.http.post(urlProfile,reqObj).subscribe((data:any) => {
-          if(data.result.results.length>0){
-            localStorage.setItem('customerName',JSON.stringify(data.result.results[0].customer_name));
-          } else {
-            localStorage.setItem('customerName',JSON.stringify(loginData.userinfo.userName));
-          }
+  //       let urlProfile = `${this.config.url}services/v1/frontendcustomer/getprofileinformation`;
+  //       let reqObj = {
+  //         "token": loginData.token,
+  //         "user_id": loginData.userinfo.user_id
+  //       }
+  //       console.log(loginData.token)
+  //       this.http.post(urlProfile,reqObj).subscribe((data:any) => {
+  //         if(data.result.results.length>0){
+  //           localStorage.setItem('customerName',JSON.stringify(data.result.results[0].customer_name));
+  //         } else {
+  //           localStorage.setItem('customerName',JSON.stringify(loginData.userinfo.userName));
+  //         }
          
-        });
+  //       });
 
-
-
-        //Passbooks Grab
-        // this.http.post(urlPassbook,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe((data:any) => {
-        //   if(data.success==true){
-        //     localStorage.setItem('passbookList',JSON.stringify(data.result));
-        //   }
-        // });
-
-        if(sessionStorage.getItem('signedUp')=='true'){
-          this.routes.navigate(['/']);
-          this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
-          let currentUrl = this.routes.url + '?';
-          this.routes.navigateByUrl(currentUrl)
-          .then(() => {
-            this.routes.navigated = false;
-            this.routes.navigate([this.routes.url]);
-          });
-        } else {
-          this.http.post(urlPassbook,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe((data:any) => {
-            if(data.success==true){
-              localStorage.setItem('passbookList',JSON.stringify(data.result));
-              this.routes.navigate(['/activity']);
-            }
-          });
+  //       if(sessionStorage.getItem('signedUp')=='true'){
+  //         this.routes.navigate(['/']);
+  //         this.routes.routeReuseStrategy.shouldReuseRoute = function(){return false;};
+  //         let currentUrl = this.routes.url + '?';
+  //         this.routes.navigateByUrl(currentUrl)
+  //         .then(() => {
+  //           this.routes.navigated = false;
+  //           this.routes.navigate([this.routes.url]);
+  //         });
+  //       } else {
+  //         this.http.post(urlPassbook,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe((data:any) => {
+  //           if(data.success==true){
+  //             localStorage.setItem('passbookList',JSON.stringify(data.result));
+  //             this.routes.navigate(['/activity']);
+  //           }
+  //         });
          
-        }
+  //       }
        
         
-      } else {
-        this.errors.push("User Not Found");
-      };
-    });
-  } else{
-    if(uname.length==0){
-      this.errors.push("Enter Username");
-    }
-    if(p.length==0){
-      this.errors.push("Enter Password");
-    }
-  }
+  //     } else {
+  //       this.errors.push("User Not Found");
+  //     };
+  //   });
+  // } else{
+  //   if(uname.length==0){
+  //     this.errors.push("Enter Username");
+  //   }
+  //   if(p.length==0){
+  //     this.errors.push("Enter Password");
+  //   }
+  // }
 
 }
 otpIcon;

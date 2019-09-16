@@ -29,11 +29,12 @@ export class ProjectDetailComponent implements OnInit {
       this.http.post(urlProjectDetails,{"token":token,"params":{"project_id":this.projectSelected.id}}).subscribe((data:any) => {
         if(data.success==true){
            localStorage.setItem('plotsData',JSON.stringify(data.result.results));
+           this.router.navigate(['/buy']);
         }
       });
    
 
-      this.router.navigate(['/buy']);
+    
     } else {
       $('.ui.modal.modalSign').modal('show');  
     };

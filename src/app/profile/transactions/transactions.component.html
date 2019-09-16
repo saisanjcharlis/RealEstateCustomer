@@ -39,20 +39,29 @@
             </div>
            </div>
       </div> -->
-      <div>
+      <div style="width: 100%;">
           <form class="ui form">
               <div class="two fields">
-                  <div class="field">
+                  <!-- <div class="field">
                       <label>Project Name</label>
                       <select name="projectName" [(ngModel)]="selectedValue" class="ui fluid dropdown">
                         <option value="">Project</option>
                         <option [ngValue]="project.id" *ngFor="let project of projectList">{{project.project_name}}</option>
                       </select>
-                    </div>
+                    </div> -->
+
                     <div class="field">
-                        <label>Plot Allotment Number</label>
-                        <input type="text" name="allot_number" >
+                      <label>Select Plot</label>
+                      <select name="plotNumber" (change)="select($event)" [(ngModel)]="plotValue" class="ui fluid dropdown">
+                        <option value=""></option>
+                        <option [ngValue]="prop" *ngFor="let prop of props">{{prop.project_name}}  Plot No-{{prop.plot_no}}</option>
+                      </select>
                     </div>
+
+                    <!-- <div class="field">
+                        <label>Plot Number</label>
+                        <input type="text" name="allot_number" >
+                    </div> -->
               </div>
               
 
@@ -62,26 +71,26 @@
       </div>
 </div>
 <div class="basicTable">
-    <table class="ui very basic table">
+    <table class="ui unstackable very basic table">
         <thead>
           <tr>
             <th>Date</th>
-            <th>Passbook Number</th>
+            <th class="tableMobile">Passbook Number</th>
             <th>Amount</th>
             <th>Cheque Number</th>
             <th>Payment Method</th>
-            <th>Transaction ID</th>
+            <th class="tableMobile">Transaction ID</th>
             <th>Transaction Status</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let trans of transactionsList">
             <td>{{trans.bill_date}}</td>
-            <td>{{trans.passbook_no}}</td>
+            <td class="tableMobile">{{trans.passbook_no}}</td>
             <td>{{trans.amount_credited}}</td>
             <td>{{trans.cheque_no}}</td>
             <td>{{trans.payment_mode}}</td>
-            <td>{{trans.bill_no}}</td>
+            <td class="tableMobile">{{trans.bill_no}}</td>
             <td>{{trans.transaction_status}}</td>
           </tr>
         </tbody>

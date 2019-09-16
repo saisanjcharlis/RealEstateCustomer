@@ -1,7 +1,7 @@
 <!-- <div *ngIf="showMePartially" class="EMIHeader">
     EMI Details<span class="dateSelected">{{dateSelected}}</span>
 </div> -->
-<div *ngIf="showMePartially" class="container">
+<div class="container" *ngFor="let prop of props">
     <!-- <div class="form-container detailedInfo">
       <ul class="list">
           <li>Spectra Fortune, Plot No 314</li>
@@ -16,18 +16,18 @@
           <li>Amount due</li>
       </ul>
     </div> -->
-    <div class="ui header">Viceroyce Residency</div>
+    <div class="ui header">{{prop.project_name}}</div>
     <div class="ui celled horizontal list">
         <div class="item">
-            <div class="infoValue">314</div>
+            <div class="infoValue">{{prop.plot_no}}</div>
             <div class="infoLabel">Plot Number</div>
         </div>
         <div class="item">
-            <div class="infoValue">Passbook<span style="font-size: 14px;font-weight: 500;"></span></div>
-            <div class="infoLabel">BJIPD2659A</div>
+            <div class="infoValue">{{prop.passbook_no}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+            <div class="infoLabel">Passbook</div>
         </div>
         <div class="item">
-            <div class="infoValue">₹ 15000<span style="font-size: 14px;font-weight: 500;"></span></div>
+            <div class="infoValue">₹{{prop.installment_amount}}<span style="font-size: 14px;font-weight: 500;"></span></div>
             <div class="infoLabel">Amount due</div>
         </div>
   </div>

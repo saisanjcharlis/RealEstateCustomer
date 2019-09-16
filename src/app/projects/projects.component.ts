@@ -268,15 +268,17 @@ export class ProjectsComponent implements OnInit {
       this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":project.id}}).subscribe((data:any) => {
         if(data.success==true){
           localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
+
         }
       });
       this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":project.id}}).subscribe((data:any) => {
         if(data.success==true){
            localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
+           this.router.navigate(['/projectDetail']);
         }
       });
       
-      this.router.navigate(['/projectDetail']);
+    
     } 
     
   }
@@ -457,6 +459,16 @@ export class ProjectsComponent implements OnInit {
        this.location=  project.state+ "Real Estate";
      }
     });
+    this.projectsApiList.map( (project)=>{
+      if(project.zipcode == e.target.value){
+        this.locationSelected = project.city+', TS';
+        this.location=project.state+ "Real Estate";
+        this.projects= project;
+        this.zoom=12;
+        this.lat= +project.latitude;
+        this.lng= +project.longitudes;
+      }
+    });
     $('.locationButton').popup('hide');
   }
   
@@ -490,6 +502,16 @@ export class ProjectsComponent implements OnInit {
         this.zoom=8;
         this.lng = this.mapsService.lng;
       }
+      this.projectsApiList.map( (project)=>{
+        if(project.zipcode == loc){
+          this.locationSelected = project.city+', TS';
+          this.location=project.state+ "Real Estate";
+          this.projects= project;
+          this.zoom=12;
+          this.lat= +project.latitude;
+          this.lng= +project.longitudes;
+        }
+      });
     } else {
       //In case did not routed from search location
       this.projects = this.projectsApiList;

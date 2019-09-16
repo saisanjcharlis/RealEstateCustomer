@@ -15,7 +15,7 @@
 
 
         <div class="ui items projectItems">
-          <div class="item" *ngFor="let prop of props" style="overflow: visible;">
+          <div  *ngFor="let prop of props" class="item" style="overflow: visible;">
                   <div class="ui small image">
                     <img [src]="prop.project_id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'" >
                   </div>
@@ -23,12 +23,12 @@
                     <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
                       <span style="flex:1 0 auto;">{{prop.project_name}}
                         
-                        <div style="float:right;" class="ui menued dropdown">
+
+                        <div  style="float:right;"  class="ui menued icon bottom right dropdown">
                           <i style="cursor:pointer" class="ui blue icon ellipsis vertical"></i> 
                           <div class="menu">
                             <div class="item" (click)="viewProject(prop.project_id)">View Project</div>
                             <div class="item" (click)="viewTrans(prop)">Transactions</div>
-                            
                           </div>
                         </div>
                         </span>

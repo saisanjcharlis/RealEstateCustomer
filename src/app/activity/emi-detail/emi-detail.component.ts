@@ -12,7 +12,9 @@ export class EmiDetailComponent implements OnInit, OnChanges {
   ngOnInit() {
     
   }
+  props;
   ngOnChanges(){
     var dateString = this.dateSelected;
+    this.props=JSON.parse(localStorage.getItem('passbookList'));
   }
 }

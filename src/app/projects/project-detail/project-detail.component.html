@@ -39,10 +39,10 @@
                         <div class="infoValue">₹ {{projectSelected.min_amount*projectSelected.min_sqyards}}</div>
                         <div class="infoLabel">Onwards Price</div>
                     </div>
-                    <div class="item">
+                    <!-- <div class="item">
                         <div class="infoValue">9 Acres<span style="font-size: 14px;font-weight: 500;"></span></div>
                         <div class="infoLabel">Total Area</div>
-                    </div>
+                    </div> -->
                     <div class="item">
                         <div class="infoValue">{{projectSelected.min_sqyards}}-{{projectSelected.max_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                         <div class="infoLabel">Sq.Yd.</div>
@@ -71,10 +71,10 @@
                             <div class="details">{{projectSelected.project_name}} Layout</div>
                             <div style="font-size:10px;color:#0066ff;margin-bottom:50px;">Click on the image to view plot details</div>
                             <div class="ui celled horizontal list">
-                                    <div class="item">
+                                    <!-- <div class="item">
                                         <div class="infoValue">9 Acres</div>
                                         <div class="infoLabel">Total Area</div>
-                                    </div>
+                                    </div> -->
                                     <div class="item">
                                         <div class="infoValue">{{projectSelected.min_sqyards}}-{{projectSelected.max_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                         <div class="infoLabel">Sq.Yd.</div>
@@ -85,7 +85,7 @@
                                     </div>
                             </div>
                             
-                            <div class="plotStatus">
+                            <div *ngIf="buttonEnable"  class="plotStatus">
                                     <div style="margin-bottom:10px;"><div class="ui green label" style="width:40px;text-align: center">351</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Available</div>
                                     <div style="margin-bottom:10px;"><div class="ui blue label" style="width:40px;text-align: center">0</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Partially Available</div>
                                     <div><div class="ui red label" style="width:40px;text-align: center">0</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Sold</div>
@@ -126,7 +126,7 @@
                                     <div  class="subHeader">Downloads :</div>
                                     <div class="downloads">
                                             <a download href="../../../assets/viceroyceBrochure.pdf" style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Brochure</span></a>
-                                            <a style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Rera Certificate</span></a>
+                                            <!-- <span style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Rera Certificate</span></a> -->
                                     </div>
                                 </div>
                                 <!-- Property Details -->
@@ -302,7 +302,7 @@
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>{{projectSelected.city}}</b></div>
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Plot</b></div>
                         </div>
-                        <div class="plotStatus">
+                        <div *ngIf="buttonEnable" class="plotStatus">
                                 <div style="margin-bottom:10px;"><div class="ui green label" style="width:40px;text-align: center">351</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Available</div>
                                 <div style="margin-bottom:10px;"><div class="ui blue label" style="width:40px;text-align: center">0</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Partially Available</div>
                                 <div><div class="ui red label" style="width:40px;text-align: center">0</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Sold</div>
