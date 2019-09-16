@@ -259,19 +259,20 @@ export class ProjectsComponent implements OnInit {
    }
    viewProject(project){
     if(project.id==23){
-      localStorage.setItem('projectSelected',JSON.stringify(project));
-      let urlProjectDetails = `${this.config.url}services/v1/frontendcustomer/getprojectdetails`;
-      var token = JSON.parse(localStorage.getItem('loginData')).token;
-      this.http.post(urlProjectDetails,{"token": token,"params":{"project_id":project.id,"type":"neighbourhood"}}).subscribe((data:any) => {
-        if(data.success==true){
-          console.log(data);
-          // localStorage.setItem('neighbourhoodData',JSON.stringify(data));
+      this.projectsApiList.map( (data) => {
+        if(data.id==project.id){
+          localStorage.setItem('projectSelected',JSON.stringify(data));
         }
       });
-      this.http.post(urlProjectDetails,{"token": token,"params":{"project_id":project.id,"type":"properties"}}).subscribe((data:any) => {
+      let urlProjectDetails = `${this.config.url}customerlogin/getprojectsdetails`;
+      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":project.id}}).subscribe((data:any) => {
         if(data.success==true){
-          console.log(data);
-           // localStorage.setItem('propertiesDetails',JSON.stringify(data));
+          localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
+        }
+      });
+      this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":project.id}}).subscribe((data:any) => {
+        if(data.success==true){
+           localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
         }
       });
       
@@ -417,8 +418,8 @@ export class ProjectsComponent implements OnInit {
     this.zoom=12;
     this.projectsApiList.map( (project)=>{
      if(project.project_address.toLowerCase().includes(locName)){
-       this.lat=project.latitude;
-       this.lng=project.longitudes;
+       this.lat=+project.latitude;
+       this.lng=+project.longitudes;
        this.locationSelected = project.city+', TS';
        this.location=  project.state+ "Real Estate";
      }
@@ -449,8 +450,8 @@ export class ProjectsComponent implements OnInit {
    
     this.projectsApiList.map( (project)=>{
      if(project.project_address.toLowerCase().includes(e.target.value.toLowerCase())){
-       this.lat=project.latitude;
-       this.lng=project.longitudes;
+       this.lat=+project.latitude;
+       this.lng=+project.longitudes;
        this.zoom=12;
        this.locationSelected = project.city+', TS';
        this.location=  project.state+ "Real Estate";
@@ -473,8 +474,8 @@ export class ProjectsComponent implements OnInit {
        });
        this.projectsApiList.map( (project)=>{
         if(project.project_address.toLowerCase().includes(loc)){
-          this.lat=project.latitude;
-          this.lng=project.longitudes;
+          this.lat= +project.latitude;
+          this.lng= +project.longitudes;
           this.zoom=12;
           this.locationSelected = project.city+', TS';
           this.location=project.state+ "Real Estate";

@@ -6,11 +6,11 @@
                     <i class="large city icon" style="color:white;"></i>
             </div>
             <div style="flex:1 0 auto;">
-                <!-- <div style="font-weight: bold;font-size:18px;">{{projectSelected.project_name}}</div>
+                <div style="font-weight: bold;font-size:18px;">{{projectSelected.project_name}}</div>
                 <div style="font-size:12px;">{{projectSelected.project_name}}, {{projectSelected.state}} {{projectSelected.zipcode}}</div>
                 <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
                     <div class="ui blue rating" data-rating="4" data-max-rating="5"></div>
-                </div> -->
+                </div>
             </div>
             <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
             <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
@@ -2341,16 +2341,14 @@
         <div class="header">Selected Plot <span style="float:right;color:#0066ff"><b>{{plotSelected}}</b></span></div>
         <div class="content" style="color:#414143;">
             <div style="display:grid;grid-template-columns: 45% 45%;grid-gap: 0 10%;padding:20px;">
+                    <span class="plotInfoLabel">Status</span>
+                    <span><b>{{availStatus}}</b></span>
                     <span class="plotInfoLabel">Area</span>
-                    <span><b>1200 sqft</b></span>
-                    <span class="plotInfoLabel">Facing</span>
-                    <span><b>North</b></span>
-                    <span class="plotInfoLabel">Corner</span>
-                    <span><b>Right</b></span>
-                    <span class="plotInfoLabel">Road</span>
-                    <span><b>East Side</b></span>
-                    <span class="plotInfoLabel">Extra Charges</span>
-                    <span><b>15212</b></span>
+                    <span><b>{{plotSelectedProps.plot_sqyards}} sqft</b></span>
+                    <span class="plotInfoLabel">Plot View</span>
+                    <span><b>{{plotSelectedProps.plot_view}}</b></span>
+                    <span class="plotInfoLabel">Extra Cost</span>
+                    <span><b>{{plotSelectedProps.extra_cost}}</b></span>
             </div>
         </div>
         <div class="actions" style="display:flex;justify-content: center;">

@@ -26,10 +26,9 @@ export class ProjectDetailComponent implements OnInit {
     if(localStorage.getItem('logStatus')=='true'){
       let urlProjectDetails = `${this.config.url}services/v1/frontendcustomer/getplotsinfo`;
       var token = JSON.parse(localStorage.getItem('loginData')).token;
-      this.http.post(urlProjectDetails,{"token": token}).subscribe((data:any) => {
+      this.http.post(urlProjectDetails,{"token":token,"params":{"project_id":this.projectSelected.id}}).subscribe((data:any) => {
         if(data.success==true){
-          console.log(data);
-           // localStorage.setItem('plotsData',JSON.stringify(data));
+           localStorage.setItem('plotsData',JSON.stringify(data));
         }
       });
    
@@ -105,8 +104,8 @@ export class ProjectDetailComponent implements OnInit {
     this.propertyDetailList=JSON.parse(localStorage.getItem('propertiesDetails'))
     this.projectSelected= JSON.parse(localStorage.getItem('projectSelected'));
     this.projects=JSON.parse(localStorage.getItem('projectsList'));
-    this.lat=this.projectSelected.latitude;
-    this.long=this.projectSelected.longitudes;
+    this.lat=+this.projectSelected.latitude;
+    this.long=+this.projectSelected.longitudes;
     if(localStorage.getItem('logStatus')=='true'){
       this.buttonEnable=false;
     }

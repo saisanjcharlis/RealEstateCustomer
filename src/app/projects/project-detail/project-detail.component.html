@@ -36,7 +36,7 @@
                 </div>
                 <div class="ui celled horizontal list">
                     <div class="item">
-                        <div class="infoValue">₹ {{project.min_amount*project.min_sqyards}}</div>
+                        <div class="infoValue">₹ {{projectSelected.min_amount*projectSelected.min_sqyards}}</div>
                         <div class="infoLabel">Onwards Price</div>
                     </div>
                     <div class="item">
@@ -44,7 +44,7 @@
                         <div class="infoLabel">Total Area</div>
                     </div>
                     <div class="item">
-                        <div class="infoValue">{{project.min_sqyards}}-{{project.min_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                        <div class="infoValue">{{projectSelected.min_sqyards}}-{{projectSelected.max_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                         <div class="infoLabel">Sq.Yd.</div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                                 <div class="ui tab segment" data-tab="second">
                                     <div class="menuHeader">Property Details</div>
                                    <div class="ui bulleted list neighbourhoodList">
-                                           <div class="item" *ngFor="let list of neighbourhoodList">{{list}}</div>
+                                           <div class="item" *ngFor="let list of neighbourhoodList">{{list.attribute_value}}</div>
                                    </div>
                                 </div>
                                 <!-- Plot Details -->
@@ -181,7 +181,7 @@
                                 <div class="ui tab segment" data-tab="sixth">
                                         <div class="menuHeader">Neighbourhood Info for Viceroyce Residency</div>
                                         <div class="ui bulleted list neighbourhoodList">
-                                                <div class="item" *ngFor="let list of neighbourhoodList">{{list}}</div>
+                                                <div class="item" *ngFor="let list of propertyDetailList">{{list.attribute_value}}</div>
                                         </div>
                                         <button (click)="openLocationMap()" class="ui blue tiny button">Location Map</button>
                                         <button (click)="openGMap()" class="ui blue tiny button">Google Map</button>
@@ -213,9 +213,9 @@
                                                         </div>
                                                         <div style="margin-top:10px;" class="meta">
                                                                 <b>{{project.project_address}}<br>{{project.city}}, {{project.state}} {{project.zipcode}} </b>
-                                                                <span style="float: right;"> 
+                                                                <!-- <span style="float: right;"> 
                                                                 <i class="circle icon green"></i>
-                                                                <b>For Sale</b></span>
+                                                                <b>For Sale</b></span> -->
                                                         </div>
                                                         
                 

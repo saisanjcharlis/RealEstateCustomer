@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { RouterModule , Router } from '@angular/router';
+import { ConfigService } from '../../services/config.service';
+import { HttpClient} from '@angular/common/http';
 declare var $:any;
 @Component({
   selector: 'app-activity',
@@ -19,7 +21,7 @@ export class ActivityComponent implements OnInit {
      else{
      }
   } 
-  constructor(private routes: Router){}
+  constructor(private routes: Router,private config: ConfigService, private http: HttpClient){}
   public innerWidth: any;
   newUserDisplay = false;
   saveSearch=true;
@@ -56,51 +58,14 @@ export class ActivityComponent implements OnInit {
       position   : 'bottom right',
     });
   }
+  customerName;
   ngOnInit() {
     if(localStorage.getItem('newUser')=="true"){
       this.newUserDisplay = true;
     }
-    this.innerWidth = window.innerWidth;
-    if(this.innerWidth > 768){
-      $(".plotContainers").niceScroll({
-            cursorborderradius:10,
-            cursorcolor: "#0066ff", 
-            cursoropacitymin: 0, 
-            cursoropacitymax: 1, 
-            cursorwidth: 12, 
-            cursorborder: "none", 
-            background:"rgba(20,20,20,0.1)",
-            zindex: "auto" , 
-            scrollspeed: 30,
-            mousescrollstep: 40, 
-            touchbehavior: true, 
-            emulatetouch: false, 
-            hwacceleration: true,
-            grabcursorenabled: true, 
-        
-            autohidemode: "leave",  
-            iframeautoresize: true,
-            preservenativescrolling: false, 
-            spacebarenabled: true,
-            horizrailenabled: false, 
-            enablemousewheel: true, 
-            enablekeyboard: true, 
-            smoothscroll: true, 
-            sensitiverail: false, 
-            enablemouselockapi: true, 
-            hidecursordelay: 400, 
-            nativeparentscrolling: false, 
-            cursordragontouch: true, 
-            oneaxismousemode: true
-            }); 
-    }
-    // $('body').toast({
-    //   class: 'warning',
-    //   message: 'Enter existing passbook details to fetch owned plots.'
-    // });
-    // $('.toast-box').css("margin-top","50px");
-    this.plots =  ['Windstorm', 'Bombasto'];
+    this.customerName = JSON.parse(localStorage.getItem('customerName'));
 
+  
   }
 
 }

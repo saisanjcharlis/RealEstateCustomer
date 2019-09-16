@@ -43,9 +43,9 @@ nextInput(e){
   // $('#otp').focus();
 }
 signIn(uname: string, p: string){
-  localStorage.setItem('logStatus','true');
-  localStorage.setItem('newUser','false');
-  this.routes.navigate(['/']);
+  // localStorage.setItem('logStatus','true');
+  // localStorage.setItem('newUser','false');
+  // this.routes.navigate(['/']);
   this.errors=[];
   if(uname.length>0 && p.length>0){
    let url = `${this.config.url}customerlogin/cutomerauth`;
@@ -58,10 +58,27 @@ signIn(uname: string, p: string){
 
         let urlPassbook = `${this.config.url}services/v1/frontendcustomer/getpassbooklist`;
         let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
-        var token = JSON.parse(localStorage.getItem('loginData')).token;
-        console.log(token)
+        var loginData = JSON.parse(localStorage.getItem('loginData'));
+       
+
+        let urlProfile = `${this.config.url}services/v1/frontendcustomer/getprofileinformation`;
+        let reqObj = {
+          "token": loginData.token,
+          "user_id": loginData.userinfo.user_id
+        }
+        this.http.post(urlProfile,reqObj).subscribe((data:any) => {
+          if(data.result.results.length>0){
+            localStorage.setItem('customerName',JSON.stringify(data.result.results[0].customer_name));
+          } else {
+            localStorage.setItem('customerName',JSON.stringify(loginData.userinfo.userName));
+          }
+         
+        });
+
+
+
         //Passbooks Grab
-        this.http.post(urlPassbook,{"token":token}).subscribe((data:any) => {
+        this.http.post(urlPassbook,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe((data:any) => {
           if(data.success==true){
             localStorage.setItem('passbookList',JSON.stringify(data.result));
             // data.result.map( (passbook)=>{

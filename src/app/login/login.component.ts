@@ -10,9 +10,9 @@ declare var $:any;
 })
 export class LoginComponent implements OnInit {
   locationSelected;
-  location=["Shadnagar, TS", "Yadagirigutta, TS"];
+  location=["Shadnagar", "Yadagirigutta"];
   updateResults(val){
-    this.location=["Shadnagar, TS", "Yadagirigutta, TS"];
+    this.location=["Shadnagar", "Yadagirigutta"];
     this.location=this.location.filter( (value)=>{
      return  value.toLowerCase().trim().includes(val.toLowerCase().trim());
     });
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
     this.routes.navigate(['/projects']);
   }
   selectLocation(e){
-    console.log($(e.target).children('span').text())
     localStorage.setItem('projectsDomain',$(e.target).children('span').text().toLowerCase());
     this.routes.navigate(['/projects']);
   }
@@ -60,18 +59,14 @@ export class LoginComponent implements OnInit {
     $('.toast-box').css("margin-top","50px");
   }
   ngOnInit() {
-
-    let url = `${this.config.url}services/v1/frontendcustomer/getprojectslist`;
-  
-    if(localStorage.getItem('loginData')){
-      var token = JSON.parse(localStorage.getItem('loginData')).token;
-      this.http.post(url,{"token":token}).subscribe((data:any) => {
+    let url = `${this.config.url}customerlogin/getprojectslist`;
+      this.http.post(url,{"wos":true}).subscribe((data:any) => {
         if(data.success==true){
           localStorage.setItem('projectsList',JSON.stringify(data.result));
         } 
       });
    
-    }
+    
    
     if(window.innerWidth>768)
     {

@@ -44,7 +44,6 @@ export class ProfileInfoComponent implements OnInit {
      var day = dobSelected.getDate();
      var dateString = monthSelected + " " + (day) + ", " + year;
     }
-    console.log(this.profileData.address)
     let token = JSON.parse(localStorage.getItem('loginData')).token;
     let userID = JSON.parse(localStorage.getItem('loginData')).userinfo.user_id;
     let uploadData = {
@@ -66,6 +65,7 @@ export class ProfileInfoComponent implements OnInit {
     this.http.post(url,uploadData).subscribe((data:any) => {
       console.log(data);
     });
+    localStorage.setItem('customerName',JSON.stringify(this.profileData.name));
   }
   uploadPicture(){
     $("#imageUpload").click();

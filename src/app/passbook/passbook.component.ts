@@ -30,7 +30,7 @@ export class PassbookComponent implements OnInit {
 
   ngOnInit() {
     this.props=JSON.parse(localStorage.getItem('passbookList'));
-    console.log(this.props[0])
+    console.log(this.props)
   }
 
 }
