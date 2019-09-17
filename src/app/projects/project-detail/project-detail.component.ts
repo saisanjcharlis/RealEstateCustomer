@@ -40,12 +40,36 @@ export class ProjectDetailComponent implements OnInit {
     };
   }
   save(e){
-   if(this.saveText=="Save"){
-    this.saveText="Saved";
-   } else {
-    this.saveText="Save";
-   }
-   $(e.target).children('i').toggleClass('outline');
+  
+      if(localStorage.getItem('logStatus')=='true'){
+        var loginData = JSON.parse(localStorage.getItem('loginData'));
+
+            if(this.saveText=="Save"){
+              this.saveText="Saved";
+              let url = `${this.config.url}services/v1/frontendcustomer/createcustomerfavourites`;
+              this.http.post(url,{"token":loginData.token,"params":{"customer_user_id": loginData.userinfo.user_id,"project_id":this.projectSelected.id,"is_active":true}}).subscribe((data:any) => {
+              });
+            } else {
+              this.saveText="Save";
+              let url = `${this.config.url}services/v1/frontendcustomer/createcustomerfavourites`;
+              this.http.post(url,{"token":loginData.token,"params":{"customer_user_id": loginData.userinfo.user_id,"project_id":this.projectSelected.id,"is_active":false}}).subscribe((data:any) => {
+              });
+            }
+
+            let urlFav = `${this.config.url}services/v1/frontendcustomer/getcustomerfavourites`;
+            this.http.post(urlFav,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe( (data:any) => {
+              if(data.success==true){
+                let favs = data.result.results.filter( (fav) => {
+                  return fav.status == 1;
+                });
+                localStorage.setItem('favList',JSON.stringify(favs));
+              } 
+            });
+        $(e.target).children('i').toggleClass('outline');
+      } else {
+        this.buyLink();
+      }
+  
   }
   mouseHover(e){
     $(e.target).removeClass('basic');
@@ -107,7 +131,18 @@ export class ProjectDetailComponent implements OnInit {
     this.projects=JSON.parse(localStorage.getItem('projectsList'));
     this.lat=+this.projectSelected.latitude;
     this.long=+this.projectSelected.longitudes;
+
+    
+
+
     if(localStorage.getItem('logStatus')=='true'){
+      let favList = JSON.parse(localStorage.getItem('favList'));;
+      favList.map((fav)=>{
+        if(fav.status==1 && fav.project_id=="23"){
+          this.saveText="Saved";
+          $('.saveButton').removeClass('outline')
+        }
+      });
       this.buttonEnable=false;
     }
     $('.demo.menu .item').tab();

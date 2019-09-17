@@ -56,6 +56,7 @@ export class ActivityComponent implements OnInit {
     });
   }
   viewProject(id){
+    console.log(this.projectList)
     if(id==23){
       this.projectList.map( (data) => {
         if(data.id==id){
@@ -66,15 +67,17 @@ export class ActivityComponent implements OnInit {
       this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":id}}).subscribe((data:any) => {
         if(data.success==true){
           localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
-        }
-      });
-      this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
-        if(data.success==true){
-           localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
+          this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
+            if(data.success==true){
+               localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
+               this.routes.navigate(['/projectDetail']);
+            }
+          });
         }
       });
       
-      this.routes.navigate(['/projectDetail']);
+      
+      
     } 
   }
   ngAfterViewInit() {
@@ -94,10 +97,12 @@ export class ActivityComponent implements OnInit {
   customerName;
   projectList;
   props;
+  favList;
   ngOnInit() {
     if(localStorage.getItem('newUser')=="true"){
       this.newUserDisplay = true;
     }
+    this.favList = JSON.parse(localStorage.getItem('favList'));
     this.customerName = JSON.parse(localStorage.getItem('customerName'));
     this.props=JSON.parse(localStorage.getItem('passbookList'));
     this.projectList = JSON.parse(localStorage.getItem('projectsList'));

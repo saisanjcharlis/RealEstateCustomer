@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="menu">
         <div class="ui mini icon input locationButton">
-                <input (keyup.enter)="locationSearchEnter($event)" (ngModelChange)="updateResults($event)" [(ngModel)]="locationSelected"  style="font-weight: bold;color:#0066ff;" type="text" placeholder="Location, Zipcode">
+                <input (keyup.enter)="locationSearchEnter($event)" [(ngModel)]="locationSelected"  style="font-weight: bold;color:#0066ff;" type="text" placeholder="Location, Zipcode">
                 <i class="search blue icon"></i>
         </div>
         <button class="ui tiny button basic basicButton statusButton">Status</button>
@@ -201,7 +201,7 @@
               
 </div>
 <div class="ui savedSearchPop popup bottom right transition hidden">
-        <div  class="savedSearchList" (click)="selectLocation($event)" *ngFor="let loc of locationList">
+        <div  class="savedSearchList" (click)="selectLocation($event)" *ngFor="let loc of locList">
                 <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">{{loc}}</span>  
         </div>
         <div  class="currentLoc" (click)="selectLocation($event)">

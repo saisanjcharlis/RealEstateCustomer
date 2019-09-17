@@ -283,9 +283,7 @@ export class ProjectsComponent implements OnInit {
     
   }
    updateResults(val){
-    this.projectsApiList.map( (data) => {
-      this.locationList.push(data.city);
-    });
+     this.locationList=this.locList;
     this.locationList=this.locationList.filter( (value)=>{
      return  value.toLowerCase().trim().includes(val.toLowerCase().trim());
     });
@@ -459,11 +457,16 @@ export class ProjectsComponent implements OnInit {
        this.location=  project.state+ "Real Estate";
      }
     });
+    if(!isNaN(+e.target.value)){
+      this.projects=this.projectsApiList.filter( (project) =>{
+        return project.zipcode ==e.target.value;
+      });
+    }
+    
     this.projectsApiList.map( (project)=>{
       if(project.zipcode == e.target.value){
         this.locationSelected = project.city+', TS';
         this.location=project.state+ "Real Estate";
-        this.projects= project;
         this.zoom=12;
         this.lat= +project.latitude;
         this.lng= +project.longitudes;
@@ -471,12 +474,12 @@ export class ProjectsComponent implements OnInit {
     });
     $('.locationButton').popup('hide');
   }
-  
+  locList=[];
   ngOnInit() {
    
     this.projectsApiList=JSON.parse(localStorage.getItem('projectsList'));
     this.projectsApiList.map( (data) => {
-      this.locationList.push(data.city);
+      this.locList.push(data.city);
     });
     if(localStorage.getItem('projectsDomain')){
 
@@ -502,11 +505,16 @@ export class ProjectsComponent implements OnInit {
         this.zoom=8;
         this.lng = this.mapsService.lng;
       }
+      if(!isNaN(+loc)){
+        this.projects=this.projectsApiList.filter( (project) =>{
+          return project.zipcode ==loc;
+        });
+      }
+      
       this.projectsApiList.map( (project)=>{
         if(project.zipcode == loc){
           this.locationSelected = project.city+', TS';
           this.location=project.state+ "Real Estate";
-          this.projects= project;
           this.zoom=12;
           this.lat= +project.latitude;
           this.lng= +project.longitudes;

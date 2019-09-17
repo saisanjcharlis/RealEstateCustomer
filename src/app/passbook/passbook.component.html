@@ -2,9 +2,9 @@
 
 <div class="container">
     <div>
-        <span class="containerHeader">Passbooks <div class="ui green label">{{props.length}}</div></span><button class="ui  green button" (click)="addPassbook()" style="float:right;margin-top:15px;"><i class="plus icon"></i>Add Passbook</button>
+        <span class="containerHeader">Passbooks <div  *ngIf="props!=null" class="ui green label">{{props.length}}</div></span><button class="ui  green button" (click)="addPassbook()" style="float:right;margin-top:15px;"><i class="plus icon"></i>Add Passbook</button>
         
-        <div class="boxContainer" *ngIf="props.length==0">
+        <div class="boxContainer"  *ngIf="props==null">
           <div >
               <span><i class="city blue large icon" ></i>You have no owned properties</span>
               <br><div style="margin-left:28px;">Browse to stay up to date on price and status changes.</div>
@@ -90,7 +90,7 @@
   <footer></footer>
 </div>
 
-<div class="ui modal" style="width:50%;">
+<div class="ui small modal">
         <i class="close icon"></i>
         <div class="header">
           Enter details for passbook
@@ -98,7 +98,7 @@
         <div class="image content">
           <div class="ui medium image">
                 <!-- <i class="black building icon" style="margin-left:100px;"></i> -->
-                <img src="https://s.zillowstatic.com/homepage/static/Sell_a_home.png">
+                <img class="addPassbookImage" src="https://s.zillowstatic.com/homepage/static/Sell_a_home.png">
           </div>
           <div class="description">
                 <form class="ui form">

@@ -48,7 +48,7 @@
                         <div class="infoLabel">Sq.Yd.</div>
                     </div>
                 </div>
-                <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
+                <span (click)="save($event)" class="actionButton"><i class="like saveButton outline blue icon"></i>{{saveText}}</span>
                 <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
                 <button (click)="buyLink()" class="ui blue button">View Plots</button>
               
@@ -195,9 +195,8 @@
                                                             <div class="tagInfo">
                                                                     <div class="ui blue label">Posted: {{project.created_at.substr(0, 10)}}</div>
                                                             </div>
-                                                            
                                                             <span class="ratingFloat ui mini star blue rating" data-rating="3" data-max-rating="5"></span>
-                                                            <img style="cursor: pointer;" src="assets/viceroyceIcon.png">
+                                                            <img style="cursor: pointer;" [src]="project.id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'">
                                                     </div>
                                                     <div class="content">
                                                         <div id="projectName" style="width: 100%;" class="header">{{project.project_name}}</div>

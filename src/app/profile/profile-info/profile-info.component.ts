@@ -59,12 +59,34 @@ export class ProfileInfoComponent implements OnInit {
           "customer_user_id": userID
         }
     };
-
-    console.log("hell")
     let url = `${this.config.url}services/v1/frontendcustomer/updateprofileinformation`;
     this.http.post(url,uploadData).subscribe((data:any) => {
-      console.log(data);
-      localStorage.setItem('customerName',JSON.stringify(this.profileData.name));
+      if(this.profileData.name ==""){
+        localStorage.setItem('customerName',JSON.stringify(data.result.customer_pr_phone));
+      } else {
+        localStorage.setItem('customerName',JSON.stringify(this.profileData.name));
+      }
+      let dataVerify = {
+        "aadhaar":data.result.customer_aadharno,
+        "dob": data.result.customer_dob,
+        "email": data.result.customer_email,
+        "name": data.result.customer_name,
+        "pan": data.result.customer_pan
+      };
+      if(dataVerify.aadhaar == "" || dataVerify.dob =="" || dataVerify.email=="" || dataVerify.name=="" || dataVerify.pan ==""){
+        localStorage.setItem('profileStatus','incomplete');
+      } else {
+        localStorage.setItem('profileStatus','completed');
+      }
+
+
+      $('body').toast({
+        class: 'success',
+        message: `Your Profile has been updated`
+      });
+      $('.toast-box').css("margin-top","50px");
+
+
     });
    
   }

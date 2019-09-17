@@ -20,8 +20,8 @@
             <div  style="margin:20px 0;">
                     <button class="ui button blue">View Projects</button>
             </div>  -->
-          <div class="ui label green">{{props.length}} Properties</div>
-          <div class="ui label green">Next EMI: 10th Aug 2019</div>
+          <div class="ui label green" *ngIf="props!=null">{{props.length}} Properties</div>
+          <div class="ui label green" *ngIf="props!=null">Next EMI: 10th Aug 2019</div>
           <!-- <div class="ui label green greenTop">Total EMI's Due: ₹ 50000</div> -->
        
 </div>  
@@ -29,7 +29,15 @@
        
             <div class="gridContent">
                     <div class="projectsList" style="margin:20px 0;">
-                            <span class="containerHeader">My Properties</span> 
+                        <div class="boxContainer"  *ngIf="props==null">
+                            <div >
+                                <span><i class="city blue large icon" ></i>You have no owned properties</span>
+                                <br><div style="margin-left:28px;">Browse to stay up to date on price and status changes.</div>
+                                <br>
+                                <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Properties</button>
+                            </div>
+                          </div>
+                            <span *ngIf="props!=null" class="containerHeader">My Properties</span> 
                             <div class="ui items projectItems">
                                     <div class="item" *ngFor="let prop of props" style="overflow: visible;">
                                             <div class="ui small image">
@@ -56,7 +64,7 @@
                                                           <div class="infoLabel">Plot Number</div>
                                                       </div>
                                                       <div class="item">
-                                                          <div class="infoValue">₹ {{prop.actual_cost}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoValue">₹{{prop.actual_cost}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                                           <div class="infoLabel">Plot Worth</div>
                                                       </div>
                                                       <div class="item">
@@ -80,19 +88,19 @@
                                             </div>
                                     </div>
                             </div>
-                            <span class="containerHeader">My Favourites</span> 
+                            <span *ngIf="favList.length>0" class="containerHeader">My Favourites</span> 
                             <div class="ui items unstackable favItems">
-                                <div class="item">
+                                <div class="item" *ngFor="let fav of favList">
                                         <div class="ui corner left blue label">
                                                 <i class="home icon"></i>
                                         </div>
                                         <div class="ui small image">
-                                          <img src="assets/viceroyceIcon.png">
+                                          <img [src]="fav.project_id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'" >
                                         </div>
                                 </div>
                         </div>
                     </div> 
-                    <div style="margin:20px 0;">
+                    <div *ngIf="props!=null" style="margin:20px 0;">
                             <span class="containerHeader">Upcoming EMI's</span>
                             <div style="margin: 1.5em 0;border-radius: 4px;">
                                     <emi-date></emi-date>

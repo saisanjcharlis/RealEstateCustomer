@@ -16,18 +16,18 @@
          </a>
          <a [ngClass]="{'disabledIcon':!initialAvatar}" class="item navFlex ui dropdown" style="margin-left:80px !important;">
               <i class="navIcon bell outline icon large"></i>
-              <div *ngIf="initialAvatar" class="floating ui circular label" style="background-color: #FCB332; color:white; font-size:0.75; opacity: 0.8; margin-top:14px !important; margin-right:24px!important;">2</div>
+              <div *ngIf="initialAvatar && completeProfileNotification" class="floating ui circular label" style="background-color: #FCB332; color:white; font-size:0.75; opacity: 0.8; margin-top:14px !important; margin-right:24px!important;">1</div>
               <span>Notification</span>
               <div class="menu">
                   <div class="header notificationHeader">Notifications</div>
-                  <a class="item itemProfile">Complete your profile details
-                    <br><br>
-                   <span class="importantText">Aadhar is mandatory for real estate transactions</span> 
+                  <a *ngIf="completeProfileNotification" routerLink="/profile" class="item itemProfile">Complete your profile details
+                    <!-- <br><br>
+                   <span class="importantText">Aadhar is mandatory for real estate transactions</span>  -->
                   </a>
-                  <a class="item itemProfile">Pay your EMI for plot 314 by 24th July
+                  <!-- <a class="item itemProfile">Pay your EMI for plot 314 by 24th July
                       <br><br>
                       <button class="ui mini  yellow button">Pay Now</button>
-                  </a>
+                  </a> -->
                   
             </div>
          </a>
@@ -39,13 +39,13 @@
                 <!-- <img class="ui mini image" style="display:block;margin-left:12px;" id="profileAvatar" src="https://i0.wp.com/zblogged.com/wp-content/uploads/2019/02/FakeDP.jpeg?resize=567%2C580&ssl=1" /> -->
                 
               <i class="navIcon user circle icon large"></i>
-              <span>{{accountName}}</span>
+              <span>{{customerName}}</span>
               <div class="menu">
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/profile" style="font-size:14px;"><i class="user portrait icon"></i>Profile</a>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/transactions" style="font-size:14px;"><i class="exchange icon"></i>Transactions</a>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/messages" style="font-size:14px;">
                       <i class="envelope outline icon"></i>
-                      <div *ngIf="initialAvatar" class="floating ui red circular label" style=" font-size:0.7em; opacity: 0.6; margin-top:14px !important; margin-right:24px!important;">NEW</div>
+                      <!-- <div *ngIf="initialAvatar" class="floating ui red circular label" style=" font-size:0.7em; opacity: 0.6; margin-top:14px !important; margin-right:24px!important;">NEW</div> -->
                       Messages
                     </a>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/fav" style="font-size:14px;"><i class="like icon"></i>My Favorites</a>
@@ -86,7 +86,7 @@
         <button class="ui yellow basic button" (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" *ngIf="buttonsEnable" (click)="loginOrSign()">Login</button>
      </div>
       <div [ngClass]="{'acountButton': buttonsEnable}" (click)="loginActions()" class="item loginNav">
-          <span>{{accountName}}</span>
+          <span>{{customerName}}</span>
       </div>
 </div>
   

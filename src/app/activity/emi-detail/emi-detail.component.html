@@ -1,34 +1,37 @@
 <!-- <div *ngIf="showMePartially" class="EMIHeader">
     EMI Details<span class="dateSelected">{{dateSelected}}</span>
 </div> -->
-<div class="container" *ngFor="let prop of props">
-    <!-- <div class="form-container detailedInfo">
-      <ul class="list">
-          <li>Spectra Fortune, Plot No 314</li>
-          <li>BJIPD2659A</li>
-          <li>₹15000</li>
-      </ul>
-    </div>
-    <div class="form-container fields ">
-      <ul class="list">
-          <li>Project Info</li>
-          <li>Passbook</li>
-          <li>Amount due</li>
-      </ul>
-    </div> -->
-    <div class="ui header">{{prop.project_name}}</div>
-    <div class="ui celled horizontal list">
-        <div class="item">
-            <div class="infoValue">{{prop.plot_no}}</div>
-            <div class="infoLabel">Plot Number</div>
-        </div>
-        <div class="item">
-            <div class="infoValue">{{prop.passbook_no}}<span style="font-size: 14px;font-weight: 500;"></span></div>
-            <div class="infoLabel">Passbook</div>
-        </div>
-        <div class="item">
-            <div class="infoValue">₹{{prop.installment_amount}}<span style="font-size: 14px;font-weight: 500;"></span></div>
-            <div class="infoLabel">Amount due</div>
-        </div>
-  </div>
+<div *ngIf="showMePartially">
+        <div class="container" *ngFor="let prop of props">
+                <!-- <div class="form-container detailedInfo">
+                  <ul class="list">
+                      <li>Spectra Fortune, Plot No 314</li>
+                      <li>BJIPD2659A</li>
+                      <li>₹15000</li>
+                  </ul>
+                </div>
+                <div class="form-container fields ">
+                  <ul class="list">
+                      <li>Project Info</li>
+                      <li>Passbook</li>
+                      <li>Amount due</li>
+                  </ul>
+                </div> -->
+                <div class="ui header">{{prop.project_name}}</div>
+                <div class="ui celled horizontal list">
+                    <div class="item">
+                        <div class="infoValue">{{prop.plot_no}}</div>
+                        <div class="infoLabel">Plot Number</div>
+                    </div>
+                    <div class="item">
+                        <div class="infoValue">{{prop.passbook_no}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                        <div class="infoLabel">Passbook</div>
+                    </div>
+                    <div class="item">
+                        <div class="infoValue">₹{{prop.installment_amount}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                        <div class="infoLabel">Amount due</div>
+                    </div>
+              </div>
+            </div>
 </div>
+

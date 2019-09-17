@@ -92,7 +92,7 @@
        }
    }
   .infoValue{
-    text-align: center;font-weight: bold;font-size:16px;
+    text-align: center;font-weight: bold;
     color:#0066ff;
   }
   
@@ -103,4 +103,7 @@
     .middle.aligned.content{
         border-top:1px solid rgba(0,102,255,0.2) !important;
       }
+    .addPassbookImage{
+        display: none !important;
+    }
   }

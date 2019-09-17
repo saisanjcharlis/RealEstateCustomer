@@ -60,6 +60,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     let routeActivate = this.route.snapshot.routeConfig.path;
     localStorage.clear();
+    sessionStorage.clear();
     if(routeActivate == "login" || routeActivate == ""){
       this.router.routeReuseStrategy.shouldReuseRoute = function(){return false;};
       let currentUrl = this.router.url + '?';
@@ -72,14 +73,22 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem('logStatus','logout');
     this.router.navigate(['/']);
   }
+  customerName;
+  completeProfileNotification=false;
   ngOnInit() {
+    if(localStorage.getItem('profileStatus')=="incomplete"){
+      this.completeProfileNotification=true;
+    }
      if(localStorage.getItem('logStatus')=='false'){
       this.navViewOnly = false;
       this.accountName = "Login/Sign Up";
+      this.customerName = "Login/Sign Up";
       this.disableProfileAction = false;
       this.initialAvatar=false;
     } else {
-      this.navViewOnly = true;
+      this.navViewOnly = true;  
+      
+      this.customerName=JSON.parse(localStorage.getItem('customerName'));
       this.initialAvatar=true;
       this.createProfile = false;
     }
@@ -87,13 +96,14 @@ export class NavbarComponent implements OnInit {
     if(avatar == true){ 
       if(localStorage.getItem('loginData')){
         this.accountName = JSON.parse(localStorage.getItem('loginData')).userinfo.userName;
+        this.customerName = JSON.parse(localStorage.getItem('customerName'));
       }
     }
     let routeActivate = this.route.snapshot.routeConfig.path;
-    if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
+    if(this.accountName=="Login/Sign Up" && this.customerName == "Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
       this.projectsDisplay=false;
     }
-    if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
+    if(this.accountName=="Login/Sign Up" && this.customerName == "Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
       this.buttonsEnable=true;
     }
 

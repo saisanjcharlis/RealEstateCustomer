@@ -105,15 +105,14 @@ export class PassbookComponent implements OnInit {
       this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":id}}).subscribe((data:any) => {
         if(data.success==true){
           localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
+          this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
+            if(data.success==true){
+               localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
+               this.router.navigate(['/projectDetail']);
+            }
+          });
         }
       });
-      this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
-        if(data.success==true){
-           localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
-        }
-      });
-      
-      this.router.navigate(['/projectDetail']);
     } 
   }
   projectList;
