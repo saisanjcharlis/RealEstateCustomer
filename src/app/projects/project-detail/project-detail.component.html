@@ -28,8 +28,8 @@
                         <i class="large city icon" style="color:white;"></i>
                 </div>
                 <div style="flex:1 0 auto;">
-                    <div style="font-weight: bold;font-size:18px;">{{projectSelected.project_name}}</div>
-                    <div style="font-size:12px;">{{projectSelected.project_name}}, {{projectSelected.state}} {{projectSelected.zipcode}}</div>
+                    <div style="font-weight: bold;font-size:18px;">{{projectSelected.project_name.capitalizeEachWord()}}</div>
+                    <div style="font-size:12px;">{{projectSelected.city.capitalizeEachWord()}}, {{projectSelected.state}} {{projectSelected.zipcode}}</div>
                     <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
                         <div class="ui blue rating" data-rating="4" data-max-rating="5"></div>
                     </div>
@@ -211,7 +211,7 @@
                                                                 </div>
                                                         </div>
                                                         <div style="margin-top:10px;" class="meta">
-                                                                <b>{{project.project_address}}<br>{{project.city}}, {{project.state}} {{project.zipcode}} </b>
+                                                                <b>{{project.project_address.capitalizeEachWord()}}<br> {{project.state}} {{project.zipcode}} </b>
                                                                 <!-- <span style="float: right;"> 
                                                                 <i class="circle icon green"></i>
                                                                 <b>For Sale</b></span> -->

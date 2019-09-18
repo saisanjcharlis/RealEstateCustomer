@@ -17,11 +17,11 @@
         <div class="ui items projectItems">
           <div  *ngFor="let prop of props" class="item" style="overflow: visible;">
                   <div class="ui small image">
-                    <img [src]="prop.project_id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'" >
+                    <img [src]="prop.project_id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'" >
                   </div>
                   <div class="middle aligned content">
                     <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
-                      <span style="flex:1 0 auto;">{{prop.project_name}}
+                      <span style="flex:1 0 auto;">{{prop.project_name.capitalizeEachWord()}}
                         
 
                         <div  style="float:right;"  class="ui menued icon bottom right dropdown">
@@ -39,6 +39,10 @@
                                 <div class="infoValue">{{prop.plot_no}}</div>
                                 <div class="infoLabel">Plot Number</div>
                             </div>
+                            <div class="item">
+                              <div class="infoValue">{{prop.passbook_no}}</div>
+                              <div class="infoLabel">Passbook Number</div>
+                           </div>
                             <div class="item">
                                 <div class="infoValue">₹ {{prop.actual_cost}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                 <div class="infoLabel">Plot Worth</div>
@@ -106,7 +110,7 @@
                           <label>Project Name</label>
                           <select name="projectName" [(ngModel)]="selectedValue" class="ui fluid dropdown">
                             <option value="">Project</option>
-                            <option [ngValue]="project.id" *ngFor="let project of projectList">{{project.project_name}}</option>
+                            <option [ngValue]="project.id" *ngFor="let project of projectList">{{project.project_name.capitalizeEachWord()}}</option>
                           </select>
                         </div>
 

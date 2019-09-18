@@ -32,7 +32,7 @@
             </div>
          </a>
          <div style="padding:10px;">
-            <button  class="ui blue basic button" (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" *ngIf="buttonsEnable">Business</button>
+            <!-- <button  class="ui blue basic button" (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" *ngIf="buttonsEnable">Business</button> -->
             <button class="ui yellow basic button" (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" *ngIf="buttonsEnable" (click)="loginOrSign()">Login</button>
          </div>
          <div [ngClass]="{'marginLeft':!initialAvatar, 'acountButton': buttonsEnable}" (click)="loginActions()" class="navFlex  item ui dropdown">
@@ -43,11 +43,11 @@
               <div class="menu">
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/profile" style="font-size:14px;"><i class="user portrait icon"></i>Profile</a>
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/transactions" style="font-size:14px;"><i class="exchange icon"></i>Transactions</a>
-                    <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/messages" style="font-size:14px;">
+                    <!-- <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/messages" style="font-size:14px;">
                       <i class="envelope outline icon"></i>
-                      <!-- <div *ngIf="initialAvatar" class="floating ui red circular label" style=" font-size:0.7em; opacity: 0.6; margin-top:14px !important; margin-right:24px!important;">NEW</div> -->
+                      <div *ngIf="initialAvatar" class="floating ui red circular label" style=" font-size:0.7em; opacity: 0.6; margin-top:14px !important; margin-right:24px!important;">NEW</div>
                       Messages
-                    </a>
+                    </a> -->
                     <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/fav" style="font-size:14px;"><i class="like icon"></i>My Favorites</a>
                     <!-- <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/savedSearches" style="font-size:14px;"><i class="save icon"></i>Saved Searches</a> -->
                     <!-- <a *ngIf="initialAvatar" class="item itemProfile" routerLink="/fav" style="font-size:14px;"><i class="exchange icon"></i>History/Completed Transaction</a> -->
@@ -73,7 +73,7 @@
         <a routerLink="/projects" routerLinkActive="activated" class="nav-item" ><i class="home icon"></i><span>Projects</span></a>
         <a *ngIf="navViewOnly" [ngClass]="{'disabled':!initialAvatar}" routerLink="/passbook" routerLinkActive="activated" class="nav-item" ><i class="clipboard icon"></i>Passbook</a>
         <a *ngIf="navViewOnly" [ngClass]="{'disabled':!initialAvatar}" routerLink="/transactions" routerLinkActive="activated" class="nav-item" ><i class="exchange icon"></i>Transactions</a>
-        <a *ngIf="navViewOnly" [ngClass]="{'disabled':!initialAvatar}" routerLink="/messages" routerLinkActive="activated" class="nav-item"><i class="envelope outline icon"></i>Messages</a> 
+        <!-- <a *ngIf="navViewOnly" [ngClass]="{'disabled':!initialAvatar}" routerLink="/messages" routerLinkActive="activated" class="nav-item"><i class="envelope outline icon"></i>Messages</a>  -->
         <a routerLink="/help" routerLinkActive="activated" class="nav-item" ><i class="question circle outline icon"></i>Help</a> 
         <a *ngIf="navViewOnly" class="nav-item" (click)="logout()"><i class="sign out alternate icon "></i>Logout</a>
       </nav>

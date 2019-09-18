@@ -268,15 +268,15 @@ export class ProjectsComponent implements OnInit {
       this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":project.id}}).subscribe((data:any) => {
         if(data.success==true){
           localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
-
+          this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":project.id}}).subscribe((data:any) => {
+            if(data.success==true){
+               localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
+               this.router.navigate(['/projectDetail']);
+            }
+          });
         }
       });
-      this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":project.id}}).subscribe((data:any) => {
-        if(data.success==true){
-           localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
-           this.router.navigate(['/projectDetail']);
-        }
-      });
+     
       
     
     // } 
@@ -489,7 +489,9 @@ export class ProjectsComponent implements OnInit {
       this.locList.push(data.city);
     });
     if(localStorage.getItem('projectsDomain')){
-
+      this.lat = 17.0754526;
+      this.lng = 78.2352672;
+      this.zoom=8;
       var loc=localStorage.getItem('projectsDomain');
       this.projects=this.projectsApiList.filter( (project) =>{
         return project.project_address.toLowerCase().includes(loc);

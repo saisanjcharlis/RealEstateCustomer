@@ -26,7 +26,7 @@ export class PassbookComponent implements OnInit {
   otp;
   passbookNo;
   allotPassbook(){
-
+    console.log(this.selectedValue)
     let urlPassbookOTP = `${this.config.url}services/v1/frontendcustomer/passbookoptverification`;
     var loginData = JSON.parse(localStorage.getItem('loginData'));
     console.log(this.passbookNo)
@@ -34,7 +34,7 @@ export class PassbookComponent implements OnInit {
     let reqObj = {
       "token": loginData.token,
       "params": {
-        "project_id":23,"passbook_no":this.passbookNo,"user_id":loginData.userinfo.user_id,"type":"passbook_authentication","otp":this.otp
+        "project_id":this.selectedValue,"passbook_no":this.passbookNo,"user_id":loginData.userinfo.user_id,"type":"passbook_authentication","otp":this.otp
       }
     }
     this.http.post(urlPassbookOTP,reqObj).subscribe((data:any) => {
@@ -77,7 +77,7 @@ export class PassbookComponent implements OnInit {
     let reqObj = {
       "token": loginData.token,
       "params": {
-        "project_id":23,"passbook_no":this.passbookNo,"user_id":loginData.userinfo.user_id
+        "project_id":this.selectedValue,"passbook_no":this.passbookNo,"user_id":loginData.userinfo.user_id
       }
     }
     this.http.post(urlPassbookOTP,reqObj).subscribe((data:any) => {
@@ -87,7 +87,7 @@ export class PassbookComponent implements OnInit {
   viewTrans(prop){
     let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
     var loginData = JSON.parse(localStorage.getItem('loginData'));
-    this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":19,"passbook_no": "GLX_104_1"}}).subscribe((data:any) => {
+    this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":prop.project_id,"passbook_no": prop.passbook_no}}).subscribe((data:any) => {
       if(data.success){
         localStorage.setItem('transactionSelected',JSON.stringify(data.result.results));
         this.router.navigate(['/transactions']);
@@ -95,7 +95,7 @@ export class PassbookComponent implements OnInit {
     });
   }
   viewProject(id){
-    if(id==23){
+    // if(id==23){
       this.projectList.map( (data) => {
         if(data.id==id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
@@ -113,11 +113,12 @@ export class PassbookComponent implements OnInit {
           });
         }
       });
-    } 
+    // } 
   }
   projectList;
   ngOnInit() {
     this.props=JSON.parse(localStorage.getItem('passbookList'));
+    console.log(this.props)
     this.projectList = JSON.parse(localStorage.getItem('projectsList'));
   }
   ngAfterViewInit(){

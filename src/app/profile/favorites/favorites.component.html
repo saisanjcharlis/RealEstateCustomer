@@ -50,7 +50,7 @@
                                 
                         </div>
                         <div *ngIf="projects.length == 0" class="errorContent">
-                                We could not find any projects with that criteria. Clear filters and search again.
+                                You have not saved any projects. Browse projects and save them to view them for later.
                                 <!-- <i class="cancel icon" style="float: right;"></i> -->
                         </div>
                 </div>
@@ -65,7 +65,7 @@
                                         <img (click)="viewProject(project)" style="cursor: pointer;" [src]="project.id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'" >
                                 </div>
                                 <div class="content">
-                                        <div id="projectName" style="width: 100%;" class="header" (click)="viewProject(project)">{{project.project_name}}</div>
+                                        <div id="projectName" style="width: 100%;" class="header" (click)="viewProject(project)">{{project.project_name.capitalizeEachWord()}}</div>
                                         <div style="margin-top:5px;" class="ui celled horizontal list">
                                                 <div class="item">
                                                     <div class="infoValue">₹ {{project.min_amount*project.min_sqyards}}</div>
@@ -84,7 +84,7 @@
                                                 <b>{{project.min_sqyards}}-{{project.max_sqyards}}</b><span style="font-size:12px;margin-left:5px;">sqyd</span> 
                                         </div> -->
                                         <div style="margin-top:10px;" class="meta">
-                                                <b>{{project.project_address}}<br>{{project.city}}, {{project.state}} {{project.zipcode}} </b>
+                                                <b>{{project.project_address}}<br>{{project.state}} {{project.zipcode}} </b>
                                                 <span style="float: right;"> 
                                                 <i class="circle icon green"></i>
                                                 <!-- <i [ngClass]="{'green': project.ModuleStatus.status_name !== 'Approved', 'blue': project.ModuleStatus.status_name == 'Approved'}" class="circle icon"></i>  -->

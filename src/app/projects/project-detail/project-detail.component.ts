@@ -63,6 +63,9 @@ export class ProjectDetailComponent implements OnInit {
                   return fav.status == 1;
                 });
                 localStorage.setItem('favList',JSON.stringify(favs));
+                if(favs.length == 0){
+                  localStorage.setItem('favList',null);
+                }
               } 
             });
         $(e.target).children('i').toggleClass('outline');
@@ -136,13 +139,16 @@ export class ProjectDetailComponent implements OnInit {
 
 
     if(localStorage.getItem('logStatus')=='true'){
-      let favList = JSON.parse(localStorage.getItem('favList'));;
-      favList.map((fav)=>{
-        if(fav.status==1 && fav.project_id=="23"){
-          this.saveText="Saved";
-          $('.saveButton').removeClass('outline')
-        }
-      });
+      let favList = JSON.parse(localStorage.getItem('favList'));
+      if(favList!=null){
+        favList.map((fav)=>{
+          if(fav.status==1){
+            this.saveText="Saved";
+            $('.saveButton').removeClass('outline')
+          }
+        });
+      }
+      
       this.buttonEnable=false;
     }
     $('.demo.menu .item').tab();

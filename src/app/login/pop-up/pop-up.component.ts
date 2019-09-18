@@ -151,6 +151,9 @@ signIn(uname: string, p: string){
                   return fav.status == 1;
                 });
                 localStorage.setItem('favList',JSON.stringify(favs));
+                if(favs.length == 0){
+                  localStorage.setItem('favList',null);
+                }
               } else {
                 localStorage.setItem('favList',null);
               }
@@ -181,7 +184,21 @@ passwordPassed1 = false;
 passwordPassed2 = false;
 passwordPassed3 = false;
 passwordPassed4 = false;
-signUp(mobileNumber, otp, password){  
+otpGenerate(e,mobileNumber){
+      let url = `${this.config.url}customerlogin/mobileotp`;
+      let mobileObject =  {"params":{"mobile_number":mobileNumber}};
+      this.http.post(url,mobileObject).subscribe((data:any) => {
+        if(data.success==true){
+          this.mobilePassed=true;
+        } else {
+          this.errors1.push("Mobile Number Already Exists");
+        }
+        console.log(data.result.mobile_otp);
+      });
+  
+   
+}
+signUp(e,mobileNumber, otp, password){  
   var phoneno = /^\d{10}$/;
   this.errors1=[];
   
@@ -192,32 +209,10 @@ signUp(mobileNumber, otp, password){
   let minCount = new RegExp("(?=.{8,})");
   if(!mobileNumber.match(phoneno)){
     this.errors1.push("Enter Valid Mobile Number");
-    $('#otp').attr('disabled', true);
-    $('#password').attr('disabled', true);
-  } else {
-        if(this.mobilePassed==false){
-          let url = `${this.config.url}customerlogin/mobileotp`;
-          let mobileObject =  {"params":{"mobile_number":mobileNumber}};
-          this.http.post(url,mobileObject).subscribe((data:any) => {
-            if(data.success==true){
-              this.mobilePassed=true;
-              $('#otp').attr('disabled', false);
-              $('#password').attr('disabled', false);
-            } else {
-              this.errors1.push("Mobile Number Already Exists");
-            }
-            console.log(data.result.mobile_otp);
-          });
-        } 
-       
-  }
- 
+  } 
   if(otp.length>0 && otp.length !== 6 && mobileNumber.length == 10){
       this.errors1.push("Enter six digit valid OTP");
-  } else if(otp.length == 6){  
-    this.otpPassed=true; 
-    sessionStorage.setItem('otpIcon','false');
-  } else {}
+  } 
   this.otpIcon=sessionStorage.getItem('otpIcon');
   if(password.length>0){
     if(!minCount.test(password)){
@@ -232,10 +227,11 @@ signUp(mobileNumber, otp, password){
     if(!minAlphabet.test(password)){
       this.errors1.push("Password must contain at least 1 uppercase alphabetical character");
     } else { this.passwordPassed4=true; }
-    if(this.mobilePassed && this.otpPassed && this.passwordPassed1 && this.passwordPassed2 && this.passwordPassed3 && this.passwordPassed4){
+    if(this.mobilePassed && this.passwordPassed1 && this.passwordPassed2 && this.passwordPassed3 && this.passwordPassed4){
         let urlVerify = `${this.config.url}customerlogin/verifyotp`;
         let signUpObject =  {"params":{"mobile_number":mobileNumber,"mobile_otp":otp,"url":"spectra","password":password}};
         this.http.post(urlVerify,signUpObject).subscribe((data:any) => {
+          console.log(data)
           if(data.success==true){
             sessionStorage.setItem('signedUp','true');
             this.signIn(mobileNumber,password);

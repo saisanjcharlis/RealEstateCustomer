@@ -14,7 +14,7 @@
           <li *ngFor="let error of errors">{{error}}</li>
         </ul>
       </div>
-      <a (click)="forgotPassword()" style="cursor:pointer;font-weight: 400;color:#0066ff;"><span>Forgot your password</span></a>
+      <!-- <a (click)="forgotPassword()" style="cursor:pointer;font-weight: 400;color:#0066ff;"><span>Forgot your password</span></a> -->
       <div class="buttonCont">
         <button class="yellowBtn positive" type="submit">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
         <button class="blueBtn" (click)="createAccount()">Create account<i class="fa fa-fw fa-chevron-right"></i></button>
@@ -31,28 +31,31 @@
           <input (keyup.enter)="nextInput($event)" id="phoneno" type="number" #phNumber placeholder="Mobile Number" autocomplete="off" required />
           <label for=phoneno></label>
         </div>
-        <div class="inputContainer">
+        <div class="inputContainer" style="position: relative;">
            <!-- <i *ngIf="otpIcon == 'true'" class="resendText spinner  loading icon"></i>
            <span *ngIf="otpIcon == 'true'" class="resendText">Wait 30s </span> -->
            <!-- <i class="resend redo icon"></i> -->
-           <input disabled id="otp" type="text" #otp placeholder="Enter OTP" autocomplete="off" required />
+           <input  id="otp" type="text" #otp placeholder="Enter OTP" autocomplete="off" required />
+           <button type="button" (click)="otpGenerate($event,phNumber.value)" class="ui tiny otpButton button blue">Generate OTP</button>
            <label for=otp></label>
         </div>
+      
         <div class="inputContainer">
             <div data-inverted="" class="passwordHelp" data-tooltip="Password should be minimum 8 characters and contain min 1 uppercase alphabet, 1 digit, 1 special character and 1 alpha-numeric character" data-variation="" data-position="left center">
                 <i class="resendText question circle icon" style="cursor:pointer;"></i> 
             </div>
           <!-- <i class="resendText question circle icon" style="cursor:pointer;"></i> -->
-          <input disabled id="password" #pwd type="password" placeholder="Enter Password" autocomplete="false" required />
+          <input  id="password" #pwd type="password" placeholder="Enter Password" autocomplete="false" required />
          <label for=password></label>
         </div>
+        
         <div *ngIf="errors1.length>0" class="ui error message" style="width: 100%;">
           <ul class="list">
             <li *ngFor="let error of errors1">{{error}}</li>
           </ul>
         </div>
         <div class="buttonCont">
-          <button class="yellowBtn" (click)="signUp(phNumber.value,otp.value, pwd.value)">Sign Up<i class="fa fa-fw fa-chevron-right"></i></button>
+          <button class="yellowBtn" (click)="signUp($event,phNumber.value,otp.value, pwd.value)">Sign Up<i class="fa fa-fw fa-chevron-right"></i></button>
           <button class="blueBtn" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
         </div>
       </form>

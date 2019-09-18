@@ -48,7 +48,8 @@ export class ActivityComponent implements OnInit {
   viewTrans(prop){
     let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
     var loginData = JSON.parse(localStorage.getItem('loginData'));
-    this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":19,"passbook_no": "GLX_104_1"}}).subscribe((data:any) => {
+    console.log(prop)
+    this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":prop.project_id,"passbook_no": prop.passbook_no}}).subscribe((data:any) => {
       if(data.success){
         localStorage.setItem('transactionSelected',JSON.stringify(data.result.results));
         this.routes.navigate(['/transactions']);
@@ -57,7 +58,7 @@ export class ActivityComponent implements OnInit {
   }
   viewProject(id){
     console.log(this.projectList)
-    if(id==23){
+    // if(id==23){
       this.projectList.map( (data) => {
         if(data.id==id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
@@ -78,7 +79,7 @@ export class ActivityComponent implements OnInit {
       
       
       
-    } 
+    // } 
   }
   ngAfterViewInit() {
     $('.ui.menued.dropdown').dropdown() ;

@@ -41,7 +41,7 @@
                             <div class="ui items projectItems">
                                     <div class="item" *ngFor="let prop of props" style="overflow: visible;">
                                             <div class="ui small image">
-                                              <img [src]="prop.project_id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'">
+                                              <img [src]="prop.project_id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'">
                                             </div>
                                             <div class="middle aligned content">
                                               <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
@@ -63,6 +63,10 @@
                                                           <div class="infoValue">{{prop.plot_no}}</div>
                                                           <div class="infoLabel">Plot Number</div>
                                                       </div>
+                                                      <div class="item">
+                                                        <div class="infoValue">{{prop.passbook_no}}</div>
+                                                        <div class="infoLabel">Passbook Number</div>
+                                                     </div>
                                                       <div class="item">
                                                           <div class="infoValue">₹{{prop.actual_cost}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                                           <div class="infoLabel">Plot Worth</div>
@@ -88,14 +92,14 @@
                                             </div>
                                     </div>
                             </div>
-                            <span *ngIf="favList.length>0" class="containerHeader">My Favourites</span> 
+                            <span *ngIf="favList!=null" class="containerHeader">My Favourites</span> 
                             <div class="ui items unstackable favItems">
                                 <div (click)="viewProject(fav.project_id)" style="cursor: pointer;" class="item" *ngFor="let fav of favList">
                                         <div class="ui corner left blue label">
                                                 <i class="home icon"></i>
                                         </div>
                                         <div class="ui small image">
-                                          <img [src]="fav.project_id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'" >
+                                          <img [src]="fav.project_id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'" >
                                         </div>
                                 </div>
                         </div>
