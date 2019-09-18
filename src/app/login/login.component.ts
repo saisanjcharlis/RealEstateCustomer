@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit {
     let url = `${this.config.url}customerlogin/getprojectslist`;
       this.http.post(url,{"wos":true}).subscribe((data:any) => {
         if(data.success==true){
+          console.log(data)
           localStorage.setItem('projectsList',JSON.stringify(data.result));
         } 
       });

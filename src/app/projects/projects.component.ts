@@ -290,6 +290,16 @@ export class ProjectsComponent implements OnInit {
   }
   
   homeTypeFilter(e){
+    let propLabel=$(e.target).parent().text().trim().toLowerCase();
+    console.log(propLabel)
+    if(e.target.checked == false && propLabel == "plots"){
+     
+        this.projects=[];
+    }
+    else{
+      this.projects=this.projectsApiList;
+
+    }
     
   }
   clearFilters(e){
@@ -390,21 +400,18 @@ export class ProjectsComponent implements OnInit {
 
   }
   statusTypeFilter(e){
-    // let propLabel=$(e.target).parent().text().trim().toLowerCase();
-    // if(e.target.checked == false){
-    //     this.projects = this.projects.filter( (project)=>{
-    //       return project.saleStatus.toLowerCase().indexOf(propLabel) === -1;
-    //     });
+    let propLabel=$(e.target).parent().text().trim().toLowerCase();
+    if(e.target.checked == false && propLabel == "for sale"){
+      // this.projects = this.projects.filter( (project)=>{
+        //   console.log(project)
+        //   return project.saleStatus.toLowerCase().indexOf(propLabel) === -1;
+        // });
+        this.projects=[];
+    }
+    else{
+      this.projects=this.projectsApiList;
 
-    // }
-    // else{
-    //   this.hyderabadProjects.map((project)=>{
-    //     if(project.saleStatus.toLowerCase().includes(propLabel)){
-    //       this.projects.push(project);
-    //     }
-    //   });
-
-    // }
+    }
     
 
   }
