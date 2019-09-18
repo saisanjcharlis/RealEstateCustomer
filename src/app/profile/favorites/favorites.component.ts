@@ -5,6 +5,8 @@ import { LocationsService } from '../../../services/locations.service';
 import {Location} from '@angular/common';
 import { MapsService } from '../../../services/maps.service';
 import { Router} from '@angular/router';
+import { ConfigService } from '../../../services/config.service';
+import { HttpClient} from '@angular/common/http';
 import { LoginComponent } from '../../login/login.component';
 declare var $:any;
 @Component({
@@ -19,24 +21,21 @@ export class FavoritesComponent implements OnInit {
     private mapApiLoader: MapsAPILoader,
     private mapsService: MapsService,
     private login: LoginComponent,
-    private router: Router) {
-    for (let i = 0; i < 5; i++) {
-          const url = 'https://loremflickr.com/640/480?random=' + (i +1);
-          this.imagesList[i] = {
-            url: url,
-            show: false
-        };
-        }
+    private router: Router,
+    private config: ConfigService,
+    private http: HttpClient) {
    }
    public lat: number;
    public lng: number;
    public zoom: number;
    icon;
    public openedWindow: number;
-   public markers: Marker[] = this.locationService.getMarkers();
+   public markers =[];
    iconSearch = true;
    imagesList = [];
-   location="Hyderabad Real Estate";
+   projectsApiList;
+   location="Telangana Real Estate";
+   locationSelected = "Hyderabad, TS";
    styles = [
      {
        "elementType": "geometry",
@@ -252,48 +251,7 @@ export class FavoritesComponent implements OnInit {
        ]
      }
    ];
-   hyderabadProjects = [
-    {
-      "projectName": "Viceroyce Residency",
-      "minPrice": 5600000,
-      "minPriceParsed": "5.6 Lac",
-      "maxPrice": 20000000,
-      "minSize": 120,
-      "maxSize": 1145,
-      "address1": "Allisabguda, Shadnagar ",
-      "address2": "TS 509228",
-      "saleStatus": "Upcoming",
-      "imageUrl": "assets/viceroyceIcon.png",
-      "likedStatus": false,
-      "rating": 2,
-      "postedOn": "04 Aug 2019",
-      "state": "hyderabad",
-      "zipcode": "509228",
-      "lat": "12323213",
-      "long": "1321331",
-      "homeType": "plots",
-      "agents": []
-    }
-   ];
-   likedProject(e){
-    $(e.target).transition('pulse');
-    if( $(event.target).hasClass('blue')){
-      $(e.target).removeClass('blue'); 
-      $(e.target).addClass('outline');
-    } else {
-      $(e.target).addClass('blue'); 
-      $(e.target).removeClass('outline');
-     
-      $('body').toast({
-        message: 'You have liked this project.',
-        displayTime: 1000,
-        class: 'blue'
-      });
-    }
-   
-    $('.toast-box').css("margin-top","50px");
-  }
-   projects = this.hyderabadProjects;
+   projects = [];
    infoWindowOpened = null;
   previous_info_window = null;
   mapClicked(e){
@@ -301,8 +259,15 @@ export class FavoritesComponent implements OnInit {
       this.previous_info_window.close()
       }  
   }
-  markerClick(e){
-    this.router.navigate(['/projectDetail']);
+  markerClick(marker){
+    this.projects=this.projectsApiList.filter( (project)=>{
+      return this.favListProjectId.includes(project.id.toString())
+    });
+    // this.projects=this.projectsApiList.filter( (project) =>{
+    //   return project.id==marker.id;
+    //  });
+    this.locationSelected = marker.city+', TS';
+    this.location=  marker.state+ "Real Estate";
   }
   onMouseOver(gm, window) {
     if (this.previous_info_window == null)
@@ -315,12 +280,63 @@ export class FavoritesComponent implements OnInit {
   
     window.open();
   }
-  locationSelected = "Hyderabad, TS";
+  viewProject(project){
+    if(project.id==23){
+      this.projectsApiList.map( (data) => {
+        if(data.id==project.id){
+          localStorage.setItem('projectSelected',JSON.stringify(data));
+        }
+      });
+      let urlProjectDetails = `${this.config.url}customerlogin/getprojectsdetails`;
+      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":project.id}}).subscribe((data:any) => {
+        if(data.success==true){
+          localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
+
+        }
+      });
+      this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":project.id}}).subscribe((data:any) => {
+        if(data.success==true){
+           localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
+           this.router.navigate(['/projectDetail']);
+        }
+      });
+      
+    
+    } 
+    
+  }
+  favListProjectId=[];
   ngOnInit() {
     this.lat = 17.0754526;
     this.lng = 78.2352672;
-    this.zoom = 15;
-    console.log(this.lat,this.lng,this.zoom)
+    this.zoom = 8;
+    JSON.parse(localStorage.getItem('favList')).map( (project)=>{
+      this.favListProjectId.push(project.project_id);
+    });
+    this.projectsApiList=JSON.parse(localStorage.getItem('projectsList'));
+    this.projects=this.projectsApiList.filter( (project)=>{
+      return this.favListProjectId.includes(project.id.toString())
+    });
+   
+    this.projects.map( (data) => {
+      var obj={
+        lat: data.latitude,
+        lng: data.longitudes,
+        plotNumbers: "320",
+        minArea: data.min_sqyards,
+        maxArea: data.max_sqyards,
+        minPrice: data.min_sqyards* data.min_amount,
+        icon: { url: 'assets/mapIconUpcoming.svg', scaledSize: { width: 40, height: 40 } },
+        projectName: data.project_name,
+        id:data.id,
+        city: data.city,
+        state: data.state,
+        postalcode: data.zipcode
+      };
+      this.markers.push(obj);
+    });
+
+
   }
   ngAfterViewInit() {
     $('.ui.dropdown').dropdown();

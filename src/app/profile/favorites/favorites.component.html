@@ -26,7 +26,7 @@
                                 >
                                 <agm-info-window #window>
                                         <div>
-                                                        <i class="city fitted large icon" ></i><span style="font-size:12px;font-weight: bold;"> {{marker.projectName}}</span>
+                                                        <i class="city fitted large icon" ></i><span (click)="viewProject(marker)" class="mapProjectHeader" style="font-size:12px;font-weight: bold;"> {{marker.projectName}}</span>
                                                         <div>
                                                                         <span style="font-weight: bold;text-align: right">340-700 </span>
                                                                         <span style="font-size:10px;font-weight: normal;color:#414143;">sqyd</span>
@@ -46,26 +46,55 @@
                         <h2 *ngIf="projects.length!=0">Saved Properties</h2>
                         <div style="font-weight: 600;margin-bottom: 15px;">
                                 <span style="padding:5px 0;display:inline-block;">{{projects.length}} result</span>
-                                <div style="float: right;">
-                                                <span >Sort By: </span>
-                                                <select  class="ui tiny dropdown">
-                                                                <option value="">None</option>
-                                                                <option value="AL">Price (High to Low)</option>
-                                                                <option value="AL">Price (Low to High)</option>
-                                                                <option value="AL">Newest</option>
-                                                                <option value="AL">Square Yards</option>
-                                                </select>
-                                </div>
-                               <div style="clear:both;"></div>
+                                
                                 
                         </div>
                         <div *ngIf="projects.length == 0" class="errorContent">
                                 We could not find any projects with that criteria. Clear filters and search again.
-                                <i class="cancel icon" style="float: right;"></i>
+                                <!-- <i class="cancel icon" style="float: right;"></i> -->
                         </div>
                 </div>
                 <div class="projects ui two stackable cards" >
-                        <div class="card" *ngFor="let project of projects;" >
+                         <div class="card" *ngFor="let project of projects;" >
+                                <div class="image">
+                                        <div class="tagInfo">
+                                                <div class="ui blue label">Posted: {{project.created_at.substr(0, 10)}}</div>
+                                        </div>
+                                       
+                                        <span class="ratingFloat ui mini star blue rating" data-rating="4" data-max-rating="5"></span>
+                                        <img (click)="viewProject(project)" style="cursor: pointer;" [src]="project.id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'" >
+                                </div>
+                                <div class="content">
+                                        <div id="projectName" style="width: 100%;" class="header" (click)="viewProject(project)">{{project.project_name}}</div>
+                                        <div style="margin-top:5px;" class="ui celled horizontal list">
+                                                <div class="item">
+                                                    <div class="infoValue">₹ {{project.min_amount*project.min_sqyards}}</div>
+                                                    <div class="infoLabel">onwards</div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="infoValue">{{project.min_sqyards}}-{{project.max_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                    <div class="infoLabel">sqyd</div>
+                                                </div>
+                                        </div>
+                                        <!-- <div class="priceInfo">
+                                                <span style="font-size:18px;">₹ {{project.min_amount*project.min_sqyards}} </span>
+                                                <span class="onwards"> onwards</span>
+                                        </div>
+                                        <div class="description">
+                                                <b>{{project.min_sqyards}}-{{project.max_sqyards}}</b><span style="font-size:12px;margin-left:5px;">sqyd</span> 
+                                        </div> -->
+                                        <div style="margin-top:10px;" class="meta">
+                                                <b>{{project.project_address}}<br>{{project.city}}, {{project.state}} {{project.zipcode}} </b>
+                                                <span style="float: right;"> 
+                                                <i class="circle icon green"></i>
+                                                <!-- <i [ngClass]="{'green': project.ModuleStatus.status_name !== 'Approved', 'blue': project.ModuleStatus.status_name == 'Approved'}" class="circle icon"></i>  -->
+                                                <b>For Sale</b></span>
+                                        </div>
+                                        
+
+                                </div>
+                        </div>
+                        <!-- <div class="card" *ngFor="let project of projects;" >
                                 <div class="image">
                                         <div class="tagInfo">
                                                 <div class="ui blue label">Posted: {{project.postedOn}}</div>
@@ -92,7 +121,7 @@
                                         
 
                                 </div>
-                        </div>
+                        </div> -->
 
                 </div>
                

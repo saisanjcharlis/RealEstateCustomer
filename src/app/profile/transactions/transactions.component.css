@@ -62,3 +62,6 @@
 .propertyInfoColor{
     font-weight: bold;
 }
+.basicTable th{
+    color:#0066ff !important;
+}

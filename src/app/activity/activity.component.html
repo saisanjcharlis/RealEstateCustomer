@@ -90,7 +90,7 @@
                             </div>
                             <span *ngIf="favList.length>0" class="containerHeader">My Favourites</span> 
                             <div class="ui items unstackable favItems">
-                                <div class="item" *ngFor="let fav of favList">
+                                <div (click)="viewProject(fav.project_id)" style="cursor: pointer;" class="item" *ngFor="let fav of favList">
                                         <div class="ui corner left blue label">
                                                 <i class="home icon"></i>
                                         </div>

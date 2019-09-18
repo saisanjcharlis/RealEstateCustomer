@@ -26,8 +26,8 @@
     width: 60%;
     overflow: auto;
     scroll-snap-type: proximity;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     margin-bottom:95px;
     background: #fff;
   }
@@ -99,3 +99,18 @@
     height: 100%;
     width: 100%;
   }
+  .infoValue{
+    text-align: center;font-weight: bold;font-size:16px;
+    /* color:#0066ff; */
+  }
+  
+  .infoLabel{
+    text-align: center;font-size:12px;margin-top:10px;
+  }
+  .mapProjectHeader{
+    font-size:12px;font-weight: bold;cursor: pointer;
+  }
+  .mapProjectHeader:hover{
+    color:#0066ff;
+  }
+    

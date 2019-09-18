@@ -94,9 +94,9 @@
   box-shadow: 0px 4px 4px rgba(39, 39, 39, 0.7);
   width: 60%;
   overflow: auto;
-  scroll-snap-type: proximity;
-  display: flex;
-  flex-direction: column;
+  /* scroll-snap-type: proximity; */
+  /* display: flex;
+  flex-direction: column; */
   margin-bottom:110px;
   background: #fff;
 }
