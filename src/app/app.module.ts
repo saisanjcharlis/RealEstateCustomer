@@ -42,6 +42,7 @@ import { SuccessAllotComponent } from './success-allot/success-allot.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PopUpComponent } from './login/pop-up/pop-up.component';
 import { HelpComponent } from './help/help.component';
+import '../services/capitalize.ts';
 @NgModule({
   declarations: [
     AppComponent,

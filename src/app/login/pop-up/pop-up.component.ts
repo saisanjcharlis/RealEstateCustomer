@@ -91,7 +91,6 @@ signIn(uname: string, p: string){
           this.http.post(urlPassbook,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe((data:any) => {
            
             if(data.success==true){
-              
               localStorage.setItem('passbookList',JSON.stringify(data.result));
               this.http.post(urlProfile,reqObj).subscribe((data:any) => {
                 if(data.result.results.length>0){
@@ -112,6 +111,9 @@ signIn(uname: string, p: string){
                   } else {
                     localStorage.setItem('customerName',JSON.stringify(data.result.results[0].customer_name));
                   } 
+                  if(JSON.parse(localStorage.getItem('passbookList')).length ==0){
+                    localStorage.setItem('passbookList',null);
+                  };
                   this.routes.navigate(['/activity']);
                 }
               });

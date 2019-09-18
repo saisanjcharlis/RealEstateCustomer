@@ -258,7 +258,7 @@ export class ProjectsComponent implements OnInit {
     private http: HttpClient) {
    }
    viewProject(project){
-    if(project.id==23){
+    // if(project.id==24){
       this.projectsApiList.map( (data) => {
         if(data.id==project.id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
@@ -279,7 +279,7 @@ export class ProjectsComponent implements OnInit {
       });
       
     
-    } 
+    // } 
     
   }
    updateResults(val){
