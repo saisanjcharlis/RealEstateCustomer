@@ -20,6 +20,7 @@ export class TransactionsComponent implements OnInit {
     var loginData = JSON.parse(localStorage.getItem('loginData'));
     this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":e.project_id,"passbook_no": e.passbook_no}}).subscribe((data:any) => {
       if(data.success){
+        console.log(data)
         localStorage.setItem('transactionSelected',JSON.stringify(data.result.results));
         this.transactionsList= data.result.results;
       }

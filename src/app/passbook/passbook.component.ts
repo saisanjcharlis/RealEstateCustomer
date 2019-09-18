@@ -88,6 +88,7 @@ export class PassbookComponent implements OnInit {
     let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
     var loginData = JSON.parse(localStorage.getItem('loginData'));
     this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":prop.project_id,"passbook_no": prop.passbook_no}}).subscribe((data:any) => {
+      console.log(data)
       if(data.success){
         localStorage.setItem('transactionSelected',JSON.stringify(data.result.results));
         this.router.navigate(['/transactions']);
@@ -95,7 +96,7 @@ export class PassbookComponent implements OnInit {
     });
   }
   viewProject(id){
-    // if(id==23){
+    if(id==24){
       this.projectList.map( (data) => {
         if(data.id==id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
@@ -113,7 +114,7 @@ export class PassbookComponent implements OnInit {
           });
         }
       });
-    // } 
+    } 
   }
   projectList;
   ngOnInit() {

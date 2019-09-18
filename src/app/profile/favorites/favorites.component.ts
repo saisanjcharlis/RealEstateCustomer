@@ -281,7 +281,7 @@ export class FavoritesComponent implements OnInit {
     window.open();
   }
   viewProject(project){
-    // if(project.id==23){
+    if(project.id==24){
       this.projectsApiList.map( (data) => {
         if(data.id==project.id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
@@ -302,7 +302,7 @@ export class FavoritesComponent implements OnInit {
      
       
     
-    // } 
+    } 
     
   }
   favListProjectId=[];
@@ -310,13 +310,17 @@ export class FavoritesComponent implements OnInit {
     this.lat = 17.0754526;
     this.lng = 78.2352672;
     this.zoom = 8;
-    JSON.parse(localStorage.getItem('favList')).map( (project)=>{
-      this.favListProjectId.push(project.project_id);
-    });
-    this.projectsApiList=JSON.parse(localStorage.getItem('projectsList'));
-    this.projects=this.projectsApiList.filter( (project)=>{
-      return this.favListProjectId.includes(project.id.toString())
-    });
+    if(JSON.parse(localStorage.getItem('favList'))!=null){
+      JSON.parse(localStorage.getItem('favList')).map( (project)=>{
+        this.favListProjectId.push(project.project_id);
+      });
+      this.projectsApiList=JSON.parse(localStorage.getItem('projectsList'));
+      this.projects=this.projectsApiList.filter( (project)=>{
+        return this.favListProjectId.includes(project.id.toString())
+      });
+    }
+    
+    
    
     this.projects.map( (data) => {
       var obj={

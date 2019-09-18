@@ -25,10 +25,21 @@
           <!-- <div class="ui label green greenTop">Total EMI's Due: ₹ 50000</div> -->
        
 </div>  
+<!-- <div class="firstView" *ngIf="newUserDisplay && !saveSearch" >
+    <img class="welcomeImage" src="assets/house_new.png">
+    <img class="footerImage" src="assets/activityFooter.png">
+    <span style="font-size:32px;text-transform: uppercase">Track your properties and payments here</span>
+    <span>Search for Properties Now</span>
+      <div class="ui icon input" style="margin-top:50px;">
+          <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" type="text" placeholder="Location">
+          <i class="search large blue icon"></i>
+      </div>
+  </div>  -->
     <div class="projectContainer">
-       
-            <div class="gridContent">
+        
+            <div class="gridContent">                
                     <div class="projectsList" style="margin:20px 0;">
+                      
                         <div class="boxContainer"  *ngIf="props==null">
                             <div >
                                 <span><i class="city blue large icon" ></i>You have no owned properties</span>

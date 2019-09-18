@@ -52,7 +52,7 @@
 
                     <div class="field">
                       <label>Select Plot</label>
-                      <select name="plotNumber" (change)="select($event)" [(ngModel)]="plotValue" class="ui fluid dropdown">
+                      <select name="plotNumber" (change)="select(plotValue)" [(ngModel)]="plotValue" class="ui fluid dropdown">
                         <option value=""></option>
                         <option [ngValue]="prop" *ngFor="let prop of props">{{prop.project_name}}  Plot No-{{prop.plot_no}}</option>
                       </select>

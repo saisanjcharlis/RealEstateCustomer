@@ -58,7 +58,7 @@ export class ActivityComponent implements OnInit {
   }
   viewProject(id){
     console.log(this.projectList)
-    // if(id==23){
+    if(id==24){
       this.projectList.map( (data) => {
         if(data.id==id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
@@ -79,7 +79,7 @@ export class ActivityComponent implements OnInit {
       
       
       
-    // } 
+    } 
   }
   ngAfterViewInit() {
     $('.ui.menued.dropdown').dropdown() ;
