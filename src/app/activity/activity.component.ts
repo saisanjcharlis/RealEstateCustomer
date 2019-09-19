@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnChanges, AfterViewChecked } from '@angular/core';
 import { RouterModule , Router } from '@angular/router';
 import { ConfigService } from '../../services/config.service';
 import { HttpClient} from '@angular/common/http';
@@ -8,7 +8,7 @@ declare var $:any;
   templateUrl: './activity.component.html',
   styleUrls: ['./activity.component.css']
 })
-export class ActivityComponent implements OnInit {
+export class ActivityComponent implements OnInit, AfterViewChecked {
   showEMI = true;
   showtrans = false;
   showFeed = false;
@@ -81,6 +81,9 @@ export class ActivityComponent implements OnInit {
       
     } 
   }
+  ngAfterViewChecked(){
+    console.log(this.showVar)
+  }
   ngAfterViewInit() {
     $('.ui.menued.dropdown').dropdown() ;
     $('.locationButton').popup({
@@ -99,13 +102,64 @@ export class ActivityComponent implements OnInit {
   projectList;
   props;
   favList;
+  dateString: string = "Select a date";
+  showVar;
   ngOnInit() {
+    $('#inline_calendar').calendar({
+      type: 'date',
+      eventDates: [
+        {
+          date: new Date(2019,8,10),
+          message: 'Pay on time to avoid late charges',
+          class: 'emiDate'
+        },{
+          date: new Date(2019,9,10),
+          message: 'Show me in green',
+          class: 'green'
+        }
+      ],
+      onSelect(date,mode){
+        var month = new Array();
+        month[0] = "Jan";
+        month[1] = "Feb";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "Aug";
+        month[8] = "Sept";
+        month[9] = "Oct";
+        month[10] = "Nov";
+        month[11] = "Dec";
+    
+        var year = date.getFullYear();
+        var monthSelected = month[date.getMonth()];
+        var day = date.getDate();
+        this.dateString = monthSelected + " " + (day) + ", " + year;
+        var emiDate = new Date(date.getFullYear(),date.getMonth(), 10);
+        var selectedDate = new Date(date.getFullYear(),date.getMonth(), date.getDate());
+        if( emiDate.getFullYear()==selectedDate.getFullYear() && emiDate.getMonth() == selectedDate.getMonth() && emiDate.getDate() == selectedDate.getDate() ){
+          // localStorage.setItem('showEmiDetail','true');
+          // localStorage.setItem('dateString',this.dateString);
+          $('.ui.emiModal').modal('show');
+          
+        }
+        else{
+          this.showVar = false;
+        }
+        // console.log(this.showVar)
+      }
+    });
     if(localStorage.getItem('newUser')=="true"){
       this.newUserDisplay = true;
     }
     this.favList = JSON.parse(localStorage.getItem('favList'));
     this.customerName = JSON.parse(localStorage.getItem('customerName'));
     this.props=JSON.parse(localStorage.getItem('passbookList'));
+    if(this.props == null){
+      $('#inline_calendar').css('display','none');
+    }
     this.projectList = JSON.parse(localStorage.getItem('projectsList'));
   
   }

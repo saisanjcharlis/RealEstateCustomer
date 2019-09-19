@@ -17,4 +17,13 @@ html {
 *:focus {
     outline: 0;
     outline: none;
-    }
+}
+.emiDate{
+  background-image: url('./assets/rupee-indian-01.png');
+  color: #0066ff;
+  font-weight: bold;
+  box-shadow: 0 0 0 #0066ff inset;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

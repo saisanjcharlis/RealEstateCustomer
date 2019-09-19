@@ -115,10 +115,48 @@
                                 </div>
                         </div>
                     </div> 
-                    <div *ngIf="props!=null" style="margin:20px 0;">
-                            <span class="containerHeader">Upcoming EMI's</span>
+                    <div  style="margin:20px 0;">
+                            <span *ngIf="props!=null" class="containerHeader">Upcoming EMI's</span>
                             <div style="margin: 1.5em 0;border-radius: 4px;">
-                                    <emi-date></emi-date>
+                                    <!-- <emi-date></emi-date> -->
+                                    <div class="ui calendar" id="inline_calendar">
+                                    </div>
+                                    <!-- asd
+                                    <emi-detail></emi-detail> -->
+                                    {{showVar}}
+                                    <div *ngIf="showVar">
+                                          <div class="container" *ngFor="let prop of props">
+                                                  <!-- <div class="form-container detailedInfo">
+                                                    <ul class="list">
+                                                        <li>Spectra Fortune, Plot No 314</li>
+                                                        <li>BJIPD2659A</li>
+                                                        <li>₹15000</li>
+                                                    </ul>
+                                                  </div>
+                                                  <div class="form-container fields ">
+                                                    <ul class="list">
+                                                        <li>Project Info</li>
+                                                        <li>Passbook</li>
+                                                        <li>Amount due</li>
+                                                    </ul>
+                                                  </div> -->
+                                                  <div class="ui header">{{prop.project_name}}</div>
+                                                  <div class="ui celled horizontal list">
+                                                      <div class="item">
+                                                          <div class="infoValue">{{prop.plot_no}}</div>
+                                                          <div class="infoLabel">Plot Number</div>
+                                                      </div>
+                                                      <div class="item">
+                                                          <div class="infoValue">{{prop.passbook_no}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoLabel">Passbook</div>
+                                                      </div>
+                                                      <div class="item">
+                                                          <div class="infoValue">₹{{prop.installment_amount}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoLabel">Amount due</div>
+                                                      </div>
+                                                </div>
+                                              </div>
+                                      </div>
                             </div>
                             
                     </div>
@@ -231,3 +269,39 @@
         <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Telangana</span> 
     </div>
   </div> -->
+<div class="ui emiModal small modal">
+  <div class="header">Header</div>
+  <div class="content">
+    <div class="container" *ngFor="let prop of props">
+      <!-- <div class="form-container detailedInfo">
+        <ul class="list">
+            <li>Spectra Fortune, Plot No 314</li>
+            <li>BJIPD2659A</li>
+            <li>₹15000</li>
+        </ul>
+      </div>
+      <div class="form-container fields ">
+        <ul class="list">
+            <li>Project Info</li>
+            <li>Passbook</li>
+            <li>Amount due</li>
+        </ul>
+      </div> -->
+      <div class="ui header">{{prop.project_name}}</div>
+      <div class="ui celled horizontal list">
+          <div class="item">
+              <div class="infoValue">{{prop.plot_no}}</div>
+              <div class="infoLabel">Plot Number</div>
+          </div>
+          <div class="item">
+              <div class="infoValue">{{prop.passbook_no}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+              <div class="infoLabel">Passbook</div>
+          </div>
+          <div class="item">
+              <div class="infoValue">₹{{prop.installment_amount}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+              <div class="infoLabel">Amount due</div>
+          </div>
+    </div>
+  </div>
+  </div>
+</div>
