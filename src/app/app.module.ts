@@ -91,7 +91,7 @@ import '../services/capitalize.ts';
       accessToken: 'pk.eyJ1IjoiY2hhcmxpc3NhaXNhbmoiLCJhIjoiY2p6aHl6bmE1MTBudTNjbGJqMDl5a2Y0aiJ9.kdPD9Bn9QRGL8PcJTkUKew'
     })
   ],
-  providers: [AuthGuard, LocationsService, MapsService, LoginComponent, ConfigService],
+  providers: [AuthGuard, LocationsService, MapsService, LoginComponent, ConfigService, PopUpComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

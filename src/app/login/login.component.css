@@ -337,6 +337,7 @@ h1 {
 }
 .scrollButton{
   position: absolute; bottom:5%;left:50%;
+  cursor: pointer;
   animation: bounce 2s infinite;
 }
 @media all and (max-width: 768px) {

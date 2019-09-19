@@ -43,7 +43,7 @@ nextInput(e){
   // $('#otp').focus();
 }
 signIn(uname: string, p: string){
-  // localStorage.setItem('logStatus','true');
+  // session.setItem('logStatus','true');
   // localStorage.setItem('newUser','false');
   // this.routes.navigate(['/']);
   this.errors=[];
@@ -53,7 +53,7 @@ signIn(uname: string, p: string){
       if(data.success==true){
         $('.ui.modal').modal('hide');  
         localStorage.setItem('loginData',JSON.stringify(data.results));
-        localStorage.setItem('logStatus','true');
+        sessionStorage.setItem('logStatus','true');
         localStorage.setItem('newUser','false');
 
         let urlPassbook = `${this.config.url}services/v1/frontendcustomer/getpassbooklist`;
@@ -244,18 +244,21 @@ signUp(e,mobileNumber, otp, password){
   }
   
 }
-
+  clearInput(){
+    $('input').removeAttr('value');
+  }
   ngOnInit() {
-    if(localStorage.getItem('logStatus')=='true'){
+    // if(sessionStorage.getItem('logStatus')=='true'){
 
-    } 
-    else {
-      localStorage.setItem('logStatus','false');
-    };
+    // } 
+    // else {
+    //   sessionStorage.setItem('logStatus','logout');
+    // };
   }
   ngOnDestroy(){
     $('.ui.modal').modal('hide');  
     $('body .modal').remove();
+   
   }
 
 }

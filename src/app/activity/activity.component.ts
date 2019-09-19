@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, OnChanges, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { RouterModule , Router } from '@angular/router';
 import { ConfigService } from '../../services/config.service';
 import { HttpClient} from '@angular/common/http';
@@ -8,7 +8,7 @@ declare var $:any;
   templateUrl: './activity.component.html',
   styleUrls: ['./activity.component.css']
 })
-export class ActivityComponent implements OnInit, AfterViewChecked {
+export class ActivityComponent implements OnInit {
   showEMI = true;
   showtrans = false;
   showFeed = false;
@@ -81,9 +81,7 @@ export class ActivityComponent implements OnInit, AfterViewChecked {
       
     } 
   }
-  ngAfterViewChecked(){
-    console.log(this.showVar)
-  }
+  
   ngAfterViewInit() {
     $('.ui.menued.dropdown').dropdown() ;
     $('.locationButton').popup({

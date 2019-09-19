@@ -9,7 +9,7 @@
                         <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" (ngModelChange)="updateResults($event)" [(ngModel)]="locationSelected" type="text" placeholder={{searchPlaceholder}}>
                         <i class="search large blue icon"></i>
                 </div>
-                <a  id="intro"  class="scrollButton" href="#intro">  <i  class="arrow down large icon" style="color:white;"></i></a>
+                <a  id="intro" (click)="scroll()"  class="scrollButton" >  <i  class="arrow down large icon" style="color:white;"></i></a>
               
               </div>
     </div>

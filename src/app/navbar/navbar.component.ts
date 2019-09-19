@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
 
   }
   navViewOnly=true;
-  disableProfileAction=true;
   initialAvatar=true;
   buttonsEnable=false;
   accountName;
@@ -42,13 +41,13 @@ export class NavbarComponent implements OnInit {
     if(this.accountName=="Login/Sign Up" && (routeActivate == "projects" || routeActivate == "projectDetail" )){
       this.router.navigate(['/']);
     }
-    if(localStorage.getItem('logStatus')=='createProfile'){
+    if(sessionStorage.getItem('logStatus')=='createProfile'){
       this.router.navigate(['/createProfile']);
     }
   }
   home(){
     let routeActivate = this.route.snapshot.routeConfig.path;
-    if(localStorage.getItem('logStatus') !=='createProfile' || routeActivate == "projects"){
+    if(sessionStorage.getItem('logStatus') !=='createProfile' || routeActivate == "projects"){
       this.router.navigate(['/']);
     }
     if(routeActivate == ""){
@@ -70,35 +69,46 @@ export class NavbarComponent implements OnInit {
           this.router.navigate([this.router.url]);
         });     
     }
-    localStorage.setItem('logStatus','logout');
+    sessionStorage.setItem('logStatus','logout');
     this.router.navigate(['/']);
   }
   customerName;
   completeProfileNotification=false;
   ngOnInit() {
+    let avatar = this.initialAvatar;
     if(localStorage.getItem('profileStatus')=="incomplete"){
       this.completeProfileNotification=true;
     }
-     if(localStorage.getItem('logStatus')=='false'){
+    if(sessionStorage.getItem('logStatus')){
+      if(sessionStorage.getItem('logStatus')=='logout'){
+        this.navViewOnly = false;
+        this.accountName = "Login/Sign Up";
+        this.customerName = "Login/Sign Up";
+        this.initialAvatar=false;
+        this.buttonsEnable=true;
+      } else {
+        this.navViewOnly = true;  
+        this.customerName=JSON.parse(localStorage.getItem('customerName'));
+        this.initialAvatar=true;
+        this.createProfile = false;
+      }
+      
+      if(avatar == true){ 
+        if(localStorage.getItem('loginData')){
+          this.accountName = JSON.parse(localStorage.getItem('loginData')).userinfo.userName;
+          this.customerName = JSON.parse(localStorage.getItem('customerName'));
+        }
+      }
+    } else {
       this.navViewOnly = false;
       this.accountName = "Login/Sign Up";
       this.customerName = "Login/Sign Up";
-      this.disableProfileAction = false;
       this.initialAvatar=false;
-    } else {
-      this.navViewOnly = true;  
-      
-      this.customerName=JSON.parse(localStorage.getItem('customerName'));
-      this.initialAvatar=true;
-      this.createProfile = false;
+      this.buttonsEnable=true;
     }
-    let avatar = this.initialAvatar;
-    if(avatar == true){ 
-      if(localStorage.getItem('loginData')){
-        this.accountName = JSON.parse(localStorage.getItem('loginData')).userinfo.userName;
-        this.customerName = JSON.parse(localStorage.getItem('customerName'));
-      }
-    }
+
+     
+   
     let routeActivate = this.route.snapshot.routeConfig.path;
     if(this.accountName=="Login/Sign Up" && this.customerName == "Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
       this.projectsDisplay=false;

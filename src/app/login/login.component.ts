@@ -2,11 +2,13 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfigService } from '../../services/config.service';
 import { HttpClient} from '@angular/common/http';
+import { PopUpComponent } from './pop-up/pop-up.component';
 declare var $:any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [PopUpComponent]
 })
 export class LoginComponent implements OnInit {
   locationSelected;
@@ -18,10 +20,15 @@ export class LoginComponent implements OnInit {
     });
   }
   searchPlaceholder="Enter a location or zipcode";
+ 
+  constructor(private routes: Router, private config: ConfigService,private http: HttpClient, private popUpSign: PopUpComponent) { }
   public openModal(){
-    $('.ui.modal.modalSign').modal('show');   
+    $('.ui.modal.modalSign').modal({
+      onHide: function(){
+        $('body').find('input').val('');
+      }
+  }).modal('show');   
   }
-  constructor(private routes: Router, private config: ConfigService,private http: HttpClient) { }
   locationSearchEnter(e){
     localStorage.setItem('projectsDomain', e.target.value.toLowerCase());
     this.routes.navigate(['/projects']);
@@ -51,6 +58,11 @@ export class LoginComponent implements OnInit {
   agentModal(){
     $('.ui.modal.agentModal').modal('show');   
   }
+  scroll(){
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $("#intro").offset().top
+  }, 300);
+  }
   allotAgent(){
     $('body').toast({
       class: 'success',
@@ -59,6 +71,10 @@ export class LoginComponent implements OnInit {
     $('.toast-box').css("margin-top","50px");
   }
   ngOnInit() {
+    if(sessionStorage.getItem('logStatus')=='logout'){
+      localStorage.clear();
+      // sessionStorage.setItem('logStatus','logout');
+    }
     let url = `${this.config.url}customerlogin/getprojectslist`;
       this.http.post(url,{"wos":true}).subscribe((data:any) => {
         if(data.success==true){
@@ -80,9 +96,9 @@ export class LoginComponent implements OnInit {
     }
 
     $(document).scrollTop(0);
-    if(localStorage.getItem('logStatus')=='logout'){
-      window.location.reload();
-    }
+    // if(sessionStorage.getItem('logStatus')=='logout'){
+    //   window.location.reload();
+    // }
   
     
 

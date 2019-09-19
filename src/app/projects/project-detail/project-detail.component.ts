@@ -23,7 +23,7 @@ export class ProjectDetailComponent implements OnInit {
   
   constructor(private router:Router, private config: ConfigService, private http: HttpClient) { }
   buyLink(){
-    if(localStorage.getItem('logStatus')=='true'){
+    if(sessionStorage.getItem('logStatus')=='true'){
       let urlProjectDetails = `${this.config.url}services/v1/frontendcustomer/getplotsinfo`;
       var token = JSON.parse(localStorage.getItem('loginData')).token;
       this.http.post(urlProjectDetails,{"token":token,"params":{"project_id":this.projectSelected.id}}).subscribe((data:any) => {
@@ -41,7 +41,7 @@ export class ProjectDetailComponent implements OnInit {
   }
   save(e){
   
-      if(localStorage.getItem('logStatus')=='true'){
+      if(sessionStorage.getItem('logStatus')=='true'){
         var loginData = JSON.parse(localStorage.getItem('loginData'));
 
             if(this.saveText=="Save"){
@@ -138,7 +138,7 @@ export class ProjectDetailComponent implements OnInit {
     
 
 
-    if(localStorage.getItem('logStatus')=='true'){
+    if(sessionStorage.getItem('logStatus')=='true'){
       let favList = JSON.parse(localStorage.getItem('favList'));
       if(favList!=null){
         favList.map((fav)=>{
