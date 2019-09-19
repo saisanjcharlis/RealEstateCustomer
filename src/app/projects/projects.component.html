@@ -57,7 +57,7 @@
                                 <span style="padding:5px 0;display:inline-block;">{{projects.length}} results</span>
                                 <div style="float: right;">
                                                 <span >Sort By: </span>
-                                                <select  class="ui tiny dropdown">
+                                                <select (change)="sortProject(sortParam)" [(ngModel)]="sortParam" class="ui tiny dropdown">
                                                                 <option value="">None</option>
                                                                 <option value="priceHigh">Price (High to Low)</option>
                                                                 <option value="priceLow">Price (Low to High)</option>

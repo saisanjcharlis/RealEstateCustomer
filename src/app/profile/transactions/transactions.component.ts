@@ -27,6 +27,7 @@ export class TransactionsComponent implements OnInit {
     });
   }
   ngOnInit() {
+    $('table').tablesort();
     this.transactionsList = JSON.parse(localStorage.getItem('transactionSelected'));
     this.props=JSON.parse(localStorage.getItem('passbookList'));
     this.projectList = JSON.parse(localStorage.getItem('projectsList'));

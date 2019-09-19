@@ -29,6 +29,7 @@
             ],
             "scripts": [
               "src/js/jquery-3.4.1.min.js",
+              "src/js/tablesort.js",
               "src/js/imageMapResizer.min.js",
               "src/js/jquery.rwdImageMaps.min.js",
               "src/js/jquery.imagemapster.min.js",

@@ -399,6 +399,19 @@ export class ProjectsComponent implements OnInit {
     }
 
   }
+  sortParam;
+  sortProject(e){
+    if(e =="priceHigh"){
+      this.projects.sort( (a,b)=>{
+        return a.min_amount*a.min_sqyards-b.min_amount*b.min_sqyards;
+      });
+    }
+    if(e=="priceLow"){
+      this.projects.sort( (a,b)=>{
+        return b.min_amount*b.min_sqyards-a.min_amount*a.min_sqyards;
+      });
+    }
+  }
   statusTypeFilter(e){
     let propLabel=$(e.target).parent().text().trim().toLowerCase();
     if(e.target.checked == false && propLabel == "for sale"){
