@@ -54,7 +54,7 @@
                       <label>Select Plot</label>
                       <select name="plotNumber" (change)="select(plotValue)" [(ngModel)]="plotValue" class="ui fluid dropdown">
                         <option value=""></option>
-                        <option [ngValue]="prop" *ngFor="let prop of props">{{prop.project_name}}  Plot No-{{prop.plot_no}}</option>
+                        <option [ngValue]="prop" *ngFor="let prop of props">{{prop.project_name.capitalizeEachWord()}} Plot No-<b>{{prop.plot_no}}</b> Passbook-<b>{{prop.passbook_no}}</b></option>
                       </select>
                     </div>
 
