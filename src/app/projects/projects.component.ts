@@ -315,8 +315,11 @@ export class ProjectsComponent implements OnInit {
     }, 3000);
     
    
-    
+    localStorage.setItem('projectsDomain','telangana');
     this.projects=this.projectsApiList;
+    this.lat = this.mapsService.lat;
+    this.lng = this.mapsService.lng;
+    this.zoom = this.mapsService.zoom;
   }
   likedProject(e){
     $(e.target).transition('pulse');
@@ -368,33 +371,62 @@ export class ProjectsComponent implements OnInit {
     this.projects = this.projectsApiList;
     this.minPriceFilterValue = $(e.target).text().substring(0, $(e.target).text().length - 1);
     let minNumber = $(e.target).text().substring(0, $(e.target).text().length - 1).split(',').join('');
-    let maxNumber  = this.maxPriceFilterValue.substring(0, $(e.target).text().length - 1).split(',').join('');
-    if(this.maxPriceFilterValue=="Any Price"){
+    let maxNumber  = this.maxPriceFilterValue.substring(0, this.maxPriceFilterValue.length).split(',').join('');
+    if(this.maxPriceFilterValue=="Any Price" || this.maxPriceFilterValue==""){
       this.projects = this.projects.filter( (project) =>{
-        return project.minPrice>= minNumber;
+        return project.min_sqyards*project.min_amount>= minNumber;
       });
     } else {
       let maxPriceNumber = parseInt(maxNumber, 10);
       this.projects = this.projects.filter( (project) =>{
-        return project.minPrice>= minNumber && project.minPrice <= maxPriceNumber;
+        return project.min_sqyards*project.min_amount>= minNumber && project.min_sqyards*project.min_amount <= maxPriceNumber;
       });
     }
     
   }
+  minPriceChange(e){
+    this.projects = this.projectsApiList;
+    let maxNumber  = this.maxPriceFilterValue.substring(0, this.maxPriceFilterValue.length).split(',').join('');
+    if(this.maxPriceFilterValue=="Any Price" || this.maxPriceFilterValue==""){
+      this.projects = this.projects.filter( (project) =>{
+        return project.min_sqyards*project.min_amount>= e;
+      });
+    } else {
+      let maxPriceNumber = parseInt(maxNumber, 10);
+      this.projects = this.projects.filter( (project) =>{
+        return project.min_sqyards*project.min_amount>= e && project.min_sqyards*project.min_amount <= maxPriceNumber;
+      });
+    }
+  }
   maxPriceFilter(e){
     this.projects = this.projectsApiList;
-    this.maxPriceFilterValue = $(e.target).text().substring(0, $(e.target).text().length - 1);
-    let maxNumber = $(e.target).text().substring(0, $(e.target).text().length - 1).split(',').join('');
-    let minNumber  = this.minPriceFilterValue.substring(0, $(e.target).text().length - 1).split(',').join('');
-    if(this.maxPriceFilterValue=="Any Price"){
+    this.maxPriceFilterValue = $(e.target).text().substring(0, $(e.target).text().length);
+    let maxNumber = $(e.target).text().substring(0, $(e.target).text().length).split(',').join('');
+    let minNumber  = this.minPriceFilterValue.substring(0, this.minPriceFilterValue.length).split(',').join('');
+    if(this.maxPriceFilterValue=="Any Price" || this.maxPriceFilterValue==""){
       this.projects = this.projects.filter( (project) =>{
-        return project.minPrice<= maxNumber;
+        return project.min_sqyards*project.min_amount>= parseInt(minNumber, 10);
       });
     } else {
       let maxPriceNumber = parseInt(maxNumber, 10);
       let minPriceNumber = parseInt(minNumber, 10);
       this.projects = this.projects.filter( (project) =>{
-        return project.minPrice>= minPriceNumber && project.minPrice <= maxPriceNumber;
+        return project.min_sqyards*project.min_amount>= minPriceNumber && project.min_sqyards*project.min_amount <= maxPriceNumber;
+      });
+    }
+
+  }
+  maxPriceChange(e){
+    this.projects = this.projectsApiList;
+    let minNumber  = this.minPriceFilterValue.substring(0, this.minPriceFilterValue.length).split(',').join('');
+    if(e==""){
+      this.projects = this.projects.filter( (project) =>{
+        return project.min_sqyards*project.min_amount>= parseInt(minNumber, 10);
+      });
+    } else {
+      let minPriceNumber = parseInt(minNumber, 10);
+      this.projects = this.projects.filter( (project) =>{
+        return project.min_sqyards*project.min_amount>= minPriceNumber && project.min_sqyards*project.min_amount <= e;
       });
     }
 
@@ -402,13 +434,28 @@ export class ProjectsComponent implements OnInit {
   sortParam;
   sortProject(e){
     if(e =="priceHigh"){
-      this.projects.sort( (a,b)=>{
+      this.projects.sort( (b,a)=>{
         return a.min_amount*a.min_sqyards-b.min_amount*b.min_sqyards;
       });
     }
     if(e=="priceLow"){
-      this.projects.sort( (a,b)=>{
+      this.projects.sort( (b,a)=>{
         return b.min_amount*b.min_sqyards-a.min_amount*a.min_sqyards;
+      });
+    }
+    if(e=="newest"){
+      this.projects.sort( (b,a)=>{
+        return b.created_at.getTime()-a.created_at.getTime();
+      });
+    }
+    if(e=="squareMax"){
+      this.projects.sort( (a,b)=>{
+        return b.max_sqyards-a.max_sqyards;
+      });
+    }
+    if(e=="squareMin"){
+      this.projects.sort( (a,b)=>{
+        return b.min_sqyards-a.min_sqyards;
       });
     }
   }
@@ -500,6 +547,7 @@ export class ProjectsComponent implements OnInit {
     this.projectsApiList=JSON.parse(localStorage.getItem('projectsList'));
     this.projectsApiList.map( (data) => {
       this.locList.push(data.city);
+      data.created_at = new Date(Date.parse(data.created_at));
     });
     if(localStorage.getItem('projectsDomain')){
       this.lat = 17.0754526;

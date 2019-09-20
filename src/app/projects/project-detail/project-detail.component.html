@@ -67,14 +67,14 @@
             
              
             <div class="gridContainer">
-                    <div *ngIf="plotTab">
+                    <!-- <div *ngIf="plotTab">
                             <div class="details">{{projectSelected.project_name}} Layout</div>
                             <div style="font-size:10px;color:#0066ff;margin-bottom:50px;">Click on the image to view plot details</div>
                             <div class="ui celled horizontal list">
-                                    <!-- <div class="item">
+                                    <div class="item">
                                         <div class="infoValue">9 Acres</div>
                                         <div class="infoLabel">Total Area</div>
-                                    </div> -->
+                                    </div>
                                     <div class="item">
                                         <div class="infoValue">{{projectSelected.min_sqyards}}-{{projectSelected.max_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                         <div class="infoLabel">Sq.Yd.</div>
@@ -91,7 +91,7 @@
                                     <div><div class="ui red label" style="width:40px;text-align: center">0</div></div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Sold</div>
                             </div>
                            
-                    </div>
+                    </div> -->
                     <div>
                          <!-- Overview -->  
                             <div class="ui active tab segment" data-tab="first">
@@ -118,11 +118,11 @@
                                     </div>
                                     <div style="clear: both"></div>
                                   
-                                    <div class="subHeader">Approved By Banks :</div>
+                                    <!-- <div class="subHeader">Approved By Banks :</div>
                                     <div class="bankList">
                                        <img src="https://property.magicbricks.com/mb-microsite/2/omsreesignet-omsreebuildersanddevelopers-secunderabad/images/bank/axis.jpg">
                                        <img src="https://property.magicbricks.com/mb-microsite/2/omsreesignet-omsreebuildersanddevelopers-secunderabad/images/bank/sbi.jpg">
-                                    </div>
+                                    </div> -->
                                     <div  class="subHeader">Downloads :</div>
                                     <div class="downloads">
                                             <a download href="../../../assets/viceroyceBrochure.pdf" style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Brochure</span></a>
@@ -139,6 +139,8 @@
                                 <!-- Plot Details -->
                                 <div  class="ui tab segment plotDetails" data-tab="third">
                                         <div class="menuHeader">Plot Details</div>
+                                        <div class="details">{{projectSelected.project_name.capitalizeEachWord()}} Layout</div>
+                            <div style="font-size:10px;color:#0066ff;margin-bottom:50px;">Click on the image to view plot details</div>
                                         <img (click)="buyLink()" id="image-map" src="assets/Asset 1.svg" style="cursor:pointer;" usemap="#image-map" >
                                       
                                 </div>
@@ -196,10 +198,10 @@
                                                                     <div class="ui blue label">Posted: {{project.created_at.substr(0, 10)}}</div>
                                                             </div>
                                                             <span class="ratingFloat ui mini star blue rating" data-rating="3" data-max-rating="5"></span>
-                                                            <img style="cursor: pointer;" [src]="project.id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'">
+                                                            <img style="cursor: pointer;" [src]="project.id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'">
                                                     </div>
                                                     <div class="content">
-                                                        <div id="projectName" style="width: 100%;" class="header">{{project.project_name}}</div>
+                                                        <div id="projectName" style="width: 100%;" class="header">{{project.project_name.capitalizeEachWord()}}</div>
                                                         <div style="margin-top:5px;" class="ui celled horizontal list">
                                                                 <div class="item">
                                                                     <div class="infoValue">₹ {{project.min_amount*project.min_sqyards}}</div>
@@ -291,13 +293,13 @@
                             </div>
                             <hr style="opacity: 0.3; z-index: 5;">
                     </div> -->
-                    <div class="rightContent" *ngIf="!plotTab">
+                    <!-- <div class="rightContent" *ngIf="!plotTab">
                         <div class="checkListOverview1">
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Standards:<b>ISO 9001-2008 </b></div>
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Total Units:<b>351</b></div>
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>351</b></div>
-                            <!-- <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
-                            <div><i class="large blue check circle outline icon"></i>&nbsp;Onwards Price:<b>1.4 Cr</b></div> -->
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
+                            <div><i class="large blue check circle outline icon"></i>&nbsp;Onwards Price:<b>1.4 Cr</b></div>
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>{{projectSelected.city}}</b></div>
                             <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Plot</b></div>
                         </div>
@@ -308,7 +310,7 @@
                         </div>
                        <button *ngIf="buttonEnable" style="margin-top:40px;" (click)="buyLink()" class="ui button yellow">Sign in to View Plots</button>
                        <button style="margin-top:40px;" routerLink="/help" class="ui button blue">Contact Us</button>
-                </div>
+                </div> -->
             </div>
     <footer></footer>
 </div>
@@ -332,6 +334,7 @@
 <div class="ui modal googleMap">
     <i class="close icon"></i>
     <agm-map #map
+                        [mapTypeId]='mapType'
                         [latitude]='lat' 
                         [longitude]='long'
                         [usePanning]="true" 

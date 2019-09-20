@@ -35,7 +35,7 @@
                                 >
                                 <agm-info-window #window>
                                         <div>
-                                                        <i class="city fitted large icon" ></i><span (click)="viewProject(marker)" class="mapProjectHeader" >{{marker.projectName.capitalizeEachWord()}}</span>
+                                                        <i class="city fitted large icon" ></i><span (click)="viewProject(marker)" class="mapProjectHeader" > {{marker.projectName.capitalizeEachWord()}}</span>
                                                         <div>
                                                                         <span style="font-weight: bold;text-align: right">{{marker.minArea}}-{{marker.maxArea}} </span>
                                                                         <span style="font-size:10px;font-weight: normal;color:#414143;">sqyd</span>
@@ -62,7 +62,8 @@
                                                                 <option value="priceHigh">Price (High to Low)</option>
                                                                 <option value="priceLow">Price (Low to High)</option>
                                                                 <option value="newest">Newest</option>
-                                                                <option value="Square">Square Yards</option>
+                                                                <option value="squareMax">Square Yards (Maximum)</option>
+                                                                <option value="squareMin">Square Yards (Minimum)</option>
                                                 </select>
                                 </div>
                                <div style="clear:both;"></div>
@@ -77,9 +78,9 @@
                         <div class="card" *ngFor="let project of projects;" >
                                 <div class="image">
                                         <div class="tagInfo">
-                                                <div class="ui blue label">Posted: {{project.created_at.substr(0, 10)}} </div>
+                                                <div class="ui blue label">Posted: {{project.created_at.getFullYear()}}-{{project.created_at.getMonth()+1}}-{{project.created_at.getDate()}} </div>
                                         </div>
-                                       
+                                        <!-- {{project.created_at.substr(0, 10)}}  -->
                                         <span class="ratingFloat ui mini star blue rating" data-rating="4" data-max-rating="5"></span>
                                         <img (click)="viewProject(project)" style="cursor: pointer;" [src]="project.id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'" >
                                 </div>
@@ -140,10 +141,6 @@
                         <input type="checkbox" (change)="homeTypeFilter($event)" name="villas">
                         <label>Villas</label>
                 </div>
-                <div class="ui checkbox marginBottom">
-                        <input type="checkbox" (change)="homeTypeFilter($event)" name="builder">
-                        <label>Builder</label>
-                </div>
         </div>
       
 </div>
@@ -152,36 +149,39 @@
         <div class="ui header">Price Range</div>
         <div class="priceInput">
                 <div class="ui input">
-                        <input [ngModel]="minPriceFilterValue" type="text" placeholder="Min">
+                        <input [ngModel]="minPriceFilterValue" (ngModelChange)="minPriceChange($event)" type="text" placeholder="Min">
                 </div>
                 <span style="padding:9.5px;">-</span>
                 <div class="ui input">
-                        <input [ngModel]="maxPriceFilterValue" type="text" placeholder="Max">
+                        <input [ngModel]="maxPriceFilterValue" (ngModelChange)="maxPriceChange($event)" type="text" placeholder="Max">
                 </div> 
         </div>
         <div class="priceListGrid">
                 <div class="ui list">
                         <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>0+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>1,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>2,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>3,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>4,00,000+</div>
+                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>5,00,000+</div>
                         <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>10,00,000+</div>
                         <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>20,00,000+</div>
                         <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>30,00,000+</div>
                         <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>40,00,000+</div>
                         <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>50,00,000+</div>
-                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>60,00,000+</div>
-                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>70,00,000+</div>
-                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>80,00,000+</div>
-                        <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>90,00,000+</div>
                 </div>
                 <div class="ui list">
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>50,00,000+</div>
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>60,00,000+</div>
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>70,00,000+</div>
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>80,00,000+</div>
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>90,00,000+</div>
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>1 Cr+</div>
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>1.25 Cr+</div>
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>1.5 Cr+</div>
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>1.75 Cr+</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>5,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>10,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>20,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>30,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>40,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>50,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>60,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>70,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>80,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>90,00,000</div>
+                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>1,00,00,000</div>
                         <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>Any Price</div>
                 </div>
         </div>
@@ -237,10 +237,6 @@
                         <div class="ui checkbox marginBottom">
                                 <input type="checkbox" (change)="homeTypeFilter($event)" name="villas">
                                 <label>Villas</label>
-                        </div>
-                        <div class="ui checkbox marginBottom">
-                                <input type="checkbox" (change)="homeTypeFilter($event)" name="builder">
-                                <label>Builder</label>
                         </div>
                 </div>
                 <button class="ui basic tiny button blue" style="margin-top:40px;" (click)="clearFilters($event)">Clear</button>

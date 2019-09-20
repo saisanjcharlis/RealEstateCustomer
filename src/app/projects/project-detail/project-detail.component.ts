@@ -16,7 +16,7 @@ export class ProjectDetailComponent implements OnInit {
   projects;
   buttonEnable=true;
   plotTab=false;
-
+  mapType='satellite';
   lat;
   long;; 
   zoom: number=15;

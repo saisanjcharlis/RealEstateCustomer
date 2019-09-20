@@ -43,9 +43,6 @@ nextInput(e){
   // $('#otp').focus();
 }
 signIn(uname: string, p: string){
-  // session.setItem('logStatus','true');
-  // localStorage.setItem('newUser','false');
-  // this.routes.navigate(['/']);
   this.errors=[];
   if(uname.length>0 && p.length>0){
    let url = `${this.config.url}customerlogin/cutomerauth`;
@@ -178,6 +175,7 @@ signIn(uname: string, p: string){
 
 }
 otpIcon;
+namePassed=false;
 mobilePassed=false;
 otpPassed = false;
 passwordPassed1 = false;
@@ -198,16 +196,20 @@ otpGenerate(e,mobileNumber){
   
    
 }
-signUp(e,mobileNumber, otp, password){  
+signUp(e,name,mobileNumber, otp, password){  
   var phoneno = /^\d{10}$/;
+  var validName= new RegExp("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
   this.errors1=[];
-  
- 
   let minAlphabet = new RegExp("^(?=.*[A-Z])");
   let minNumber = new RegExp("^(?=.*[0-9])");
   let minSpecChar = new RegExp("(?=.[!@#\$%\^&])");
   let minCount = new RegExp("(?=.{8,})");
-  if(!mobileNumber.match(phoneno)){
+  if(!validName.test(name)){
+    this.errors1.push('Enter Valid Name');
+  } else {
+    this.namePassed=true;
+  }
+  if(!mobileNumber.match(phoneno) && this.namePassed){
     this.errors1.push("Enter Valid Mobile Number");
   } 
   if(otp.length>0 && otp.length !== 6 && mobileNumber.length == 10){

@@ -104,7 +104,7 @@ export class NavbarComponent implements OnInit {
       this.accountName = "Login/Sign Up";
       this.customerName = "Login/Sign Up";
       this.initialAvatar=false;
-      this.buttonsEnable=true;
+      this.buttonsEnable=false;
     }
 
      

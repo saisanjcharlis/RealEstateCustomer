@@ -104,10 +104,8 @@
     padding: 1em!important;
 }
 .gridContainer{
-    display: grid;
-    margin:20px;
-    grid-gap:10px 1rem;
-    grid-template-columns: 50% 45%;
+    /* display: grid; */
+    margin:20px 25%;
 }
 @media all and (max-width: 930px) {
     .gridContainer{

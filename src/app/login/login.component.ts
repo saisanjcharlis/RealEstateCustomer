@@ -23,9 +23,12 @@ export class LoginComponent implements OnInit {
  
   constructor(private routes: Router, private config: ConfigService,private http: HttpClient, private popUpSign: PopUpComponent) { }
   public openModal(){
+
     $('.ui.modal.modalSign').modal({
       onHide: function(){
         $('body').find('input').val('');
+        // $('.ui.error.message').hide(); 
+       
       }
   }).modal('show');   
   }
