@@ -50,9 +50,11 @@ export class BuyComponent implements OnInit {
   plotNumber:number;
   modelChange(newObj){
     if(newObj==null){
+      console.log("null")
       $('.available').css('fill','#2fce72');
     }
     if($("#"+newObj).length){
+      console.log("1")
       $('.available').css('fill','none');
       $("#"+newObj).css('fill','#2fce72');
       var elHeight = $("#"+newObj).offset().top;
@@ -75,7 +77,8 @@ export class BuyComponent implements OnInit {
 
 
     } else {
-      // $('.available').css('fill','#2fce72');
+      $('.available').css('fill','#2fce72');
+      
       this.plotsList.map((plot)=>{
         if(plot.available_status==0){
           $('#'+plot.plot_no).css('fill','rgba(255,0,0,0.5)');
@@ -95,6 +98,8 @@ export class BuyComponent implements OnInit {
     this.plotSelectedAttr=this.plotsList.filter((plot)=>{
       return plot.plot_no==this.plotSelected;
     });
+    sessionStorage.setItem('plotSelectedAttr',JSON.stringify(this.plotSelectedAttr));
+    $('.ui.modal.plotInfo').modal('show');
   }
   openAttr(e){
     this.plotSelected = e.target.id;
