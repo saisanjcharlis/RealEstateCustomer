@@ -9,10 +9,10 @@
                 <div style="font-weight: bold;font-size:18px;">{{projectSelected.project_name.capitalizeEachWord()}}</div>
                 <div style="font-size:12px;">{{projectSelected.city.capitalizeEachWord()}}, {{projectSelected.state}} {{projectSelected.zipcode}}</div>
                 <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
-                    <div class="ui blue rating" data-rating="4" data-max-rating="5"></div>
+                    <!-- <div class="ui blue rating" data-rating="4" data-max-rating="5"></div> -->
                 </div>
             </div>
-            <span (click)="save($event)" class="actionButton"><i class="like outline blue icon"></i>{{saveText}}</span>
+            <span (click)="save($event)" class="actionButton"><i class="like outline saveButton blue icon"></i>{{saveText}}</span>
             <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
             <!-- <button routerLink="/buy" class="ui blue button cartButton"><i class="shopping cart icon"></i><span *ngIf="plotCart.length>0">{{plotCart.length}}</span></button> -->
           
@@ -26,9 +26,9 @@
                         <button (click)="selectPlan3($event)" class="ui basic yellow button">Plan 3</button> -->
                 </div>
                 <div class="plotStatus">
-                        <div class="ui green label" style="width:40px;text-align: center">351</div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Available</div>
-                        <div class="ui blue label" style="width:40px;text-align: center">0</div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Partially Available</div>
-                        <div class="ui red label" style="width:40px;text-align: center">0</div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Sold</div>
+                        <div class="ui green label" style="width:40px;text-align: center">{{availableCount}}</div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Available</div>
+                        <div class="ui blue label" style="width:40px;text-align: center">{{partialCount}}</div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Partially Available</div>
+                        <div class="ui red label" style="width:40px;text-align: center">{{soldCount}}</div><div style="font-size:14px;font-weight: bold;padding:2px 0;"> Sold</div>
                 </div>
                 <div class="ui icon input searchPlot">
                         <i class="search icon"></i>
@@ -36,7 +36,7 @@
                 </div>
                 <div  class="ui  action input searchPlotDesktop">
                         <input (ngModelChange)="modelChange($event)" (keyup.enter)="searchPlot($event)" [(ngModel)]="plotNumber" type="number" placeholder="Plot Number">
-                        <div  class="ui blue extraText button">Select by Plot Number</div>
+                        <div (click)="plotSearch(plotNumber)" class="ui blue extraText button">Select by Plot Number</div>
                 </div>
             </div>
             <div style="margin-top:50px;overflow: auto">
@@ -2342,11 +2342,17 @@
         <div class="content" style="color:#414143;">
             <div style="display:grid;grid-template-columns: 45% 45%;grid-gap: 0 10%;padding:20px;">
                     <span class="plotInfoLabel">Status</span>
-                    <span><b>{{availStatus}}</b></span>
+                    <span [ngStyle]="{'color':this.plotColor}"><b>{{availStatus}}</b></span>
                     <span class="plotInfoLabel">Area</span>
-                    <span><b>{{plotSelectedProps.plot_sqyards}} sqft</b></span>
-                    <span class="plotInfoLabel">Plot View</span>
-                    <span><b>{{plotSelectedProps.plot_view}}</b></span>
+                    <span><b>{{plotSelectedProps.plot_sqyards}} sqyd</b></span>
+                    <span class="plotInfoLabel">Passbooks</span>
+                    <span><b>{{plotSelectedPassbookCount}}</b></span>
+                    <!-- <span class="plotInfoLabel">Plot View</span>
+                    <span><b>{{plotSelectedProps.plot_view.capitalizeEachWord()}}</b></span> -->
+                    <span class="plotInfoLabel">Attributes</span>
+                    <div>
+                        <span *ngFor="let attr of plotSelectedAttributes"><b>{{attr}}</b><br></span>
+                    </div>
                     <span class="plotInfoLabel">Extra Cost</span>
                     <span><b>{{plotSelectedProps.extra_cost}}</b></span>
             </div>

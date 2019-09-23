@@ -369,9 +369,9 @@ export class ProjectsComponent implements OnInit {
   
   minPriceFilter(e){
     this.projects = this.projectsApiList;
-    this.minPriceFilterValue = $(e.target).text().substring(0, $(e.target).text().length - 1);
     let minNumber = $(e.target).text().substring(0, $(e.target).text().length - 1).split(',').join('');
-    let maxNumber  = this.maxPriceFilterValue.substring(0, this.maxPriceFilterValue.length).split(',').join('');
+    let maxNumber  = this.maxPriceFilterValue;
+    this.minPriceFilterValue = minNumber;
     if(this.maxPriceFilterValue=="Any Price" || this.maxPriceFilterValue==""){
       this.projects = this.projects.filter( (project) =>{
         return project.min_sqyards*project.min_amount>= minNumber;
@@ -386,7 +386,9 @@ export class ProjectsComponent implements OnInit {
   }
   minPriceChange(e){
     this.projects = this.projectsApiList;
-    let maxNumber  = this.maxPriceFilterValue.substring(0, this.maxPriceFilterValue.length).split(',').join('');
+    let maxNumber  = this.maxPriceFilterValue;
+    // console.log(e.substring(0, $(e.target).text().length - 1));
+    // this.minPriceFilterValue = e.text().substring(0, $(e.target).text().length - 1);
     if(this.maxPriceFilterValue=="Any Price" || this.maxPriceFilterValue==""){
       this.projects = this.projects.filter( (project) =>{
         return project.min_sqyards*project.min_amount>= e;
@@ -400,9 +402,9 @@ export class ProjectsComponent implements OnInit {
   }
   maxPriceFilter(e){
     this.projects = this.projectsApiList;
-    this.maxPriceFilterValue = $(e.target).text().substring(0, $(e.target).text().length);
     let maxNumber = $(e.target).text().substring(0, $(e.target).text().length).split(',').join('');
     let minNumber  = this.minPriceFilterValue.substring(0, this.minPriceFilterValue.length).split(',').join('');
+    this.maxPriceFilterValue = maxNumber;
     if(this.maxPriceFilterValue=="Any Price" || this.maxPriceFilterValue==""){
       this.projects = this.projects.filter( (project) =>{
         return project.min_sqyards*project.min_amount>= parseInt(minNumber, 10);
@@ -418,7 +420,7 @@ export class ProjectsComponent implements OnInit {
   }
   maxPriceChange(e){
     this.projects = this.projectsApiList;
-    let minNumber  = this.minPriceFilterValue.substring(0, this.minPriceFilterValue.length).split(',').join('');
+    let minNumber  = this.minPriceFilterValue;
     if(e==""){
       this.projects = this.projects.filter( (project) =>{
         return project.min_sqyards*project.min_amount>= parseInt(minNumber, 10);

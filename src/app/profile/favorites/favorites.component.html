@@ -61,8 +61,8 @@
                                                 <div class="ui blue label">Posted: {{project.created_at.substr(0, 10)}}</div>
                                         </div>
                                        
-                                        <span class="ratingFloat ui mini star blue rating" data-rating="4" data-max-rating="5"></span>
-                                        <img (click)="viewProject(project)" style="cursor: pointer;" [src]="project.id== 23 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'" >
+                                        <!-- <span class="ratingFloat ui mini star blue rating" data-rating="4" data-max-rating="5"></span> -->
+                                        <img (click)="viewProject(project)" style="cursor: pointer;" [src]="project.id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/02/galaxy_new.jpg'" >
                                 </div>
                                 <div class="content">
                                         <div id="projectName" style="width: 100%;" class="header" (click)="viewProject(project)">{{project.project_name.capitalizeEachWord()}}</div>

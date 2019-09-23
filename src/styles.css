@@ -27,3 +27,17 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.gridContent .ui.table>thead>tr>th {
+  background: aliceblue !important;
+}
+.gridContent .ui.celled.table>tbody>tr>td,.gridContent .ui.celled.table>tbody>tr>th,.gridContent .ui.celled.table>tfoot>tr>th,.gridContent .ui.celled.table>thead>tr>th,.gridContent .ui.celled.table>tr>td,.gridContent .ui.celled.table>tr>th {
+  border: none !important;
+}
+.gridContent .ui.table>tbody>tr>td,.gridContent .ui.table>tr>td{
+  padding: .78571429em .78571429em !important;
+}
+.gridContent .ui.ui.table td.active,.gridContent  .ui.ui.ui.ui.table tr.active {
+  background: #0066ff !important;
+  color:white !important;
+  border-radius: 4px ;
+}

@@ -31,7 +31,7 @@
                     <div style="font-weight: bold;font-size:18px;">{{projectSelected.project_name.capitalizeEachWord()}}</div>
                     <div style="font-size:12px;">{{projectSelected.city.capitalizeEachWord()}}, {{projectSelected.state}} {{projectSelected.zipcode}}</div>
                     <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
-                        <div class="ui blue rating" data-rating="4" data-max-rating="5"></div>
+                        <!-- <div class="ui blue rating" data-rating="4" data-max-rating="5"></div> -->
                     </div>
                 </div>
                 <div class="ui celled horizontal list">
@@ -109,8 +109,8 @@
                                     </div>
                                     <div class="checkListOverview ">
                                             <div><i class="large blue check circle outline icon"></i>&nbsp;Standards:<b>ISO 9001-2008 </b></div>
-                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Total Units:<b>351</b></div>
-                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>351</b></div>
+                                            <!-- <div><i class="large blue check circle outline icon"></i>&nbsp;Total Units:<b>351</b></div>
+                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>351</b></div> -->
                                             <!-- <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
                                             <div><i class="large blue check circle outline icon"></i>&nbsp;Onwards Price:<b>1.4 Cr</b></div> -->
                                             <div><i class="large blue check circle outline icon"></i>&nbsp;Location:<b>{{projectSelected.city}}</b></div>
@@ -206,7 +206,7 @@
                                                             <div class="tagInfo">
                                                                     <div class="ui blue label">Posted: {{project.created_at.substr(0, 10)}}</div>
                                                             </div>
-                                                            <span class="ratingFloat ui mini star blue rating" data-rating="3" data-max-rating="5"></span>
+                                                            <!-- <span class="ratingFloat ui mini star blue rating" data-rating="3" data-max-rating="5"></span> -->
                                                             <img style="cursor: pointer;" [src]="project.id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'">
                                                     </div>
                                                     <div class="content">
