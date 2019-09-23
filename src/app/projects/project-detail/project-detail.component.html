@@ -28,7 +28,7 @@
                         <i class="large city icon" style="color:white;"></i>
                 </div>
                 <div style="flex:1 0 auto;">
-                    <div style="font-weight: bold;font-size:18px;">{{projectSelected.project_name.capitalizeEachWord()}}</div>
+                    <div style="font-weight: bold;font-size:18px;max-width: 55vw;word-wrap: break-word">{{projectSelected.project_name.capitalizeEachWord()}}</div>
                     <div style="font-size:12px;">{{projectSelected.city.capitalizeEachWord()}}, {{projectSelected.state}} {{projectSelected.zipcode}}</div>
                     <div style="font-size:12px;">Status: <span style="border-bottom: 1px dotted ;">Active</span>&nbsp;
                         <!-- <div class="ui blue rating" data-rating="4" data-max-rating="5"></div> -->
@@ -50,7 +50,7 @@
                 </div>
                 <span (click)="save($event)" class="actionButton"><i class="like saveButton outline blue icon"></i>{{saveText}}</span>
                 <span (click)="share()" class="actionButton"><i class="external alternate icon"></i>Share</span>
-                <button (click)="buyLink()" class="ui blue button">View Plots</button>
+                <button  (click)="buyLink()" class="ui blue button viewPlotButton">View Plots</button>
               
             </div>
             <hr style="opacity: 0.3;">

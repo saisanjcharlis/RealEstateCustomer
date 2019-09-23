@@ -7,7 +7,7 @@
         <button class="ui tiny button basic basicButton statusButton">Status</button>
         <button class="ui tiny button basic basicButton priceButton">Price</button>
         <button class="ui tiny button basic basicButton homeButton">Property Type</button>
-        <!-- <button class="ui tiny button basic basicButton moreButton">More</button> -->
+        <button (click)="toggleMapView()" class="ui tiny button basic mapButton">Map View</button>
         <!-- <button class="ui tiny button blue" (click)="saveSearch()">Save Search</button> -->
         <button class="ui basic right floated tiny button blue clearButton" (click)="clearFilters($event)">Clear</button>
         <button class="ui filterMobile tiny blue icon button">
@@ -239,6 +239,13 @@
                                 <label>Villas</label>
                         </div>
                 </div>
+                <div class="ui header">Price Range</div>
+                        <div class="ui input">
+                                <input [ngModel]="minPriceFilterValue" (ngModelChange)="minPriceChange($event)" type="text" placeholder="Min">
+                        </div>
+                        <div class="ui input" style="margin-top:5px;">
+                                <input [ngModel]="maxPriceFilterValue" (ngModelChange)="maxPriceChange($event)" type="text" placeholder="Max">
+                        </div> 
                 <button class="ui basic tiny button blue" style="margin-top:40px;" (click)="clearFilters($event)">Clear</button>
 </div>
 

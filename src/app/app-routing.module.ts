@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'activity', canActivate : [AuthGuard] , component: ActivityComponent},
   { path: 'createProfile', component: CreateProfileComponent },
   { path: 'forgotPassword', component: ForgotpasswordComponent },
-  { path: 'projectDetail', component: ProjectDetailComponent },
+  { path: 'projectDetail/:id', component: ProjectDetailComponent },
   { path: 'messages', component: MessagesComponent },
   { path: 'fav', component: FavoritesComponent },
   { path: 'help', component: HelpComponent },

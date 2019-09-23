@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { AgmMap } from '@agm/core';
-import { RouterModule , Router } from '@angular/router';
+import { RouterModule , Router, ActivatedRoute} from '@angular/router';
 import { HttpClient} from '@angular/common/http';
 import { ConfigService } from '../../../services/config.service';
 declare var $:any;
@@ -10,7 +10,8 @@ declare var $:any;
   styleUrls: ['./project-detail.component.css']
 })
 export class ProjectDetailComponent implements OnInit {
-  
+  id: number;
+  private sub: any;
   saveText="Save";
   projectSelected;
   projects;
@@ -21,7 +22,7 @@ export class ProjectDetailComponent implements OnInit {
   long;; 
   zoom: number=15;
   
-  constructor(private router:Router, private config: ConfigService, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private router:Router, private config: ConfigService, private http: HttpClient) { }
   buyLink(){
     if(sessionStorage.getItem('logStatus')=='true'){
       let urlProjectDetails = `${this.config.url}services/v1/frontendcustomer/getplotsinfo`;
@@ -128,6 +129,10 @@ export class ProjectDetailComponent implements OnInit {
   neighbourhoodList;
   propertyDetailList;
   ngOnInit() {
+
+    this.sub = this.route.params.subscribe(params => {
+      this.id = +params['id']; 
+    });
     this.neighbourhoodList=JSON.parse(localStorage.getItem('neighbourhoodData'));
     this.propertyDetailList=JSON.parse(localStorage.getItem('propertiesDetails'))
     this.projectSelected= JSON.parse(localStorage.getItem('projectSelected'));
@@ -164,5 +169,6 @@ export class ProjectDetailComponent implements OnInit {
   }
   ngOnDestroy(){
     $('body .modal').remove();
+    this.sub.unsubscribe();
   }
 }

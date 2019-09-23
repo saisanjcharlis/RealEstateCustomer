@@ -244,6 +244,12 @@ export class BuyComponent implements OnInit {
     this.projectSelected=JSON.parse(localStorage.getItem('projectSelected'));
 
     this.plotsList=JSON.parse(localStorage.getItem('plotsData'));
+    this.plotsList.map( (plot)=>{
+      let parseTrue=typeof(JSON.parse(plot.project_attributes));
+      if(parseTrue==='string'){
+        plot.project_attributes=JSON.parse(plot.project_attributes);
+      }
+    });
     
     this.plotsList.map((plot)=>{
       if(plot.available_status==0){

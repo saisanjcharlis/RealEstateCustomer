@@ -271,7 +271,7 @@ export class ProjectsComponent implements OnInit {
           this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":project.id}}).subscribe((data:any) => {
             if(data.success==true){
                localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
-               this.router.navigate(['/projectDetail']);
+               this.router.navigate(['/projectDetail',project.id]);
             }
           });
         }
@@ -301,6 +301,23 @@ export class ProjectsComponent implements OnInit {
 
     }
     
+  }
+  toggleMap=true;
+  toggleMapView(){
+   
+    if(this.toggleMap){
+      $('.mapContainer').toggleClass('mapContainerMobile');
+      $('.projectContainer').css('display','none');
+      $('.mapButton').css('background','#0066ff');
+      $('.mapButton').css('color','white');
+    } else {
+      $('.mapContainer').toggleClass('mapContainerMobile');
+      $('.projectContainer').css('display','block');
+      $('.mapButton').css('background','transparent');
+      $('.mapButton').css('color','#0066ff');
+    }
+    this.toggleMap=!this.toggleMap;
+   
   }
   clearFilters(e){
     this.locationSelected="";
@@ -352,6 +369,7 @@ export class ProjectsComponent implements OnInit {
      });
     this.locationSelected = marker.city+', TS';
     this.location=  marker.state+ "Real Estate";
+    this.toggleMapView();
     // this.router.navigate(['/projectDetail']);
   }
   onMouseOver(gm, window) {

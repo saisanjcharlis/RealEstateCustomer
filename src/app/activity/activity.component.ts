@@ -108,11 +108,9 @@ export class ActivityComponent implements OnInit {
       eventDates: [
         {
           date: new Date(2019,8,10),
-          message: 'Pay on time to avoid late charges',
           class: 'emiDate'
         },{
           date: new Date(2019,9,10),
-          message: 'Show me in green',
           class: 'green'
         }
       ],
@@ -146,7 +144,6 @@ export class ActivityComponent implements OnInit {
         else{
           this.showVar = false;
         }
-        // console.log(this.showVar)
       }
     });
     if(localStorage.getItem('newUser')=="true"){

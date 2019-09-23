@@ -39,6 +39,12 @@
     padding-top:80px;
     justify-content: space-between;
 }
+@media all and (max-width: 450px) {
+    .viewPlotButton{
+        flex:1 0 auto;
+        font-size: .78571429rem !important;
+    }
+}
 .propertyTypeIcon{
     padding: 10px 8px;;
     border-radius: 5px;
@@ -176,7 +182,8 @@
     margin-bottom:10px;
     background: #0066ff;
     color:white;
-    border-radius: 5px;
+    text-align: center;
+    border-radius: 2px;
     /* border-left: 4px solid #0066ff; */
     background-image: linear-gradient(to right, rgba(0,102,255,0.6), rgba(255,255,255,0.2) 40%);
 }
