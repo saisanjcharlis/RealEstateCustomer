@@ -152,6 +152,7 @@ export class ActivityComponent implements OnInit {
     this.favList = JSON.parse(localStorage.getItem('favList'));
     this.customerName = JSON.parse(localStorage.getItem('customerName'));
     this.props=JSON.parse(localStorage.getItem('passbookList'));
+    console.log(this.props)
     if(this.props == null){
       $('#inline_calendar').css('display','none');
     }

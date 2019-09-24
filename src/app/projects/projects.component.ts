@@ -258,7 +258,7 @@ export class ProjectsComponent implements OnInit {
     private http: HttpClient) {
    }
    viewProject(project){
-    if(project.id==24){
+    // if(project.id==24){
       this.projectsApiList.map( (data) => {
         if(data.id==project.id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
@@ -279,7 +279,7 @@ export class ProjectsComponent implements OnInit {
      
       
     
-    } 
+    // } 
     
   }
    updateResults(val){
@@ -338,24 +338,55 @@ export class ProjectsComponent implements OnInit {
     this.lng = this.mapsService.lng;
     this.zoom = this.mapsService.zoom;
   }
-  likedProject(e){
-    $(e.target).transition('pulse');
-    if( $(event.target).hasClass('blue')){
-      $(e.target).removeClass('blue'); 
-      $(e.target).addClass('outline');
+  buyLink(){
+    if(sessionStorage.getItem('logStatus')=='true'){
     } else {
-      $(e.target).addClass('blue'); 
-      $(e.target).removeClass('outline');
-     
-      $('body').toast({
-        message: 'You have liked this project.',
-        displayTime: 1000,
-        class: 'blue'
-      });
-    }
-   
-    $('.toast-box').css("margin-top","50px");
+      $('.ui.modal.modalSign').modal('show');  
+    };
   }
+  save(e,project){
+  
+    if(sessionStorage.getItem('logStatus')=='true'){
+      var loginData = JSON.parse(localStorage.getItem('loginData'));
+      let urlFav = `${this.config.url}services/v1/frontendcustomer/getcustomerfavourites`;
+          if($(e.target).hasClass('outline')){
+            let url = `${this.config.url}services/v1/frontendcustomer/createcustomerfavourites`;
+            this.http.post(url,{"token":loginData.token,"params":{"customer_user_id": loginData.userinfo.user_id,"project_id":project.id,"is_active":true}}).subscribe((data:any) => {
+              this.http.post(urlFav,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe( (data:any) => {
+                if(data.success==true){
+                  let favs = data.result.results.filter( (fav) => {
+                    return fav.status == 1;
+                  });
+                  localStorage.setItem('favList',JSON.stringify(favs));
+                  if(favs.length == 0){
+                    localStorage.setItem('favList',null);
+                  }
+                } 
+              });
+            });
+          } else {
+            let url = `${this.config.url}services/v1/frontendcustomer/createcustomerfavourites`;
+            this.http.post(url,{"token":loginData.token,"params":{"customer_user_id": loginData.userinfo.user_id,"project_id":project.id,"is_active":false}}).subscribe((data:any) => {
+              this.http.post(urlFav,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe( (data:any) => {
+                if(data.success==true){
+                  let favs = data.result.results.filter( (fav) => {
+                    return fav.status == 1;
+                  });
+                  localStorage.setItem('favList',JSON.stringify(favs));
+                  if(favs.length == 0){
+                    localStorage.setItem('favList',null);
+                  }
+                } 
+              });
+            });
+          }
+          $(e.target).transition('pulse');
+          $(e.target).toggleClass('outline');
+    } else {
+      this.buyLink();
+    }
+
+}
   infoWindowOpened = null;
   previous_info_window = null;
   mapClicked(e){
@@ -369,8 +400,9 @@ export class ProjectsComponent implements OnInit {
      });
     this.locationSelected = marker.city+', TS';
     this.location=  marker.state+ "Real Estate";
-    this.toggleMapView();
-    // this.router.navigate(['/projectDetail']);
+    if($(window).width()<1000){
+      this.toggleMapView();
+    }
   }
   onMouseOver(gm, window) {
     if (this.previous_info_window == null)
@@ -563,11 +595,22 @@ export class ProjectsComponent implements OnInit {
   }
   locList=[];
   ngOnInit() {
-   
+    
     this.projectsApiList=JSON.parse(localStorage.getItem('projectsList'));
     this.projectsApiList.map( (data) => {
       this.locList.push(data.city);
       data.created_at = new Date(Date.parse(data.created_at));
+      data.favStatus=false;
+      if(sessionStorage.getItem('logStatus')=='true'){
+        let favList = JSON.parse(localStorage.getItem('favList'));
+        if(favList!=null){
+          favList.map((fav)=>{
+            if(fav.status==1 && fav.project_id==data.id){
+              data.favStatus=true;
+            }
+          });
+        }
+      }
     });
     if(localStorage.getItem('projectsDomain')){
       this.lat = 17.0754526;

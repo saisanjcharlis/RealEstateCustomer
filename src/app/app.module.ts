@@ -43,6 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PopUpComponent } from './login/pop-up/pop-up.component';
 import { HelpComponent } from './help/help.component';
 import '../services/capitalize.ts';
+import { ViceroyceComponent } from './buy/plans/viceroyce/viceroyce.component';
+import { DiamondJewelComponent } from './buy/plans/diamond-jewel/diamond-jewel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,9 @@ import '../services/capitalize.ts';
     PaymentPlanComponent,
     SuccessAllotComponent,
     PopUpComponent,
-    HelpComponent
+    HelpComponent,
+    ViceroyceComponent,
+    DiamondJewelComponent
   ],
   imports: [
     BrowserModule,

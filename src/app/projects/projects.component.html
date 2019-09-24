@@ -79,6 +79,7 @@
                                 <div class="image">
                                         <div class="tagInfo">
                                                 <div class="ui blue label">Posted: {{project.created_at.getFullYear()}}-{{project.created_at.getMonth()+1}}-{{project.created_at.getDate()}} </div>
+                                                <i (click)="save($event,project)" [ngClass]="{'outline': project.favStatus == false}" class="like actionButton large saveButton icon"></i>
                                         </div>
                                         <!-- {{project.created_at.substr(0, 10)}}  -->
                                         <!-- <span class="ratingFloat ui mini star blue rating" data-rating="4" data-max-rating="5"></span> -->
@@ -249,6 +250,12 @@
                 <button class="ui basic tiny button blue" style="margin-top:40px;" (click)="clearFilters($event)">Clear</button>
 </div>
 
-
+<div class="ui modal small modalSign">
+  <i class="close icon"></i>
+  <div class="container">
+    <pop-up></pop-up>
+  
+  </div>
+</div>
 
 

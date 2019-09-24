@@ -56,7 +56,7 @@
                                             </div>
                                             <div class="middle aligned content">
                                               <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
-                                                <span style="flex:1 0 auto;">{{prop.project_name}}
+                                                <span style="flex:1 0 auto;">{{prop.project_name.capitalizeEachWord()}}
                                                       <div  style="float:right;"  class="ui menued icon bottom right dropdown">
                                                         <i style="cursor:pointer" class="ui blue icon ellipsis vertical"></i> 
                                                         <div class="menu">
@@ -115,7 +115,7 @@
                                 </div>
                         </div>
                     </div> 
-                    <div  style="margin:20px 0;">
+                    <div class="emiCalender">
                             <span *ngIf="props!=null" class="containerHeader">Upcoming EMI's</span>
                             <div style="margin: 1.5em 0;border-radius: 4px;">
                                     <!-- <emi-date></emi-date> -->
@@ -269,7 +269,7 @@
             <li>Amount due</li>
         </ul>
       </div> -->
-      <div class="ui header">{{prop.project_name}}</div>
+      <div class="ui header">{{prop.project_name.capitalizeEachWord()}}</div>
       <div class="ui celled horizontal list">
           <div class="item">
               <div class="infoValue">{{prop.plot_no}}</div>

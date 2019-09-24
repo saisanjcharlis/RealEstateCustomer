@@ -30,7 +30,7 @@ export class ProjectDetailComponent implements OnInit {
       this.http.post(urlProjectDetails,{"token":token,"params":{"project_id":this.projectSelected.id}}).subscribe((data:any) => {
         if(data.success==true){
            localStorage.setItem('plotsData',JSON.stringify(data.result.results));
-           this.router.navigate(['/buy']);
+           this.router.navigate(['/buy',this.id]);
         }
       });
    
@@ -44,31 +44,42 @@ export class ProjectDetailComponent implements OnInit {
   
       if(sessionStorage.getItem('logStatus')=='true'){
         var loginData = JSON.parse(localStorage.getItem('loginData'));
-
+        let urlFav = `${this.config.url}services/v1/frontendcustomer/getcustomerfavourites`;
             if(this.saveText=="Save"){
               this.saveText="Saved";
               let url = `${this.config.url}services/v1/frontendcustomer/createcustomerfavourites`;
               this.http.post(url,{"token":loginData.token,"params":{"customer_user_id": loginData.userinfo.user_id,"project_id":this.projectSelected.id,"is_active":true}}).subscribe((data:any) => {
+                this.http.post(urlFav,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe( (data:any) => {
+                  if(data.success==true){
+                    let favs = data.result.results.filter( (fav) => {
+                      return fav.status == 1;
+                    });
+                    localStorage.setItem('favList',JSON.stringify(favs));
+                    if(favs.length == 0){
+                      localStorage.setItem('favList',null);
+                    }
+                  } 
+                });
               });
             } else {
               this.saveText="Save";
               let url = `${this.config.url}services/v1/frontendcustomer/createcustomerfavourites`;
               this.http.post(url,{"token":loginData.token,"params":{"customer_user_id": loginData.userinfo.user_id,"project_id":this.projectSelected.id,"is_active":false}}).subscribe((data:any) => {
+                this.http.post(urlFav,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe( (data:any) => {
+                  if(data.success==true){
+                    let favs = data.result.results.filter( (fav) => {
+                      return fav.status == 1;
+                    });
+                    localStorage.setItem('favList',JSON.stringify(favs));
+                    if(favs.length == 0){
+                      localStorage.setItem('favList',null);
+                    }
+                  } 
+                });
               });
             }
-
-            let urlFav = `${this.config.url}services/v1/frontendcustomer/getcustomerfavourites`;
-            this.http.post(urlFav,{"token":loginData.token,"params":{"customer_user_id":loginData.userinfo.user_id}}).subscribe( (data:any) => {
-              if(data.success==true){
-                let favs = data.result.results.filter( (fav) => {
-                  return fav.status == 1;
-                });
-                localStorage.setItem('favList',JSON.stringify(favs));
-                if(favs.length == 0){
-                  localStorage.setItem('favList',null);
-                }
-              } 
-            });
+          
+           
         $(e.target).children('i').toggleClass('outline');
       } else {
         this.buyLink();
@@ -147,7 +158,7 @@ export class ProjectDetailComponent implements OnInit {
       let favList = JSON.parse(localStorage.getItem('favList'));
       if(favList!=null){
         favList.map((fav)=>{
-          if(fav.status==1){
+          if(fav.status==1 && fav.project_id==this.id){
             this.saveText="Saved";
             $('.saveButton').removeClass('outline')
           }

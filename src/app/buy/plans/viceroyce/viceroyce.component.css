@@ -1,0 +1,62 @@
+.searchPlot{
+    display: none;
+}
+.plotStatus{
+    display: flex;
+    align-items: center;
+}
+@media screen and (max-width: 840px){
+    .searchPlotDesktop{
+         display: none;
+      }
+  }
+  @media screen and (max-width: 840px){
+      .searchPlot{
+          display: inline-flex;
+          width: 100%;
+          margin-top:10px;
+      }
+  }
+@media screen and (max-width: 768px){
+    .searchPlot{
+        display: inline-flex;
+        width: 100%;
+        margin-top:10px;
+    }
+    /* .plotStatus{
+        margin-top:20px;
+    } */
+}
+.flexActions{
+    display: flex;
+    position:sticky;
+    top:56px;
+    padding:10px;
+    background: #F7F9FC;
+    flex-wrap: wrap;
+    justify-content: space-between;
+ }
+ @media screen and (max-width: 768px){
+    .flexActions{
+        top:50px;
+    }
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.available{
+    fill:#2fce72;
+}
+.available1{
+    fill:#0066ff;
+}
+.available:hover{
+    /* fill:#414143; */
+    cursor: cell;
+    fill: rgba(65,65,67,0.7);
+}
+.cls-14,.cls-15,.cls-3{
+    pointer-events: none !important;
+}

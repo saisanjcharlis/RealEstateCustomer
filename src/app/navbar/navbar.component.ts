@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
     // if(this.accountName=="Login/Sign Up" && (routeActivate == "login" || routeActivate == "")){
     //   this.loginComp.openModal();
     // }
-    if(this.accountName=="Login/Sign Up" && (routeActivate == "projects" || routeActivate == "projectDetail" )){
+    if(this.accountName=="Login/Sign Up" && (routeActivate == "projects" || routeActivate == "projectDetail/:id" )){
       this.router.navigate(['/']);
     }
     if(sessionStorage.getItem('logStatus')=='createProfile'){
@@ -85,7 +85,7 @@ export class NavbarComponent implements OnInit {
         this.accountName = "Login/Sign Up";
         this.customerName = "Login/Sign Up";
         this.initialAvatar=false;
-        this.buttonsEnable=true;
+        this.buttonsEnable=false;
       } else {
         this.navViewOnly = true;  
         this.customerName=JSON.parse(localStorage.getItem('customerName'));

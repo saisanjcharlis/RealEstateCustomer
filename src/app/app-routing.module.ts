@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'messages', component: MessagesComponent },
   { path: 'fav', component: FavoritesComponent },
   { path: 'help', component: HelpComponent },
-  { path: 'buy', component: BuyComponent },
+  { path: 'buy/:id', component: BuyComponent },
   { path: 'payPlans', component: PaymentPlanComponent },
   { path: 'successAllot', component: SuccessAllotComponent },
   { path: 'allotment', component: AllotmentComponent },

@@ -281,6 +281,9 @@
     color:#0066ff;
     cursor: pointer;
   }
+  .emiCalender{
+    margin:20px 0;
+  }
   .gridContent{
     display:grid;
     grid-template-columns: 65% 40%;
@@ -293,6 +296,9 @@
     }
     .projectContainer{
       padding:20px 5%;
+    }
+    .emiCalender{
+      max-width: 550px;
     }
   }
 
