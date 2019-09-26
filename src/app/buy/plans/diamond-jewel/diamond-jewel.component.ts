@@ -12,6 +12,7 @@ export class DiamondJewelComponent implements OnInit {
 
   constructor( private routes: Router,private config: ConfigService,private http: HttpClient) { }
   planDefault = 1;
+  falseDi=false;
   plotSelected;
   selectPlan1(e){
     $('.selectedPlan').addClass('basic');
