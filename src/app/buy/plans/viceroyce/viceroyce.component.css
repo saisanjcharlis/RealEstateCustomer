@@ -27,6 +27,14 @@
         margin-top:20px;
     } */
 }
+.plotContainer{
+    margin:50px 15% 0 15%;overflow: auto;
+}
+ @media screen and (max-width: 768px){
+    .plotContainer{
+        margin:50px 0% 0 0%;
+    }
+}
 .flexActions{
     display: flex;
     position:sticky;

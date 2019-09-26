@@ -39,9 +39,11 @@ forgotPassword(){
   $('.ui.modal').modal('hide');  
   this.routes.navigate(['/forgotPassword']);
 }
-nextInput(e){
-  // $('#otp').focus();
+onFocus(e){
+  $('.inputActive').removeClass('inputActive');
+  $(e.target).parent().addClass('inputActive');
 }
+indexSignInInput=0;
 signIn(uname: string, p: string){
   this.errors=[];
   if(uname.length>0 && p.length>0){
@@ -166,11 +168,17 @@ signIn(uname: string, p: string){
     });
   } else{
     if(uname.length==0){
-      this.errors.push("Enter Username");
+     
+
+      this.errors.push("Enter Username and Password");
+    } else {
+      if(p.length==0 && this.indexSignInInput==1){
+        this.errors.push("Enter Password");
+      }
+      this.indexSignInInput=1;
+      $('.signInInput').eq(this.indexSignInInput).focus();
     }
-    if(p.length==0){
-      this.errors.push("Enter Password");
-    }
+    
   }
 
 }
@@ -196,6 +204,7 @@ otpGenerate(e,mobileNumber){
   
    
 }
+indexSignUpInput=0;
 signUp(e,name,mobileNumber, otp, password){  
   var phoneno = /^\d{10}$/;
   var validName= new RegExp("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
@@ -208,13 +217,28 @@ signUp(e,name,mobileNumber, otp, password){
     this.errors1.push('Enter Valid Name');
   } else {
     this.namePassed=true;
+    this.indexSignUpInput=1;
+    $('.signUpInput').eq(this.indexSignUpInput).focus();
   }
-  if(!mobileNumber.match(phoneno) && this.namePassed){
-    this.errors1.push("Enter Valid Mobile Number");
-  } 
-  if(otp.length>0 && otp.length !== 6 && mobileNumber.length == 10){
+  if(this.indexSignUpInput==1 && mobileNumber.length>0){
+    if(!mobileNumber.match(phoneno)){
+      this.errors1.push("Enter Valid Mobile Number");
+    } 
+    else {
+      this.indexSignUpInput=2;
+      $('.signUpInput').eq(this.indexSignUpInput).focus();
+    }
+  }
+  if(this.indexSignUpInput==2 && otp.length>0){
+    if(otp.length !== 6 && mobileNumber.length == 10){
       this.errors1.push("Enter six digit valid OTP");
-  } 
+    } else {
+      this.indexSignUpInput=3;
+      this.mobilePassed=true;
+      $('.signUpInput').eq(this.indexSignUpInput).focus();
+    }
+  }
+
   this.otpIcon=sessionStorage.getItem('otpIcon');
   if(password.length>0){
     if(!minCount.test(password)){
@@ -241,8 +265,13 @@ signUp(e,name,mobileNumber, otp, password){
             this.errors1.push("OTP Incorrect");
           }
         });
-    }
+    } 
+    // else {
+    //   this.errors1.push("Something Incorrect");
+    // }
 
+  } else if(this.indexSignUpInput==3 && password.length>0) {
+    this.errors1.push("Enter Password");
   }
   
 }

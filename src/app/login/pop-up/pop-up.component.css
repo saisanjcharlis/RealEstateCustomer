@@ -65,6 +65,9 @@ input::placeholder {
     padding-bottom: 3px;
     margin-bottom: 30px;
   }
+  .inputActive{
+      border-bottom: 2px solid rgba(0,102,255, 0.8); 
+  }
   input {
     outline: none;
     border: 0;
@@ -75,9 +78,6 @@ input::placeholder {
     font-weight: 300;
   }
   
-  input:focus ~ label {
-    opacity: 1;
-  }
   .inputContainer label {
     font-family: FontAwesome;
     font-size: 14px;

@@ -150,11 +150,11 @@
         <div class="ui header">Price Range</div>
         <div class="priceInput">
                 <div class="ui input">
-                        <input [ngModel]="minPriceFilterValue" (ngModelChange)="minPriceChange($event)" type="text" placeholder="Min">
+                        <input style="color:#0066ff;font-weight: bold;" [ngModel]="minPriceFilterValue" (ngModelChange)="minPriceChange($event)" type="text" placeholder="Min">
                 </div>
                 <span style="padding:9.5px;">-</span>
                 <div class="ui input">
-                        <input [ngModel]="maxPriceFilterValue" (ngModelChange)="maxPriceChange($event)" type="text" placeholder="Max">
+                        <input style="color:#0066ff;font-weight: bold;" [ngModel]="maxPriceFilterValue" (ngModelChange)="maxPriceChange($event)" type="text" placeholder="Max">
                 </div> 
         </div>
         <div class="priceListGrid">
@@ -172,7 +172,6 @@
                         <div class="item" (click)="minPriceFilter($event)"><i class="rupee sign icon"></i>50,00,000+</div>
                 </div>
                 <div class="ui list">
-                        <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>5,00,000</div>
                         <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>10,00,000</div>
                         <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>20,00,000</div>
                         <div class="item" (click)="maxPriceFilter($event)"><i class="rupee sign icon"></i>30,00,000</div>
@@ -242,10 +241,10 @@
                 </div>
                 <div class="ui header">Price Range</div>
                         <div class="ui input">
-                                <input [ngModel]="minPriceFilterValue" (ngModelChange)="minPriceChange($event)" type="text" placeholder="Min">
+                                <input style="font-weight: bold;color:#0066ff;" [ngModel]="minPriceFilterValue" (ngModelChange)="minPriceChange($event)" type="text" placeholder="Min">
                         </div>
                         <div class="ui input" style="margin-top:5px;">
-                                <input [ngModel]="maxPriceFilterValue" (ngModelChange)="maxPriceChange($event)" type="text" placeholder="Max">
+                                <input style="font-weight: bold;color:#0066ff;" [ngModel]="maxPriceFilterValue" (ngModelChange)="maxPriceChange($event)" type="text" placeholder="Max">
                         </div> 
                 <button class="ui basic tiny button blue" style="margin-top:40px;" (click)="clearFilters($event)">Clear</button>
 </div>

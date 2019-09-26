@@ -318,6 +318,9 @@ agm-map{
 .priceListGrid .ui.list .item{
   margin:5px 0!important;
 }
+.priceListGrid .ui.list .item:hover{
+  color:#0066ff;
+}
 .priceListGrid .ui.list .item .icon{
   opacity: 0.8;
 }

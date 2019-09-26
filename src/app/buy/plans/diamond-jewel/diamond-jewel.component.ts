@@ -32,6 +32,12 @@ export class DiamondJewelComponent implements OnInit {
     $(e.target).removeClass('basic');
     this.planDefault =3;
   }
+  selectPlan4(e){
+    $('.selectedPlan').addClass('basic');
+    $(e.target).addClass('selectedPlan');
+    $(e.target).removeClass('basic');
+    this.planDefault =4;
+  }
   plotNumber:number;
   modelChange(newObj){
     if(newObj==null){
