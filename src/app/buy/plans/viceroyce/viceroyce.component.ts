@@ -208,6 +208,11 @@ partialCount=0;
     this.plotsList.map((plot)=>{
       if(plot.available_status==0){
         this.soldCount++;
+        if(plot.plot_no==5){
+          console.log("hello")
+          console.log($('#'+plot.plot_no))
+        }
+     
         $('#'+plot.plot_no).css('fill','rgba(255,0,0,0.5)');
         $('#'+plot.plot_no).css('pointer-events','none');
       }

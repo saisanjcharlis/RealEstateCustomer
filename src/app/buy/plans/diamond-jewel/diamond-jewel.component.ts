@@ -211,20 +211,28 @@ partialCount=0;
         plot.project_attributes=JSON.parse(plot.project_attributes);
       }
     });
-    
     this.plotsList.map((plot)=>{
       if(plot.available_status==0){
         this.soldCount++;
-        $('#'+plot.plot_no).css('fill','rgba(255,0,0,0.5)');
-        $('#'+plot.plot_no).css('pointer-events','none');
       }
       if(plot.available_status==1){
         this.availableCount++;
       }
       if(plot.available_status==2){
         this.partialCount++;
+      }
+    });
+    
+  }
+
+  ngAfterViewInit() {
+    this.plotsList.map((plot)=>{
+      if(plot.available_status==0){
+        $('#'+plot.plot_no).css('fill','rgba(255,0,0,0.5)');
+        // $('#'+plot.plot_no).css('pointer-events','none');
+      }
+      if(plot.available_status==2){
         $('#'+plot.plot_no).css('fill','rgba(0,0,255,0.5)');
-        $('#'+plot.plot_no).css('pointer-events','none');
       }
     });
   }
