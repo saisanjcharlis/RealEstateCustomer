@@ -37,7 +37,7 @@
     justify-content: space-between;
  }
  .plotContainer{
-    margin:50px 15% 0 15%;overflow: auto;
+    margin:50px 0% 0 0%;overflow: auto;
     /* margin:50px 0% 0 0%;overflow: auto; */
 }
  @media screen and (max-width: 768px){

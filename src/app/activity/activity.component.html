@@ -60,6 +60,7 @@
                                                       <div  style="float:right;"  class="ui menued icon bottom right dropdown">
                                                         <i style="cursor:pointer" class="ui blue icon ellipsis vertical"></i> 
                                                         <div class="menu">
+                                                          <div class="item">View Details</div>
                                                           <div class="item" (click)="viewProject(prop.project_id)">View Project</div>
                                                           <div class="item" (click)="viewTrans(prop)">Transactions</div>
                                                         </div>
@@ -71,31 +72,37 @@
                                               <div style="margin-top:20px;" class="description"  >
                                                   <div class="ui celled horizontal list">
                                                       <div class="item">
-                                                          <div class="infoValue">{{prop.plot_no}}</div>
+                                                          <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.plot_no}}</div>
+                                                          <!-- <div class="infoValue">{{prop.plot_no}}</div> -->
                                                           <div class="infoLabel">Plot Number</div>
                                                       </div>
-                                                      <div class="item">
+                                                      <!-- <div class="item">
                                                         <div class="infoValue">{{prop.passbook_no}}</div>
                                                         <div class="infoLabel">Passbook Number</div>
-                                                     </div>
+                                                     </div> -->
                                                       <div class="item">
-                                                          <div class="infoValue">₹{{prop.actual_cost}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.actual_cost}}</div>
                                                           <div class="infoLabel">Plot Worth</div>
                                                       </div>
                                                       <div class="item">
-                                                          <div class="infoValue">₹{{prop.installment_amount}} <span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                          <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.installment_amount}}</div>
                                                           <div class="infoLabel">EMI Amount</div>
                                                       </div>
-                                                      <div class="item">
+                                                      <!-- <div class="item">
                                                         <div class="infoValue">{{prop.installment_tenure}} months<span style="font-size: 14px;font-weight: 500;"></span></div>
                                                         <div class="infoLabel">Tenure</div>
-                                                    </div>
-                                                    <div class="item">
+                                                    </div> -->
+                                                    <!-- <div class="item">
                                                         <div class="infoValue">{{prop.emi_num}}<span style="font-size: 14px;font-weight: 500;"></span></div>
                                                         <div class="infoLabel">Total EMI's paid</div>
+                                                    </div> -->
+                                                    <div class="item">
+                                                        <div class="infoValue ui red horizontal label" style="text-align: center;">{{prop.installment_tenure}}/{{prop.emi_num}}</div>
+                                                      <!-- <div class="infoValue">{{prop.installment_tenure}}/{{prop.emi_num}} <span style="font-size: 14px;font-weight: 500;"></span></div> -->
+                                                      <div class="infoLabel">Tenure</div>
                                                     </div>
                                                     <div class="item">
-                                                      <div class="infoValue">₹ {{prop.total_payable}} <span style="font-size: 14px;font-weight: 500;"></span></div>
+                                                      <div class="infoValue ui blue horizontal label" style="text-align: center;">₹ {{prop.total_payable}}</div>
                                                       <div class="infoLabel">Total Payable</div>
                                                     </div>
                                                   </div>
