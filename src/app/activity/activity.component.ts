@@ -107,11 +107,12 @@ export class ActivityComponent implements OnInit {
       type: 'date',
       eventDates: [
         {
-          date: new Date(2019,8,10),
-          class: 'emiDate'
-        },{
           date: new Date(2019,9,10),
-          class: 'green'
+          class: 'emiDate'
+        },
+        {
+          date: new Date(2019,10,10),
+          class: 'emiDate'
         }
       ],
       onSelect(date,mode){
