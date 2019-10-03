@@ -58,7 +58,7 @@ export class ActivityComponent implements OnInit {
   }
   viewProject(id){
     console.log(this.projectList)
-    if(id==24){
+    // if(id==24){
       this.projectList.map( (data) => {
         if(data.id==id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
@@ -71,7 +71,7 @@ export class ActivityComponent implements OnInit {
           this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
             if(data.success==true){
                localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
-               this.routes.navigate(['/projectDetail']);
+               this.routes.navigate(['/projectDetail',id]);
             }
           });
         }
@@ -79,7 +79,7 @@ export class ActivityComponent implements OnInit {
       
       
       
-    } 
+    // } 
   }
   
   ngAfterViewInit() {
