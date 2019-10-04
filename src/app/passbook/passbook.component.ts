@@ -95,6 +95,10 @@ export class PassbookComponent implements OnInit {
       }
     });
   }
+  viewDetails(prop){
+    localStorage.setItem('passDetailsSelected',JSON.stringify(prop));
+    this.router.navigate(['/propDetail',prop.id]);
+  }
   viewProject(id){
     // if(id==24){
       this.projectList.map( (data) => {
@@ -103,10 +107,10 @@ export class PassbookComponent implements OnInit {
         }
       });
       let urlProjectDetails = `${this.config.url}customerlogin/getprojectsdetails`;
-      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":id}}).subscribe((data:any) => {
+      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","projectId":id}}).subscribe((data:any) => {
         if(data.success==true){
           localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
-          this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
+          this.http.post(urlProjectDetails,{"params":{"type":"properties","projectId":id}}).subscribe((data:any) => {
             if(data.success==true){
                localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
                this.router.navigate(['/projectDetail',id]);

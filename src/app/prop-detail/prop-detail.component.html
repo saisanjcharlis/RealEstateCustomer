@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="topInfo">
+        <div class="ui fluid card centered" style="margin:20px auto;">
+                <div class="projectName">{{propertyDetails.project_name.capitalizeEachWord()}}</div>
+                <!-- <div class="image">
+                        <img [src]="propertyDetails.project_id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'">
+                </div> -->
+                <div class="content gridContainer">
+                        <span class="infoHeader">Plot Number</span>
+                        <div>
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.plot_no}}</div>
+                        </div>
+                        <span class="infoHeader">Passbook Number</span>
+                        <div>
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.passbook_no}}</div>
+                        </div>
+                        <span class="infoHeader">Plot Worth</span>
+                        <div>
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.actual_cost}}</div>
+                        </div>
+                        <span class="infoHeader">Total Payable</span>
+                        <div>
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.total_payable}}</div>
+                        </div>
+                        <span class="infoHeader">Total Paid</span>
+                        <div>
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.total_paid}}</div>
+                        </div>
+                        <span class="infoHeader">EMI Amount</span>
+                        <div>
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.installment_amount}}</div>
+                        </div>
+                        <span class="infoHeader">Tenure</span>
+                        <div>
+                                <div class="infoValue ui red horizontal label" style="text-align: center;">{{propertyDetails.emi_num}}/{{propertyDetails.installment_tenure}}</div>
+                        </div>
+                        <span *ngIf="propertyDetails.due_amount != null" class="infoHeader">Due Amount</span>
+                        <div *ngIf="propertyDetails.due_amount != null">
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.due_amount}}</div>
+                        </div>
+                        <span class="infoHeader">Facing</span>
+                        <div>
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.facing}}</div>
+                        </div>
+                        <span *ngIf="propertyDetails.spl_emi_month != null" class="infoHeader">Special EMI Month</span>
+                        <div *ngIf="propertyDetails.spl_emi_month != null">
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.spl_emi_month}}</div>
+                        </div>
+                        <span *ngIf="propertyDetails.spl_emi_amount != null" class="infoHeader">Special EMI Amount</span>
+                        <div *ngIf="propertyDetails.spl_emi_amount != null">
+                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.spl_emi_amount}}</div>
+                        </div>
+                </div>
+        </div>
+        <footer></footer>
+</div>

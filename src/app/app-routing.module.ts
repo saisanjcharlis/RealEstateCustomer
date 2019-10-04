@@ -20,6 +20,7 @@ import { AllotmentComponent } from './allotment/allotment.component';
 import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
 import { SuccessAllotComponent } from './success-allot/success-allot.component';
 import { HelpComponent } from './help/help.component';
+import { PropDetailComponent } from './prop-detail/prop-detail.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -30,8 +31,9 @@ const routes: Routes = [
   { path: 'messages', component: MessagesComponent },
   { path: 'fav',canActivate : [AuthGuard], component: FavoritesComponent },
   { path: 'help', component: HelpComponent },
-  { path: 'buy/:id', component: BuyComponent },
-  // { path: 'buy/:id', canActivate : [AuthGuard], component: BuyComponent },
+  // { path: 'buy/:id', component: BuyComponent },
+  { path: 'propDetail/:id', canActivate : [AuthGuard], component: PropDetailComponent },
+  { path: 'buy/:id', canActivate : [AuthGuard], component: BuyComponent },
   { path: 'payPlans', canActivate : [AuthGuard], component: PaymentPlanComponent },
   { path: 'successAllot',canActivate : [AuthGuard], component: SuccessAllotComponent },
   { path: 'allotment',canActivate : [AuthGuard], component: AllotmentComponent },

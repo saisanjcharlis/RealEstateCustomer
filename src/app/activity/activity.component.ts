@@ -48,13 +48,16 @@ export class ActivityComponent implements OnInit {
   viewTrans(prop){
     let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
     var loginData = JSON.parse(localStorage.getItem('loginData'));
-    console.log(prop)
     this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":prop.project_id,"passbook_no": prop.passbook_no}}).subscribe((data:any) => {
       if(data.success){
         localStorage.setItem('transactionSelected',JSON.stringify(data.result.results));
         this.routes.navigate(['/transactions']);
       }
     });
+  }
+  viewDetails(prop){
+    localStorage.setItem('passDetailsSelected',JSON.stringify(prop));
+    this.routes.navigate(['/propDetail',prop.id]);
   }
   viewProject(id){
     console.log(this.projectList)
@@ -65,10 +68,10 @@ export class ActivityComponent implements OnInit {
         }
       });
       let urlProjectDetails = `${this.config.url}customerlogin/getprojectsdetails`;
-      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":id}}).subscribe((data:any) => {
+      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","projectId":id}}).subscribe((data:any) => {
         if(data.success==true){
           localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
-          this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
+          this.http.post(urlProjectDetails,{"params":{"type":"properties","projectId":id}}).subscribe((data:any) => {
             if(data.success==true){
                localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
                this.routes.navigate(['/projectDetail',id]);
@@ -153,7 +156,6 @@ export class ActivityComponent implements OnInit {
     this.favList = JSON.parse(localStorage.getItem('favList'));
     this.customerName = JSON.parse(localStorage.getItem('customerName'));
     this.props=JSON.parse(localStorage.getItem('passbookList'));
-    console.log(this.props)
     if(this.props == null){
       $('#inline_calendar').css('display','none');
     }

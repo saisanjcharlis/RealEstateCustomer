@@ -265,11 +265,11 @@ export class ProjectsComponent implements OnInit {
         }
       });
       let urlProjectDetails = `${this.config.url}customerlogin/getprojectsdetails`;
-      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","project_id":project.id}}).subscribe((data:any) => {
+      this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","projectId":project.id}}).subscribe((data:any) => {
         if(data.success==true){
           console.log(data.result.results)
           localStorage.setItem('neighbourhoodData',JSON.stringify(data.result.results));
-          this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":project.id}}).subscribe((data:any) => {
+          this.http.post(urlProjectDetails,{"params":{"type":"properties","projectId":project.id}}).subscribe((data:any) => {
             if(data.success==true){
                localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
                this.router.navigate(['/projectDetail',project.id]);

@@ -60,7 +60,7 @@
                                                       <div  style="float:right;"  class="ui menued icon bottom right dropdown">
                                                         <i style="cursor:pointer" class="ui blue icon ellipsis vertical"></i> 
                                                         <div class="menu">
-                                                          <div class="item">View Details</div>
+                                                          <div class="item" (click)="viewDetails(prop)">View Details</div>
                                                           <div class="item" (click)="viewProject(prop.project_id)">View Project</div>
                                                           <div class="item" (click)="viewTrans(prop)">Transactions</div>
                                                         </div>
@@ -72,16 +72,20 @@
                                               <div style="margin-top:20px;" class="description"  >
                                                   <div class="ui celled horizontal list">
                                                       <div class="item">
-                                                          <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.plot_no}}</div>
-                                                          <div class="infoLabel">Plot Number</div>
+                                                          <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.plot_no}}/{{prop.passbook_no}}</div>
+                                                          <div class="infoLabel">Plot/Passbook</div>
                                                       </div>
                                                       <div class="item">
-                                                          <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.actual_cost}}</div>
+                                                          <div class="infoValue ui blue horizontal label" style="text-align: center;">₹ {{prop.actual_cost}}</div>
                                                           <div class="infoLabel">Plot Worth</div>
                                                       </div>
                                                       <div class="item">
-                                                          <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.installment_amount}}</div>
+                                                          <div class="infoValue ui blue horizontal label" style="text-align: center;">₹ {{prop.installment_amount}}</div>
                                                           <div class="infoLabel">EMI Amount</div>
+                                                      </div>
+                                                      <div *ngIf="prop.spl_emi_month != null" class="item">
+                                                          <div class="infoValue ui green horizontal label" style="text-align: center;">₹ {{prop.spl_emi_amount}}/{{prop.spl_emi_month}}</div>
+                                                          <div class="infoLabel">Special EMI</div>
                                                       </div>
                                                     <div class="item">
                                                         <div class="infoValue ui red horizontal label" style="text-align: center;">{{prop.emi_num}}/{{prop.installment_tenure}}</div>

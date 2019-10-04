@@ -45,6 +45,7 @@ import { HelpComponent } from './help/help.component';
 import '../services/capitalize.ts';
 import { ViceroyceComponent } from './buy/plans/viceroyce/viceroyce.component';
 import { DiamondJewelComponent } from './buy/plans/diamond-jewel/diamond-jewel.component';
+import { PropDetailComponent } from './prop-detail/prop-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +77,8 @@ import { DiamondJewelComponent } from './buy/plans/diamond-jewel/diamond-jewel.c
     PopUpComponent,
     HelpComponent,
     ViceroyceComponent,
-    DiamondJewelComponent
+    DiamondJewelComponent,
+    PropDetailComponent
   ],
   imports: [
     BrowserModule,
