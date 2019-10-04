@@ -65,3 +65,6 @@
 .basicTable th{
     color:#0066ff !important;
 }
+.infoLabel{
+    text-align: center;font-size:12px;margin-top:10px;
+  }

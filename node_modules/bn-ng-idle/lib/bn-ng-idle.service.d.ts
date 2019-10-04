@@ -1,0 +1,13 @@
+import { Observable, Subject } from 'rxjs';
+export declare class BnNgIdleService {
+    private idle$;
+    private timer$;
+    private timeOutMilliSeconds;
+    private idleSubscription;
+    expired$: Subject<boolean>;
+    constructor();
+    startWatching(timeOutSeconds: any): Observable<any>;
+    private startTimer;
+    resetTimer(): void;
+    stopTimer(): void;
+}

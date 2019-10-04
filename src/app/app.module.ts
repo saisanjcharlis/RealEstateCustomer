@@ -46,6 +46,7 @@ import '../services/capitalize.ts';
 import { ViceroyceComponent } from './buy/plans/viceroyce/viceroyce.component';
 import { DiamondJewelComponent } from './buy/plans/diamond-jewel/diamond-jewel.component';
 import { PropDetailComponent } from './prop-detail/prop-detail.component';
+import { BnNgIdleService } from 'bn-ng-idle';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +98,7 @@ import { PropDetailComponent } from './prop-detail/prop-detail.component';
       accessToken: 'pk.eyJ1IjoiY2hhcmxpc3NhaXNhbmoiLCJhIjoiY2p6aHl6bmE1MTBudTNjbGJqMDl5a2Y0aiJ9.kdPD9Bn9QRGL8PcJTkUKew'
     })
   ],
-  providers: [AuthGuard, LocationsService, MapsService, LoginComponent, ConfigService, PopUpComponent],
+  providers: [AuthGuard, LocationsService, MapsService, LoginComponent, ConfigService, PopUpComponent, BnNgIdleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
