@@ -157,7 +157,7 @@ export class DiamondJewelComponent implements OnInit {
   }
   addPlot(){
     $('.ui.modal.plotInfo').modal('hide');
-    this.routes.navigate(['/payPlans']);
+    // this.routes.navigate(['/payPlans']);
 
   }
   plotSearch(id){

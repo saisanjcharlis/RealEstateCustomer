@@ -10,34 +10,7 @@ export class ImageGalleryComponent implements OnInit {
   constructor(el: ElementRef) {
     this.el = el;
   }
-  images = [
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg",
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg",
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg",
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg",
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/food.jpg",
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg",
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg",
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg",
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg",
-    // "https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg"
-    "assets/viceroyce/ViceroyceResidencyImage.png",
-    "assets/viceroyce/Viceroyce1.jpeg",
-    "assets/viceroyce/Viceroyce2.jpeg",
-    "assets/viceroyce/Viceroyce4.jpeg",
-    "assets/viceroyce/Viceroyce9.jpeg",
-    "assets/viceroyce/viceroyce5.png",
-    "assets/viceroyce/viceroyce6.png",
-    "assets/viceroyce/viceroyce7.png",
-    "assets/viceroyce/viceroyce8.png",
-    "assets/viceroyce/viceroyce9.png",
-    // "http://www.spectraindia.in/wp-content/uploads/2016/03/bathroom.jpg",
-    // "http://www.spectraindia.in/wp-content/uploads/2016/03/kidsroom.jpg",
-    // "http://www.spectraindia.in/wp-content/uploads/2016/09/Streetlights.jpg",
-    // "http://www.spectraindia.in/wp-content/uploads/2016/02/Education-Center.jpg",
-    // "http://www.spectraindia.in/wp-content/uploads/2016/02/Vedapatashala.jpg",
-    // "http://www.spectraindia.in/wp-content/uploads/2016/02/Yoga.jpg",
-  ];
+  images=[];
   gallery;
   galleryItems;
   numOfItems;
@@ -115,7 +88,40 @@ export class ImageGalleryComponent implements OnInit {
     clearInterval(this.leftInterval);
     clearInterval(this.rightInterval);
   }
+  projectId;
   ngOnInit() {
+    this.projectId=JSON.parse(localStorage.getItem('projectSelected')).id;
+    if(this.projectId == 24){
+      this.images = [
+        "assets/viceroyce/ViceroyceResidencyImage.png",
+        "assets/viceroyce/Viceroyce1.jpeg",
+        "assets/viceroyce/Viceroyce2.jpeg",
+        "assets/viceroyce/Viceroyce4.jpeg",
+        "assets/viceroyce/Viceroyce9.jpeg",
+        "assets/viceroyce/viceroyce5.png",
+        "assets/viceroyce/viceroyce6.png",
+        "assets/viceroyce/viceroyce7.png",
+        "assets/viceroyce/viceroyce8.png",
+        "assets/viceroyce/viceroyce9.png",
+      ];
+    }
+    if(this.projectId == 25){
+      this.images = [
+        "http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg",
+        "assets/diamondJ/1.jpg",
+        "assets/diamondJ/2.jpg",
+        "assets/diamondJ/3.jpg",
+        "assets/diamondJ/4.jpg",
+        "assets/diamondJ/5.jpg",
+        "assets/diamondJ/6.jpg",
+        // "assets/diamondJ/4.jpg",
+        // "assets/diamondJ/5.jpg",
+        // "assets/diamondJ/6.jpg",
+        "assets/viceroyce/Viceroyce1.jpeg",
+        "assets/viceroyce/Viceroyce2.jpeg",
+        "assets/viceroyce/viceroyce7.png",
+      ];
+    }
     this.gallery = this.el.nativeElement.querySelector(".gallery");
     this.galleryItems = this.el.nativeElement.querySelectorAll(".gallery-item");
     this.numOfItems = this.gallery.children.length;

@@ -96,7 +96,7 @@ export class PassbookComponent implements OnInit {
     });
   }
   viewProject(id){
-    if(id==24){
+    // if(id==24){
       this.projectList.map( (data) => {
         if(data.id==id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
@@ -109,12 +109,12 @@ export class PassbookComponent implements OnInit {
           this.http.post(urlProjectDetails,{"params":{"type":"properties","project_id":id}}).subscribe((data:any) => {
             if(data.success==true){
                localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
-               this.router.navigate(['/projectDetail']);
+               this.router.navigate(['/projectDetail',id]);
             }
           });
         }
       });
-    } 
+    // } 
   }
   projectList;
   ngOnInit() {

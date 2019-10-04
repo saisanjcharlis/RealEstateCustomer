@@ -34,6 +34,30 @@
                         </span>
                     </div>
                     <div style="margin-top:20px;" class="description"  >
+                      <div class="ui celled horizontal list">
+                          <div class="item">
+                              <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.plot_no}}</div>
+                              <div class="infoLabel">Plot Number</div>
+                          </div>
+                          <div class="item">
+                              <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.actual_cost}}</div>
+                              <div class="infoLabel">Plot Worth</div>
+                          </div>
+                          <div class="item">
+                              <div class="infoValue ui blue horizontal label" style="text-align: center;">{{prop.installment_amount}}</div>
+                              <div class="infoLabel">EMI Amount</div>
+                          </div>
+                        <div class="item">
+                            <div class="infoValue ui red horizontal label" style="text-align: center;">{{prop.emi_num}}/{{prop.installment_tenure}}</div>
+                          <div class="infoLabel">Tenure</div>
+                        </div>
+                        <div class="item">
+                          <div class="infoValue ui blue horizontal label" style="text-align: center;">₹ {{prop.total_payable}}</div>
+                          <div class="infoLabel">Total Payable</div>
+                        </div>
+                      </div>
+                  </div>
+                    <!-- <div style="margin-top:20px;" class="description"  >
                         <div class="ui celled horizontal list">
                             <div class="item">
                                 <div class="infoValue">{{prop.plot_no}}</div>
@@ -64,7 +88,7 @@
                             <div class="infoLabel">Total Payable</div>
                         </div>
                         </div>
-                    </div>
+                    </div> -->
                   </div>
           </div>
         </div>

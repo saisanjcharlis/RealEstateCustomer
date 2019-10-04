@@ -108,7 +108,7 @@
                                         </div>
                                     </div>
                                     <div class="checkListOverview ">
-                                            <div><i class="large blue check circle outline icon"></i>&nbsp;Standards:<b>ISO 9001-2008 </b></div>
+                                            <!-- <div><i class="large blue check circle outline icon"></i>&nbsp;Standards:<b>ISO 9001-2008 </b></div> -->
                                             <!-- <div><i class="large blue check circle outline icon"></i>&nbsp;Total Units:<b>351</b></div>
                                             <div><i class="large blue check circle outline icon"></i>&nbsp;Available Units:<b>351</b></div> -->
                                             <!-- <div><i class="large blue check circle outline icon"></i>&nbsp;Project Area:<b>9 Acres</b></div>
@@ -133,8 +133,9 @@
                                         <div><i class="large blue check circle outline icon"></i>&nbsp;Type:<b>Plot</b></div>
                                     </div> -->
                                     <div  class="subHeader">Downloads :</div>
-                                    <div class="downloads">
-                                            <a download href="../../../assets/viceroyceBrochure.pdf" style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Brochure</span></a>
+                                    <div *ngIf="id" class="downloads">
+                                            <a *ngIf="id == 24" download href="../../../assets/viceroyceBrochure.pdf" style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Brochure</span></a>
+                                            <a *ngIf="id == 25" download href="../../../assets/diamondBrochure.pdf" style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Brochure</span></a>
                                             <!-- <span style="cursor: pointer;"><i class="large blue long arrow alternate down icon"></i><span style="color:#0066ff;">Download Rera Certificate</span></a> -->
                                     </div>
                                 </div>
@@ -142,7 +143,7 @@
                                 <div class="ui tab segment" data-tab="second">
                                     <div class="menuHeader">Property Details</div>
                                    <div class="ui bulleted list neighbourhoodList">
-                                           <div class="item" *ngFor="let list of neighbourhoodList">{{list.attribute_value}}</div>
+                                           <div class="item" *ngFor="let list of propertyDetailList">{{list.attribute_value}}</div>
                                    </div>
                                 </div>
                                 <!-- Plot Details -->
@@ -150,7 +151,8 @@
                                         <div class="menuHeader">Plot Details</div>
                                         <div class="details">{{projectSelected.project_name.capitalizeEachWord()}} Layout</div>
                             <div style="font-size:10px;color:#0066ff;margin-bottom:50px;">Click on the image to view plot details</div>
-                                        <img (click)="buyLink()" id="image-map" src="assets/Asset 1.svg" style="cursor:pointer;" usemap="#image-map" >
+                                        <img *ngIf="id == 24" (click)="buyLink()" id="image-map" src="assets/Asset 1.svg" style="cursor:pointer;" usemap="#image-map" >
+                                        <img *ngIf="id == 25" (click)="buyLink()" id="image-map" src="assets/Asset 2.jpg" style="cursor:pointer;width: 100%" usemap="#image-map" >
                                       
                                 </div>
                                 <!-- Amenities -->
@@ -192,10 +194,10 @@
                                 <div class="ui tab segment" data-tab="sixth">
                                         <div class="menuHeader">Neighbourhood Info for Viceroyce Residency</div>
                                         <div class="ui bulleted list neighbourhoodList">
-                                                <div class="item" *ngFor="let list of propertyDetailList">{{list.attribute_value}}</div>
+                                                <div class="item" *ngFor="let list of neighbourhoodList">{{list.attribute_value}}</div>
                                         </div>
                                         <button (click)="openLocationMap()" class="ui blue tiny button">Location Map</button>
-                                        <button (click)="openGMap()" class="ui blue tiny button">Google Map</button>
+                                        <button (click)="openGMap()" class="ui blue tiny button">Satellite View</button>
                                         
                                 </div>
                                 <div class="ui tab segment" data-tab="seventh">
@@ -338,7 +340,8 @@
 </div>
 <div class="ui modal locationMap">
         <i class="close icon"></i>
-        <img src="assets/locMap.png" style="width: 100%;margin-top:10px;">
+        <img *ngIf="id == 24" src="assets/locMap.png" style="width: 100%;margin-top:10px;">
+        <img *ngIf="id == 25" src="assets/diamondLocMap.jpg" style="width: 100%;margin-top:10px;">
 </div>
 <div class="ui modal googleMap">
     <i class="close icon"></i>
