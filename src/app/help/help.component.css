@@ -31,7 +31,7 @@
   }
 
 .ui.segment{
-    z-index: 2;
+    z-index: 1;
     width:50% !important; 
     margin: auto;
     padding: 0 5% 30px 5%;
@@ -201,3 +201,19 @@
   textarea::-moz-placeholder { color: #999999; }
   textarea:-ms-input-placeholder { color: #999999; }
   
+  .containerModal {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    /* width: 850px; */
+    max-width: 100%;
+    height: 570px;
+  }
+  @media all and (max-width: 768px) {
+    .containerModal {
+      /* height: 95vh; */
+      min-height: 450px;
+    }
+  }

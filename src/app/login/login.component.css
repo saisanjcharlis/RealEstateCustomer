@@ -38,8 +38,8 @@
 }
 @media all and (max-width: 768px) {
   .container {
-    height: 95vh;
-    min-height: 400px;
+    /* height: 95vh; */
+    min-height: 450px;
   }
 }
 
@@ -132,7 +132,7 @@ input.search {
 .intro img{
   object-fit: cover;
   filter: brightness(70%);
-  object-position: -10% 0;
+  /* object-position: -5% 0; */
   z-index:-9999;
   width:100%;
   height: calc(100vh - 56px);
@@ -144,11 +144,19 @@ input.search {
     height: calc(100vh - 50px);
   }
   .intro img{
-    object-position: 0% 0;
     height: calc(100vh - 50px);
   }
 }
-
+@media all and (max-width: 1000px) {
+  .intro img{
+    object-position: 0% 0;
+  }
+}
+@media all and (min-width: 1000px) {
+  .intro img{
+    object-position: -5% 0;
+  }
+}
 
 
 

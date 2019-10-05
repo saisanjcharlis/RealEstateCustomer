@@ -1,25 +1,32 @@
 <app-navbar></app-navbar>
 <div class="container">
     <img src="assets/images/ViceroyceeFamilyphoto.jpg">
-    <div class="ui segment">
+    <form class="ui segment validate-form">
         <span class="contact2-form-title">
             Contact Us
         </span>
 
-        <div class="wrap-input2">
-            <input class="input2" type="text" name="name" autocomplete="off">
+        <div class="wrap-input2 validate-input">
+            <input class="input2" type="text" [(ngModel)]="name" name="name" autocomplete="off">
             <span class="focus-input2" data-placeholder="NAME"></span>
         </div>
 
-        <div class="wrap-input2">
-            <input class="input2" type="text" name="email">
+        <div class="wrap-input2 validate-input">
+            <input class="input2" [(ngModel)]="email" type="text" name="email">
             <span class="focus-input2" data-placeholder="EMAIL"></span>
         </div>
 
-        <div class="wrap-input2">
-            <textarea class="input2" name="message"></textarea>
+        <div class="wrap-input2 validate-input">
+            <textarea class="input2" [(ngModel)]="message"  name="message"></textarea>
             <span class="focus-input2" data-placeholder="MESSAGE"></span>
         </div>
-       <button class="ui button blue">Submit</button>
-    </div>
+       <button class="ui button blue" (click)="submit()">Submit</button>
+    </form>
+</div>
+<div class="ui modal small modalSign">
+        <i class="close icon"></i>
+        <div class="containerModal">
+          <pop-up></pop-up>
+        
+        </div>
 </div>

@@ -28,7 +28,9 @@ html {
   background-size: cover;
 }
 .gridContent .ui.table>thead>tr>th {
-  background: aliceblue !important;
+  /* background: aliceblue !important; */
+  background: rgba(0,102,255,0.8);
+  color:white;
 }
 .gridContent .ui.celled.table>tbody>tr>td,.gridContent .ui.celled.table>tbody>tr>th,.gridContent .ui.celled.table>tfoot>tr>th,.gridContent .ui.celled.table>thead>tr>th,.gridContent .ui.celled.table>tr>td,.gridContent .ui.celled.table>tr>th {
   border: none !important;

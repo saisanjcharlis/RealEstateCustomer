@@ -18,8 +18,11 @@
         margin-bottom:40px;
         font-size:1.4em;
     }
-    .projectContainer, .basicTable{
+    .projectContainer{
         margin:0 2%;
+    }
+    .basicTable{
+        margin:20px 2%;
     }
     .tableMobile{
         display: none !important;

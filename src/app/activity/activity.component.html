@@ -59,7 +59,7 @@
                                                 <span style="flex:1 0 auto;">{{prop.project_name.capitalizeEachWord()}}
                                                       <div  style="float:right;"  class="ui menued icon bottom right dropdown">
                                                         <i style="cursor:pointer" class="ui blue icon ellipsis vertical"></i> 
-                                                        <div class="menu">
+                                                        <div class="left menu">
                                                           <div class="item" (click)="viewDetails(prop)">View Details</div>
                                                           <div class="item" (click)="viewProject(prop.project_id)">View Project</div>
                                                           <div class="item" (click)="viewTrans(prop)">Transactions</div>
@@ -88,7 +88,7 @@
                                                           <div class="infoLabel">Special EMI</div>
                                                       </div>
                                                     <div class="item">
-                                                        <div class="infoValue ui red horizontal label" style="text-align: center;">{{prop.emi_num}}/{{prop.installment_tenure}}</div>
+                                                        <div class="infoValue ui green horizontal label" style="text-align: center;">{{prop.emi_num}}/{{prop.installment_tenure}}</div>
                                                       <div class="infoLabel">Tenure</div>
                                                     </div>
                                                     <div class="item">

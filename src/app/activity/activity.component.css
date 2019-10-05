@@ -237,7 +237,7 @@
     padding:15px;
     border-radius: 4px;
     width:100% !important;
-    background: aliceblue;
+    /* background: aliceblue; */
     position: relative;
     overflow:hidden;
   }

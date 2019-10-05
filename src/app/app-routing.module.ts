@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'activity', canActivate : [AuthGuard] , component: ActivityComponent},
   { path: 'createProfile', component: CreateProfileComponent },
   { path: 'forgotPassword', component: ForgotpasswordComponent },
-  { path: 'projectDetail/:id', component: ProjectDetailComponent },
+  { path: 'projectDetail/:id',canActivate : [AuthGuard], component: ProjectDetailComponent },
   { path: 'messages', component: MessagesComponent },
   { path: 'fav',canActivate : [AuthGuard], component: FavoritesComponent },
   { path: 'help', component: HelpComponent },
@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'profile',canActivate : [AuthGuard], component: ProfileInfoComponent },
   { path: 'settings',canActivate : [AuthGuard], component: SettingsComponent },
   { path: 'passbook',canActivate : [AuthGuard], component: PassbookComponent },
-  { path: 'projects', component: ProjectsComponent },
+  { path: 'projects',canActivate : [AuthGuard], component: ProjectsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

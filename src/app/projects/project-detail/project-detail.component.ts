@@ -93,8 +93,11 @@ export class ProjectDetailComponent implements OnInit {
     $(e.target).addClass('basic');
   }
   share(){
-    $('.ui.modal.shareModal').modal('show');
-    
+    if(sessionStorage.getItem('logStatus')=='true'){
+      $('.ui.modal.shareModal').modal('show');
+    } else {
+      this.buyLink();
+    }
   }
   agentModal(){
     $('.ui.modal.agentModal').modal('show');   
@@ -106,7 +109,33 @@ export class ProjectDetailComponent implements OnInit {
     });
     $('.toast-box').css("margin-top","50px");
   }
+  message;
+  fromEmail;
+  subject;
+  email;
   sendMail(){
+    this.subject="View project from Spectra";
+    let url = `${this.config.url}services/v1/frontendcustomer/sendrequestemail`;
+    var loginData = JSON.parse(localStorage.getItem('loginData'));
+    let reqObj ={ 
+            "token":loginData.token,
+            "params":{ 
+              "from_email":this.fromEmail,
+              "username": JSON.parse(localStorage.getItem('customerName')),
+              "message": "View this project at "+ "http://63.35.27.154/realestate/#"+this.router.url,
+              "subject": this.subject,
+              "to_email": "charlis@saisanj.com"
+            }
+          }
+     this.http.post(url,reqObj).subscribe((data:any) => {
+       console.log(data)
+       $('body').toast({
+        class: 'success',
+        message: `Your message has been sent`
+      });
+     });
+     $('.toast-box').css("margin-top","50px"); 
+
     $('.ui.modal.shareModal').modal('hide');
   }
   rightDate(){

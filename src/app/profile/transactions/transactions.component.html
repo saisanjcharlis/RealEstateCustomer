@@ -6,8 +6,7 @@
               <div class="two fields">
                     <div class="field">
                       <label>Select Plot</label>
-                      <select name="plotNumber" (change)="select(plotValue)" [(ngModel)]="plotValue" class="ui fluid dropdown">
-                        <option value=""></option>
+                      <select id="selectPlot" name="plotNumber" (change)="select(plotValue)" [(ngModel)]="plotValue" class="ui fluid dropdown">
                         <option [ngValue]="prop" *ngFor="let prop of props">{{prop.project_name.capitalizeEachWord()}} Plot No-<b>{{prop.plot_no}}</b> Passbook-<b>{{prop.passbook_no}}</b></option>
                       </select>
                     </div>
@@ -51,7 +50,7 @@
             <th class="sorted ascending">Date</th>
             <th class="tableMobile">Passbook Number</th>
             <th class="sorted ascending">Amount</th>
-            <th>Cheque Number</th>
+            <th class="tableMobile">Cheque Number</th>
             <th class="sorted ascending">Payment Method</th>
             <th class="tableMobile">Transaction ID</th>
             <th class="sorted ascending">Transaction Status</th>
@@ -62,7 +61,7 @@
             <td>{{trans.bill_date}}</td>
             <td class="tableMobile">{{trans.passbook_no}}</td>
             <td>{{trans.amount_credited}}</td>
-            <td>{{trans.cheque_no}}</td>
+            <td class="tableMobile">{{trans.cheque_no}}</td>
             <td>{{trans.payment_mode}}</td>
             <td class="tableMobile">{{trans.bill_no}}</td>
             <td>{{trans.transaction_status}}</td>

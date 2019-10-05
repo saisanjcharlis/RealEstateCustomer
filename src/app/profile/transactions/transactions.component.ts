@@ -25,15 +25,11 @@ export class TransactionsComponent implements OnInit {
           return prop.project_id == this.transactionsList[0].project_id && prop.passbook_no == this.transactionsList[0].passbook_no
         });
         this.propDetails = this.propDetails[0];
-
-
-
       }
     });
   }
   propDetails;
   ngOnInit() {
-    this.plotValue="asdsa"
     $('table').tablesort();
     this.transactionsList = JSON.parse(localStorage.getItem('transactionSelected'));
     this.props=JSON.parse(localStorage.getItem('passbookList'));
@@ -43,9 +39,9 @@ export class TransactionsComponent implements OnInit {
         return prop.project_id == this.transactionsList[0].project_id && prop.passbook_no == this.transactionsList[0].passbook_no
       });
       this.propDetails = this.propDetails[0];
-      // this.plotValue=`${this.propDetails.project_name} Plot No-${this.propDetails.plot_no} Passbook-${this.propDetails.passbook_no}`;
-      // console.log(this.plotValue)
+      this.plotValue=this.propDetails
     } 
+
     this.projectList = JSON.parse(localStorage.getItem('projectsList'));
   }
 

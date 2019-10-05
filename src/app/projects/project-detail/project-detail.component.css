@@ -180,12 +180,13 @@
     /* padding-bottom:20px; */
     padding:5px;
     margin-bottom:10px;
-    background: #0066ff;
+    background: #414143;
+    /* background: #0066ff; */
     color:white;
     text-align: center;
     border-radius: 2px;
     /* border-left: 4px solid #0066ff; */
-    background-image: linear-gradient(to right, rgba(0,102,255,0.6), rgba(255,255,255,0.2) 40%);
+    /* background-image: linear-gradient(to right, rgba(0,102,255,0.6), rgba(255,255,255,0.2) 40%); */
 }
 @media all and (min-width: 931px) {
     .bottomMenu, .menuHeader{
@@ -510,8 +511,8 @@ agm-map {
   }
   @media all and (max-width: 768px) {
     .container {
-      height: 95vh;
-      min-height: 400px;
+      /* height: 95vh; */
+      min-height: 450px;
     }
   }
   

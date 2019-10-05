@@ -72,8 +72,8 @@
 }
 @media all and (max-width: 768px) {
   .container {
-    height: 95vh;
-    min-height: 400px;
+    /* height: 95vh; */
+    min-height: 450px;
   }
 }
 .savedSearchPop{
