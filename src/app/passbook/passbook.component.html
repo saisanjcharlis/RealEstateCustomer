@@ -62,62 +62,11 @@
                           </div>
                         </div>
                     </div>
-                    <!-- <div style="margin-top:20px;" class="description"  >
-                        <div class="ui celled horizontal list">
-                            <div class="item">
-                                <div class="infoValue">{{prop.plot_no}}</div>
-                                <div class="infoLabel">Plot Number</div>
-                            </div>
-                            <div class="item">
-                              <div class="infoValue">{{prop.passbook_no}}</div>
-                              <div class="infoLabel">Passbook Number</div>
-                           </div>
-                            <div class="item">
-                                <div class="infoValue">₹ {{prop.actual_cost}}<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                <div class="infoLabel">Plot Worth</div>
-                            </div>
-                            <div class="item">
-                                <div class="infoValue">₹ {{prop.installment_amount}}<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                <div class="infoLabel">EMI Amount</div>
-                            </div>
-                            <div class="item">
-                              <div class="infoValue">{{prop.installment_tenure}} months<span style="font-size: 14px;font-weight: 500;"></span></div>
-                              <div class="infoLabel">Tenure</div>
-                          </div>
-                          <div class="item">
-                              <div class="infoValue">{{prop.emi_num}}<span style="font-size: 14px;font-weight: 500;"></span></div>
-                              <div class="infoLabel">Total EMI's paid</div>
-                          </div>
-                          <div class="item">
-                            <div class="infoValue">₹ {{prop.total_payable}} <span style="font-size: 14px;font-weight: 500;"></span></div>
-                            <div class="infoLabel">Total Payable</div>
-                        </div>
-                        </div>
-                    </div> -->
                   </div>
           </div>
         </div>
 
 
-        <!-- <div class="boxContainer" *ngFor="let project of projects">
-          
-          <div class="propContainer">
-              <span style="font-weight: bold;"><i class="city blue large icon" ></i>Spectra Galaxy</span>
-              <div class="propertyInfo">
-                  <span>Plot Number</span><span class="propertyInfoColor">214</span>
-                  <span>Passbook Number</span><span class="propertyInfoColor">3453453</span>
-                  <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
-                  <span>Facing</span><span class="propertyInfoColor">North Facing</span>
-                  <span>Plot Size</span><span class="propertyInfoColor">400 sqyd</span>
-                  <span>Next EMI</span><span class="propertyInfoColor">24th Aug 2019</span>
-                  <span>EMI Amount</span><span class="propertyInfoColor" >18000</span>
-                  <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
-              </div>
-              <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" class="ui button basic blue manageButton" routerLink="/transactions">View Transaction</button>
-              <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/projectDetail" class="ui basic button blue manageButton1">View Project</button>
-          
-          </div>
-        </div> -->
     </div>
     
   <footer></footer>
@@ -146,7 +95,7 @@
                         
                         <div class="field">
                           <label>Passbook Number</label>
-                          <input type="text" [(ngModel)]="passbookNo" name="allot_number" placeholder="Passbook Number"> <button (click)="otpGenerate()" style="margin-top:10px;" class="right floated ui button blue">Generate OTP</button>
+                          <input type="text" [(ngModel)]="passbookNo" autocomplete="off" name="allot_number" placeholder="Passbook Number"> <button (click)="otpGenerate()" style="margin-top:10px;" class="right floated ui button blue">Generate OTP</button>
                         </div>
                        
                         <div class="field">

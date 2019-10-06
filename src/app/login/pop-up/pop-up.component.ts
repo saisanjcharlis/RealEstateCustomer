@@ -255,7 +255,7 @@ signUp(e,name,mobileNumber, otp, password){
     } else { this.passwordPassed4=true; }
     if(this.mobilePassed && this.passwordPassed1 && this.passwordPassed2 && this.passwordPassed3 && this.passwordPassed4){
         let urlVerify = `${this.config.url}customerlogin/verifyotp`;
-        let signUpObject =  {"params":{"mobile_number":mobileNumber,"mobile_otp":otp,"url":"spectra","password":password}};
+        let signUpObject =  {"params":{"username":name,"mobile_number":mobileNumber,"mobile_otp":otp,"url":"spectra","password":password}};
         this.http.post(urlVerify,signUpObject).subscribe((data:any) => {
           console.log(data)
           if(data.success==true){
@@ -266,9 +266,6 @@ signUp(e,name,mobileNumber, otp, password){
           }
         });
     } 
-    // else {
-    //   this.errors1.push("Something Incorrect");
-    // }
 
   } else if(this.indexSignUpInput==3 && password.length>0) {
     this.errors1.push("Enter Password");
