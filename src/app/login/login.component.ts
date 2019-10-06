@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
     $('.toast-box').css("margin-top","50px");
   }
   ngOnInit() {
-    if(sessionStorage.getItem('logStatus')=='logout'){
+    if(localStorage.getItem('logStatus')=='logout'){
       localStorage.clear();
       // sessionStorage.setItem('logStatus','logout');
     }

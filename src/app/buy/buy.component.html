@@ -24,7 +24,29 @@
         </div>
 <footer></footer>
 </div>
-
+<div class="ui modal shareModal" >
+    <i class="close icon"></i>
+    <div class="shareModalContainer">
+        <h2>Email this project</h2>
+        <div class="ui form">
+            <div class="field">
+              <label>Recipient's email</label>
+              <input [(ngModel)]="email" type="text" name="first-name" placeholder="Enter email">
+              <div style="padding-top:5px;">Separate multiple addresses with a comma.</div>
+            </div>
+            <div class="field">
+              <label>Your email</label>
+              <input type="email" name="last-name" [(ngModel)]="fromEmail">
+            </div>
+            <div class="field">
+              <label>Include message (optional)</label>
+              <textarea [(ngModel)]="message" rows="2" placeholder="Check out this project I found on Spectra."></textarea>
+            </div>
+            <button (click)="sendMail()" class="ui blue button" type="submit">Send email</button>
+        </div>
+    </div>
+</div>
+<!-- 
 <div class="ui modal shareModal" >
         <i class="close icon"></i>
         <div class="shareModalContainer">
@@ -46,7 +68,7 @@
                 <button (click)="sendMail()" class="ui blue button" type="submit">Send email</button>
             </form>
         </div>
-</div>
+</div> -->
 <div class="ui plotPopup popup bottom center transition hidden">
     <div class="ui header">Property Type</div>
 

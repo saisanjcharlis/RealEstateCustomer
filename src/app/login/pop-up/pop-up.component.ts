@@ -52,7 +52,7 @@ signIn(uname: string, p: string){
       if(data.success==true){
         $('.ui.modal').modal('hide');  
         localStorage.setItem('loginData',JSON.stringify(data.results));
-        sessionStorage.setItem('logStatus','true');
+        localStorage.setItem('logStatus','true');
         localStorage.setItem('newUser','false');
 
         let urlPassbook = `${this.config.url}services/v1/frontendcustomer/getpassbooklist`;

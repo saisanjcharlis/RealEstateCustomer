@@ -41,13 +41,13 @@ export class NavbarComponent implements OnInit {
     if(this.accountName=="Login/Sign Up" && (routeActivate == "projects" || routeActivate == "projectDetail/:id" )){
       this.router.navigate(['/']);
     }
-    if(sessionStorage.getItem('logStatus')=='createProfile'){
+    if(localStorage.getItem('logStatus')=='createProfile'){
       this.router.navigate(['/createProfile']);
     }
   }
   home(){
     let routeActivate = this.route.snapshot.routeConfig.path;
-    if(sessionStorage.getItem('logStatus') !=='createProfile' || routeActivate == "projects"){
+    if(localStorage.getItem('logStatus') !=='createProfile' || routeActivate == "projects"){
       this.router.navigate(['/']);
     }
     if(routeActivate == ""){
@@ -69,7 +69,7 @@ export class NavbarComponent implements OnInit {
           this.router.navigate([this.router.url]);
         });     
     }
-    sessionStorage.setItem('logStatus','logout');
+    localStorage.setItem('logStatus','logout');
     this.router.navigate(['/']);
   }
   customerName;
@@ -79,8 +79,8 @@ export class NavbarComponent implements OnInit {
     if(localStorage.getItem('profileStatus')=="incomplete"){
       this.completeProfileNotification=true;
     }
-    if(sessionStorage.getItem('logStatus')){
-      if(sessionStorage.getItem('logStatus')=='logout'){
+    if(localStorage.getItem('logStatus')){
+      if(localStorage.getItem('logStatus')=='logout'){
         this.navViewOnly = false;
         this.accountName = "Login/Sign Up";
         this.customerName = "Login/Sign Up";

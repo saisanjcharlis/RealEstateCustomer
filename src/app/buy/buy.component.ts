@@ -22,7 +22,7 @@ export class BuyComponent implements OnInit {
     //  this.saveText="Save";
     // }
     // $(e.target).children('i').toggleClass('outline');
-    if(sessionStorage.getItem('logStatus')=='true'){
+    if(localStorage.getItem('logStatus')=='true'){
       var loginData = JSON.parse(localStorage.getItem('loginData'));
 
           if(this.saveText=="Save"){
@@ -56,8 +56,33 @@ export class BuyComponent implements OnInit {
     $('.ui.modal.shareModal').modal('show');
     
   }
-
+  message;
+  fromEmail;
+  subject;
+  email;
   sendMail(){
+    this.subject="View project from Spectra";
+    let url = `${this.config.url}services/v1/frontendcustomer/sendrequestemail`;
+    var loginData = JSON.parse(localStorage.getItem('loginData'));
+    let reqObj ={ 
+            "token":loginData.token,
+            "params":{ 
+              "from_email":this.fromEmail,
+              "username": JSON.parse(localStorage.getItem('customerName')),
+              "message": "View this project at "+ "http://63.35.27.154/realestate/#"+this.routes.url,
+              "subject": this.subject,
+              "to_email": "charlis@saisanj.com"
+            }
+          }
+     this.http.post(url,reqObj).subscribe((data:any) => {
+       console.log(data)
+       $('body').toast({
+        class: 'success',
+        message: `Your message has been sent`
+      });
+     });
+     $('.toast-box').css("margin-top","50px"); 
+
     $('.ui.modal.shareModal').modal('hide');
   }
   projectSelected;
@@ -68,7 +93,7 @@ export class BuyComponent implements OnInit {
     });
     this.projectSelected=JSON.parse(localStorage.getItem('projectSelected'));
 
-    if(sessionStorage.getItem('logStatus')=='true'){
+    if(localStorage.getItem('logStatus')=='true'){
       let favList = JSON.parse(localStorage.getItem('favList'));
       if(favList!=null){
         favList.map((fav)=>{

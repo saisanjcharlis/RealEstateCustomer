@@ -28,7 +28,7 @@
     } */
 }
 .plotContainer{
-    margin:50px 15% 0 15%;overflow: auto;
+    margin:50px 10% 0 10%;overflow: auto;
 }
  @media screen and (max-width: 768px){
     .plotContainer{

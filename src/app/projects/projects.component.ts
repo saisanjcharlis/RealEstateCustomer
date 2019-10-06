@@ -340,14 +340,14 @@ export class ProjectsComponent implements OnInit {
     this.zoom = this.mapsService.zoom;
   }
   buyLink(){
-    if(sessionStorage.getItem('logStatus')=='true'){
+    if(localStorage.getItem('logStatus')=='true'){
     } else {
       $('.ui.modal.modalSign').modal('show');  
     };
   }
   save(e,project){
   
-    if(sessionStorage.getItem('logStatus')=='true'){
+    if(localStorage.getItem('logStatus')=='true'){
       var loginData = JSON.parse(localStorage.getItem('loginData'));
       let urlFav = `${this.config.url}services/v1/frontendcustomer/getcustomerfavourites`;
           if($(e.target).hasClass('outline')){
@@ -602,7 +602,7 @@ export class ProjectsComponent implements OnInit {
       this.locList.push(data.city);
       data.created_at = new Date(Date.parse(data.created_at));
       data.favStatus=false;
-      if(sessionStorage.getItem('logStatus')=='true'){
+      if(localStorage.getItem('logStatus')=='true'){
         let favList = JSON.parse(localStorage.getItem('favList'));
         if(favList!=null){
           favList.map((fav)=>{

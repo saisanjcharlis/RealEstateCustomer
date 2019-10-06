@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../../../services/config.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 declare var $:any;
 @Component({
   selector: 'profile-info',
@@ -8,7 +9,7 @@ declare var $:any;
   styleUrls: ['./profile-info.component.css']
 })
 export class ProfileInfoComponent implements OnInit {
-  constructor(private config: ConfigService, private http: HttpClient) { }
+  constructor(private config: ConfigService, private http: HttpClient, private router:Router) { }
   edit=false;
   editEnabled(){
     this.edit=true;
@@ -138,15 +139,24 @@ export class ProfileInfoComponent implements OnInit {
       "user_id": currentID
     }
     this.http.post(url,reqObj).subscribe((data:any) => {
-      if(data.result.results.length>0){
-        this.profileData.name=data.result.results[0].customer_name;
-        this.profileData.dob=data.result.results[0].customer_dob;
-        this.profileData.fatherOrSpouseName=data.result.results[0].customer_spouse;
-        this.profileData.email=data.result.results[0].customer_email;
-        this.profileData.address=data.result.results[0].customer_pr_address_line1;
-        this.profileData.phoneNumber=data.result.results[0].customer_pr_phone;
-        this.profileData.aadhar=data.result.results[0].customer_aadharno;
-        this.profileData.pan=data.result.results[0].customer_pan;
+      if(data.success==true){
+        if(data.result.results.length>0){
+          this.profileData.name=data.result.results[0].customer_name;
+          this.profileData.dob=data.result.results[0].customer_dob;
+          this.profileData.fatherOrSpouseName=data.result.results[0].customer_spouse;
+          this.profileData.email=data.result.results[0].customer_email;
+          this.profileData.address=data.result.results[0].customer_pr_address_line1;
+          this.profileData.phoneNumber=data.result.results[0].customer_pr_phone;
+          this.profileData.aadhar=data.result.results[0].customer_aadharno;
+          this.profileData.pan=data.result.results[0].customer_pan;
+        }
+      }
+      if(data.success==false  && data.error=="can't read token"){
+        alert('Session Timeout. Login Again')
+        localStorage.clear();
+        sessionStorage.clear();
+        localStorage.setItem('logStatus','logout');
+        this.router.navigate(['/']);
       }
       
     });

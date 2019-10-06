@@ -8,11 +8,11 @@ export class AuthGuard implements CanActivate {
 
   constructor(private routes : Router, private bnIdle: BnNgIdleService, private route: ActivatedRoute,){
       this.bnIdle.startWatching(600).subscribe((res) => {
-      if(res && sessionStorage.getItem('logStatus') !='logout') {
+      if(res && localStorage.getItem('logStatus') !='logout') {
         alert('Session Timeout. Login Again')
         localStorage.clear();
         sessionStorage.clear();
-        sessionStorage.setItem('logStatus','logout');
+        localStorage.setItem('logStatus','logout');
         this.routes.navigate(['/']);
 
       }
@@ -28,15 +28,10 @@ export class AuthGuard implements CanActivate {
         alert('Session Timeout. Login Again')
         localStorage.clear();
         sessionStorage.clear();
-        sessionStorage.setItem('logStatus','logout');
+        localStorage.setItem('logStatus','logout');
         this.routes.navigate(['/']);
       }
-      // let routeActivate = this.route.snapshot.routeConfig.path;
-      // if(routeActivate == "projects" && sessionStorage.getItem('logStatus')=='false'){
-      //   this.routes.navigate(['/login']);
-      //   return false;
-      // }
-      if(sessionStorage.getItem('logStatus')=='true'){
+      if(localStorage.getItem('logStatus')=='true'){
         return true;
       } 
       else

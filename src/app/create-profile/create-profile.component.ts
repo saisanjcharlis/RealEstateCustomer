@@ -86,6 +86,6 @@ export class CreateProfileComponent implements OnInit {
   saveProfile(){
     localStorage.setItem("newUser","true");
     this.routes.navigate(['/']);
-    sessionStorage.setItem('logStatus','true');
+    localStorage.setItem('logStatus','true');
   }
 }

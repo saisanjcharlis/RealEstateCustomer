@@ -15,7 +15,7 @@ export class HelpComponent implements OnInit {
   subject;
   constructor(private routes: Router, private http: HttpClient, private config: ConfigService) { }
   submit(){
-    if(sessionStorage.getItem('logStatus')=='true'){
+    if(localStorage.getItem('logStatus')=='true'){
       this.subject="Message from Customer";
       let url = `${this.config.url}services/v1/frontendcustomer/sendrequestemail`;
       var loginData = JSON.parse(localStorage.getItem('loginData'));
