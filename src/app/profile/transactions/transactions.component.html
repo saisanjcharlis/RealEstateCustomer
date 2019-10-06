@@ -24,7 +24,7 @@
                   </div>
                   <div class="item">
                       <div class="infoValue ui blue horizontal label" style="text-align: center;">₹ {{propDetails.total_payable}}</div>
-                      <div class="infoLabel">Amount Due</div>
+                      <div class="infoLabel">Total Amount Due</div>
                   </div>
                   <div class="item">
                       <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propDetails.installment_tenure}}</div>
@@ -38,6 +38,10 @@
                       <div class="infoValue ui blue horizontal label" style="text-align: center;">10th Oct 2019</div>
                       <div class="infoLabel">Next EMI</div>
                   </div>
+                  <div class="item">
+                    <div class="infoValue ui blue horizontal label" style="text-align: center;">₹ {{propDetails.installment_amount + propDetails.due_amount}}</div>
+                    <div class="infoLabel">Upcoming EMI</div>
+                </div>
               </div>
           </div>
       </div>
