@@ -407,9 +407,18 @@
 .googleMap{
     width:  50% !important;
 }
+
 agm-map {
     height: 90vh;
     width: 100%;
+}
+@media screen and (max-width: 768px){
+    .googleMap{
+        width:  90% !important;
+    }
+    agm-map {
+        height: 60vh;
+    }
 }
 .marker{
     font-size:10px;

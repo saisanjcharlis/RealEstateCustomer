@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../../../services/config.service';
 import { HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
 declare var $:any;
 @Component({
   selector: 'transactions',
@@ -10,7 +11,7 @@ declare var $:any;
 export class TransactionsComponent implements OnInit {
   selectedValue;
   plotValue;
-  constructor(private config: ConfigService, private http: HttpClient) { }
+  constructor(private config: ConfigService, private http: HttpClient,private router: Router) { }
   transactionsList;
   projectList;
   props;
@@ -25,6 +26,13 @@ export class TransactionsComponent implements OnInit {
           return prop.project_id == this.transactionsList[0].project_id && prop.passbook_no == this.transactionsList[0].passbook_no
         });
         this.propDetails = this.propDetails[0];
+      }
+      if(data.success==false  && data.error=="can't read token"){
+        alert('Session Timeout. Login Again')
+        localStorage.clear();
+        sessionStorage.clear();
+        localStorage.setItem('logStatus','logout');
+        this.router.navigate(['/']);
       }
     });
   }

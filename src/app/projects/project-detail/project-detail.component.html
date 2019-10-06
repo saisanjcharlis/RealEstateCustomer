@@ -192,7 +192,7 @@
                                 </div> -->
                                 <!-- Neighbourhood -->
                                 <div class="ui tab segment" data-tab="sixth">
-                                        <div class="menuHeader">Neighbourhood Info for Viceroyce Residency</div>
+                                        <div class="menuHeader">Neighbourhood Info for {{projectSelected.project_name.capitalizeEachWord()}}</div>
                                         <div class="ui bulleted list neighbourhoodList">
                                                 <div class="item" *ngFor="let list of neighbourhoodList">{{list.attribute_value}}</div>
                                         </div>
