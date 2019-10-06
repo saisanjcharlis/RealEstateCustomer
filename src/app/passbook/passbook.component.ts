@@ -123,7 +123,6 @@ export class PassbookComponent implements OnInit {
   projectList;
   ngOnInit() {
     this.props=JSON.parse(localStorage.getItem('passbookList'));
-    console.log(this.props)
     this.projectList = JSON.parse(localStorage.getItem('projectsList'));
   }
   ngAfterViewInit(){

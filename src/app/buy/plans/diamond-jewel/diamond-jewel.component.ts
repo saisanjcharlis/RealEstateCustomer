@@ -19,43 +19,144 @@ export class DiamondJewelComponent implements OnInit {
     $(e.target).addClass('selectedPlan');
     $(e.target).removeClass('basic');
     this.planDefault =1;
+    this.plotNumber=null;
+    let list = this.plotsList;
+    setTimeout(function(){ 
+        list.map((plot)=>{
+        if(plot.available_status==0){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(255,0,0,0.8)' );
+          $('text').css('fill','black');
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css('pointer-events','none');
+        }
+        if(plot.available_status==1){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", '#2fce7e');
+          $('text').css('fill','black');
+        }
+        if(plot.available_status==2){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,0,255,0.8)' );
+          $('text').css('fill','black');
+        }
+      });
+    }, 0);
+   
   }
   selectPlan2(e){
     $('.selectedPlan').addClass('basic');
     $(e.target).addClass('selectedPlan');
     $(e.target).removeClass('basic');
     this.planDefault =2;
+    this.plotNumber=null;
+    let list = this.plotsList;
+    setTimeout(function(){ 
+        list.map((plot)=>{
+        if(plot.available_status==0){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(255,0,0,0.8)' );
+          $('text').css('fill','black');
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css('pointer-events','none');
+        }
+        if(plot.available_status==1){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", '#2fce7e');
+          $('text').css('fill','black');
+        }
+        if(plot.available_status==2){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,0,255,0.8)' );
+          $('text').css('fill','black');
+        }
+      });
+    }, 0);
   }
   selectPlan3(e){
     $('.selectedPlan').addClass('basic');
     $(e.target).addClass('selectedPlan');
     $(e.target).removeClass('basic');
     this.planDefault =3;
+    this.plotNumber=null;
+    let list = this.plotsList;
+    setTimeout(function(){ 
+        list.map((plot)=>{
+        if(plot.available_status==0){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(255,0,0,0.8)' );
+          $('text').css('fill','black');
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css('pointer-events','none');
+        }
+        if(plot.available_status==1){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", '#2fce7e');
+          $('text').css('fill','black');
+        }
+        if(plot.available_status==2){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,0,255,0.8)' );
+          $('text').css('fill','black');
+        }
+      });
+    }, 0);
   }
   selectPlan4(e){
     $('.selectedPlan').addClass('basic');
     $(e.target).addClass('selectedPlan');
     $(e.target).removeClass('basic');
     this.planDefault =4;
+    let list = this.plotsList;
+    this.plotNumber=null;
+    setTimeout(function(){ 
+        list.map((plot)=>{
+        if(plot.available_status==0){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(255,0,0,0.8)' );
+          $('text').css('fill','black');
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css('pointer-events','none');
+        }
+        if(plot.available_status==1){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", '#2fce7e');
+          $('text').css('fill','black');
+        }
+        if(plot.available_status==2){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,0,255,0.8)' );
+          $('text').css('fill','black');
+        }
+      });
+    }, 0);
   }
   plotNumber:number;
   modelChange(newObj){
     if(newObj==null){
-      $('.available').css('fill','#2fce72');
+      $('.cls-13').css('fill','#2fce72');
+      $('.cls-10').css('fill','#2fce72');
+      $('.cls-11').css('fill','#2fce72');
+      $( "text").css( "fill", "black" );
     }
-    if($("#"+newObj).length){
-      $('.available').css('fill','none');
+    if($( "text:contains("+newObj+")").length){
+      $('.cls-13').css('fill','none');
+      $('.cls-10').css('fill','none');
+      $('.cls-11').css('fill','none');
+      $( "text").css( "fill", "none" );
 
       this.plotsList.map((plot)=>{
         if(plot.plot_no==newObj){
           if(plot.available_status==0){
-            $('#'+plot.plot_no).css('fill','rgba(255,0,0,0.5)');
+              $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+              $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(255,0,0,0.8)' );
+              $( "text").css( "fill", "black" );
           }
           if(plot.available_status==1){
-            $('#'+plot.plot_no).css('fill','rgba(0,255,0,0.5)');
+              $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+              $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,255,0,0.8)' );
+              $( "text").css( "fill", "black" );
           }
           if(plot.available_status==2){
-            $('#'+plot.plot_no).css('fill','rgba(0,0,255,0.5)');
+              $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+              $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,0,255,0.8)' );
+              $( "text").css( "fill", "black" );
           }
         }
 
@@ -63,8 +164,7 @@ export class DiamondJewelComponent implements OnInit {
       });
 
 
-      
-      var elHeight = $("#"+newObj).offset().top;
+      var elHeight =  $( "text:contains("+newObj+")").offset().top;
       var windowHeight = $(window).height();
       var offset;
       if (elHeight+200 < windowHeight) {
@@ -84,16 +184,27 @@ export class DiamondJewelComponent implements OnInit {
 
 
     } else {
-      $('.available').css('fill','#2fce72');
-      
+      $('.cls-13').css('fill','#2fce72');
+      $('.cls-10').css('fill','#2fce72');
+      $('.cls-16').css('fill','#2fce72');
+      $('.cls-11').css('fill','#2fce72');
+      $('text').css('fill','black');
       this.plotsList.map((plot)=>{
         if(plot.available_status==0){
-          $('#'+plot.plot_no).css('fill','rgba(255,0,0,0.5)');
-          $('#'+plot.plot_no).css('pointer-events','none');
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(255,0,0,0.8)' );
+          $('text').css('fill','black');
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css('pointer-events','none');
+        }
+        if(plot.available_status==1){
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", '#2fce7e');
+          $('text').css('fill','black');
         }
         if(plot.available_status==2){
-          $('#'+plot.plot_no).css('fill','rgba(0,0,255,0.5)');
-          $('#'+plot.plot_no).css('pointer-events','none');
+          $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+          $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,0,255,0.8)' );
+          $('text').css('fill','black');
         }
       });
     }
@@ -119,18 +230,15 @@ export class DiamondJewelComponent implements OnInit {
         this.plotColor='#0066ff';
       }
       sessionStorage.setItem('plotSelectedAttr',JSON.stringify(this.plotSelectedAttr));
-      // console.log(this.plotSelectedAttr)
-      // console.log(JSON.parse(this.plotSelectedAttr[0].project_attributes))
       this.plotSelectedPassbookCount=JSON.parse(this.plotSelectedAttr[0].passbook_no).length;
       this.plotSelectedAttributes=JSON.parse(this.plotSelectedAttr[0].project_attributes);
 
       $('.ui.modal.plotInfo').modal('show');
     }
-    // sessionStorage.setItem('plotSelectedAttr',JSON.stringify(this.plotSelectedAttr));
-    // $('.ui.modal.plotInfo').modal('show');
   }
   openAttr(e){
-    this.plotSelected = e.target.id;
+    console.log(e)
+    this.plotSelected = $(e.target).next().html();
     localStorage.setItem('plotSelected',this.plotSelected);
     this.plotSelectedAttr=this.plotsList.filter((plot)=>{
       return plot.plot_no==this.plotSelected;
@@ -153,7 +261,6 @@ export class DiamondJewelComponent implements OnInit {
       this.plotSelectedAttributes=JSON.parse(this.plotSelectedAttr[0].project_attributes);
       $('.ui.modal.plotInfo').modal('show');
     }
-   
   }
   addPlot(){
     $('.ui.modal.plotInfo').modal('hide');
@@ -230,11 +337,18 @@ partialCount=0;
       if(plot.available_status==0){
         $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
         $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(255,0,0,0.8)' );
-        // $('#'+plot.plot_no).css('pointer-events','none');
+        $('text').css('fill','black');
+        $( "text:contains("+plot.plot_no+")").prev( "rect" ).css('pointer-events','none');
+      }
+      if(plot.available_status==1){
+        $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
+        $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", '#2fce7e');
+        $('text').css('fill','black');
       }
       if(plot.available_status==2){
         $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
         $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,0,255,0.8)' );
+        $('text').css('fill','black');
       }
     });
   }

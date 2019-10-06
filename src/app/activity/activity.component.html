@@ -83,7 +83,7 @@
                                                           <div class="infoValue ui blue horizontal label" style="text-align: center;">₹ {{prop.installment_amount}}</div>
                                                           <div class="infoLabel">EMI Amount</div>
                                                       </div>
-                                                      <div *ngIf="prop.spl_emi_month != null" class="item">
+                                                      <div *ngIf="prop.spl_emi_amount != 0 && prop.spl_emi_amount !=null" class="item">
                                                           <div class="infoValue ui green horizontal label" style="text-align: center;">₹ {{prop.spl_emi_amount}}/{{prop.spl_emi_month}}</div>
                                                           <div class="infoLabel">Special EMI</div>
                                                       </div>

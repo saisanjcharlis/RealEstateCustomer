@@ -32,15 +32,11 @@
                         </div>
                         <span class="infoHeader">Tenure</span>
                         <div>
-                                <div class="infoValue ui red horizontal label" style="text-align: center;">{{propertyDetails.emi_num}}/{{propertyDetails.installment_tenure}}</div>
+                                <div class="infoValue ui green horizontal label" style="text-align: center;">{{propertyDetails.emi_num}}/{{propertyDetails.installment_tenure}}</div>
                         </div>
                         <span *ngIf="propertyDetails.due_amount != null" class="infoHeader">Due Amount</span>
                         <div *ngIf="propertyDetails.due_amount != null">
                                 <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.due_amount}}</div>
-                        </div>
-                        <span class="infoHeader">Facing</span>
-                        <div>
-                                <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.facing}}</div>
                         </div>
                         <span *ngIf="propertyDetails.spl_emi_month != null" class="infoHeader">Special EMI Month</span>
                         <div *ngIf="propertyDetails.spl_emi_month != null">
