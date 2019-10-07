@@ -26,10 +26,8 @@ export class PassbookComponent implements OnInit {
   otp;
   passbookNo;
   allotPassbook(){
-    console.log(this.selectedValue)
     let urlPassbookOTP = `${this.config.url}services/v1/frontendcustomer/passbookoptverification`;
     var loginData = JSON.parse(localStorage.getItem('loginData'));
-    console.log(this.passbookNo)
 
     let reqObj = {
       "token": loginData.token,
@@ -38,7 +36,6 @@ export class PassbookComponent implements OnInit {
       }
     }
     this.http.post(urlPassbookOTP,reqObj).subscribe((data:any) => {
-      console.log(data)
       if(data.success){
      
         localStorage.setItem('newUser',"false");
@@ -68,9 +65,17 @@ export class PassbookComponent implements OnInit {
           }
         });
       }
+      if(data.success==false){
+        $('body').toast({
+          class: 'warning',
+          message: `Enter Correct OTP`
+        });
+      }
+
     });   
-    $('.toast-box').css("margin-top","50px");
+    $('.toast-box').css("margin-top","20px");
   }
+  isValid=false;
   otpGenerate(){
     let urlPassbookOTP = `${this.config.url}services/v1/frontendcustomer/passbookauthetication`;
     var loginData = JSON.parse(localStorage.getItem('loginData'));
@@ -81,7 +86,21 @@ export class PassbookComponent implements OnInit {
       }
     }
     this.http.post(urlPassbookOTP,reqObj).subscribe((data:any) => {
-      console.log(data)
+      if(data.success==false){
+        $('body').toast({
+          class: 'error',
+          message: `Invalid Passbook`
+        });
+        $('.toast-box').css("margin-top","20px");
+      }
+      if(data.success==true){
+        $('body').toast({
+          class: 'success',
+          message: `OTP sent to Mobile Number`
+        });
+        $('.toast-box').css("margin-top","20px");
+        this.isValid=true;
+      }
     });
   }
   viewTrans(prop){

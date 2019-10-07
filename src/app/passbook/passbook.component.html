@@ -106,9 +106,9 @@
           </div>
         </div>
         <div class="actions">
-          <div class="ui positive right labeled icon button" (click)="allotPassbook()" >
+          <button class="ui positive right labeled icon button" [disabled]="!isValid" (click)="allotPassbook()" >
             Add Passbook
             <i class="checkmark icon"></i>
-          </div>
+          </button>
         </div>
 </div>

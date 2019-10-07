@@ -141,22 +141,33 @@ export class DiamondJewelComponent implements OnInit {
       $('.cls-11').css('fill','none');
       $( "text").css( "fill", "none" );
 
+     
+
       this.plotsList.map((plot)=>{
         if(plot.plot_no==newObj){
           if(plot.available_status==0){
-              $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
-              $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(255,0,0,0.8)' );
+            let plotValue = $("text").filter(function() {
+              return $(this).text() === newObj.toString();
+            });
+            $(plotValue[1]).css("fill","white")
+            $(plotValue[1]).prev( "rect" ).css( "fill", 'rgba(255,0,0,0.8)' );
               $( "text").css( "fill", "black" );
           }
           if(plot.available_status==1){
-              $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
-              $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,255,0,0.8)' );
-              $( "text").css( "fill", "black" );
+            let plotValue = $("text").filter(function() {
+              return $(this).text() === newObj.toString();
+            });
+            $(plotValue[1]).css("fill","white")
+            $(plotValue[1]).prev( "rect" ).css( "fill", 'rgba(0,255,0,0.8)' );
+            $( "text").css( "fill", "black" );
           }
           if(plot.available_status==2){
-              $( "text:contains("+plot.plot_no+")").css( "fill", "white" );
-              $( "text:contains("+plot.plot_no+")").prev( "rect" ).css( "fill", 'rgba(0,0,255,0.8)' );
-              $( "text").css( "fill", "black" );
+            let plotValue = $("text").filter(function() {
+              return $(this).text() === newObj.toString();
+            });
+            $(plotValue[1]).css("fill","white")
+            $(plotValue[1]).prev( "rect" ).css( "fill", 'rgba(0,0,255,0.8)' );
+            $( "text").css( "fill", "black" );
           }
         }
 

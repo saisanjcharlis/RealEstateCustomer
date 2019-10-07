@@ -7,7 +7,7 @@ import { BnNgIdleService } from 'bn-ng-idle';
 export class AuthGuard implements CanActivate {
 
   constructor(private routes : Router, private bnIdle: BnNgIdleService, private route: ActivatedRoute,){
-      this.bnIdle.startWatching(600).subscribe((res) => {
+      this.bnIdle.startWatching(1200).subscribe((res) => {
       if(res && localStorage.getItem('logStatus') !='logout') {
         alert('Session Timeout. Login Again')
         localStorage.clear();

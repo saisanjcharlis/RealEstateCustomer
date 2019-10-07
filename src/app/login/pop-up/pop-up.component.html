@@ -16,8 +16,8 @@
       </div>
       <!-- <a (click)="forgotPassword()" style="cursor:pointer;font-weight: 400;color:#0066ff;"><span>Forgot your password</span></a> -->
       <div class="buttonCont">
+        <button class="blueBtn" type="button" (click)="createAccount()">Create account<i class="fa fa-fw fa-chevron-right"></i></button>
         <button class="yellowBtn positive" type="submit">Sign In<i class="fa fa-fw fa-chevron-right"></i></button>
-        <button class="blueBtn" (click)="createAccount()">Create account<i class="fa fa-fw fa-chevron-right"></i></button>
       </div>
     </form>
     
@@ -28,7 +28,7 @@
     <form [@itemAnim] action=""  class="sign-up-contain" *ngIf="hideSignUp">
         <h3><span>Sign up</span> to experience the most <br> efficient way of communication</h3>
         <div class="inputContainer">
-          <input (focus)="onFocus($event)" class="signUpInput" id="name" type="text" #name placeholder="Full Name" autocomplete="off" required />
+          <input (focus)="onFocus($event)" class="signUpInput" id="name" type="text" #name placeholder="Username" autocomplete="off" required />
           <label for=name></label>
         </div>
         <div class="inputContainer">
@@ -59,8 +59,8 @@
           </ul>
         </div>
         <div class="buttonCont">
-          <button class="yellowBtn" (click)="signUp($event,name.value,phNumber.value,otp.value, pwd.value)">Sign Up<i class="fa fa-fw fa-chevron-right"></i></button>
-          <button class="blueBtn" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
+            <button class="blueBtn" type="button" (click)="haveAccount()">Have an account<i class="fa fa-fw fa-chevron-right"></i></button>
+            <button class="yellowBtn" (click)="signUp($event,name.value,phNumber.value,otp.value, pwd.value)">Sign Up<i class="fa fa-fw fa-chevron-right"></i></button>
         </div>
       </form>
 </div>
