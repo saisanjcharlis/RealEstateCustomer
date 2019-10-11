@@ -15,6 +15,7 @@ export class HelpComponent implements OnInit {
   subject;
   constructor(private routes: Router, private http: HttpClient, private config: ConfigService) { }
   submit(){
+    // Accept Submit if log Status is true else prompt Sign In/Up
     if(localStorage.getItem('logStatus')=='true'){
       this.subject="Message from Customer";
       let url = `${this.config.url}services/v1/frontendcustomer/sendrequestemail`;
@@ -26,11 +27,12 @@ export class HelpComponent implements OnInit {
                 "username":this.name,
                 "message": this.message,
                 "subject": this.subject,
-                "to_email": "charlis@saisanj.com"
+                "to_email": "sudhakar@saisanj.com"
               }
             }
+       // Send form data to API and send message
        this.http.post(url,reqObj).subscribe((data:any) => {
-         console.log(data)
+         // Display Notification for succesuful message sent
          $('body').toast({
           class: 'success',
           message: `Your message has been sent`
@@ -38,10 +40,12 @@ export class HelpComponent implements OnInit {
        });
        $('.toast-box').css("margin-top","50px"); 
     } else {
+      // Show Sign In/Up Modal
       $('.ui.modal.modalSign').modal('show');  
     }   
   }
   ngOnInit() {
+    // Focus with blue line on select of input
     $('.input2').each(function(){
       $(this).on('blur', function(){
           if($(this).val().trim() != "") {
@@ -52,5 +56,6 @@ export class HelpComponent implements OnInit {
           }
       })    
     });
+    
   }
 }

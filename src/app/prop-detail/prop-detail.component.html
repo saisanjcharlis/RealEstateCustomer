@@ -1,11 +1,9 @@
-<app-navbar></app-navbar>
+<app-navbar></app-navbar> <!-- Navigation Component -->
+<!-- Main Container Start -->
 <div class="topInfo">
-        <div class="ui fluid card centered" style="margin:20px auto;">
-                <div class="projectName">{{propertyDetails.project_name.capitalizeEachWord()}}</div>
-                <!-- <div class="image">
-                        <img [src]="propertyDetails.project_id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'">
-                </div> -->
-                <div class="content gridContainer">
+        <div class="ui fluid card centered">
+                <div class="projectName">{{propertyDetails.project_name.capitalizeEachWord()}}</div> <!-- Project Name -->
+                <div class="content gridContainer">  <!-- Grid List -->
                         <span class="infoHeader">Plot Number</span>
                         <div>
                                 <div class="infoValue ui blue horizontal label" style="text-align: center;">{{propertyDetails.plot_no}}</div>
@@ -48,5 +46,6 @@
                         </div>
                 </div>
         </div>
-        <footer></footer>
+        <footer></footer> <!-- Footer Component -->
 </div>
+<!-- Main Container Start -->

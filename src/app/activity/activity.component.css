@@ -1,94 +1,12 @@
 
-.info{
-    text-align: right;
-    margin-right:10px;
+.topInfo .header{
+  font-size:24px !important; 
 }
-
-
-
-
-.toast-box{
-    top:150px !important;
-    margin-top:150px !important;
-}
-.welcomeImage{
-    width: 10%;
-}
-.footerImage{
-    position: absolute;
-    width: 100%;
-    bottom:0;
-}
-.firstView{
-    display: flex;
-    position: relative;
-    justify-content: flex-start;
-    color:white;
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-    /* background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%); */
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    padding-top:100px;
-}
-.savedSearchPop{
-    padding: 0 0 !important;
-    border-radius: 0 !important;
-  }
-  .ui.items.favItems>.item {
+.ui.items.favItems>.item {
     display: flex;
     margin: 0 10px 0 0 !important;
-  }
-
-.savedSearchList{
-  padding:10px;
-  cursor: pointer;
-  text-align: left;
-  width:49.5vw;
-  border-bottom:1px solid grey;
-}
-.savedSearchList > * {
-  pointer-events: none;
-}
-.savedSearchList:hover, .currentLoc:hover{
-  color:#0066ff;
-  cursor: pointer;
-}
-.currentLoc{
-    text-align: left;
-    padding:10px;
-    width:200px;
-  }
-  .currentLoc > *{
-    pointer-events: none;
-  }
-.firstView span{
-    font-size:18px;
-    font-weight: bold;
-    margin:10px 0;
-}
-.locationButton{
-    font-weight: bold;
-    color:#0066ff;
-    font-size:18px;
-    width: 50vw;
-    height: 70px;
-  }
-@media all and (max-width: 768px) {
-    .locationButton{
-        height: 50px;
-  }
-  .welcomeImage{
-    width: 40%;
-}
-}
-.container{
-    padding-top:100px;
-    /* margin:0 35% 0 2%; */
-    margin:0 12%;
 }
 .containerHeader{
-    /* margin-top:20px; */
     margin-bottom:15px;
     display: inline-block;
     font-size:24px;
@@ -98,100 +16,15 @@
     background: white;
     border: 1px solid #e2e2e2;
     border-radius: 4px;
-  
     padding:10px;
-    /* margin: 1rem 10px 0 10px; */
 }
-.propertyInfo{
-    margin-left:28px;
-    display: grid;
-    grid-template-columns: 20% 20%;
-}
-.favInfo{
-    display: grid;
-    margin-left:28px;
-    grid-template-columns: 40% 40%;
-}
-@media all and (max-width: 950px) {
-    .propertyInfo{
-        grid-template-columns: 30% 30%;
-  }
-}
-@media all and (max-width: 600px) {
-    .propertyInfo{
-        grid-template-columns: 50% 50%;
-  }
-}
-.propertyInfoColor{
-    font-weight: bold;
-}
-.lastPaymentInfo{
-    margin-left:28px;
-}
-.emiContainer{
-    width:100%;
-}
-.gridContainer{
-    /* display: grid;
-    grid-template-columns: 48% 48%;
-    grid-gap:0 4%; */
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.gridContainer div{
-    flex: 0 45%;
-}
-
-
-.propContainer{
-    position: relative;
-    margin-bottom:10px;
-}
-.manageButton{
-    position: absolute ;
-    right:0 ;
-    bottom:0;
-    
-}
-@media all and (max-width: 768px) {
-    .gridContainer div{
-        flex: 0 100%;
-    }
-    .manageButton{
-        position: initial;
-        margin-left:28px;
-        margin-top:10px;
-    }
-    .container{
-        padding-top:50px;
-        margin:0 5%;
-    }
+.boxContainer button{
+  margin-left:28px;margin-top:10px;
 }
 .ui.green.label{
     vertical-align: middle;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-.compContainer{
-    /* display: flex;
-    position: fixed;
-    width: 100%;
-    padding-top:56px; */
-  }
   .projectContainer{
-    /* box-shadow: 0px 4px 4px rgba(39, 39, 39, 0.7); */
-    
     width: 100%;
     overflow: auto;
     padding:20px 15% 20px 2%;
@@ -202,42 +35,16 @@
     flex-direction: column;
     background: #fff;
   }
-  .mapContainer{
-    width: 25%;
-    padding:0 20px;
-  }
-  @media all and (max-width: 1000px) {
-    /* .compContainer{
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      overflow: auto;
-    } */
-    .mapContainer{
-      display: none;
-    }
-  }
   .topInfo{
     background: rgba(0,102,255,0.8);
     padding:20px;
     padding-top:76px;
-  }
-  .emiDateSelector{
-    margin-top:20px;
-    margin-bottom:10px;
-    font-weight: bold;
-    padding:5px;
-    border-radius:4px;
-    text-transform: uppercase;
-    background: #2fce72;
-    color:white;
   }
   .projectsList .ui.items.projectItems >.item{
     border: 1px solid #e2e2e2;
     padding:15px;
     border-radius: 4px;
     width:100% !important;
-    /* background: aliceblue; */
     position: relative;
     overflow:hidden;
   }
@@ -259,27 +66,8 @@
     position: relative;
     overflow:hidden;
   }
-  .projectsList .ui.items{
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; */
-  }
-  .emiProjectContent{
-    padding: 0 0 !important;
-    border-radius: 0 !important;
-  }
-  .emiProjectList{
-    padding:10px;
-    cursor: pointer;
-    width:200px;
-    /* border-bottom:1px solid grey; */
-  }
-  .emiProjectList > * {
-    pointer-events: none;
-  }
-  .emiProjectList:hover{
-    color:#0066ff;
-    cursor: pointer;
+  .projectsList{
+    margin:20px 0;
   }
   .emiCalender{
     margin:20px 0;
@@ -302,18 +90,9 @@
     }
   }
 
-  .topInfo .middle.aligned.content .header, .middle.aligned.content .meta, .middle.aligned.content .extra{
+.topInfo .middle.aligned.content .header, .middle.aligned.content .meta, .middle.aligned.content .extra{
     color: white !important;
-}
-.ui.tertiary.button {
-  padding: .5em 0em !important;
-}
-.plotInfo{
-  font-weight: bold;
-}
-.ui.small.image{
-  margin: auto !important;
-}
+} 
 
 .profileImage{
   cursor: pointer;  
@@ -323,26 +102,13 @@
   border: 5px solid #eee !important;                  
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3) !important;
 }
-@media all and (max-width: 442px) {
-  .greenTop{
-    margin-top:5px;
-  }
-}
 @media all and (max-width: 768px) {
-  .cornerMobile{
-    display: none !important;
-  }
   .projectItems .middle.aligned.content{
     border-top:1px solid rgba(0,102,255,0.2) !important;
   }
   .projectItems .image{
     margin-bottom:10px !important; 
   }
-}
-.bottomCorner{
-  top:auto !important;
-  bottom:0 !important;
-  transform: rotateZ(-90deg);
 }
 .infoValue{
   text-align: center;font-weight: bold;

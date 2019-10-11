@@ -1,14 +1,17 @@
 <app-navbar></app-navbar>
+<!-- Profile Home Page -->
+
+<!-- Top Info Start  -->
 <div class="topInfo">
         <div class="ui unstackable items">
                 <div class="item">
                   <div class="ui tiny image">
-                    <img src="assets/man.png" class="profileImage" routerLink="/profile">
+                    <img src="assets/man.png" class="profileImage" routerLink="/profile"> <!-- Avatar Image -->
                   </div>
                   <div class="middle aligned content">
-                    <div class="header" style="font-size:24px;">Welcome, {{customerName}}</div>
+                    <div class="header">Welcome, {{customerName}}</div> <!-- Customer Name -->
                     <div class="meta">
-                      <span>Joined: 20th September 2019</span>
+                      <span>Joined: 20th September 2019</span><!-- Joined Date -->
                     </div>
                     <div class="extra">
                             Track your properties and your payments here
@@ -16,47 +19,40 @@
                   </div>
                 </div>
         </div>
-         <!-- <div class="ui label green">0 Properties</div>
-            <div  style="margin:20px 0;">
-                    <button class="ui button blue">View Projects</button>
-            </div>  -->
-          <div class="ui label green" *ngIf="props!=null">{{props.length}} Properties</div>
-          <div class="ui label green" *ngIf="props!=null">Next EMI: 10th Oct 2019</div>
-          <!-- <div class="ui label green greenTop">Total EMI's Due: ₹ 50000</div> -->
+          <div class="ui label green" *ngIf="props!=null">{{props.length}} Properties</div> <!-- Total Properties -->
+          <div class="ui label green" *ngIf="props!=null">Next EMI: 10th Nov 2019</div> <!-- Next EMI Date -->
        
 </div>  
-<!-- <div class="firstView" *ngIf="newUserDisplay && !saveSearch" >
-    <img class="welcomeImage" src="assets/house_new.png">
-    <img class="footerImage" src="assets/activityFooter.png">
-    <span style="font-size:32px;text-transform: uppercase">Track your properties and payments here</span>
-    <span>Search for Properties Now</span>
-      <div class="ui icon input" style="margin-top:50px;">
-          <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" type="text" placeholder="Location">
-          <i class="search large blue icon"></i>
-      </div>
-  </div>  -->
+<!-- Top Info End  -->
+<!-- Main Container Start -->
     <div class="projectContainer">
-        
-            <div class="gridContent">                
-                    <div class="projectsList" style="margin:20px 0;">
-                      
+       
+            <div class="gridContent"> <!-- Grid Container -->   
+                    <div class="projectsList"> <!-- Grid 1 Container -->   
+                        <!-- Info shown on No properties on account --Start -->   
                         <div class="boxContainer"  *ngIf="props==null">
                             <div >
                                 <span><i class="city blue large icon" ></i>You have no owned properties</span>
                                 <br><div style="margin-left:28px;">Browse to stay up to date on price and status changes.</div>
                                 <br>
-                                <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Properties</button>
+                                <button routerLink="/projects" class="ui button blue">Browse Properties</button>
                             </div>
                           </div>
+                          <!-- Info shown on No properties on account --End -->   
+
+                          <!--  Property Details --Start -->   
                             <span *ngIf="props!=null" class="containerHeader">My Properties</span> 
                             <div class="ui items projectItems">
+                               <!--  Property Item --Start --> 
                                     <div class="item" *ngFor="let prop of props" style="overflow: visible;">
                                             <div class="ui small image">
+                                              <!--  Image link to id..Need to fetch from S3 --> 
                                               <img [src]="prop.project_id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'">
                                             </div>
                                             <div class="middle aligned content">
                                               <div class="header" style="width: 100%;display:flex;align-items: center;justify-content: space-between;">
-                                                <span style="flex:1 0 auto;">{{prop.project_name.capitalizeEachWord()}}
+                                                <span style="flex:1 0 auto;">{{prop.project_name.capitalizeEachWord()}}    <!-- Project Name --> 
+                                                    <!-- Ellipsis Button  for additional actions on Passbook- Start --> 
                                                       <div  style="float:right;"  class="ui menued icon bottom right dropdown">
                                                         <i style="cursor:pointer" class="ui blue icon ellipsis vertical"></i> 
                                                         <div class="left menu">
@@ -65,10 +61,10 @@
                                                           <div class="item" (click)="viewTrans(prop)">Transactions</div>
                                                         </div>
                                                       </div>
+                                                      <!-- Ellipsis Button  for additional actions on Passbook- End --> 
                                                 </span>
-                                                <!-- <button class="ui button blue tertiary">View Project</button> -->
-                                                <!-- <button class="ui mini button green tertiary">Transactions</button> -->
                                               </div>
+                                               <!-- Passbook Details - Start --> 
                                               <div style="margin-top:20px;" class="description"  >
                                                   <div class="ui celled horizontal list">
                                                       <div class="item">
@@ -97,9 +93,13 @@
                                                     </div>
                                                   </div>
                                               </div>
+                                               <!-- Passbook Details - End --> 
                                             </div>
                                     </div>
+                                     <!--  Property Item --End --> 
                             </div>
+                            <!--  Property Details --End -->   
+                            <!--  Favorites Details --Start -->  
                             <span *ngIf="favList!=null" class="containerHeader">My Favourites</span> 
                             <div class="ui items unstackable favItems">
                                 <div (click)="viewProject(fav.project_id)" style="cursor: pointer;" class="item" *ngFor="let fav of favList">
@@ -110,162 +110,25 @@
                                           <img [src]="fav.project_id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'" >
                                         </div>
                                 </div>
-                        </div>
+                            </div>
+                            <!--  Favorites Details -- End -->  
                     </div> 
-                    <div class="emiCalender">
+                    <div class="emiCalender"> <!-- Grid 2 Container -->   
                             <span *ngIf="props!=null" class="containerHeader">Upcoming EMI's</span>
                             <div style="margin: 1.5em 0;border-radius: 4px;">
-                                    <!-- <emi-date></emi-date> -->
-                                    <div class="ui calendar" id="inline_calendar">
-                                    </div>
-                                    <!-- <div *ngIf="showVar">
-                                          <div class="container" *ngFor="let prop of props">
-                                                  <div class="ui header">{{prop.project_name}}</div>
-                                                  <div class="ui celled horizontal list">
-                                                      <div class="item">
-                                                          <div class="infoValue">{{prop.plot_no}}</div>
-                                                          <div class="infoLabel">Plot Number</div>
-                                                      </div>
-                                                      <div class="item">
-                                                          <div class="infoValue">{{prop.passbook_no}}<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                                          <div class="infoLabel">Passbook</div>
-                                                      </div>
-                                                      <div class="item">
-                                                          <div class="infoValue">₹{{prop.installment_amount}}<span style="font-size: 14px;font-weight: 500;"></span></div>
-                                                          <div class="infoLabel">Amount due</div>
-                                                      </div>
-                                                </div>
-                                              </div>
-                                    </div> -->
-                            </div>
-                            
+                                    <div class="ui calendar" id="inline_calendar"></div> <!-- Fomantic UI Calender -->   
+                            </div>  
                     </div>
-                   
-            </div>
-            
+            </div>     
+    </div>
+<!-- Main Container End -->
 
-      
-                
-    </div>
+<footer></footer> <!-- Footer Component -->
 
-<footer></footer>
-
-<div class="ui emiProjectContent popup bottom right transition hidden">
-        <div  class="emiProjectList" >
-            <span style="font-weight: 600;">Viceroyce</span>  
-        </div>
-</div>
-
-
-
-<!-- <div class="firstView" *ngIf="newUserDisplay && !saveSearch">
-  <img class="welcomeImage" src="assets/house_new.png">
-  <img class="footerImage" src="assets/activityFooter.png">
-  <span style="font-size:32px;text-transform: uppercase">Welcome To SPECTRA</span>
-  <span>Search for Properties Now</span>
-    <div class="ui icon input" style="margin-top:50px;">
-        <input (keyup.enter)="locationSearchEnter($event)" class="locationButton" [ngModel]="locationSelected" type="text" placeholder="Location">
-        <i class="search large blue icon"></i>
-    </div>
-</div> 
-<div class="container">
-  <div>
-      <span class="containerHeader">My Properties <div *ngIf="!newUserDisplay" class="ui green label">1</div></span>
-      <div class="boxContainer">
-        <div *ngIf="newUserDisplay">
-            <span><i class="city blue large icon" ></i>You have no owned properties</span>
-            <br><div style="margin-left:28px;">Browse to stay up to date on price and status changes.</div>
-            <br>
-            <button routerLink="/projects"  style="margin-left:28px;margin-top:10px;" class="ui button blue">Browse Homes</button>
-        </div>
-        
-        <div *ngIf="!newUserDisplay" class="propContainer">
-            <span style="font-weight: bold;"><i class="city blue large icon" ></i>Spectra Galaxy</span>
-            <div class="propertyInfo">
-                <span>Plot Number</span><span class="propertyInfoColor">214</span>
-                <span>Passbook Number</span><span class="propertyInfoColor">3453453</span>
-                <span>Property Worth</span><span class="propertyInfoColor">18 Cr.</span>
-                <span>Facing</span><span class="propertyInfoColor">North Facing</span>
-                <span>Plot Size</span><span class="propertyInfoColor">400 sqyd</span>
-                <span>Next EMI</span><span class="propertyInfoColor">24th Aug 2019</span>
-                <span>EMI Amount</span><span class="propertyInfoColor" >18000</span>
-                <span>EMI's Remaining</span><span class="propertyInfoColor">24 months</span>
-            </div>
-            <button routerLink="/transactions" (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" class="ui basic tiny button blue manageButton">Transactions</button>
-        </div>
-      </div>
-  </div>
-  
-  <div class="gridContainer">
-    <div>
-      <span class="containerHeader">Payments</span>
-      <div class="boxContainer">
-        <div *ngIf="newUserDisplay"><i class="wallet blue large icon" ></i>You have not completed any transactions</div>
-        <div *ngIf="!newUserDisplay">
-            <span style="font-weight: bold;"><i class="wallet blue large icon" ></i>Last Payment Received</span><span style="float: right;font-weight: bold;color:#0066ff;">₹ 15000</span><br>
-            <div class="lastPaymentInfo">
-                <span>on 28th Aug 2019</span>
-                <span> for property <br><b>Spectra Galaxy, Plot No. 314</b></span>
-                <br>
-                <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/transactions"  style="margin-top:10px;" class="ui tiny basic button blue">All Transactions</button>
-            </div>
-        </div>
-        <div class="ui divider"></div>
-        <div *ngIf="!newUserDisplay" style="margin-top:10px;margin-bottom:10px;margin-left:28px;font-weight: bold;">Upcoming EMI's</div>
-        <emi-date *ngIf="!newUserDisplay"></emi-date>
-      </div>
-    
-    </div>
-    <div>
-      <span class="containerHeader">Latest Favorites</span>
-      <div class="boxContainer">
-        <div *ngIf="newUserDisplay && !saveSearch">
-            <div><i class="like blue outline large icon" ></i>You have no favorites</div>
-            <br><div  style="padding-left:28px;">Favorite homes while you browse to stay up to date on price and status changes.</div> 
-        </div>
-        <div *ngIf="!newUserDisplay || saveSearch">
-            <div style="margin-bottom:10px;cursor: pointer;" routerLink="/projectDetail">
-                <span style="font-weight: bold;"><i class="like blue outline large icon" ></i>Spectra Galaxy</span><span style="float:right;font-weight: bold;color:#0066ff">Yadagirigutta</span>
-                <div class="favInfo">
-                    <span>Property Worth</span><span class="propertyInfoColor">18 Cr. <span style="font-size:10px;">onwards</span></span>
-                    <span>Year Built</span><span class="propertyInfoColor" >2017</span>
-                </div>
-            </div>
-            <button (mouseenter)="mouseHover($event)" (mouseleave)="mouseLeave($event)" routerLink="/fav" style="margin-left:28px;" class="ui basic tiny button blue">My Favorites</button>
-        </div>
-      </div>
-    </div>
-  </div>
-<footer></footer>
- </div>
- <div class="ui savedSearchPop popup bottom right transition hidden">
-    <div  class="savedSearchList" (click)="selectLocation($event)">
-        <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Shadnagar, TS</span>   
-    </div>
-    <div class="savedSearchList" (click)="selectLocation($event)">
-        <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Yadagirigutta, TS</span>
-    </div>
-    <div  class="currentLoc" (click)="selectLocation($event)">
-        <i class="blue map marker alternate icon"></i><span style="font-weight: 600;">Telangana</span> 
-    </div>
-  </div> -->
+<!-- EMI Modal Start -->
 <div style="text-align: center;" class="ui emiModal mini modal">
   <div style="background: #0066ff;color:white;" class="header">UPCOMING EMI</div>
   <div class="content" *ngFor="let prop of props">
-      <!-- <div class="form-container detailedInfo">
-        <ul class="list">
-            <li>Spectra Fortune, Plot No 314</li>
-            <li>BJIPD2659A</li>
-            <li>₹15000</li>
-        </ul>
-      </div>
-      <div class="form-container fields ">
-        <ul class="list">
-            <li>Project Info</li>
-            <li>Passbook</li>
-            <li>Amount due</li>
-        </ul>
-      </div> -->
       <div class="ui header">{{prop.project_name.capitalizeEachWord()}}</div>
       <div class="ui celled horizontal list">
           <div class="item">
@@ -283,3 +146,4 @@
     </div>
   </div>
 </div>
+<!-- EMI Modal End -->

@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { RouterModule , Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ConfigService } from '../../services/config.service';
 import { HttpClient} from '@angular/common/http';
 declare var $:any;
@@ -9,64 +9,46 @@ declare var $:any;
   styleUrls: ['./activity.component.css']
 })
 export class ActivityComponent implements OnInit {
-  showEMI = true;
-  showtrans = false;
-  showFeed = false;
-  plots;
-  @HostListener('window:resize', ['$event'])
-  onResize(event){
-    if(event.target.innerWidth>1025)
-     {
-     }
-     else{
-     }
-  } 
+  
+  // Variables
+  customerName;
+  projectList;
+  props;
+  favList;
+  dateString: string = "Select a date";
+
   constructor(private routes: Router,private config: ConfigService, private http: HttpClient){}
-  public innerWidth: any;
-  newUserDisplay = false;
-  saveSearch=true;
-  locationSelected = "";
-  locationSearchEnter(e){
-    if(e.target.value.toLowerCase().includes("hyderabad")){
-      this.routes.navigate(['/projects']);
-    } else {
-      localStorage.setItem('projectsDomain', e.target.value.toLowerCase());
-      this.routes.navigate(['/projects']);
-    }
-   
-  }
-  mouseHover(e){
-    $(e.target).removeClass('basic');
-  }
-  mouseLeave(e){
-    $(e.target).addClass('basic');
-  }
-  selectLocation(e){
-    localStorage.setItem('projectsDomain',$(e.target).children('span').text());
-    this.routes.navigate(['/projects']);
-  }
+  
+  // View Transactions Method
   viewTrans(prop){
     let urlTransactions = `${this.config.url}services/v1/frontendcustomer/gettransactionlist`;
     var loginData = JSON.parse(localStorage.getItem('loginData'));
+    // Http Call for Transactions
     this.http.post(urlTransactions,{"token": loginData.token,"params":{"project_id":prop.project_id,"passbook_no": prop.passbook_no}}).subscribe((data:any) => {
       if(data.success){
+        // Save transactions for selected if data is success
         localStorage.setItem('transactionSelected',JSON.stringify(data.result.results));
+        // Navigate to Transactions
         this.routes.navigate(['/transactions']);
       }
     });
   }
+  // View Passbook Details Method
   viewDetails(prop){
+    // Detailed Passbooks saved to local storage
     localStorage.setItem('passDetailsSelected',JSON.stringify(prop));
+    // Navigate to property Details Page
     this.routes.navigate(['/propDetail',prop.id]);
   }
+  // View Project Details Method
   viewProject(id){
-    console.log(this.projectList)
-    // if(id==24){
       this.projectList.map( (data) => {
+        // Project Details for the one selected are saved to local storage
         if(data.id==id){
           localStorage.setItem('projectSelected',JSON.stringify(data));
         }
       });
+      // Get neighbourhood data and Property Details from API and save to local storage
       let urlProjectDetails = `${this.config.url}customerlogin/getprojectsdetails`;
       this.http.post(urlProjectDetails,{"params":{"type":"neighbourhood","projectId":id}}).subscribe((data:any) => {
         if(data.success==true){
@@ -74,38 +56,23 @@ export class ActivityComponent implements OnInit {
           this.http.post(urlProjectDetails,{"params":{"type":"properties","projectId":id}}).subscribe((data:any) => {
             if(data.success==true){
                localStorage.setItem('propertiesDetails',JSON.stringify(data.result.results));
+                // Navigate to Project Details Page
                this.routes.navigate(['/projectDetail',id]);
             }
           });
         }
       });
-      
-      
-      
-    // } 
+
   }
   
   ngAfterViewInit() {
+    // Semantic UI Dropdown Initialize
     $('.ui.menued.dropdown').dropdown() ;
-    $('.locationButton').popup({
-      popup : $('.savedSearchPop'),
-      on    : 'click',
-      position   : 'bottom left',
-    });
 
-    $('#projectEMI').popup({
-      popup : $('.emiProjectContent'),
-      on    : 'click',
-      position   : 'bottom right',
-    });
   }
-  customerName;
-  projectList;
-  props;
-  favList;
-  dateString: string = "Select a date";
-  showVar;
+  
   ngOnInit() {
+     // Semantic UI Calender Initialize
     $('#inline_calendar').calendar({
       type: 'date',
       eventDates: [
@@ -118,6 +85,7 @@ export class ActivityComponent implements OnInit {
           class: 'emiDate'
         }
       ],
+      // On Select of EMI Date Open Modal
       onSelect(date,mode){
         var month = new Array();
         month[0] = "Jan";
@@ -139,25 +107,19 @@ export class ActivityComponent implements OnInit {
         this.dateString = monthSelected + " " + (day) + ", " + year;
         var emiDate = new Date(date.getFullYear(),date.getMonth(), 10);
         var selectedDate = new Date(date.getFullYear(),date.getMonth(), date.getDate());
+        // Check selectedDate with EMI Date
         if( emiDate.getFullYear()==selectedDate.getFullYear() && emiDate.getMonth() == selectedDate.getMonth() && emiDate.getDate() == selectedDate.getDate() ){
-          // localStorage.setItem('showEmiDetail','true');
-          // localStorage.setItem('dateString',this.dateString);
+          // Show Modal with passbook Details
           $('.ui.emiModal').modal('show');
-          
-        }
-        else{
-          this.showVar = false;
         }
       }
     });
-    if(localStorage.getItem('newUser')=="true"){
-      this.newUserDisplay = true;
-    }
-    this.favList = JSON.parse(localStorage.getItem('favList'));
-    this.customerName = JSON.parse(localStorage.getItem('customerName'));
-    this.props=JSON.parse(localStorage.getItem('passbookList'));
+     // Semantic UI Calender Initialize End
+    this.favList = JSON.parse(localStorage.getItem('favList')); // Inititialize Favorites List from local storage
+    this.customerName = JSON.parse(localStorage.getItem('customerName')); // Inititialize Customer Name from local storage
+    this.props=JSON.parse(localStorage.getItem('passbookList')); // Inititialize Passbooks List from local storage
     if(this.props == null){
-      $('#inline_calendar').css('display','none');
+      $('#inline_calendar').css('display','none'); // If 0 passbooks dont display calender
     }
     this.projectList = JSON.parse(localStorage.getItem('projectsList'));
   

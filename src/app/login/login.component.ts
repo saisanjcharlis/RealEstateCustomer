@@ -73,14 +73,20 @@ export class LoginComponent implements OnInit {
     });
     $('.toast-box').css("margin-top","50px");
   }
+  projectsList=[];
   ngOnInit() {
     if(localStorage.getItem('logStatus')=='logout'){
       localStorage.clear();
-      // sessionStorage.setItem('logStatus','logout');
     }
     let url = `${this.config.url}customerlogin/getprojectslist`;
       this.http.post(url,{"wos":true}).subscribe((data:any) => {
         if(data.success==true){
+          if(data.result[0]){
+            this.projectsList.push(data.result[0]);
+          }
+          if(data.result[1]){
+            this.projectsList.push(data.result[1]);
+          }
           localStorage.setItem('projectsList',JSON.stringify(data.result));
         } 
       });

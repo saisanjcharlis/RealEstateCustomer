@@ -4,6 +4,9 @@
     width:80%;
     margin:0 auto;
 }
+.fluid.card.centered{
+    margin:20px auto;
+}
 .projectName{
   text-align: center;
   font-size:18px;
@@ -11,9 +14,6 @@
   background: #0066ff;
   color:white;
   padding:10px 0;
-}
-.container img{
-  width: 25%;
 }
 .gridContainer{
   display: grid;

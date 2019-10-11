@@ -7,19 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { EmiDetailComponent } from './activity/emi-detail/emi-detail.component';
-import { EmiDateComponent } from './activity/emi-date/emi-date.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PassbookComponent } from './passbook/passbook.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { AuthGuard } from '../services/auth.guard';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { ForgotpasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ImageGalleryComponent } from './projects/project-detail/image-gallery/image-gallery.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { ActivityComponent } from './activity/activity.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TransactionsComponent } from './profile/transactions/transactions.component';
@@ -37,8 +33,6 @@ import { FavoritesComponent } from './profile/favorites/favorites.component';
 import { SaveSearchComponent } from './profile/save-search/save-search.component';
 import { BuyComponent } from './buy/buy.component';
 import { AllotmentComponent } from './allotment/allotment.component';
-import { PaymentPlanComponent } from './payment-plan/payment-plan.component';
-import { SuccessAllotComponent } from './success-allot/success-allot.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PopUpComponent } from './login/pop-up/pop-up.component';
 import { HelpComponent } from './help/help.component';
@@ -52,16 +46,12 @@ import { BnNgIdleService } from 'bn-ng-idle';
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    EmiDetailComponent,
-    EmiDateComponent,
     PageNotFoundComponent,
     ProjectsComponent,
     PassbookComponent,
-    CreateProfileComponent,
     ForgotpasswordComponent,
     ProjectDetailComponent,
     ImageGalleryComponent,
-    SidebarComponent,
     ActivityComponent,
     ProfileComponent,
     TransactionsComponent,
@@ -73,8 +63,6 @@ import { BnNgIdleService } from 'bn-ng-idle';
     SaveSearchComponent,
     BuyComponent,
     AllotmentComponent,
-    PaymentPlanComponent,
-    SuccessAllotComponent,
     PopUpComponent,
     HelpComponent,
     ViceroyceComponent,

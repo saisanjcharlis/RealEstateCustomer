@@ -21,14 +21,14 @@
         <hr class="hr">
 
         <div class="cards">
-          <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" (click)="routeProjects()" class="card" >
+          <!-- <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" (click)="routeProjects()" class="card" >
             <img class="cardImage" src="https://s.zillowstatic.com/homepage/static/Buy_a_home.png">
             <span class="cardHeader">Buy a Plot</span>
             <span class="cardInfo">Find your place with an immersive photo experience and the most listings,<br> including things you won’t find anywhere else.</span>
             <button class="ui basic button cardButton">
                 Search Projects
             </button>
-          </div>
+          </div> -->
           <!-- <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" (click)="agentModal()" class="card">
               <img class="cardImage" src="https://s.zillowstatic.com/homepage/static/Sell_a_home.png">
               <span class="cardHeader">Meet an Agent</span>
@@ -37,6 +37,31 @@
                   Schedule
               </button>
             </div> -->
+            <div (mouseenter)="hoverCard($event)" (mouseleave)="hoverCardRemove($event)" (click)="routeProjects()" class="card" *ngFor="let project of projectsList">
+                <img class="cardImage" [src]="project.id== 24 ? 'assets/viceroyceIcon.png' : 'http://www.spectraindia.in/wp-content/uploads/2016/10/diamond.jpg'">
+                <div id="projectName" style="width: 100%;margin-top:25px;color:#0066ff" class="header" (click)="viewProject(project)">{{project.project_name.capitalizeEachWord()}}</div>
+                <div style="margin-top:15px;" class="ui celled horizontal list">
+                        <div class="item">
+                            <div class="infoValue">₹ {{project.min_amount*project.min_sqyards}}</div>
+                            <div class="infoLabel">onwards</div>
+                        </div>
+                        <div class="item">
+                            <div class="infoValue">{{project.min_sqyards}}-{{project.max_sqyards}}<span style="font-size: 14px;font-weight: 500;"></span></div>
+                            <div class="infoLabel">sqyd</div>
+                        </div>
+                </div>
+                <div style="margin-top:10px;font-size:12px;margin-bottom:25px;">
+                    <b>{{project.project_address.capitalizeEachWord()}}<br>
+                            <!-- {{project.city}}, -->
+                             {{project.state}}, {{project.zipcode}} </b>
+                    
+                </div>
+                <!-- <span class="cardHeader">Buy a Plot</span>
+                <span class="cardInfo">Find your place with an immersive photo experience and the most listings,<br> including things you won’t find anywhere else.</span> -->
+                <!-- <button class="ui basic button cardButton">
+                    View Project
+                </button> -->
+            </div>
         </div>
 
     </div>

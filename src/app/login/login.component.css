@@ -268,12 +268,12 @@ h1 {
 }
 @media all and (max-width: 768px) {
   .cards {
-    flex-direction: column;
-    align-items: center;
+    display: initial;
+    margin:0 auto;
   }
-  .card {
+  /* .card {
     width: 80%;
-  }
+  } */
 }
 
 .cardImage {
@@ -386,4 +386,17 @@ h1 {
 }
 .animate {
   transform: scale(1.05);
+}
+.infoValue{
+  text-align: center;font-weight: bold;font-size:16px;
+  /* color:#0066ff; */
+}
+
+.infoLabel{
+  text-align: center;font-size:12px;margin-top:10px;
+}
+.cardImage{
+  margin:0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
