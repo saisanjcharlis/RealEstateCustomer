@@ -30,7 +30,7 @@
     "fomantic-ui": "^2.7.6",
     "image-map": "^1.1.6",
     "iv-viewer": "^2.0.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery.nicescroll": "^3.7.6",
     "mapbox-gl": "^0.54.0",
     "ng-maphilight": "^1.0.1",
