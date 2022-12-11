@@ -26,7 +26,7 @@
     "@trademe/ng-defer-load": "^3.0.1",
     "angular2-air-datepicker": "^1.2.5",
     "bn-ng-idle": "^1.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fomantic-ui": "^2.7.6",
     "image-map": "^1.1.6",
     "iv-viewer": "^2.0.1",
